@@ -267,3 +267,47 @@ Abrir las siguientes capas naturales del curso: informacion cuantica y correccio
 ### Resultado
 
 El proyecto ya no solo explica circuitos y algoritmos iniciales, sino que empieza a tender un puente claro hacia informacion cuantica y escalabilidad real.
+
+## Entrada de qiskit avanzado y resúmenes
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Dar una segunda vuelta de madurez al proyecto añadiendo una capa de Qiskit avanzado y material de repaso compacto.
+
+### Trabajo realizado
+
+- Se creo `10_qiskit_avanzado/`.
+- Se añadieron textos sobre `Sampler`, `Estimator`, operadores, Paulis y modelos de ruido.
+- Se añadió `05_phase_estimation.md` al bloque de algoritmos.
+- Se creó el directorio `Resumenes/`.
+- Se incorporaron mapas Mermaid adicionales y una tabla de estado mas informativa.
+
+### Resultado
+
+El proyecto gana una capa de sofisticacion practica y tambien una capa de legibilidad, al incorporar materiales de repaso y una vision mas moderna del ecosistema Qiskit.
+
+## Entrada de ejercicios y sprint phase estimation
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Reforzar la practica del proyecto con ejercicios organizados y desarrollar la siguiente pieza algoritmica natural: phase estimation.
+
+### Trabajo realizado
+
+- Se creo el directorio `Ejercicios/`.
+- Se añadieron ejercicios basicos, intermedios y avanzados.
+- Se añadieron cuadernos sobre `Sampler`, `Estimator` y observables.
+- Se añadio un laboratorio guiado de `phase estimation`.
+- Se incorporo una tabla maestra de modulos en `README.md`.
+
+### Resultado
+
+El proyecto gana una capa de estudio activo y una forma mas clara de presentar su madurez actual modulo por modulo.

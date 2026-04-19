@@ -22,6 +22,8 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - transpilation basica y adaptacion de circuitos;
 - ejemplos iniciales de Grover y teleportacion;
 - laboratorios guiados para Grover, Bernstein-Vazirani, teleportacion y QFT;
+- phase estimation guiada;
+- primeras intuiciones de `Sampler` y `Estimator`;
 - matrices de densidad, subsistemas e informacion cuantica;
 - esfera de Bloch;
 - producto tensorial;

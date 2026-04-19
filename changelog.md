@@ -31,6 +31,11 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - `Cuadernos/laboratorios/` con laboratorios guiados para Grover, teleportacion y transpilacion.
 - Modulos `08_informacion_cuantica/` y `09_correccion_errores/`.
 - `roadmap.md` como hoja de ruta del proyecto.
+- `10_qiskit_avanzado/` con primitives, operadores y modelos de ruido.
+- `Resumenes/` con materiales breves de repaso.
+- `05_phase_estimation.md` dentro del bloque de algoritmos.
+- `Ejercicios/` con practica clasificada por nivel.
+- Nuevos cuadernos sobre `Sampler`, `Estimator` y `phase estimation`.
 
 ## [0.1.0] - 2026-04-19
 

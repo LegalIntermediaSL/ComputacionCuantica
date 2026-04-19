@@ -39,6 +39,8 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 - `Notas/`: material fuente, resúmenes y referencias de trabajo.
 - `referencias.md`: vinculos, enlaces y bibliografia recomendada.
 - `roadmap.md`: hoja de ruta de crecimiento del proyecto.
+- `Resumenes/`: resúmenes breves por módulo.
+- `Ejercicios/`: práctica organizada por nivel.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.
 
@@ -47,6 +49,21 @@ La primera version del contenido ya cubre qubits, superposicion, medicion, puert
 El bloque de Qiskit se esta ampliando como una linea de trabajo propia dentro del proyecto, con articulos y notebooks sobre simuladores, medicion, estado vector, transpilacion, backends, algoritmos y protocolos cuanticos elementales.
 
 El proyecto tambien empieza a abrir bloques de informacion cuantica, correccion de errores y laboratorios guiados para que la progresion no se quede solo en los fundamentos mas elementales.
+
+## Tabla maestra de modulos
+
+| Modulo | Estado | Teoria | Cuadernos | Laboratorios |
+|---|---|---:|---:|---:|
+| Fundamentos | base solida | si | si | no |
+| Qubits y medicion | base solida | si | si | no |
+| Puertas y circuitos | base solida | si | si | no |
+| Entrelazamiento | base solida | si | si | no |
+| Qiskit | en fuerte desarrollo | si | si | si |
+| Algoritmos | en desarrollo | si | si | si |
+| Ruido y hardware | borrador solido | si | parcial | si |
+| Informacion cuantica | abierto | si | si | si |
+| Correccion de errores | abierto | si | parcial | no |
+| Qiskit avanzado | abierto | si | parcial | no |
 
 ## Vinculos, enlaces y referencias
 
