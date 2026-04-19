@@ -101,3 +101,8 @@ Sin entrelazamiento, gran parte del interes de la computacion cuantica quedaria 
 2. Explicar por que $|\Phi^+\rangle$ no puede escribirse como producto tensorial.
 3. Describir que resultados se esperan al medir el estado $|\Psi^+\rangle$ en la base computacional.
 4. Explicar por que ver correlacion perfecta no basta por si solo para demostrar entrelazamiento.
+
+## Navegacion
+
+- Anterior: [Puertas cuanticas y circuitos](03_puertas_cuanticas_y_circuitos.md)
+- Siguiente: [Qiskit: primeros pasos y flujo de trabajo practico](05_qiskit_primeros_pasos.md)

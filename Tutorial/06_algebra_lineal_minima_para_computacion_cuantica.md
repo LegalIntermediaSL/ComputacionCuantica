@@ -84,3 +84,8 @@ En un tutorial introductorio no hace falta entrar enseguida en toda la teoria es
 - Las puertas son matrices unitarias.
 - Los sistemas compuestos se describen con productos tensoriales.
 - La algebra lineal no es un añadido externo: es el lenguaje natural de la computacion cuantica.
+
+## Navegacion
+
+- Anterior: [Qiskit: primeros pasos y flujo de trabajo practico](05_qiskit_primeros_pasos.md)
+- Siguiente: [Algoritmos cuanticos introductorios](07_algoritmos_cuanticos_introductorios.md)

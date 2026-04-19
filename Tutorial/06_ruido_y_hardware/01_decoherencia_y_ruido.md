@@ -20,3 +20,7 @@ Sin entrar aun en un formalismo exhaustivo, conviene distinguir:
 ## 4. Consecuencia didactica
 
 Un circuito correcto en el papel puede degradarse rapidamente en hardware. Por eso el tutorial debe enseñar desde pronto a distinguir entre resultado ideal y resultado realista.
+
+## Navegacion
+
+- Siguiente: [Mitigacion de errores y fidelidad](02_mitigacion_errores_y_fidelidad.md)

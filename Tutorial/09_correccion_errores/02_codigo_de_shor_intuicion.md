@@ -27,3 +27,7 @@ En este proyecto, el codigo de Shor debe funcionar como puente entre una intuici
 - El codigo de Shor es una referencia fundacional.
 - Su importancia es conceptual tanto como tecnica.
 - Introduce la logica de proteger informacion cuantica frente a varios tipos de error.
+
+## Navegacion
+
+- Anterior: [Qubit logico y codigo de repeticion](01_qubit_logico_y_codigo_de_repeticion.md)

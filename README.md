@@ -27,6 +27,13 @@ El enfoque del repositorio combina tres niveles:
 
 La idea es que el proyecto pueda servir tanto como material de aprendizaje secuencial como repositorio de consulta para conceptos, ejemplos y ejercicios.
 
+## Rutas por perfil
+
+- `Principiante total`: empezar por qubits, medicion, puertas, Qiskit basico y ejercicios basicos.
+- `Fisico o matematico`: avanzar rapido hacia informacion cuantica, phase estimation, ruido y correccion de errores.
+- `Programador Python`: entrar pronto por Qiskit, cuadernos y laboratorios, y despues volver a fundamentos teoricos.
+- `Interesado en Qiskit`: recorrer `04_qiskit`, `10_qiskit_avanzado`, laboratorios y FAQ.
+
 ## Estado actual
 
 El proyecto esta en fase inicial de estructuracion. La documentacion base ya se esta organizando para construir despues el tutorial, los cuadernos practicos y el material complementario.
@@ -41,6 +48,7 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 - `roadmap.md`: hoja de ruta de crecimiento del proyecto.
 - `Resumenes/`: resúmenes breves por módulo.
 - `Ejercicios/`: práctica organizada por nivel.
+- `Soluciones/`: soluciones seleccionadas para parte de los ejercicios.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.
 
@@ -49,6 +57,10 @@ La primera version del contenido ya cubre qubits, superposicion, medicion, puert
 El bloque de Qiskit se esta ampliando como una linea de trabajo propia dentro del proyecto, con articulos y notebooks sobre simuladores, medicion, estado vector, transpilacion, backends, algoritmos y protocolos cuanticos elementales.
 
 El proyecto tambien empieza a abrir bloques de informacion cuantica, correccion de errores y laboratorios guiados para que la progresion no se quede solo en los fundamentos mas elementales.
+
+Tambien se esta abriendo una segunda capa de madurez con algoritmos variacionales, FAQ, ejercicios clasificados, soluciones seleccionadas y un bloque de realismo sobre los limites actuales del campo.
+
+Se abre ademas un bloque de aplicaciones y un primer horizonte hacia surface codes y computacion tolerante a fallos.
 
 ## Tabla maestra de modulos
 

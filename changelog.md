@@ -36,6 +36,10 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - `05_phase_estimation.md` dentro del bloque de algoritmos.
 - `Ejercicios/` con practica clasificada por nivel.
 - Nuevos cuadernos sobre `Sampler`, `Estimator` y `phase estimation`.
+- `FAQ.md` y `Soluciones/`.
+- `11_algoritmos_variacionales/` y `13_limites_actuales_y_realismo/`.
+- `12_aplicaciones/` y `14_surface_codes_y_horizonte_fault_tolerant/`.
+- `estructura_del_proyecto.md` y `CONTRIBUTING.md`.
 
 ## [0.1.0] - 2026-04-19
 

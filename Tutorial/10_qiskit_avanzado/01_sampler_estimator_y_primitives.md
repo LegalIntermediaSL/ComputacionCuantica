@@ -49,3 +49,7 @@ En este tutorial, `Sampler` y `Estimator` deben introducirse como una puerta de 
 - `Sampler` organiza resultados tipo distribucion o muestreo.
 - `Estimator` organiza resultados tipo valor esperado.
 - Entender la diferencia mejora tanto el codigo como la comprension teorica.
+
+## Navegacion
+
+- Siguiente: [Operators, Pauli y representaciones utiles](02_operator_y_paulis.md)

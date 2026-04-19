@@ -20,3 +20,8 @@ Puede pensarse como una sucesion de rotaciones en un subespacio de dimension dos
 ## 4. Importancia
 
 Grover es uno de los algoritmos cuanticos mas citados porque ilustra una ventaja de orden cuadratico y una idea reusable: la amplificacion de amplitud como principio general.
+
+## Navegacion
+
+- Anterior: [Bernstein-Vazirani](02_bernstein_vazirani.md)
+- Siguiente: [Transformada cuantica de Fourier](04_transformada_cuantica_de_fourier.md)

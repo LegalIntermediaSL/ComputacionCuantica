@@ -25,3 +25,7 @@ La correccion de errores cuanticos no es solo una extension obvia de la clasica.
 - El qubit logico se codifica en varios qubits fisicos.
 - La redundancia cuantica no puede entenderse como una copia clasica trivial.
 - La correccion de errores es una condicion de posibilidad para la escalabilidad real.
+
+## Navegacion
+
+- Siguiente: [Codigo de Shor: intuicion](02_codigo_de_shor_intuicion.md)

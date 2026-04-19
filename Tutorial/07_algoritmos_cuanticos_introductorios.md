@@ -42,3 +42,8 @@ Antes de entrar en demostraciones completas, conviene que el lector entienda:
 - La interferencia es mas importante que la intuicion simplista de "calcular todo a la vez".
 - Deutsch-Jozsa y Grover son excelentes puertas de entrada pedagogica.
 - La ejecucion cuantica suele producir distribuciones de salida, no respuestas deterministas en una sola corrida.
+
+## Navegacion
+
+- Anterior: [Algebra lineal minima para computacion cuantica](06_algebra_lineal_minima_para_computacion_cuantica.md)
+- Siguiente: [Qiskit: simuladores, estado cuantico y resultados](08_qiskit_simuladores_estado_y_resultados.md)

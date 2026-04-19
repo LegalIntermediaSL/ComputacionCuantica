@@ -53,3 +53,7 @@ Introducir matrices de densidad cambia el tono del tutorial: ya no describimos s
 - Las matrices de densidad generalizan la descripcion por vectores de estado.
 - Los estados mixtos no son lo mismo que las superposiciones.
 - Esta herramienta es indispensable para ruido, subsistemas y entropia.
+
+## Navegacion
+
+- Siguiente: [Traza parcial y entropia](02_traza_parcial_y_entropia.md)

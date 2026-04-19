@@ -101,3 +101,8 @@ En cierto sentido, programar un algoritmo cuantico consiste en diseñar un circu
 2. Explicar por que ambos tienen las mismas probabilidades en esa base, pero no representan el mismo estado.
 3. Describir geometricamente donde se encuentran $|0\rangle$, $|1\rangle$, $|+\rangle$ y $|-\rangle$ en la esfera de Bloch.
 4. Explicar por que cambiar de base puede convertir una diferencia de fase en una diferencia observable.
+
+## Navegacion
+
+- Anterior: [Qubits y estados cuanticos](01_qubits_y_estados.md)
+- Siguiente: [Puertas cuanticas y circuitos](03_puertas_cuanticas_y_circuitos.md)

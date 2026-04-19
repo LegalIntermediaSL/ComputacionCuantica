@@ -94,3 +94,8 @@ Sin esa pregunta, es facil sacar conclusiones equivocadas sobre la robustez o fr
 - `Statevector` y las cuentas responden a preguntas distintas.
 - Los `shots` introducen una capa de muestreo estadistico que no debe ignorarse.
 - Interpretar correctamente los resultados exige distinguir estructura cuantica y salida clasica observable.
+
+## Navegacion
+
+- Anterior: [Algoritmos cuanticos introductorios](07_algoritmos_cuanticos_introductorios.md)
+- Siguiente: [Qiskit: transpilacion, ruido y paso hacia hardware](09_qiskit_transpilacion_ruido_y_hardware.md)

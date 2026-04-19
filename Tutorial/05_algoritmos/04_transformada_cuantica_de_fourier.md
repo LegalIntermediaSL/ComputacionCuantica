@@ -23,3 +23,8 @@ Estudiarla ayuda a entender:
 - como se distribuye informacion de fase entre qubits;
 - por que las puertas de fase son tan importantes;
 - como un subcircuito aparentemente abstracto puede convertirse en pieza central de algoritmos avanzados.
+
+## Navegacion
+
+- Anterior: [Grover](03_grover.md)
+- Siguiente: [Phase Estimation](05_phase_estimation.md)

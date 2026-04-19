@@ -96,3 +96,8 @@ Esta secuencia evita que la complejidad experimental opaque demasiado pronto la 
 - El hardware cuantico impone limitaciones de puertas, conectividad y fidelidad.
 - El ruido no es un accidente marginal, sino una parte estructural del presente de la computacion cuantica.
 - Qiskit es valioso porque permite estudiar el paso desde la idealizacion hasta la implementacion realista.
+
+## Navegacion
+
+- Anterior: [Qiskit: simuladores, estado cuantico y resultados](08_qiskit_simuladores_estado_y_resultados.md)
+- Siguiente: [Bibliografia comentada](07_apendices/bibliografia_comentada.md)

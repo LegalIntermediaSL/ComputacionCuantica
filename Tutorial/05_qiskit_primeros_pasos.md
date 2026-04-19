@@ -233,3 +233,8 @@ Una seccion madura de Qiskit deberia ir incorporando progresivamente:
 - La ejecucion practica exige pensar en backends, `shots`, estadistica y transpilacion.
 - No debe confundirse simulacion ideal con ejecucion real en hardware.
 - Un buen uso de Qiskit refuerza la teoria en lugar de taparla.
+
+## Navegacion
+
+- Anterior: [Entrelazamiento y estados de Bell](04_entrelazamiento_y_estados_de_bell.md)
+- Siguiente: [Algebra lineal minima para computacion cuantica](06_algebra_lineal_minima_para_computacion_cuantica.md)

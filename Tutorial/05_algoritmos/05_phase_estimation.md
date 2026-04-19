@@ -38,3 +38,7 @@ Aunque no sea un algoritmo para introducir en la primera clase, si debe aparecer
 - La informacion de fase puede convertirse en informacion legible en un registro clasico.
 - La QFT juega un papel estructural, no decorativo.
 - Phase estimation es una de las grandes piezas organizadoras del paisaje algoritmico cuantico.
+
+## Navegacion
+
+- Anterior: [Transformada cuantica de Fourier](04_transformada_cuantica_de_fourier.md)

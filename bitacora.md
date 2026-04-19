@@ -311,3 +311,47 @@ Reforzar la practica del proyecto con ejercicios organizados y desarrollar la si
 ### Resultado
 
 El proyecto gana una capa de estudio activo y una forma mas clara de presentar su madurez actual modulo por modulo.
+
+## Entrada de FAQ, soluciones y realismo
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Dar un paso de madurez editorial: no solo expandir contenido, sino mejorar navegabilidad, práctica guiada y equilibrio conceptual.
+
+### Trabajo realizado
+
+- Se creo `FAQ.md`.
+- Se creo `Soluciones/` con soluciones seleccionadas.
+- Se abrio `11_algoritmos_variacionales/`.
+- Se abrio `13_limites_actuales_y_realismo/`.
+- Se reforzo la portada con nuevas rutas y estados.
+
+### Resultado
+
+El proyecto empieza a parecer menos una colección de materiales en crecimiento y más un curso estructurado con capas de aprendizaje, consulta rápida, práctica y realismo crítico.
+
+## Entrada de aplicaciones y horizonte fault-tolerant
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Seguir ampliando el proyecto hacia una visión más completa del campo, incluyendo aplicaciones y el horizonte de surface codes.
+
+### Trabajo realizado
+
+- Se creó `estructura_del_proyecto.md`.
+- Se creó `CONTRIBUTING.md`.
+- Se abrió `12_aplicaciones/`.
+- Se abrió `14_surface_codes_y_horizonte_fault_tolerant/`.
+- Se añadieron rutas de lectura por perfil en el `README.md`.
+
+### Resultado
+
+El proyecto gana valor como repositorio formativo y también como proyecto mantenible, con mejor orientación para lectores distintos y una visión más amplia del ecosistema de computación cuántica.

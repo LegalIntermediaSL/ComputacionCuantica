@@ -47,3 +47,7 @@ Este tema es importante porque conecta muy bien con:
 - La traza parcial describe el estado efectivo de una parte del sistema.
 - Un subsistema puede ser mixto aunque el estado global sea puro.
 - La entropia de von Neumann introduce una capa cuantitativa de informacion.
+
+## Navegacion
+
+- Anterior: [Matrices de densidad y estados mixtos](01_matrices_de_densidad_y_estados_mixtos.md)

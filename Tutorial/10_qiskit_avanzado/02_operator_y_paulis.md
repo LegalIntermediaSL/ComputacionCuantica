@@ -33,3 +33,8 @@ Si el proyecto quiere crecer hacia algoritmos variacionales, ruido, estimacion d
 - `Operator` ayuda a ver transformaciones completas.
 - La familia de objetos Pauli organiza observables y operadores de manera muy util.
 - Esta capa conecta mejor la implementacion con el formalismo teorico.
+
+## Navegacion
+
+- Anterior: [Sampler, Estimator y primitives](01_sampler_estimator_y_primitives.md)
+- Siguiente: [Noise models y simulacion realista](03_noise_models_y_simulacion_realista.md)

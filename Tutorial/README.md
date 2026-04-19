@@ -15,6 +15,9 @@ Este directorio contiene el cuerpo principal del tutorial. La idea es construir 
 9. `09_qiskit_transpilacion_ruido_y_hardware.md`
 10. `07_apendices/bibliografia_comentada.md` como apoyo de referencia
 11. `05_algoritmos/05_phase_estimation.md` como puente hacia algoritmos mas avanzados
+12. `11_algoritmos_variacionales/README.md`
+13. `12_aplicaciones/README.md`
+14. `13_limites_actuales_y_realismo/README.md`
 
 ## Estado de modulos
 
@@ -31,6 +34,10 @@ Este directorio contiene el cuerpo principal del tutorial. La idea es construir 
 | `08_informacion_cuantica` | abierto |
 | `09_correccion_errores` | abierto |
 | `10_qiskit_avanzado` | abierto |
+| `11_algoritmos_variacionales` | abierto |
+| `12_aplicaciones` | abierto |
+| `13_limites_actuales_y_realismo` | abierto |
+| `14_surface_codes_y_horizonte_fault_tolerant` | abierto |
 
 ## Filosofia del material
 

@@ -127,3 +127,7 @@ Por eso entender bien la estructura del estado de un solo qubit es el primer pas
 2. Calcular las probabilidades de medicion del estado $\sqrt{3}/2 \, |0\rangle + 1/2 \, |1\rangle$.
 3. Explicar con tus palabras la diferencia entre fase global y fase relativa.
 4. Dar un ejemplo de vector de dos componentes que no represente todavia un estado fisico y normalizarlo.
+
+## Navegacion
+
+- Siguiente: [Superposicion, medicion y esfera de Bloch](02_superposicion_medicion_y_esfera_de_bloch.md)

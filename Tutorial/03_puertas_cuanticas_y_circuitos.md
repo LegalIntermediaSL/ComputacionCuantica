@@ -135,3 +135,8 @@ En otras palabras, un circuito es la interfaz entre la teoria matematica de la i
 2. Aplicar la puerta `X` a $|1\rangle$.
 3. Explicar por que la CNOT puede generar entrelazamiento cuando el qubit de control esta en superposicion.
 4. Explicar por que una puerta que solo cambia fase puede ser computacionalmente relevante.
+
+## Navegacion
+
+- Anterior: [Superposicion, medicion y esfera de Bloch](02_superposicion_medicion_y_esfera_de_bloch.md)
+- Siguiente: [Entrelazamiento y estados de Bell](04_entrelazamiento_y_estados_de_bell.md)

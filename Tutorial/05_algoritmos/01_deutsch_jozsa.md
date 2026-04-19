@@ -25,3 +25,7 @@ Aunque no sea el algoritmo mas util en aplicaciones reales, es una excelente pue
 - el papel de los oraculos;
 - la interferencia como recurso;
 - la distincion entre informacion puntual e informacion global.
+
+## Navegacion
+
+- Siguiente: [Bernstein-Vazirani](02_bernstein_vazirani.md)

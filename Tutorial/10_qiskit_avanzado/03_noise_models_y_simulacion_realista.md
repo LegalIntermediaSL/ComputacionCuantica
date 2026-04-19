@@ -29,3 +29,7 @@ La leccion correcta es:
 - Los modelos de ruido enriquecen la simulacion y la vuelven mas informativa.
 - No sustituyen al hardware, pero preparan conceptualmente para el.
 - Ayudan a tender un puente muy natural hacia mitigacion y correccion de errores.
+
+## Navegacion
+
+- Anterior: [Operators, Pauli y representaciones utiles](02_operator_y_paulis.md)

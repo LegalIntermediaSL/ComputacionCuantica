@@ -20,3 +20,7 @@ En una etapa introductoria, la mitigacion es una buena puerta de entrada porque 
 - la fidelidad importa porque el hardware no ejecuta puertas perfectas;
 - la mitigacion busca mejorar resultados en el regimen actual de dispositivos;
 - la correccion de errores pertenece a una capa mas profunda y exigente del campo.
+
+## Navegacion
+
+- Anterior: [Decoherencia y ruido](01_decoherencia_y_ruido.md)

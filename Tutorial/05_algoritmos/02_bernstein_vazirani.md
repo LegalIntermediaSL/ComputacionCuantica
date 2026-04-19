@@ -15,3 +15,8 @@ Este algoritmo es muy valioso porque:
 - muestra un ejemplo donde el circuito devuelve directamente un string estructurado;
 - refuerza el papel de la fase;
 - ayuda a entender por que los oraculos en computacion cuantica no deben pensarse como cajas negras clasicas corrientes.
+
+## Navegacion
+
+- Anterior: [Deutsch-Jozsa](01_deutsch_jozsa.md)
+- Siguiente: [Grover](03_grover.md)
