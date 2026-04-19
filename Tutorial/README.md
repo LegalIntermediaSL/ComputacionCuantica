@@ -15,6 +15,21 @@ Este directorio contiene el cuerpo principal del tutorial. La idea es construir 
 9. `09_qiskit_transpilacion_ruido_y_hardware.md`
 10. `07_apendices/bibliografia_comentada.md` como apoyo de referencia
 
+## Estado de modulos
+
+| Modulo | Estado |
+|---|---|
+| `00_fundamentos` | base solida |
+| `01_qubits_y_medicion` | base solida |
+| `02_puertas_y_circuitos` | base solida |
+| `03_entrelazamiento` | base solida |
+| `04_qiskit` | en fuerte desarrollo |
+| `05_algoritmos` | en desarrollo |
+| `06_ruido_y_hardware` | borrador solido |
+| `07_apendices` | en desarrollo |
+| `08_informacion_cuantica` | abierto |
+| `09_correccion_errores` | abierto |
+
 ## Filosofia del material
 
 - empezar por intuicion y lenguaje;

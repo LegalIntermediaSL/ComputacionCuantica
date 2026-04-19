@@ -245,3 +245,25 @@ Aplicar una reorganizacion mas curricular del proyecto y abrir zonas de trabajo 
 ### Resultado
 
 El proyecto deja de crecer solo como una secuencia lineal de articulos y empieza a adquirir forma de curso modular con teoria, practica, bibliografia y espacios auxiliares claramente diferenciados.
+
+## Entrada de apertura de informacion cuantica y correccion
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Abrir las siguientes capas naturales del curso: informacion cuantica y correccion de errores, junto con una hoja de ruta mas clara.
+
+### Trabajo realizado
+
+- Se crearon los modulos `08_informacion_cuantica/` y `09_correccion_errores/`.
+- Se añadieron documentos introductorios sobre matrices de densidad, traza parcial, qubit logico y codigo de Shor.
+- Se añadieron cuadernos y laboratorios asociados.
+- Se creo `roadmap.md`.
+- Se actualizo la portada del tutorial con una tabla de estado de modulos.
+
+### Resultado
+
+El proyecto ya no solo explica circuitos y algoritmos iniciales, sino que empieza a tender un puente claro hacia informacion cuantica y escalabilidad real.

@@ -29,6 +29,8 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - Estructura modular en `Tutorial/` con bloques de fundamentos, algoritmos, ruido/hardware y apendices.
 - `Imagenes/` y `Notas/` como directorios de apoyo al crecimiento del proyecto.
 - `Cuadernos/laboratorios/` con laboratorios guiados para Grover, teleportacion y transpilacion.
+- Modulos `08_informacion_cuantica/` y `09_correccion_errores/`.
+- `roadmap.md` como hoja de ruta del proyecto.
 
 ## [0.1.0] - 2026-04-19
 

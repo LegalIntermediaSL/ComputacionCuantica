@@ -40,6 +40,11 @@ Este documento reune recursos recomendados para estudiar computacion cuantica y 
 - Los articulos y cuadernos del repositorio deben apoyarse en la bibliografia clasica cuando desarrollen fundamentos teoricos.
 - Cuando una explicacion dependa de detalles practicos de ejecucion, backends o plataforma, conviene priorizar los enlaces oficiales de IBM Quantum.
 
-## 4. Nota editorial
+## 4. Proyecto relacionado
+
+- [Repositorio QFT](https://github.com/LegalIntermediaSL/QFT)
+  Repositorio relacionado del mismo entorno de trabajo, enfocado en Teoria Cuantica de Campos. Puede ser util como apoyo conceptual en temas donde la computacion cuantica se cruza con fundamentos de mecanica cuantica y teoria de campos.
+
+## 5. Nota editorial
 
 Los enlaces oficiales fueron verificados el 19 de abril de 2026. Si en el futuro IBM reorganiza la documentacion o la plataforma, este archivo deberia actualizarse junto con el `README.md`.
