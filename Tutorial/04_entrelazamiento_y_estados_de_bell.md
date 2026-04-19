@@ -18,7 +18,13 @@ $$
 
 Esto significa que el sistema compuesto contiene correlaciones que no pueden atribuirse a propiedades locales independientes de cada subsistema.
 
-## 2. Estados de Bell
+## 2. Correlacion clasica frente a entrelazamiento
+
+Es importante no confundir correlacion con entrelazamiento. Dos variables clasicas pueden estar muy correlacionadas sin que haya nada cuantico en juego. El entrelazamiento aparece cuando la descripcion completa del sistema no puede descomponerse en estados separados para cada parte.
+
+La diferencia se vuelve especialmente visible al cambiar de base o al estudiar desigualdades tipo Bell. En ese sentido, el entrelazamiento no es solo "mucho acuerdo estadistico", sino una estructura fisica distinta.
+
+## 3. Estados de Bell
 
 Los cuatro estados de Bell forman una familia especialmente importante:
 
@@ -32,7 +38,7 @@ $$
 
 Son ejemplos canonicos de estados maximamente entrelazados de dos qubits.
 
-## 3. Como generarlos
+## 4. Como generarlos
 
 Un circuito muy simple para generar $|\Phi^+\rangle$ es:
 
@@ -52,16 +58,24 @@ $$
 \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle).
 $$
 
-## 4. Correlaciones y medicion
+Este ejemplo es especialmente valioso porque muestra que el entrelazamiento no es una propiedad exotica reservada a sistemas muy complicados: aparece ya en un circuito elemental.
+
+## 5. Correlaciones y medicion
 
 Si medimos ambos qubits de $|\Phi^+\rangle$ en la base computacional, los resultados posibles son:
 
-- `00` con probabilidad $1/2`;
-- `11` con probabilidad $1/2`.
+- `00` con probabilidad $1/2$;
+- `11` con probabilidad $1/2$.
 
 Nunca aparecen `01` ni `10`. Esto muestra correlacion perfecta, pero el entrelazamiento es mas fuerte que una correlacion clasica ordinaria: tambien afecta el comportamiento al medir en otras bases.
 
-## 5. Por que el entrelazamiento importa
+## 6. Estados reducidos
+
+Un rasgo interesante es que el estado global puede ser puro mientras que cada subsistema individual se describe por un estado mixto. En los estados de Bell, si observamos solo uno de los qubits e ignoramos el otro, no encontramos un estado puro bien definido para la parte individual.
+
+Esta es una buena primera aproximacion a ideas mas generales de informacion cuantica, como matrices de densidad reducidas y entropia de entrelazamiento.
+
+## 7. Por que el entrelazamiento importa
 
 El entrelazamiento es recurso central para:
 
@@ -73,15 +87,17 @@ El entrelazamiento es recurso central para:
 
 Sin entrelazamiento, gran parte del interes de la computacion cuantica quedaria drasticamente reducido.
 
-## 6. Ideas clave
+## 8. Ideas clave
 
 - Un estado entrelazado no se factoriza en estados individuales.
 - Los estados de Bell son ejemplos maximamente entrelazados de dos qubits.
 - Un circuito simple con `H` y `CNOT` basta para generarlos.
 - El entrelazamiento produce correlaciones no clasicas.
+- El estado global puede ser puro mientras las partes individuales no lo son.
 
-## 7. Ejercicios sugeridos
+## 9. Ejercicios sugeridos
 
 1. Construir algebraicamente el estado de Bell a partir de `H` y `CNOT`.
 2. Explicar por que $|\Phi^+\rangle$ no puede escribirse como producto tensorial.
 3. Describir que resultados se esperan al medir el estado $|\Psi^+\rangle$ en la base computacional.
+4. Explicar por que ver correlacion perfecta no basta por si solo para demostrar entrelazamiento.

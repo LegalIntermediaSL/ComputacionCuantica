@@ -37,3 +37,5 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 - `Cuadernos/`: notebooks Jupyter con ejemplos y problemas resueltos.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.
+
+La primera version del contenido ya cubre qubits, superposicion, medicion, puertas, circuitos, entrelazamiento, algebra lineal minima, primeros pasos con Qiskit y una introduccion a algoritmos cuanticos elementales.

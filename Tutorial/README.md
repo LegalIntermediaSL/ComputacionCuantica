@@ -9,12 +9,16 @@ Este directorio contiene el cuerpo principal del tutorial. La idea es construir 
 3. `03_puertas_cuanticas_y_circuitos.md`
 4. `04_entrelazamiento_y_estados_de_bell.md`
 5. `05_qiskit_primeros_pasos.md`
+6. `06_algebra_lineal_minima_para_computacion_cuantica.md`
+7. `07_algoritmos_cuanticos_introductorios.md`
 
 ## Filosofia del material
 
 - empezar por intuicion y lenguaje;
 - pasar despues a representaciones matematicas manejables;
 - introducir circuitos y puertas de forma operativa;
+- consolidar la base algebraica minima;
+- abrir despues la puerta a algoritmos cuanticos introductorios;
 - reforzar la teoria con cuadernos Jupyter y ejemplos en Qiskit.
 
 ## Cuadernos asociados

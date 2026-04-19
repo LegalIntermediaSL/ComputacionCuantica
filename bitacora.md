@@ -111,3 +111,30 @@ El proyecto deja de ser solo una idea documentada y pasa a tener una base real d
 - Ampliar el modulo con algebra lineal basica y esfera de Bloch.
 - Crear mas cuadernos Jupyter con simulaciones y problemas resueltos.
 - Abrir un bloque posterior sobre algoritmos cuanticos introductorios.
+
+## Entrada de ampliacion de contenidos
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Dar mas densidad al tutorial para que no quede reducido a notas introductorias muy cortas y reforzar la conexion con cuadernos practicos.
+
+### Trabajo realizado
+
+- Se ampliaron los cinco articulos iniciales con mas contexto, explicaciones y secciones internas.
+- Se añadieron nuevos articulos sobre algebra lineal minima y algoritmos cuanticos introductorios.
+- Se desarrollaron mas notebooks en `Cuadernos/ejemplos/` y `Cuadernos/problemas_resueltos/`.
+- Se reforzo la documentacion principal para reflejar la nueva cobertura tematica.
+
+### Resultado
+
+El proyecto ya no es solo una introduccion minima. Empieza a funcionar como una ruta de aprendizaje mas solida, con continuidad entre fundamentos, formalismo y primeras herramientas practicas en Qiskit.
+
+### Pendientes inmediatos
+
+- Abrir un modulo sobre Grover, Deutsch-Jozsa y otros algoritmos con mas detalle.
+- Añadir cuadernos que ejecuten simuladores de Qiskit con resultados y cuentas.
+- Crear una capa visual con diagramas y figuras para el tutorial.

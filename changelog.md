@@ -21,6 +21,8 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - Directorio `Cuadernos/` con notebooks Jupyter de ejemplos y problemas resueltos.
 - Articulos iniciales sobre qubits, superposicion, medicion, puertas, circuitos, entrelazamiento y Qiskit.
 - Cuadernos iniciales para qubits, puertas basicas y estados de Bell.
+- Nuevos articulos sobre algebra lineal minima y algoritmos cuanticos introductorios.
+- Nuevos notebooks sobre esfera de Bloch, producto tensorial, cambios de base y Deutsch-Jozsa.
 
 ## [0.1.0] - 2026-04-19
 

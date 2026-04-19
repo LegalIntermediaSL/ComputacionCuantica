@@ -13,7 +13,10 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - superposicion y medicion;
 - puertas basicas;
 - estados de Bell;
-- primeros circuitos en Qiskit.
+- primeros circuitos en Qiskit;
+- esfera de Bloch;
+- producto tensorial;
+- algoritmos cuanticos introductorios.
 
 ## Criterios
 
