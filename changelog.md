@@ -26,6 +26,9 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - Nuevos articulos sobre simuladores de Qiskit, resultados, transpilacion, ruido y hardware.
 - Fuerte ampliacion de la biblioteca de notebooks de Qiskit.
 - `referencias.md` con enlaces oficiales, bibliografia base y recursos recomendados.
+- Estructura modular en `Tutorial/` con bloques de fundamentos, algoritmos, ruido/hardware y apendices.
+- `Imagenes/` y `Notas/` como directorios de apoyo al crecimiento del proyecto.
+- `Cuadernos/laboratorios/` con laboratorios guiados para Grover, teleportacion y transpilacion.
 
 ## [0.1.0] - 2026-04-19
 

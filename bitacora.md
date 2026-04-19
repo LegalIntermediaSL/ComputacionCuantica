@@ -222,3 +222,26 @@ Incorporar una capa de referencias externas fiable para que el proyecto no depen
 ### Resultado
 
 El repositorio ya tiene una base documental externa clara, util tanto para consulta rapida como para orientar futuras ampliaciones del tutorial.
+
+## Entrada de reorganizacion modular y laboratorios
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Aplicar una reorganizacion mas curricular del proyecto y abrir zonas de trabajo que preparen crecimiento sostenido.
+
+### Trabajo realizado
+
+- Se crearon modulos numerados dentro de `Tutorial/`.
+- Se abrio el bloque `05_algoritmos/` con documentos sobre Deutsch-Jozsa, Bernstein-Vazirani, Grover y QFT.
+- Se abrio el bloque `06_ruido_y_hardware/`.
+- Se creo el bloque `07_apendices/` con `bibliografia_comentada.md`.
+- Se crearon `Imagenes/` y `Notas/` como zonas de apoyo.
+- Se añadió `Cuadernos/laboratorios/` con laboratorios sobre Grover, teleportacion y transpilacion.
+
+### Resultado
+
+El proyecto deja de crecer solo como una secuencia lineal de articulos y empieza a adquirir forma de curso modular con teoria, practica, bibliografia y espacios auxiliares claramente diferenciados.

@@ -35,6 +35,8 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 
 - `Tutorial/`: articulos y desarrollo teorico del recorrido formativo.
 - `Cuadernos/`: notebooks Jupyter con ejemplos y problemas resueltos.
+- `Imagenes/`: material visual del tutorial.
+- `Notas/`: material fuente, resúmenes y referencias de trabajo.
 - `referencias.md`: vinculos, enlaces y bibliografia recomendada.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.

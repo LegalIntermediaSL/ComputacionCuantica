@@ -6,6 +6,7 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 
 - `ejemplos/`: notebooks cortos para ilustrar ideas o herramientas concretas.
 - `problemas_resueltos/`: notebooks mas guiados para estudiar ejercicios paso a paso.
+- `laboratorios/`: notebooks mas largos para exploracion guiada.
 
 ## Cobertura inicial
 
@@ -20,6 +21,7 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - puertas de fase, interferencia y circuitos parametrizados;
 - transpilation basica y adaptacion de circuitos;
 - ejemplos iniciales de Grover y teleportacion;
+- laboratorios guiados para Grover, Bernstein-Vazirani, teleportacion y QFT;
 - esfera de Bloch;
 - producto tensorial;
 - algoritmos cuanticos introductorios.
