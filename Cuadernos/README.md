@@ -14,6 +14,8 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - puertas basicas;
 - estados de Bell;
 - primeros circuitos en Qiskit;
+- estado vector, medicion y estadistica en Qiskit;
+- backends, shots y flujo practico de trabajo;
 - esfera de Bloch;
 - producto tensorial;
 - algoritmos cuanticos introductorios.

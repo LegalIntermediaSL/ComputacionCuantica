@@ -138,3 +138,23 @@ El proyecto ya no es solo una introduccion minima. Empieza a funcionar como una 
 - Abrir un modulo sobre Grover, Deutsch-Jozsa y otros algoritmos con mas detalle.
 - Añadir cuadernos que ejecuten simuladores de Qiskit con resultados y cuentas.
 - Crear una capa visual con diagramas y figuras para el tutorial.
+
+## Entrada de ampliacion de la seccion Qiskit
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Evitar que Qiskit quede reducido a una nota corta de herramienta y convertirlo en una parte pedagogicamente fuerte del proyecto.
+
+### Trabajo realizado
+
+- Se reescribio y amplió de forma importante `Tutorial/05_qiskit_primeros_pasos.md`.
+- Se añadieron notebooks nuevos sobre estado vector, medicion, `shots`, backends y correlaciones de Bell en Qiskit.
+- Se reforzo la documentacion de `Cuadernos/` para reflejar mejor la cobertura practica de la herramienta.
+
+### Resultado
+
+La seccion de Qiskit pasa de ser una introduccion breve a funcionar como una guia de trabajo mas seria, conectando teoria, simulacion, estadistica y arquitectura de ejecucion.
