@@ -158,3 +158,67 @@ Evitar que Qiskit quede reducido a una nota corta de herramienta y convertirlo e
 ### Resultado
 
 La seccion de Qiskit pasa de ser una introduccion breve a funcionar como una guia de trabajo mas seria, conectando teoria, simulacion, estadistica y arquitectura de ejecucion.
+
+## Entrada de expansion fuerte de cuadernos Qiskit
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Convertir la carpeta de notebooks de Qiskit en una coleccion amplia de ejemplos y problemas que sirva de apoyo real al tutorial.
+
+### Trabajo realizado
+
+- Se añadieron cuadernos sobre medicion en distintas bases.
+- Se añadieron cuadernos sobre puertas de fase e interferencia.
+- Se añadieron cuadernos sobre circuitos parametrizados y transpilacion.
+- Se añadieron ejemplos iniciales de Grover y teleportacion en Qiskit.
+- Se reforzo la cobertura de problemas resueltos para Qiskit.
+
+### Resultado
+
+La parte practica asociada a Qiskit deja de ser un bloque corto de iniciacion y pasa a parecer una biblioteca creciente de trabajo, mas util para estudiar, experimentar y extender el proyecto en futuras iteraciones.
+
+## Entrada de profundizacion de Qiskit como modulo propio
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Consolidar Qiskit no solo como herramienta auxiliar, sino como una linea formativa completa dentro del proyecto.
+
+### Trabajo realizado
+
+- Se añadieron dos articulos nuevos sobre simuladores, resultados, transpilacion, ruido y hardware.
+- Se extendio el `Tutorial/README.md` para integrar mejor la ruta practica de Qiskit.
+- Se reforzaron las convenciones de `Cuadernos/README.md` para distinguir entre estado ideal, cuentas y adaptacion a backend.
+- Se actualizo la portada principal del proyecto para reflejar este crecimiento.
+
+### Resultado
+
+El proyecto empieza a tener dos ejes bien conectados: fundamentos conceptuales de computacion cuantica y formacion practica seria en Qiskit.
+
+## Entrada de referencias y enlaces
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Incorporar una capa de referencias externas fiable para que el proyecto no dependa solo del contenido interno del repositorio.
+
+### Trabajo realizado
+
+- Se creo `referencias.md`.
+- Se añadieron enlaces oficiales de Qiskit e IBM Quantum.
+- Se añadieron referencias bibliograficas y de curso para estudio mas profundo.
+- Se integro una seccion visible de vinculos y referencias en `README.md`.
+
+### Resultado
+
+El repositorio ya tiene una base documental externa clara, util tanto para consulta rapida como para orientar futuras ampliaciones del tutorial.

@@ -11,6 +11,8 @@ Este directorio contiene el cuerpo principal del tutorial. La idea es construir 
 5. `05_qiskit_primeros_pasos.md`
 6. `06_algebra_lineal_minima_para_computacion_cuantica.md`
 7. `07_algoritmos_cuanticos_introductorios.md`
+8. `08_qiskit_simuladores_estado_y_resultados.md`
+9. `09_qiskit_transpilacion_ruido_y_hardware.md`
 
 ## Filosofia del material
 
@@ -19,6 +21,7 @@ Este directorio contiene el cuerpo principal del tutorial. La idea es construir 
 - introducir circuitos y puertas de forma operativa;
 - consolidar la base algebraica minima;
 - abrir despues la puerta a algoritmos cuanticos introductorios;
+- desarrollar una ruta practica fuerte centrada en Qiskit;
 - reforzar la teoria con cuadernos Jupyter y ejemplos en Qiskit.
 
 ## Cuadernos asociados

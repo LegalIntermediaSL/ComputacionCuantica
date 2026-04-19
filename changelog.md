@@ -23,6 +23,9 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - Cuadernos iniciales para qubits, puertas basicas y estados de Bell.
 - Nuevos articulos sobre algebra lineal minima y algoritmos cuanticos introductorios.
 - Nuevos notebooks sobre esfera de Bloch, producto tensorial, cambios de base y Deutsch-Jozsa.
+- Nuevos articulos sobre simuladores de Qiskit, resultados, transpilacion, ruido y hardware.
+- Fuerte ampliacion de la biblioteca de notebooks de Qiskit.
+- `referencias.md` con enlaces oficiales, bibliografia base y recursos recomendados.
 
 ## [0.1.0] - 2026-04-19
 

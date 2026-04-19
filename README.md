@@ -35,7 +35,23 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 
 - `Tutorial/`: articulos y desarrollo teorico del recorrido formativo.
 - `Cuadernos/`: notebooks Jupyter con ejemplos y problemas resueltos.
+- `referencias.md`: vinculos, enlaces y bibliografia recomendada.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.
 
 La primera version del contenido ya cubre qubits, superposicion, medicion, puertas, circuitos, entrelazamiento, algebra lineal minima, primeros pasos con Qiskit y una introduccion a algoritmos cuanticos elementales.
+
+El bloque de Qiskit se esta ampliando como una linea de trabajo propia dentro del proyecto, con articulos y notebooks sobre simuladores, medicion, estado vector, transpilacion, backends, algoritmos y protocolos cuanticos elementales.
+
+## Vinculos, enlaces y referencias
+
+El proyecto ya incluye una base inicial de referencias en [referencias.md](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/referencias.md).
+
+Recursos destacados:
+
+- [Qiskit en IBM Quantum](https://www.ibm.com/quantum/qiskit)
+- [Documentacion oficial de IBM Quantum y Qiskit](https://quantum.cloud.ibm.com/docs/en)
+- [Learning path: Getting started with Qiskit](https://learning.quantum.ibm.com/learning-path/getting-started-with-qiskit)
+- [Repositorio oficial de Qiskit en GitHub](https://github.com/Qiskit/qiskit)
+- [Nielsen y Chuang](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE)
+- [Curso de John Preskill en Caltech](https://www.preskill.caltech.edu/ph219/ph219_2018.html)

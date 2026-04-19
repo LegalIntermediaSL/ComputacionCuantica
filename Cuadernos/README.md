@@ -16,6 +16,10 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - primeros circuitos en Qiskit;
 - estado vector, medicion y estadistica en Qiskit;
 - backends, shots y flujo practico de trabajo;
+- medicion en distintas bases con Qiskit;
+- puertas de fase, interferencia y circuitos parametrizados;
+- transpilation basica y adaptacion de circuitos;
+- ejemplos iniciales de Grover y teleportacion;
 - esfera de Bloch;
 - producto tensorial;
 - algoritmos cuanticos introductorios.
@@ -26,3 +30,4 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - las formulas deben escribirse en LaTeX siempre que ayuden;
 - el codigo debe ser pequeno, claro y comentado con mesura;
 - cada notebook debe enlazarse mentalmente con uno o varios articulos del directorio `Tutorial/`.
+- los cuadernos de Qiskit deben dejar claro si trabajan con estado ideal, cuentas de medicion o adaptacion a backend.
