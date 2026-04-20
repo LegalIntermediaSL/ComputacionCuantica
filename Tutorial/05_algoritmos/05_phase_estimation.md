@@ -1,76 +1,25 @@
-# Phase Estimation
+# Quantum Phase Estimation (QPE)
 
-## 1. Por que es importante
+## 1. El Problema del Autovalor
+Muchos problemas en física y matemáticas se reducen a encontrar el autovalor de una matriz unitaria $U$. Si tenemos un autovector $|u\rangle$ tal que:
+$$ U|u\rangle = e^{2\pi i \phi} |u\rangle $$
+el objetivo de QPE es estimar la fase $\phi \in [0, 1)$. 
 
-La estimacion de fase es una de las rutinas mas influyentes de la computacion cuantica. Su valor no reside solo en si misma, sino en que conecta ideas fundamentales:
+## 2. El Protocolo Algorítmico
+QPE utiliza dos registros de qubits:
+1. **Registro de Conteo ($n$ qubits):** Determina la precisión de la estimación. Tras el algoritmo, contendrá la representación binaria de $\phi$.
+2. **Registro del Estado ($m$ qubits):** Almacena el autovector $|u\rangle$.
 
-- autovalores y autovectores;
-- transformada cuantica de Fourier;
-- informacion de fase codificada en registros auxiliares;
-- subrutinas usadas en algoritmos mas avanzados.
+El proceso sigue tres fases críticas:
+- **Hadamards y Evolución Controlada:** Se aplican puertas $U^{2^k}$ controladas por los qubits del registro de conteo. Esto codifica la fase de forma iterativa y binaria en las amplitudes del primer registro.
+- **QFT Inversa:** Traslada la información de las fases a la base computacional para que sea medible.
+- **Medición:** Obtenemos una cadena de bits que representa la mejor aproximación de $n$ bits de $\phi$.
 
-## 2. Idea basica
-
-Queremos estimar una fase $\\phi$ asociada a un operador unitario cuando
-
-$$
-U|u\\rangle = e^{2\\pi i \\phi}|u\\rangle.
-$$
-
-El algoritmo prepara qubits auxiliares, aplica potencias controladas de $U$ y luego usa la transformada cuantica de Fourier inversa para extraer informacion sobre $\\phi$ en forma binaria aproximada.
-
-## 3. Arquitectura del circuito
-
-Una forma pedagogica de leer phase estimation es dividirla en tres bloques:
-
-1. un registro auxiliar preparado en superposicion;
-2. un registro objetivo en un autovector de la unitaria;
-3. una capa de operaciones controladas seguida de una QFT inversa.
-
-Esta separacion es importante porque hace visible que el algoritmo no "mide la fase directamente", sino que la va trasladando a un registro que luego puede leerse en forma binaria.
-
-## 4. Potencias controladas
-
-Las potencias controladas de $U$ son un ingrediente esencial. No se aplican por capricho, sino porque permiten codificar distintas escalas de la fase en qubits auxiliares distintos. De ese modo, cada qubit del registro auxiliar acumula informacion complementaria sobre $\\phi$.
-
-En un tratamiento mas detallado, esta estructura explica por que la salida puede interpretarse como una aproximacion binaria de la fase.
-
-## 5. Papel de la QFT inversa
-
-La QFT inversa no es un añadido ornamental. Actua como una transformacion que reorganiza la informacion de fase acumulada en el registro auxiliar para volverla legible tras la medicion. Sin ella, el algoritmo no entregaria el mismo tipo de informacion util.
-
-Por eso phase estimation es un gran ejemplo pedagógico del papel no trivial de la transformada cuantica de Fourier.
-
-## 6. Valor pedagogico
-
-Phase estimation es especialmente interesante porque obliga a integrar varias piezas del tutorial:
-
-- control de operaciones;
-- fases;
-- QFT;
-- medicion de registros auxiliares;
-- interpretacion de resultados como aproximaciones binarias.
-
-## 7. Relacion con otros algoritmos
-
-Phase estimation no solo es interesante por si misma. Tambien actua como pieza estructural en algoritmos mas avanzados relacionados con:
-
-- periodicidad;
-- estimacion espectral;
-- simulacion cuantica;
-- ciertos enfoques de quimica cuantica y Hamiltonianos.
-
-## 8. Rol en el curso
-
-Aunque no sea un algoritmo para introducir en la primera clase, si debe aparecer relativamente pronto en un proyecto que aspire a ser serio. Actua como puente entre algoritmos elementales y herramientas cuanticas de mayor profundidad.
-
-## 9. Ideas clave
-
-- La informacion de fase puede convertirse en informacion legible en un registro clasico.
-- La QFT juega un papel estructural, no decorativo.
-- Phase estimation es una de las grandes piezas organizadoras del paisaje algoritmico cuantico.
-- El registro auxiliar no es accesorio: es donde la fase se traduce a informacion medible.
-- Las potencias controladas de la unitaria son parte central de la arquitectura.
+## 3. Importancia y Precisión
+La precisión del algoritmo depende linealmente del número de qubits en el registro de conteo. Con $n$ qubits, podemos estimar $\phi$ con un error menor a $1/2^n$ con alta probabilidad. QPE es la subrutina central de:
+- **Algoritmo de Shor:** Para encontrar el periodo de una función.
+- **Química Cuántica:** Para encontrar la energía del estado fundamental (Hamiltonianos).
+- **HHL:** Para resolver sistemas de ecuaciones lineales.
 
 ## Navegacion
 

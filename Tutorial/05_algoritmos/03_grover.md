@@ -1,25 +1,23 @@
-# Grover
+# Algoritmo de Grover: Búsqueda en Bases de Datos no Estructuradas
 
-## 1. Busqueda y amplificacion de amplitud
+## 1. El Problema de la Aguja en el Pajar
+Imagínate que tienes una lista desordenada de $N = 2^n$ elementos y buscas uno que cumpla una condición específica (por ejemplo, la pre-imagen de una función hash). Clásicamente, tendrías que revisar en promedio $N/2$ elementos ($O(N)$). Grover permite encontrarlo en aproximadamente $\sqrt{N}$ consultas ($O(\sqrt{N})$). 
 
-El algoritmo de Grover aborda un problema de busqueda no estructurada. Su idea central no es "probar todas las respuestas a la vez" de forma ingenua, sino usar amplificacion de amplitud para aumentar la probabilidad de medir el estado marcado.
+Aunque no es una aceleración exponencial (como Shor), es una aceleración cuadrática **universal** aplicable a casi cualquier problema de búsqueda o satisfacción de restricciones.
 
-## 2. Componentes del algoritmo
+## 2. Geometría de la Rotación
+Grover no funciona "probando todas las llaves a la vez". Funciona mediante una **rotación geométrica** en un espacio bidimensional definido por dos vectores:
+- $|\alpha\rangle$: La suma uniforme de todos los estados "incorrectos".
+- $|\beta\rangle$: El estado (o estados) "correcto" que buscamos.
 
-Un esquema minimo de Grover contiene:
+Cada iteración de Grover consiste en dos pasos:
+1. **Oráculo ($U_f$):** Invierte la fase del estado correcto ($|x\rangle \to -|x\rangle$ si $f(x)=1$). Esto equivale a una reflexión respecto al eje de los estados incorrectos.
+2. **Operador de Difusión ($D$):** Realiza una inversión sobre la media de todas las amplitudes. 
 
-- preparacion uniforme por Hadamards;
-- un oraculo que marca el estado deseado;
-- un operador difusor que refleja amplitudes respecto de la media;
-- repeticion controlada del proceso.
+El resultado neto de estos dos pasos es una rotación del vector de estado hacia el estado objetivo $|\beta\rangle$. Tras aproximadamente $\frac{\pi}{4}\sqrt{N}$ iteraciones, la probabilidad de medir el estado correcto es máxima.
 
-## 3. Intuicion geometrica
-
-Puede pensarse como una sucesion de rotaciones en un subespacio de dimension dos. Esa intuicion es muy poderosa porque convierte un procedimiento que parece misterioso en una dinamica bastante comprensible.
-
-## 4. Importancia
-
-Grover es uno de los algoritmos cuanticos mas citados porque ilustra una ventaja de orden cuadratico y una idea reusable: la amplificacion de amplitud como principio general.
+## 3. Límites y Optimalidad
+Se ha demostrado matemáticamente que Grover es **estrictamente óptimo**: ningún algoritmo basado en oráculos puede resolver la búsqueda no estructurada más rápido que $O(\sqrt{N})$. Esto establece una frontera fundamental sobre lo que la ventaja cuántica puede lograr en problemas de "fuerza bruta".
 
 ## Navegacion
 

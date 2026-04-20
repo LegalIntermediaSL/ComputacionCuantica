@@ -1,20 +1,12 @@
-# Fault tolerance como horizonte
+# Fault Tolerance (Computación Inherente Asintótica Tolerante)
 
-## 1. Por que no basta con corregir errores ocasionales
+## 1. Muros Infranqueables Finales
 
-La idea de computacion tolerante a fallos no consiste solo en corregir algunos errores dispersos. Aspira a que el cálculo completo pueda escalar manteniendo control sobre el crecimiento del error.
+Surface Code promete blindaje perpetuo puramente universal a cambio de una tasa desorbitada monstruosa imponente: **Distance and Overhead**. 
+Para lograr un ÚNICO Qubit *Lógico Universal Magico Fault-tolerant*, los ingenieros proyectan hoy sacrificar alrededor de unos ~ $10.000$ Qubits físicos NISQ ruidosos por debajo del Umbral de Tasa de Error Tolerable. Un PC de algoritmos productivos requeriría $1.000 \times 10.000 = 10$ millones de qubits puramente de laboratorio. Estamos a milenios hoy, poseemos prototipos de 1.000 en el mundo.
 
-## 2. Umbral y escalabilidad
-
-La intuición básica es que, si la tasa de error física está por debajo de cierto umbral y la arquitectura de corrección es adecuada, entonces en principio puede construirse una computación lógica cada vez más fiable a costa de más recursos.
-
-## 3. Relación con surface codes
-
-Los surface codes son importantes precisamente porque se estudian como una de las rutas más prometedoras hacia ese régimen tolerante a fallos.
-
-## 4. Papel en el proyecto
-
-Este tema es importante para que el tutorial no termine en la etapa NISQ. Incluso si el desarrollo detallado llega después, conviene dejar claro desde ya que el horizonte del campo no es solo hacer circuitos pequeños, sino construir computación cuántica escalable.
+## 2. Magic States y Compuertas Inmaculadas Non-Clifford
+Si logramos el tejido asimétrico lógico impoluto, hay que poder programarlo lógicamente. Aplicar Compuertas Universales (Por ejemplo, La purificadora Puerta de Fase Lógica T de Clifford) sobre el tejido lógico 2D es un quebradero matemático de topología intrépida (Llamada *Magic State Distillation*) asumiendo un cuello de botella energético termodinámico asimétrico abismal. Esta es la odisea prometida detrás de la revolución de nuestra era: La tolerancia asimétrica absoluta QEC perpetua.
 
 ## Navegacion
 

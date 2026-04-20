@@ -1,57 +1,12 @@
-# Decoherencia, relajacion y markovianidad
+# Relajación, Decoherencia en Baños y Tiempos $T_1 / T_2$ Efectivos
 
-## Prerequisitos
+## 1. Modelos físicos de colapso a Tierra 
+Lidiando con Open Systems, te enfrentarás puramente a tiempos abstractos crudos formales ineludibles ($T_1$ y $T_2$) medibles. Las variables disipadoras de ruido que acompañaban a los tensores sumatorios de la Lección de Lindblad originan y materializan abstractamente esta física experimental observable a simple vista de osciloscopio:
 
-- Canales cuanticos.
-- Fidelidad y ruido.
-- Idea minima de sistemas abiertos.
+1. **Tiempo $T_1$ (Disipación Longitudinal y Enfriamiento):** El tiempo empírico puro que toma el qubit macroscópico oscilador paramétrico antes de "relajarse o calmarse", reseteando y perdiendo el "spin" alto (de cayendo asintóticamente hacia su posición $|0\rangle$). Si corres algoritmos que superan temporalmente al $T_1$, recogerás ruido asimétrico $|0\rangle$ masivamente falseado empírico estocástico vacío en tus diccionarios.
+2. **Tiempo $T_2$ y de-Fase Transversal Termodinámica:** Suele ser el tiempo devastadoramente corto. Si sitúas tus qubits en el ecuador abstracto magnético puramente superpuesto de bloch $(|+\rangle)$, su brida geométrica empírica de giro cuántico empieza termodinámicamente microscópicamente a temblar perdiendo anclajes (Decoherencia y Defasing Puro). Su memoria coherencial es pisoteada por campos magnéticos microscópicos borrando los parámetros valiosísimos de Ángulo de Superposición $\phi$.
 
-## Objetivos
-
-- distinguir decoherencia y relajacion;
-- introducir la intuicion de markovianidad;
-- conectar estas ideas con hardware y caracterizacion.
-
-## 1. Decoherencia frente a relajacion
-
-Aunque a veces se mezclan en una misma intuicion informal, no son exactamente lo mismo.
-
-- la decoherencia se relaciona con la perdida de fase y de capacidad de interferencia;
-- la relajacion se asocia mas directamente al intercambio de energia con el entorno.
-
-## 2. Markovianidad
-
-En un nivel introductorio, la palabra `markoviano` sugiere que la evolucion efectiva no retiene memoria detallada del pasado del sistema. No hace falta formalizarlo demasiado aqui, pero si conviene dejar clara la intuicion: algunos modelos efectivos suponen memoria corta o despreciable del entorno.
-
-## 3. Por que importa
-
-Estas ideas importan porque ayudan a interpretar mejor:
-
-- tiempos caracteristicos del hardware;
-- modelos efectivos de ruido;
-- limites de ciertos esquemas de mitigacion;
-- y diferencias entre idealizacion teorica y dispositivo real.
-
-Tambien ayudan a leer con mas madurez conceptos que aparecen mucho en hardware cuantico, como tiempos caracteristicos, deterioro progresivo del estado y diferencias entre perdida de poblacion y perdida de coherencia.
-
-## 4. Errores comunes
-
-- usar decoherencia y relajacion como sinonimos perfectos;
-- pensar que toda dinamica abierta tiene memoria irrelevante;
-- olvidar que el modelo efectivo elegido ya incorpora hipotesis fisicas.
-
-## 5. Ejercicios sugeridos
-
-1. Explica una diferencia intuitiva entre decoherencia y relajacion.
-2. Relaciona markovianidad con la idea de memoria del entorno.
-3. Describe por que este bloque ayuda a interpretar mejor el hardware cuantico.
-
-## 6. Material asociado
-
-- Cuaderno: [32_open_systems_intuicion.ipynb](../../Cuadernos/ejemplos/32_open_systems_intuicion.ipynb)
-- Cuaderno: [31_fidelidad_antes_y_despues_de_ruido.ipynb](../../Cuadernos/ejemplos/31_fidelidad_antes_y_despues_de_ruido.ipynb)
-- Cuaderno: [33_shots_y_estadistica_de_medicion.ipynb](../../Cuadernos/ejemplos/33_shots_y_estadistica_de_medicion.ipynb)
-- Laboratorio: [15_noise_vs_fidelity_guiada.ipynb](../../Cuadernos/laboratorios/15_noise_vs_fidelity_guiada.ipynb)
+Conociendo este marco paramétrico de los Baños Termodinámicos Abiertos Markoviaranos, ya entiendes a la perfección contra qué fuerzas monstruosas deben pelar el Firmware, el Compilador V2 dinámico y los Mapas Formales Topológicos (Surface Codes Redudantes).
 
 ## Navegacion
 

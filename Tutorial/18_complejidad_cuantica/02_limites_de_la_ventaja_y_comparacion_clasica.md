@@ -1,47 +1,12 @@
-# Limites de la ventaja y comparacion clasica
+# Límites ineludibles y Desmentidas Físicas P vs BQP vs NP
 
-## 1. La comparacion correcta es dificil
+## 1. La Decepción y Los Límites Inalcanzables (NP-Complete)
 
-Una afirmacion sobre ventaja cuantica solo tiene sentido si la comparacion con lo clasico es honesta. Eso exige preguntar:
+Hasta la fecha matemáticamente rigurosa moderna, nada en absoluto, absolutamente nada dentro de los postulados fundamentales del álgebra lineal subyacente cuántica prueba o garantiza formalmente que BQP (Computadora Cuántica) sea capaz universalmente de resolver y devorar a la monstruosa familia computacional NP-Complete (Problema Exponencial Estricto abstracto TSP exacto y Viajante de Comercio masivo).
 
-- cual es el mejor algoritmo clasico conocido?;
-- en que regimen de tamaño estamos?;
-- que recursos fisicos estamos ignorando?;
-- y si la comparacion usa simulacion ideal o hardware real?
+El Hardware Cuántico (al menos ejecutando Grover Oracular) provee un Speed-Up Cuadrático de búsqueda, permitiendo revisar en Raíz Cuadrada $\sqrt{N}$ en vez de coste asintótico lineal total $N$. Reducir de $N$ a $\sqrt{N}$ puede bajar el tiempo analítico estricto del universo de resolver una red logística colosal de "Milenios de Edad del Universo Clásico" a un par de simples "Siglos Cuánticos", y no obstante **Cien siglos sigue siendo un problema inoperante NP inasimilable comercialmente**. 
 
-## 2. No toda ventaja teorica es ventaja practica
-
-Puede existir una separacion teorica muy interesante y, sin embargo, no traducirse de inmediato en utilidad aplicada. Las razones son conocidas:
-
-- profundidad de circuito demasiado grande;
-- ruido acumulado;
-- necesidades de correccion de errores;
-- o mejoras clasicas posteriores que reducen la aparente ventaja.
-
-## 3. Por que este modulo es importante
-
-Este tutorial ya incluye un bloque de realismo sobre el campo. La complejidad computacional permite darle una base algo mas disciplinada a ese realismo. La pregunta deja de ser “el algoritmo es bonito?” para pasar a ser “que gana realmente frente al mejor competidor clasico?”
-
-## 4. Conexion con el resto del curso
-
-Este bloque se apoya en:
-
-- algoritmos cuanticos;
-- ruido y hardware;
-- medicion y estimacion;
-- y limites actuales del campo.
-
-## 5. Ejercicios sugeridos
-
-1. Explica por que una demostracion de speedup con oraculos no implica automaticamente una ventaja practica general.
-2. Da dos razones por las que una ventaja teorica puede no verse en hardware NISQ.
-3. Relaciona este bloque con el modulo de limites actuales y realismo.
-
-## 6. Material asociado
-
-- Cuaderno: [28_complejidad_y_bqp_intuicion.ipynb](../../Cuadernos/ejemplos/28_complejidad_y_bqp_intuicion.ipynb)
-- Resumen: [08_complejidad_y_tomografia.md](../../Resumenes/08_complejidad_y_tomografia.md)
-- Articulo relacionado: [Que puede y que no puede hacer la computacion cuantica hoy](../13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+Es de crucial entendimiento ético y riguroso asimilar que NISQ, QPU y la Qiskit no suponen ni prometen "acabar con las esperas informáticas", prometen destronar exclusivamente e inyectar inmensa tracción a sectores matemáticos periódicos (Shor para Claves RSA y Logaritmos Discretos), optimizadores heurísticos asimétricos acotados (QAOA), y simuladores subatómicos puros orbitales de química covalente donde BQP excede exponencial y catastróficamente al silicio transistorizado (BQP > BPP).
 
 ## Navegacion
 

@@ -1,22 +1,11 @@
-# Realismo sobre ventaja cuantica
+# Realismo Sobre Ventaja Cuántica
 
-## 1. Que significa ventaja cuantica
+## 1. El concepto abstracto del SpeedUp
+Se considera la corona final del Hito Científico lograr "Quantum Advantage": El punto de ebullición experimental donde tu Hardware Cuántico resuelve una tarea real, formal e intrincada en $30$ minutos que, programado superpuesto algorítmicamente y simétricamente para el mayor Superordenador Top 500 IBM Summit clásico del mundo consumiera 10.000 Años. 
 
-Hablar de ventaja cuantica exige mucho cuidado. No basta con que un circuito cuantico sea elegante o dificil de simular en ejemplos pequeños. Hace falta identificar tareas, recursos, comparaciones y condiciones experimentales concretas.
-
-## 2. Preguntas necesarias
-
-Para hablar con rigor de ventaja cuantica conviene preguntar:
-
-- ventaja frente a que mejor algoritmo clasico conocido?;
-- en que regimen de tamaño?;
-- con que coste de error?;
-- con que supuestos sobre acceso al problema?;
-- sobre simulacion ideal o sobre hardware real?;
-
-## 3. Valor de este modulo
-
-Este bloque ayuda a que el proyecto mantenga credibilidad y madurez. La computacion cuantica es un campo fascinante precisamente porque su promesa es grande, pero no trivial ni inmediata.
+## 2. Google Sycamore y IBM Eagle
+En 2019 se reportó el primer cruce asintótico. Un problema puramente inútil heurísticamente en el vacío ("Muestrear estadísticamente outputs de un circuito azaroso ruidoso y comprobar su varianza cruzada"). Demostró por fin el quiebre de Supremacía.
+Pocos años después, IBM asestó un golpe con "Eagle" aplicando *Zero Noise Extrapolation* (ZNE), prometiendo utilidad (Utility) al medir variables energéticas espines más allá del límite de simulación en ram clásica, pero a costa de ingestas colosales térmicas y procesamiento de post-medición pesado.
 
 ## Navegacion
 

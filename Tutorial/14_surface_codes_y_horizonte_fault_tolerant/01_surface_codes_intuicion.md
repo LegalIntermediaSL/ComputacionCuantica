@@ -1,25 +1,14 @@
-# Surface codes: intuicion
+# Arquitecturas Surface Codes: Intuición Topológica
 
-## 1. Por que aparecen tan a menudo
+## 1. El escape al caos de Kraus
 
-Cuando la conversacion sobre correccion de errores cuanticos se vuelve seria, los surface codes aparecen de inmediato. No es casualidad: representan una de las rutas mas estudiadas para construir computacion cuantica tolerante a fallos.
+Para blindar la decoherencia (estudiada en repetición de caja negra simple del lote original), la redundancia lineal es insuficiente. Nace un ingenio geométrico abstracto formidable introducido fundamentalmente teóricamente por Alexei Kitaev **Los Surface Codes**.
+En lugar de clonar el estado lógicamente en arreglos de fila unaria, ordenamos a los Qubits en **Placas Bidimensionales Entramadas Intercaladas Topológicamente**.
 
-## 2. Intuicion general
-
-La idea central es distribuir la informacion logica en una estructura mas amplia de qubits fisicos y usar medidas de sindrome locales para detectar errores sin leer destructivamente el estado logico.
-
-## 3. Por que son importantes en el proyecto
-
-No hace falta desarrollar todos los detalles tecnicos de inmediato, pero si conviene introducirlos como horizonte natural despues de:
-
-- ruido;
-- mitigacion;
-- qubit logico;
-- codigo de Shor.
-
-## 4. Valor pedagogico
-
-Mencionar surface codes ayuda a que el lector entienda que la correccion de errores no termina en ejemplos historicos pequeños, sino que desemboca en una agenda actual de escalabilidad real.
+## 2. Síndromes entre-cruzados X y Z
+En el Lattice Topológico, los Data-Qubits residen en los enlaces o vértices, mientras que los Qubits Ancilares de Medición ocupan celdas colindantes "En Patrón Tablero de Ajedrez". 
+Mitad del tablero mide paridad abstractamente usando Cautelosos entrelazadores CNOT que evalúan el bit-flip $X$. La otra mitad mide con entrelazadores evaluadores $Z$.
+Si un rayo cósmico golpea el panel, los Ancilares (Al ser constantemente y reiterativamente evaluados sin cesar en un reloj continuo de Measurement), se incendian con el valor defectuoso 1 formando cordones. Computadoras clásicas anexas deben cruzar o leer esta alerta y reponer los flujos para "enfriar de vuelta" o sanar el parche dañado temporal asimétrico.
 
 ## Navegacion
 

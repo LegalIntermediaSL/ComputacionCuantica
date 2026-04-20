@@ -1,47 +1,21 @@
-# Algoritmos cuanticos introductorios
+# Algoritmos Cuánticos: La Intuición del Paralelismo de Fase
 
-## 1. Que significa algoritmo cuantico
+## 1. ¿Qué es un Algoritmo Cuántico?
+No es simplemente "hacer muchas cosas a la vez". Un algoritmo cuántico es una coreografía de **interferencias destructivas y constructivas**. El objetivo es que las amplitudes de probabilidad de los resultados incorrectos se anulen entre sí, mientras que la del resultado correcto se refuerce antes de la medición.
 
-Un algoritmo cuantico es un procedimiento que organiza la preparacion, evolucion y medicion de un sistema cuantico para resolver una tarea computacional. No cualquier circuito interesante constituye ya una ventaja cuantica, pero muchos algoritmos famosos muestran como aprovechar superposicion, interferencia y entrelazamiento de forma sistematica.
+## 2. La Estructura de "Sándwich"
+Casi todos los algoritmos cuánticos siguen un patrón similar:
+1. **Inicialización:** Todos los qubits a $|0\rangle$.
+2. **Superposición Uniforme:** Una capa de puertas Hadamard ($H$) para explorar todas las posibilidades.
+3. **Oráculo / Transformación:** Una operación controlada que marca o modifica los estados de interés basándose en el problema.
+4. **Interferencia / Amplificación:** Una subrutina (como la Difusión en Grover o la QFT) para concentrar la probabilidad.
+5. **Medición:** Colapso del sistema para extraer la respuesta clásica.
 
-## 2. La idea general
+## 3. Ventaja Exponencial vs Cuadrática
+- **Algoritmos Estructurales (Shor, Phase Estimation):** Explotan la estructura matemática periódica del problema para obtener una ventaja exponencial.
+- **Algoritmos de Búsqueda (Grover):** No requieren estructura previa y ofrecen una ventaja cuadrática universal.
 
-Muchos algoritmos cuanticos siguen un esquema reconocible:
-
-1. preparar un estado inicial sencillo;
-2. crear superposicion;
-3. aplicar una transformacion que codifica el problema;
-4. usar interferencia para reforzar respuestas correctas;
-5. medir en una base adecuada.
-
-La potencia del algoritmo no reside en "probar todas las posibilidades a la vez" de manera ingenua, sino en diseñar una interferencia util.
-
-## 3. Deutsch-Jozsa como ejemplo conceptual
-
-El algoritmo de Deutsch-Jozsa es uno de los primeros ejemplos didacticos porque muestra una separacion clara entre enfoque clasico y cuantico en un problema idealizado. Su importancia es mas pedagogica que practica, pero enseña muy bien como la interferencia puede codificar informacion global sobre una funcion.
-
-## 4. Grover como idea de amplificacion
-
-El algoritmo de Grover introduce otra intuicion central: la amplificacion de amplitud. En lugar de enumerar resultados uno por uno, el circuito redistribuye amplitudes para aumentar la probabilidad de medir una respuesta buscada.
-
-Este algoritmo es especialmente importante porque enseña una pauta recurrente: la ventaja cuantica puede surgir de manipular inteligentemente el espacio de estados, no solo de paralelismo ingenuo.
-
-## 5. Que debe aprenderse en una primera etapa
-
-Antes de entrar en demostraciones completas, conviene que el lector entienda:
-
-- donde aparece la superposicion;
-- donde interviene la fase;
-- como actua la interferencia;
-- por que la medicion final no revela todo el estado;
-- que significa que un algoritmo cuantico sea probabilistico.
-
-## 6. Ideas clave
-
-- Un algoritmo cuantico es un circuito diseñado para explotar recursos cuanticos.
-- La interferencia es mas importante que la intuicion simplista de "calcular todo a la vez".
-- Deutsch-Jozsa y Grover son excelentes puertas de entrada pedagogica.
-- La ejecucion cuantica suele producir distribuciones de salida, no respuestas deterministas en una sola corrida.
+Entender esta distinción es clave para evaluar qué problemas pueden beneficiarse realmente de la computación cuántica y cuáles seguirán siendo dominio de los superordenadores clásicos.
 
 ## Navegacion
 

@@ -1,63 +1,19 @@
-# Canales cuanticos: intuicion y representacion
+# Canales Cuánticos y Matrices Densidad Impuras
 
-## 1. Por que hace falta un lenguaje mas rico
+## 1. Perdiendo pureza
 
-Cuando se trabaja solo con estados puros y evoluciones unitarias, la imagen de la computacion cuantica es demasiado ideal. En cuanto aparece ruido, perdida de informacion o interaccion con un entorno, necesitamos una descripcion mas general.
+Hasta llegar al conocimiento avanzado, la mayoría de libros enseñan la física de qubits aislados asumiendo inocentemente transformaciones rígidamente Unitarias Puras $\rho_{new} = U \rho U^{\dagger}$. 
+Aquí entra el balde de agua helada y sucia para el físico aplicado: El estado nunca fluye de forma cerrada aisladamente, siempre sufre injerencias asimétricas abstractamente entrópicas irreversibles perdiendo memoria de amplitud hacia el mundo externo clásico ruidoso.
 
-Ese lenguaje lo proporcionan los canales cuanticos.
+Para lidiar formalmente con transformaciones imperfectas no unitarias puras, interponemos los denominados **Canales Cuánticos Abstractos $\mathcal{E}$**.  
+Una manera intuitiva unificada y profunda de estudiar matemática y estadísticamente el Canal General que asfixia al qubit es valerse puramente matricialmente bajo el formalismo sumatorio C.P.T.P. "Mapas completamente positivos trazivos"  o lo que hoy denominas simplemente usando **Los operadores asimétricos discretos subyacentes de Kraus**.
 
-## 2. De evolucion unitaria a transformacion efectiva
+## 2. Despliegue de Ruido vía Operadores Formadores Kraus
+Un canal de ruido $\mathcal{E}(\rho)$ se compila matemáticamente separando cada error posible discreto subyacente asignándole matrices independientes $\{K_i\}$, forzando y garantizando que la probabilidad absoluta de sumatorias combinatorias sean 1 ($\sum K_i^\dagger K_i = I$).
 
-Una evolucion unitaria transforma un estado como
-
-$$
-\rho \mapsto U \rho U^\dagger.
-$$
-
-Pero un canal cuantico permite describir procesos mas generales donde el sistema no esta aislado. Desde un punto de vista introductorio, puede pensarse como una regla fisicamente valida que lleva estados cuanticos a otros estados cuanticos.
-
-## 3. Por que aparecen estados mixtos
-
-En presencia de ruido o de subsistemas no observados, la descripcion por vectores de estado deja de ser suficiente. Por eso los canales cuanticos se expresan de forma natural actuando sobre matrices de densidad:
-
-$$
-\rho \mapsto \mathcal{E}(\rho).
-$$
-
-Ese cambio de perspectiva es muy importante: ya no seguimos solo amplitudes, sino tambien mezcla, perdida de coherencia y efectos efectivos del entorno.
-
-## 4. Propiedades esenciales
-
-Sin entrar aun en toda la teoria formal, un canal cuantico debe preservar lo que hace fisicamente interpretable al estado:
-
-- positividad;
-- traza;
-- consistencia al extender el sistema.
-
-En un curso introductorio no hace falta demostrarlo todo, pero si conviene dejar claro que no cualquier transformacion lineal sirve.
-
-## 5. Valor dentro del proyecto
-
-Este modulo conecta de forma muy natural con:
-
-- matrices de densidad;
-- decoherencia;
-- noise models;
-- mitigacion de errores;
-- y simulacion mas realista en Qiskit.
-
-## 6. Ejercicios sugeridos
-
-1. Explica por que una evolucion unitaria ideal no basta para describir un sistema abierto.
-2. Relaciona la necesidad de canales cuanticos con la aparicion de estados mixtos.
-3. Describe un ejemplo intuitivo de proceso ruidoso que no pueda verse como una unica unitaria sobre el sistema aislado.
-
-## 7. Material asociado
-
-- Cuaderno: [14_densitymatrix_y_estado_mixto.ipynb](../../Cuadernos/ejemplos/14_densitymatrix_y_estado_mixto.ipynb)
-- Cuaderno: [25_canales_de_ruido_y_kraus.ipynb](../../Cuadernos/ejemplos/25_canales_de_ruido_y_kraus.ipynb)
-- Articulo relacionado: [Matrices de densidad y estados mixtos](../08_informacion_cuantica/01_matrices_de_densidad_y_estados_mixtos.md)
-- Articulo relacionado: [Decoherencia y ruido](../06_ruido_y_hardware/01_decoherencia_y_ruido.md)
+El estado sufre la evolución ruidosa asimétricamente sumando combinando todas las ramas:
+$$ \mathcal{E}(\rho) = K_0 \rho K_0^{\dagger} + K_1 \rho K_1^{\dagger} + \dots $$
+Donde $K_0$ podría significar "que no ocurriera accidente termodinámico", y $K_1$ el salto indeseado "Bit-Flip cruzado de rayos cósmicos". 
 
 ## Navegacion
 

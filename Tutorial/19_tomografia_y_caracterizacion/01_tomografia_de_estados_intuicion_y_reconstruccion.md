@@ -1,59 +1,19 @@
-# Tomografia de estados: intuicion y reconstruccion
+# Tomografía de Estados Cuántica (Reconstruyendo Matrix Densities Asimétricas)
 
-## Prerequisitos
+## 1. Operar a ciegas
 
-- Esfera de Bloch.
-- Medicion en distintas bases.
-- Matrices de densidad.
+Imaginemos que diseñas y ensamblas en laboratorio un condensador experimental y quieres verificar si ha sintetizado en las entrañas el frágil estado perfecto entrelazado acoplado Puro de Campana Bell $| \Phi^+ \rangle$. 
+Si mides y pasas un tester crudo tradicional, obtienes $00$ o $11$. ¿Significa que de subyacente, había entrelazamiento real asimétrico? NO necesariamente. Tu laboratorio podría estar escupiendo puramente "Estados Clásicos Entroposos Totalmente Mezclados" $\frac{1}{2}|00\rangle\langle00| + \frac{1}{2}|11\rangle\langle11|$ (Simples Monedas al Aire, engañando a las cámaras falsificando estadísticas análogas pero careciendo fundamentalmente puramente de Coherencia Cuántica Mágica Crossover Phase).
 
-## Objetivos
+Para certificar visualmente experimental a rigor la naturaleza inescrutable y los elementos inestables orgánicos abstractos matriciales off-diagonal (Las Frecuencias de Superposición $\rho_{01}$), debemos utilizar y ejecutar a la fuerza la denominada **Quantum State Tomography (QST)**.
 
-- entender por que la reconstruccion exige muchas mediciones;
-- conectar tomografia con descripcion por matrices de densidad;
-- situar la caracterizacion experimental dentro del curso.
+## 2. Reconstrucción tridimensional proyectiva
+La QST asume lo siguiente: Como es prohibido físicamente usar magia para observar las fases inescrutables asimétricas puras en Z (El Measurement clava tu onda y borra trazas termodinámicas), vas a sintetizar estadísticamente y rigurosamente en hardware tu mismo estado unas $100.000$ veces y a aplicar sistemáticamente un test distinto midiendo todos los vértices magnéticos independientes de tu Esfera. 
+- Mides una partida asimétrica proyectando en el eje Z de Pauli.
+- Rotas y mides una segunda partida en X de Pauli.
+- Rotas y mides una última en Y de Pauli.
 
-## 1. El problema de partida
-
-No podemos “abrir” un estado cuantico y leer directamente toda su informacion interna en una sola medicion. Por eso, si queremos caracterizar un estado preparado en el laboratorio, debemos repetir el experimento muchas veces y medir en distintas bases.
-
-Esa es la idea basica de la tomografia de estados.
-
-## 2. Intuicion operativa
-
-La tomografia no recupera amplitudes magicamente de una sola ejecucion. Lo que hace es combinar estadisticas de medicion obtenidas desde varias perspectivas para reconstruir una descripcion compatible del estado.
-
-En un qubit, esto se relaciona muy bien con la esfera de Bloch: estimar componentes asociadas a $X$, $Y$ y $Z$ ya nos acerca a reconstruir el estado.
-
-## 3. Relacion con matrices de densidad
-
-La formulacion natural de la tomografia usa matrices de densidad. Esto es importante porque permite tratar:
-
-- estados puros;
-- estados mixtos;
-- ruido experimental;
-- e informacion parcial.
-
-## 4. Por que este bloque es valioso
-
-La tomografia ayuda a que el tutorial no solo enseñe a preparar circuitos, sino tambien a pensar como se verifica y se caracteriza lo que un dispositivo realmente produce.
-
-## 5. Errores comunes
-
-- creer que una sola base de medida basta para reconstruir un estado general;
-- confundir estadistica de medicion con acceso directo al vector de estado;
-- olvidar el papel natural de las matrices de densidad.
-
-## 6. Ejercicios sugeridos
-
-1. Explica por que una sola base de medida no basta para reconstruir un estado general de un qubit.
-2. Relaciona tomografia de estados con la esfera de Bloch.
-3. Indica por que la formulacion con matrices de densidad es natural en este contexto.
-
-## 7. Material asociado
-
-- Cuaderno: [29_tomografia_estado_intuicion.ipynb](../../Cuadernos/ejemplos/29_tomografia_estado_intuicion.ipynb)
-- Laboratorio: [14_densitymatrix_ruido_y_tomografia_guiada.ipynb](../../Cuadernos/laboratorios/14_densitymatrix_ruido_y_tomografia_guiada.ipynb)
-- Resumen: [08_complejidad_y_tomografia.md](../../Resumenes/08_complejidad_y_tomografia.md)
+Cruzando esos estadísticos independientes formidables de observadores entrelazados asimétricos puedes, matemáticamente invirtiendo el MLE (Maximum Likelihood Estimation), regenerar y pintar desde fuera **Toda La Matriz de Densidad Orgánica $\rho$**. Verás físicamente en el ordenador la mancha ruidosa empírica o la Coherencia pura incólume perfecta sin fallos. QST es pesado empíricamente algorítmicamente y escala $\sim m^{2^n}$; para chips de 10 o 50 qubits QST explota asfixiándose, requiriendo algoritmos de mitigación (Randomized Benchmarking).
 
 ## Navegacion
 

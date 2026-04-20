@@ -1,63 +1,15 @@
-# Fidelidad y caracterizacion operacional
+# Fidelidad y Benchmarking en Dispositivos Multi-Qubit
 
-## Prerequisitos
+## 1. Fidelidad Operacional Empírica $\mathcal{F}$
 
-- Matrices de densidad.
-- Ruido y canales cuanticos.
-- Idea general de tomografia.
+Al usar QST vimos y regeneramos nuestra Matrix experimental $\rho_{exp}$. Si conocíamos abstractamente de antemano el "Planetoide Teórico Ideal Inmaculado" $| \psi_{ideal}\rangle$, evaluaremos mediante la métrica formal subyacente $\mathcal{F}$ el "Grado Absoluto Termodinámico Estocástico de Parecido":
+$$ \mathcal{F} = \langle \psi_{ideal} | \rho_{exp} | \psi_{ideal} \rangle $$
 
-## Objetivos
+- Resultar un $1.0$ significaría haber domado termodinámicamente a la entropía absoluta y programado el algoritmo NISQ de manera intachable insuperable.
+- En la vida real y experimental cruda, tu hardware QPU arrebatará impurezas (debido a Kraus y T1). Fidelidades empíricas VQE puras con 4 Qubits en IBM suelen decaer y situarse experimentalmente orgánicas por el umbral rascando apenas $0.65$ sin mitigación empírica. 
 
-- comprender por que la fidelidad es una metrica central;
-- conectar caracterizacion con hardware real y ruido;
-- enlazar teoria de estados con validacion experimental.
-
-## 1. Por que necesitamos metricas
-
-Una vez que intentamos reconstruir o estimar un estado, surge enseguida otra pregunta: cuan cerca esta ese estado del objetivo ideal que queriamos preparar?
-
-Ahí aparece la fidelidad como una de las medidas mas usadas.
-
-## 2. Idea general de fidelidad
-
-Sin entrar en todas las variantes tecnicas, la fidelidad expresa cercania entre descripciones cuanticas. Pedagogicamente, su papel es claro:
-
-- cuantificar calidad de preparacion;
-- comparar salida ideal y salida real;
-- y dar una medida interpretable del deterioro por ruido.
-
-## 3. Caracterizacion y hardware
-
-La fidelidad no vive aislada del resto del tutorial. Se conecta con:
-
-- tomografia;
-- ruido y canales;
-- mitigacion de errores;
-- y evaluacion realista de circuitos y dispositivos.
-
-## 4. Valor para el lector
-
-Este bloque ayuda a cambiar de mentalidad. No solo importa escribir un circuito correcto en papel. Tambien importa saber como evaluar si lo que se implementa sigue pareciendose a la intencion original.
-
-## 5. Errores comunes
-
-- pensar que un circuito bien definido garantiza automaticamente un estado bien preparado;
-- usar la palabra fidelidad sin relacionarla con una comparacion concreta;
-- separar demasiado la teoria de estados de la evaluacion experimental.
-
-## 6. Ejercicios sugeridos
-
-1. Explica por que la fidelidad es relevante aunque el circuito ideal este perfectamente definido.
-2. Relaciona fidelidad con ruido y con desviaciones respecto al estado objetivo.
-3. Describe por que tomografia y fidelidad forman una pareja natural.
-
-## 7. Material asociado
-
-- Cuaderno: [29_tomografia_estado_intuicion.ipynb](../../Cuadernos/ejemplos/29_tomografia_estado_intuicion.ipynb)
-- Cuaderno: [31_fidelidad_antes_y_despues_de_ruido.ipynb](../../Cuadernos/ejemplos/31_fidelidad_antes_y_despues_de_ruido.ipynb)
-- Laboratorio: [14_densitymatrix_ruido_y_tomografia_guiada.ipynb](../../Cuadernos/laboratorios/14_densitymatrix_ruido_y_tomografia_guiada.ipynb)
-- Laboratorio: [15_noise_vs_fidelity_guiada.ipynb](../../Cuadernos/laboratorios/15_noise_vs_fidelity_guiada.ipynb)
-- Articulo relacionado: [Mitigacion de errores y fidelidad](../06_ruido_y_hardware/02_mitigacion_errores_y_fidelidad.md)
+## 2. Abriendo paso a Quantum Error Correction
+Observando el declive de la fidelidad ante los cruces masivos unitarios de CNOT entrelazantes, se visibiliza rotundamente irrebatible por qué se propugna férreamente abrazar fuertemente a Surface Codes para mitigar el caos termodinámico absoluto orgánico escalar, sellando la protección algorítmica lógica abstracta hermética. 
 
 ## Navegacion
 

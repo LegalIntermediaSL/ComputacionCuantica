@@ -1,77 +1,15 @@
-# BQP, oraculos y speedup
+# Complejidad: El dominio P, NP y BQP
 
-## Prerequisitos
+## 1. Mapeando el poder del universo cuántico
 
-- Algoritmos cuanticos introductorios.
-- Idea basica de oraculo.
-- Diferencia entre coste y numero de pasos.
+Durante lustros periodísticos hiperbólicos se repite incesantemente que "El procesador Cuántico procesa todas las soluciones informáticas a la vez simultáneamente al mismo tiempo". Esta aseveración es una gravísima y peligrosa malinterpretación técnica del paralelismo subyacente. 
+Si eso fuese matemáticamente real, toda contraseña civil del planeta y todos los problemas absolutos de Logística NP-Hard se desintegrarían instantáneamente en un único pulso en O(1). 
 
-## Objetivos
+Para situar las barreras estrictas puras analíticas que pueden ser sobrepasadas, los computólogos crearon **La clase BQP (Bounded-Error Quantum Polynomial Time)**. Esta etiqueta engloba cualquier dilema algorítmico que un procesador de puertas Qubitales es matemáticamente capaz de asimilar, romper escalarmente, y acertar con probabilidad de acierto $\geq 2/3$ utilizando recursos temporales manejables Polinómicos.
 
-- entender por que la ventaja cuantica se formula en terminos de problemas y recursos;
-- introducir la intuicion minima de BQP;
-- conectar algoritmos vistos con modelos de consulta y speedup.
-
-## 1. Por que hace falta hablar de complejidad
-
-A medida que el tutorial crece, ya no basta con mostrar circuitos elegantes o algoritmos llamativos. Tambien hace falta responder una pregunta mas exigente: cuando decimos que la computacion cuantica puede ofrecer una ventaja, de que tipo de ventaja estamos hablando exactamente?
-
-Esa pregunta pertenece al terreno de la complejidad computacional.
-
-## 2. La idea de BQP
-
-Una de las clases de complejidad mas citadas en computacion cuantica es `BQP`, abreviatura de `Bounded-Error Quantum Polynomial Time`.
-
-La intuicion minima que necesitamos aqui es:
-
-- recoge problemas resolubles eficientemente por un computador cuantico;
-- permite una probabilidad de error acotada;
-- y sirve como referencia para comparar el modelo cuantico con modelos clasicos.
-
-No hace falta convertir este tutorial en un curso formal de complejidad para captar la idea central: una promesa seria de ventaja debe hablar de familias de problemas, escalado y recursos.
-
-## 3. Oraculos y consultas
-
-En muchos algoritmos introductorios, como Deutsch-Jozsa o Bernstein-Vazirani, aparece la idea de un oraculo. Pedagogicamente, un oraculo puede verse como una caja negra que implementa cierta funcion y a la que preguntamos informacion de forma estructurada.
-
-Eso es importante porque muchos speedups cuanticos se entienden inicialmente en el llamado modelo de consultas:
-
-- cuantas veces debemos acceder al oraculo?;
-- que estructura puede explotar el algoritmo?;
-- y como se compara ese coste con el mejor enfoque clasico conocido?
-
-## 4. Que significa speedup
-
-La palabra `speedup` suele usarse demasiado rapido. Conviene distinguir:
-
-- mejora constante o leve;
-- mejora polinomica;
-- mejora exponencial;
-- y superioridad solo en modelos muy restringidos.
-
-No todo resultado llamativo equivale a una ventaja cuantica robusta en el sentido mas fuerte.
-
-## 5. Valor dentro del proyecto
-
-Este bloque ayuda a poner en contexto los algoritmos ya vistos. No basta con conocer Grover o la QFT: tambien hay que entender bajo que criterio se consideran interesantes.
-
-## 6. Errores comunes
-
-- llamar ventaja cuantica a cualquier resultado llamativo;
-- olvidar que el modelo de comparacion importa;
-- pensar que una separacion en modelo de consultas resuelve por si sola la utilidad practica.
-
-## 7. Ejercicios sugeridos
-
-1. Explica con tus palabras por que no basta con que un circuito sea dificil de entender para hablar de ventaja cuantica.
-2. Relaciona la idea de oraculo con Deutsch-Jozsa y Bernstein-Vazirani.
-3. Distingue entre mejora polinomica y mejora exponencial.
-
-## 8. Material asociado
-
-- Cuaderno: [28_complejidad_y_bqp_intuicion.ipynb](../../Cuadernos/ejemplos/28_complejidad_y_bqp_intuicion.ipynb)
-- Resumen: [08_complejidad_y_tomografia.md](../../Resumenes/08_complejidad_y_tomografia.md)
-- Articulo relacionado: [Realismo sobre ventaja cuantica](../13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+## 2. Oráculos Mágicos: Dónde ocurre el milagro (Speedup)
+Groover y Deutsch probaron de forma majestuosa fundacional rotunda que BQP vence asimétricamente aplastando y ridiculizando ciertas estructuras matemáticas rígidas de Informática Clásica (P).
+¿Por qué? Porque un computador clásico empareja un input a un output secuencial. Mientras tanto un computador Cúantico es apto genéticamente para acoplar fases negativas $(-)$ a las superposiciones. Su poder no recae en resolver todo a la vez simultáneamente, radica enteramente en modelar laberintos matemáticos tales donde **"Las respuestas erróneas se auto-cancelen y auto-destruyan interferométricamente (Anulación de Ondas Físicas) en el silencio oscuro, y únicamente la configuración exacta correcta experimente interferencia constructiva asomándose como única ganadora empírica medible."**
 
 ## Navegacion
 

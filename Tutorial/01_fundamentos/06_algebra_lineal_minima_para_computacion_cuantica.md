@@ -1,89 +1,21 @@
-# Algebra lineal minima para computacion cuantica
+# Álgebra Lineal Mínima para Computación Cuántica
 
-## 1. Por que hace falta algebra lineal
+## 1. El Espacio de Hilbert
+La computación cuántica no ocurre en cables eléctricos, sino en un espacio vectorial complejo con producto interno llamado **Espacio de Hilbert**. Para un sistema de $n$ qubits, este espacio tiene una dimensión monumental de $2^n$.
 
-La computacion cuantica se formula de manera natural en lenguaje de espacios vectoriales complejos, matrices y productos tensoriales. Por eso incluso un tutorial muy aplicado necesita una capa minima de algebra lineal.
+## 2. Vectores de Estado (Kets) y Dualismo (Bras)
+Usamos la notación de Dirac (Bra-Ket) para representar los estados:
+- **Ket $| \psi \rangle$:** Un vector columna que representa el estado del sistema.
+- **Bra $\langle \psi |$:** El vector fila conjugado traspuesto.
+- **Producto Interno $\langle \phi | \psi \rangle$:** Nos da la amplitud de probabilidad (un número complejo).
+- **Producto Externo $| \psi \rangle \langle \phi |$:** Da como resultado una matriz (un operador).
 
-No se trata de convertir el proyecto en un curso abstracto de matematicas. Se trata de introducir exactamente las herramientas que vuelven inteligibles los circuitos cuanticos.
+## 3. Operadores Unitarios y Hermíticos
+Las puertas cuánticas se representan mediante **Matrices Unitarias** ($U^\dagger U = I$). Esto garantiza que la evolución sea reversible y que la probabilidad total ($||\psi||^2$) siempre sea 1.
+Los observables (las cosas que podemos medir, como la energía) se representan mediante **Matrices Hermíticas** ($H^\dagger = H$), lo que asegura que sus valores propios (los resultados de la medición) sean números reales.
 
-## 2. Vectores y estados
-
-Un estado cuantico puro se representa como un vector normalizado en un espacio de Hilbert. Para un qubit, usamos vectores complejos de dos componentes:
-
-$$
-|\psi\rangle =
-\begin{pmatrix}
-\alpha \\
-\beta
-\end{pmatrix}.
-$$
-
-La normalizacion exige
-
-$$
-\langle \psi | \psi \rangle = 1.
-$$
-
-## 3. Producto interno
-
-El producto interno entre dos estados $|\phi\rangle$ y $|\psi\rangle$ se denota por
-
-$$
-\langle \phi | \psi \rangle.
-$$
-
-Este objeto permite:
-
-- calcular normas;
-- medir solapamiento entre estados;
-- construir probabilidades de transicion.
-
-## 4. Matrices y operadores
-
-Las puertas cuanticas se describen mediante matrices unitarias. Por ejemplo,
-
-$$
-X =
-\begin{pmatrix}
-0 & 1 \\
-1 & 0
-\end{pmatrix}
-$$
-
-y
-
-$$
-H = \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-1 & 1 \\
-1 & -1
-\end{pmatrix}.
-$$
-
-Aplicar una puerta es simplemente multiplicar la matriz por el vector de estado.
-
-## 5. Producto tensorial
-
-Cuando combinamos sistemas cuanticos, no sumamos dimensiones: tomamos productos tensoriales. Dos qubits forman un espacio de dimension cuatro:
-
-$$
-\mathbb C^2 \otimes \mathbb C^2 \cong \mathbb C^4.
-$$
-
-Esto explica por que el numero de amplitudes crece tan deprisa al aumentar el numero de qubits.
-
-## 6. Autovalores y observables
-
-La medicion de una magnitud se formula mediante operadores hermiticos. Sus autovalores representan posibles resultados de la medicion y sus autovectores determinan las direcciones privilegiadas del espacio de estados.
-
-En un tutorial introductorio no hace falta entrar enseguida en toda la teoria espectral, pero si conviene entender que medir no es una operacion arbitraria: esta asociada a una estructura algebraica concreta.
-
-## 7. Ideas clave
-
-- Los estados son vectores complejos normalizados.
-- Las puertas son matrices unitarias.
-- Los sistemas compuestos se describen con productos tensoriales.
-- La algebra lineal no es un añadido externo: es el lenguaje natural de la computacion cuantica.
+## 4. Producto Tensorial ($\otimes$)
+Es la herramienta matemática para combinar qubits. Si un qubit está en $|a\rangle$ y otro en $|b\rangle$, el sistema total está en $|a\rangle \otimes |b\rangle$. Es aquí donde nace el crecimiento exponencial del espacio de estados y la posibilidad del **Entrelazamiento** (estados globales que no pueden expresarse como productos tensoriales de estados individuales).
 
 ## Navegacion
 
