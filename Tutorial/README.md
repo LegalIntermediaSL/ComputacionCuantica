@@ -12,18 +12,18 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 
 ### 1. Fundamentos
 
-1. [Qubits y estados cuanticos](01_qubits_y_estados.md)
-2. [Superposicion, medicion y esfera de Bloch](02_superposicion_medicion_y_esfera_de_bloch.md)
-3. [Puertas cuanticas y circuitos](03_puertas_cuanticas_y_circuitos.md)
-4. [Entrelazamiento y estados de Bell](04_entrelazamiento_y_estados_de_bell.md)
-5. [Qiskit: primeros pasos y flujo de trabajo practico](05_qiskit_primeros_pasos.md)
-6. [Algebra lineal minima para computacion cuantica](06_algebra_lineal_minima_para_computacion_cuantica.md)
-7. [Algoritmos cuanticos introductorios](07_algoritmos_cuanticos_introductorios.md)
+1. [Qubits y estados cuanticos](01_fundamentos/01_qubits_y_estados.md)
+2. [Superposicion, medicion y esfera de Bloch](01_fundamentos/02_superposicion_medicion_y_esfera_de_bloch.md)
+3. [Puertas cuanticas y circuitos](01_fundamentos/03_puertas_cuanticas_y_circuitos.md)
+4. [Entrelazamiento y estados de Bell](01_fundamentos/04_entrelazamiento_y_estados_de_bell.md)
+5. [Qiskit: primeros pasos y flujo de trabajo practico](02_qiskit_basico/05_qiskit_primeros_pasos.md)
+6. [Algebra lineal minima para computacion cuantica](01_fundamentos/06_algebra_lineal_minima_para_computacion_cuantica.md)
+7. [Algoritmos cuanticos introductorios](01_fundamentos/07_algoritmos_cuanticos_introductorios.md)
 
 ### 2. Qiskit y flujo de ejecucion
 
-8. [Qiskit: simuladores, estado cuantico y resultados](08_qiskit_simuladores_estado_y_resultados.md)
-9. [Qiskit: transpilacion, ruido y paso hacia hardware](09_qiskit_transpilacion_ruido_y_hardware.md)
+8. [Qiskit: simuladores, estado cuantico y resultados](02_qiskit_basico/08_qiskit_simuladores_estado_y_resultados.md)
+9. [Qiskit: transpilacion, ruido y paso hacia hardware](02_qiskit_basico/09_qiskit_transpilacion_ruido_y_hardware.md)
 10. [Qiskit Runtime y primitives](04_qiskit/01_qiskit_runtime_y_primitives.md)
 
 ### 3. Algoritmos

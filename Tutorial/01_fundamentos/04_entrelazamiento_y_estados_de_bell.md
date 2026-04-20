@@ -105,4 +105,4 @@ Sin entrelazamiento, gran parte del interes de la computacion cuantica quedaria 
 ## Navegacion
 
 - Anterior: [Puertas cuanticas y circuitos](03_puertas_cuanticas_y_circuitos.md)
-- Siguiente: [Qiskit: primeros pasos y flujo de trabajo practico](05_qiskit_primeros_pasos.md)
+- Siguiente: [Qiskit: primeros pasos y flujo de trabajo practico](../02_qiskit_basico/05_qiskit_primeros_pasos.md)

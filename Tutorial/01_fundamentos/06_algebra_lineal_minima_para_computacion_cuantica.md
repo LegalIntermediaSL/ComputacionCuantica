@@ -87,5 +87,5 @@ En un tutorial introductorio no hace falta entrar enseguida en toda la teoria es
 
 ## Navegacion
 
-- Anterior: [Qiskit: primeros pasos y flujo de trabajo practico](05_qiskit_primeros_pasos.md)
+- Anterior: [Qiskit: primeros pasos y flujo de trabajo practico](../02_qiskit_basico/05_qiskit_primeros_pasos.md)
 - Siguiente: [Algoritmos cuanticos introductorios](07_algoritmos_cuanticos_introductorios.md)

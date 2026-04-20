@@ -37,5 +37,5 @@ Para este proyecto, no hace falta entrar inmediatamente en todos los detalles de
 
 ## Navegacion
 
-- Anterior: [Qiskit: transpilacion, ruido y paso hacia hardware](../09_qiskit_transpilacion_ruido_y_hardware.md)
+- Anterior: [Qiskit: transpilacion, ruido y paso hacia hardware](../02_qiskit_basico/09_qiskit_transpilacion_ruido_y_hardware.md)
 - Siguiente: [Deutsch-Jozsa](../05_algoritmos/01_deutsch_jozsa.md)

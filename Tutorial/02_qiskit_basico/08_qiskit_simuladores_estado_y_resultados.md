@@ -97,5 +97,5 @@ Sin esa pregunta, es facil sacar conclusiones equivocadas sobre la robustez o fr
 
 ## Navegacion
 
-- Anterior: [Algoritmos cuanticos introductorios](07_algoritmos_cuanticos_introductorios.md)
+- Anterior: [Algoritmos cuanticos introductorios](../01_fundamentos/07_algoritmos_cuanticos_introductorios.md)
 - Siguiente: [Qiskit: transpilacion, ruido y paso hacia hardware](09_qiskit_transpilacion_ruido_y_hardware.md)

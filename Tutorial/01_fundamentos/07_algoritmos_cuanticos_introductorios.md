@@ -46,4 +46,4 @@ Antes de entrar en demostraciones completas, conviene que el lector entienda:
 ## Navegacion
 
 - Anterior: [Algebra lineal minima para computacion cuantica](06_algebra_lineal_minima_para_computacion_cuantica.md)
-- Siguiente: [Qiskit: simuladores, estado cuantico y resultados](08_qiskit_simuladores_estado_y_resultados.md)
+- Siguiente: [Qiskit: simuladores, estado cuantico y resultados](../02_qiskit_basico/08_qiskit_simuladores_estado_y_resultados.md)

@@ -236,5 +236,5 @@ Una seccion madura de Qiskit deberia ir incorporando progresivamente:
 
 ## Navegacion
 
-- Anterior: [Entrelazamiento y estados de Bell](04_entrelazamiento_y_estados_de_bell.md)
-- Siguiente: [Algebra lineal minima para computacion cuantica](06_algebra_lineal_minima_para_computacion_cuantica.md)
+- Anterior: [Entrelazamiento y estados de Bell](../01_fundamentos/04_entrelazamiento_y_estados_de_bell.md)
+- Siguiente: [Algebra lineal minima para computacion cuantica](../01_fundamentos/06_algebra_lineal_minima_para_computacion_cuantica.md)

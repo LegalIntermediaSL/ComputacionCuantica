@@ -100,4 +100,4 @@ Esta secuencia evita que la complejidad experimental opaque demasiado pronto la 
 ## Navegacion
 
 - Anterior: [Qiskit: simuladores, estado cuantico y resultados](08_qiskit_simuladores_estado_y_resultados.md)
-- Siguiente: [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+- Siguiente: [Bibliografia comentada](../04_qiskit/01_qiskit_runtime_y_primitives.md)

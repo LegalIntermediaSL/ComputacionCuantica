@@ -27,18 +27,18 @@ flowchart TD
 
 ### Fundamentos iniciales
 
-- [01_qubits_y_estados.md](01_qubits_y_estados.md)
-- [02_superposicion_medicion_y_esfera_de_bloch.md](02_superposicion_medicion_y_esfera_de_bloch.md)
-- [03_puertas_cuanticas_y_circuitos.md](03_puertas_cuanticas_y_circuitos.md)
-- [04_entrelazamiento_y_estados_de_bell.md](04_entrelazamiento_y_estados_de_bell.md)
-- [05_qiskit_primeros_pasos.md](05_qiskit_primeros_pasos.md)
-- [06_algebra_lineal_minima_para_computacion_cuantica.md](06_algebra_lineal_minima_para_computacion_cuantica.md)
-- [07_algoritmos_cuanticos_introductorios.md](07_algoritmos_cuanticos_introductorios.md)
+- [01_qubits_y_estados.md](01_fundamentos/01_qubits_y_estados.md)
+- [02_superposicion_medicion_y_esfera_de_bloch.md](01_fundamentos/02_superposicion_medicion_y_esfera_de_bloch.md)
+- [03_puertas_cuanticas_y_circuitos.md](01_fundamentos/03_puertas_cuanticas_y_circuitos.md)
+- [04_entrelazamiento_y_estados_de_bell.md](01_fundamentos/04_entrelazamiento_y_estados_de_bell.md)
+- [05_qiskit_primeros_pasos.md](02_qiskit_basico/05_qiskit_primeros_pasos.md)
+- [06_algebra_lineal_minima_para_computacion_cuantica.md](01_fundamentos/06_algebra_lineal_minima_para_computacion_cuantica.md)
+- [07_algoritmos_cuanticos_introductorios.md](01_fundamentos/07_algoritmos_cuanticos_introductorios.md)
 
 ### Qiskit y flujo de ejecucion
 
-- [08_qiskit_simuladores_estado_y_resultados.md](08_qiskit_simuladores_estado_y_resultados.md)
-- [09_qiskit_transpilacion_ruido_y_hardware.md](09_qiskit_transpilacion_ruido_y_hardware.md)
+- [08_qiskit_simuladores_estado_y_resultados.md](02_qiskit_basico/08_qiskit_simuladores_estado_y_resultados.md)
+- [09_qiskit_transpilacion_ruido_y_hardware.md](02_qiskit_basico/09_qiskit_transpilacion_ruido_y_hardware.md)
 - [04_qiskit/01_qiskit_runtime_y_primitives.md](04_qiskit/01_qiskit_runtime_y_primitives.md)
 - [10_qiskit_avanzado/README.md](10_qiskit_avanzado/README.md)
 
