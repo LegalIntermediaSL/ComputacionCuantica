@@ -45,6 +45,9 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - Ampliacion del bloque de surface codes con fault tolerance.
 - Nuevos laboratorios y ejemplos para reforzar VQE, QAOA y observables con `SparsePauliOp`.
 - Ampliacion del modulo de aplicaciones con simulacion digital y Hamiltonianos sencillos.
+- `ruta_de_estudio.md` y `tabla_cobertura.md`.
+- Nuevo modulo `15_hamiltonianos_y_evolucion_temporal/`.
+- Ejemplos adicionales sobre counts, histogramas y comparacion ideal frente a ruidoso.
 
 ## [0.1.0] - 2026-04-19
 

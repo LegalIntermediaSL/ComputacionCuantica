@@ -49,6 +49,8 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 - `Resumenes/`: resúmenes breves por módulo.
 - `Ejercicios/`: práctica organizada por nivel.
 - `Soluciones/`: soluciones seleccionadas para parte de los ejercicios.
+- `ruta_de_estudio.md`: recorridos sugeridos según perfil.
+- `tabla_cobertura.md`: visión global del estado de cada bloque.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.
 
@@ -61,6 +63,8 @@ El proyecto tambien empieza a abrir bloques de informacion cuantica, correccion 
 Tambien se esta abriendo una segunda capa de madurez con algoritmos variacionales, FAQ, ejercicios clasificados, soluciones seleccionadas y un bloque de realismo sobre los limites actuales del campo.
 
 Se abre ademas un bloque de aplicaciones y un primer horizonte hacia surface codes y computacion tolerante a fallos.
+
+Se añade ahora tambien una capa mas clara de orientacion al lector con rutas de estudio, tabla de cobertura y un nuevo bloque sobre Hamiltonianos y evolucion temporal.
 
 ## Tabla maestra de modulos
 

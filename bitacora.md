@@ -354,6 +354,28 @@ Evitar que los bloques de algoritmos variacionales y aplicaciones queden solo co
 
 El proyecto queda más equilibrado entre teoría, práctica y orientación temática, especialmente en las zonas que estaban empezando a abrirse.
 
+## Entrada de orientacion del lector y Hamiltonianos
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Mejorar la navegabilidad global del repositorio y abrir un bloque tematico muy natural: Hamiltonianos y evolucion temporal.
+
+### Trabajo realizado
+
+- Se creo `ruta_de_estudio.md`.
+- Se creo `tabla_cobertura.md`.
+- Se abrio `15_hamiltonianos_y_evolucion_temporal/`.
+- Se añadieron ejemplos sobre counts, histogramas conceptuales y comparacion ideal vs ruidoso.
+- Se añadió un resumen adicional sobre correccion y fault tolerance.
+
+### Resultado
+
+El proyecto mejora tanto en orientacion para distintos lectores como en continuidad tematica hacia simulacion y Hamiltonianos.
+
 ## Entrada de FAQ, soluciones y realismo
 
 ### Fecha

@@ -17,3 +17,4 @@ Permitir una segunda lectura mas compacta del curso, con:
 - Qiskit;
 - algoritmos y phase estimation;
 - informacion cuantica.
+- correccion de errores y fault tolerance.
