@@ -1,24 +1,17 @@
-# Optimizacion
+# Optimización Clásica, Mapeos QUBO Y Qiskit Optimization
 
-## 1. Por que aparece tanto
+## 1. Resolviendo el laberinto operativo humano
 
-La optimizacion es una de las areas donde mas a menudo se propone aplicar computacion cuantica. Muchos problemas practicos pueden formularse como busqueda del minimo o maximo de una funcion sobre un espacio complejo de configuraciones.
+Desde enrutar la flota de furgonetas de una gigantesca compañía mundial de logística esquivando semáforos, determinar los mejores nodos energéticos, o hasta gestionar balances de inversión en bolsa limitando penalidades severas. Todos los problemas humanos duros de NP se reducen puramente a *Resolución de Sistemas de Optimización Combinatoria Abstracta*.
+Estos problemas suelen empaquetarse e investigarse históricamente usando modeladores rígidos y fórmulas cuadráticas puras bajo las siglas "QUBO" (Quadratic Unconstrained Binary Optimization).
 
-## 2. Enfoques relevantes
+## 2. La Pasarela abstracta humana hacia Qiskit Hardware
+El algoritmo cuántico de vanguardia QAOA resuelve de maravilla la búsqueda paralela dentro del hiperespacio. No obstante, obligar rutinariamente a consultores o analistas operativos financieros a codificar Tensores cuánticos lógicos abstractos $X \otimes Z$ a mano frente a problemas numéricos diarios como una simple "ruta de peaje financiero" es infructuoso e innecesario.
 
-Dentro del paisaje cuantico aparecen varias ideas:
-
-- Grover como amplificacion para ciertos esquemas de busqueda;
-- QAOA como enfoque hibrido;
-- heuristicas inspiradas en Hamiltonianos de coste.
-
-## 3. Valor didactico
-
-Este bloque es util porque permite conectar algoritmos abstractos con tipos de problema que al lector le resultan mas intuitivos desde fuera de la teoria cuantica.
-
-## 4. Limite importante
-
-No toda tarea de optimizacion va a beneficiarse de una estrategia cuantica. La comparacion con heuristicas clasicas avanzadas es obligatoria para no sobreprometer.
+Para unir el talento humano ordinario con arquitecturas y procesadores cuánticos puros, surgió el empaquetador traductor (`qiskit_optimization`). Permite al analista programar o ingestar tensores clásicos matriciales formales ordinarios de optimización QUBO al runtime, dejando que el paquete deshaga automágicamente internamente la orquestación dura abstracta subyacente:
+- Extrae el vector binario puro financiero, multiplicando combinatoriamente un Mapeo Abstracto convirtiendo tu QUBO en el respectivo Hamiltoniano Abstracto Cuántico Isign Model ("$H_C$").
+- Autoconfigura primitivas e inyecta la iteración VQE o QAOA de optimización cíclica asíncrona hacia las computadoras hardware subyacentes de IBM.
+- Revierte la lectura estadística probabilística pura estocástica devuelta post-ejecución convirtiéndola de regreso hasta una lectura en castellano ("Mochila de equipamiento logístico enviada a Ruta 3 con ganancia máxima de $153 dólares").
 
 ## Navegacion
 
