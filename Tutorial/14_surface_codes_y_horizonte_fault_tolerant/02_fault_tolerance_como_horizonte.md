@@ -19,3 +19,4 @@ Este tema es importante para que el tutorial no termine en la etapa NISQ. Inclus
 ## Navegacion
 
 - Anterior: [Surface codes: intuicion](01_surface_codes_intuicion.md)
+- Siguiente: [Sampler, Estimator y primitives](../10_qiskit_avanzado/01_sampler_estimator_y_primitives.md)

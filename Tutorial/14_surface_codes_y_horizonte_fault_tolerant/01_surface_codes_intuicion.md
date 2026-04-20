@@ -24,3 +24,4 @@ Mencionar surface codes ayuda a que el lector entienda que la correccion de erro
 ## Navegacion
 
 - Anterior: [Codigo de Shor: intuicion](../09_correccion_errores/02_codigo_de_shor_intuicion.md)
+- Siguiente: [Fault tolerance como horizonte](02_fault_tolerance_como_horizonte.md)

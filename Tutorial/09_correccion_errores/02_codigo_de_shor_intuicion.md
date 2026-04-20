@@ -31,3 +31,4 @@ En este proyecto, el codigo de Shor debe funcionar como puente entre una intuici
 ## Navegacion
 
 - Anterior: [Qubit logico y codigo de repeticion](01_qubit_logico_y_codigo_de_repeticion.md)
+- Siguiente: [Surface codes: intuicion](../14_surface_codes_y_horizonte_fault_tolerant/01_surface_codes_intuicion.md)

@@ -56,4 +56,5 @@ Introducir matrices de densidad cambia el tono del tutorial: ya no describimos s
 
 ## Navegacion
 
+- Anterior: [Mitigacion de errores y fidelidad](../06_ruido_y_hardware/02_mitigacion_errores_y_fidelidad.md)
 - Siguiente: [Traza parcial y entropia](02_traza_parcial_y_entropia.md)

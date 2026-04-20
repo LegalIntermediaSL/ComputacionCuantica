@@ -15,3 +15,4 @@ QAOA es una excelente puerta de entrada a la idea de algoritmos hibridos porque 
 ## Navegacion
 
 - Anterior: [VQE: intuicion](02_vqe_intuicion.md)
+- Siguiente: [Quimica cuantica y simulacion](../12_aplicaciones/01_quimica_cuantica_y_simulacion.md)

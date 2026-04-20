@@ -376,6 +376,93 @@ Mejorar la navegabilidad global del repositorio y abrir un bloque tematico muy n
 
 El proyecto mejora tanto en orientacion para distintos lectores como en continuidad tematica hacia simulacion y Hamiltonianos.
 
+## Entrada de Hamiltonianos ampliados y canales cuanticos
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Profundizar el paso desde circuitos y algoritmos hacia dinamica, observables y descripcion efectiva del ruido, para que el tutorial no se quede en una vision demasiado idealizada.
+
+### Trabajo realizado
+
+- Se amplió `15_hamiltonianos_y_evolucion_temporal/` con mas desarrollo conceptual y matematico.
+- Se añadió `16_canales_cuanticos_y_ruido/`.
+- Se incorporaron ejercicios sugeridos y material asociado en los articulos nuevos.
+- Se crearon cuadernos sobre observables, valores esperados, canales de ruido y trotterizacion.
+- Se actualizó la ruta principal del tutorial para integrar este nuevo bloque.
+
+### Resultado
+
+El proyecto conecta mejor informacion cuantica, hardware, ruido, simulacion y algoritmos variacionales. El lector dispone ahora de un puente mucho mas natural entre teoria ideal, evolucion temporal y modelos efectivos de ruido.
+
+## Entrada de medicion avanzada y estimator
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Dar una capa mas madura a la nocion de medicion y reforzar el puente entre observables formales, valores esperados y herramientas practicas como `Estimator`.
+
+### Trabajo realizado
+
+- Se abrio `17_medicion_avanzada_y_observables/`.
+- Se añadieron cuadernos sobre `Estimator`, Hamiltonianos sencillos y medicion generalizada.
+- Se creo un laboratorio guiado adicional sobre energia esperada.
+- Se añadieron un nuevo resumen y soluciones avanzadas seleccionadas.
+- Se recoloco la navegacion del tutorial para integrar el bloque antes del cierre sobre limites del campo.
+
+### Resultado
+
+La idea de medicion queda menos simplificada, la relacion entre teoria y Qiskit se refuerza y los modulos avanzados ganan continuidad pedagogica.
+
+## Entrada de complejidad cuantica y tomografia
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Seguir elevando el nivel del proyecto con dos capas que suelen faltar en tutoriales demasiado elementales: complejidad computacional y caracterizacion experimental de estados.
+
+### Trabajo realizado
+
+- Se abrio `18_complejidad_cuantica/`.
+- Se abrio `19_tomografia_y_caracterizacion/`.
+- Se añadieron cuadernos sobre BQP, complejidad, tomografia y fidelidad conceptual.
+- Se añadio un laboratorio sobre matrices de densidad, ruido y tomografia.
+- Se completaron resumenes adicionales para variacionales, aplicaciones, complejidad y tomografia.
+
+### Resultado
+
+El proyecto gana madurez en dos direcciones a la vez: por un lado, mejor criterio para hablar de ventaja cuantica; por otro, mejor comprension de como se valida y caracteriza lo que un dispositivo realmente prepara.
+
+## Entrada de glosario, lecturas y simulacion avanzada
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Convertir el repositorio en una herramienta de estudio mas completa, no solo como secuencia de articulos, sino tambien como referencia de consulta y puente hacia estudio autonomo.
+
+### Trabajo realizado
+
+- Se crearon `glosario.md` y `lecturas_recomendadas.md`.
+- Se abrio `20_simulacion_cuantica_avanzada/`.
+- Se añadieron cuadernos y laboratorios sobre fidelidad, ruido y simulacion hamiltoniana.
+- Se reforzaron varios articulos avanzados con `Prerequisitos`, `Objetivos` y `Errores comunes`.
+
+### Resultado
+
+El proyecto gana profundidad, autonomia pedagogica y mejores puentes entre fundamentos, aplicaciones fisicas y estudio posterior fuera del propio repositorio.
+
 ## Entrada de FAQ, soluciones y realismo
 
 ### Fecha

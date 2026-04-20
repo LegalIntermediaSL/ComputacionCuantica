@@ -53,6 +53,8 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 - `tabla_cobertura.md`: visión global del estado de cada bloque.
 - `bitacora.md`: seguimiento editorial y tecnico del proyecto.
 - `changelog.md`: historial de cambios relevantes.
+- `glosario.md`: definiciones breves de conceptos clave.
+- `lecturas_recomendadas.md`: guia de referencias y rutas externas de estudio.
 
 La primera version del contenido ya cubre qubits, superposicion, medicion, puertas, circuitos, entrelazamiento, algebra lineal minima, primeros pasos con Qiskit y una introduccion a algoritmos cuanticos elementales.
 
@@ -65,6 +67,14 @@ Tambien se esta abriendo una segunda capa de madurez con algoritmos variacionale
 Se abre ademas un bloque de aplicaciones y un primer horizonte hacia surface codes y computacion tolerante a fallos.
 
 Se añade ahora tambien una capa mas clara de orientacion al lector con rutas de estudio, tabla de cobertura y un nuevo bloque sobre Hamiltonianos y evolucion temporal.
+
+El proyecto empieza ahora tambien a conectar mejor simulacion, ruido y descripcion efectiva de sistemas abiertos mediante un bloque nuevo sobre canales cuanticos y operadores de Kraus.
+
+Se añade ademas una capa mas fina sobre medicion avanzada, observables y POVM, para que la idea de medir no quede reducida a leer bits al final de un circuito.
+
+El proyecto empieza tambien a incorporar complejidad cuantica, tomografia y caracterizacion, para equilibrar mejor el triangulo entre algoritmos, hardware y evaluacion experimental.
+
+Tambien se abre ahora una capa de simulacion cuantica avanzada para conectar mejor Hamiltonianos, coste de aproximacion, precision y arquitecturas de simulacion.
 
 ## Tabla maestra de modulos
 
@@ -82,6 +92,12 @@ Se añade ahora tambien una capa mas clara de orientacion al lector con rutas de
 | Qiskit avanzado | abierto | si | parcial | no |
 | Algoritmos variacionales | abierto | si | parcial | si |
 | Aplicaciones | abierto | si | parcial | no |
+| Hamiltonianos y evolucion temporal | abierto | si | parcial | si |
+| Canales cuanticos y ruido | abierto | si | parcial | no |
+| Medicion avanzada y observables | abierto | si | parcial | no |
+| Complejidad cuantica | abierto | si | parcial | no |
+| Tomografia y caracterizacion | abierto | si | parcial | si |
+| Simulacion cuantica avanzada | abierto | si | parcial | si |
 | Limites actuales y realismo | abierto | si | no | no |
 | Surface codes y fault tolerance | abierto | si | no | no |
 

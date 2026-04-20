@@ -1,50 +1,72 @@
 # Indice general del tutorial
 
-Este indice resume la arquitectura actual del proyecto y sirve como punto de entrada alternativo a `Tutorial/README.md`.
+Este indice resume la arquitectura actual del curso y complementa a [README.md](README.md) con una vista mas estructural del recorrido.
 
-## Mapa del recorrido
+## Mapa global
 
 ```mermaid
 flowchart TD
-    A["00 Fundamentos"] --> B["01 Qubits y medicion"]
-    B --> C["02 Puertas y circuitos"]
-    C --> D["03 Entrelazamiento"]
-    D --> E["04 Qiskit"]
-    E --> F["05 Algoritmos"]
-    F --> G["06 Ruido y hardware"]
-    G --> H["07 Apendices"]
+    A["Fundamentos"] --> B["Qiskit basico"]
+    B --> C["Algoritmos"]
+    C --> D["Ruido e informacion cuantica"]
+    D --> E["Correccion de errores"]
+    E --> F["Qiskit avanzado"]
+    F --> G["Algoritmos variacionales"]
+    G --> H["Aplicaciones"]
+    H --> I["Hamiltonianos y evolucion"]
+    I --> J["Limites y realismo"]
+    J --> K["Bibliografia"]
 ```
 
-## Modulos
+## Bloques del curso
 
-### Bloque inicial en articulos
+### Fundamentos iniciales
 
-- `01_qubits_y_estados.md`
-- `02_superposicion_medicion_y_esfera_de_bloch.md`
-- `03_puertas_cuanticas_y_circuitos.md`
-- `04_entrelazamiento_y_estados_de_bell.md`
+- [01_qubits_y_estados.md](01_qubits_y_estados.md)
+- [02_superposicion_medicion_y_esfera_de_bloch.md](02_superposicion_medicion_y_esfera_de_bloch.md)
+- [03_puertas_cuanticas_y_circuitos.md](03_puertas_cuanticas_y_circuitos.md)
+- [04_entrelazamiento_y_estados_de_bell.md](04_entrelazamiento_y_estados_de_bell.md)
+- [05_qiskit_primeros_pasos.md](05_qiskit_primeros_pasos.md)
+- [06_algebra_lineal_minima_para_computacion_cuantica.md](06_algebra_lineal_minima_para_computacion_cuantica.md)
+- [07_algoritmos_cuanticos_introductorios.md](07_algoritmos_cuanticos_introductorios.md)
 
-Estos cuatro textos cubren el arranque conceptual del curso sin necesidad de carpetas modulares separadas.
+### Qiskit y flujo de ejecucion
 
-### `04_qiskit/`
+- [08_qiskit_simuladores_estado_y_resultados.md](08_qiskit_simuladores_estado_y_resultados.md)
+- [09_qiskit_transpilacion_ruido_y_hardware.md](09_qiskit_transpilacion_ruido_y_hardware.md)
+- [04_qiskit/01_qiskit_runtime_y_primitives.md](04_qiskit/01_qiskit_runtime_y_primitives.md)
+- [10_qiskit_avanzado/README.md](10_qiskit_avanzado/README.md)
 
-Simuladores, estado vector, cuentas, transpilacion y flujo de trabajo practico con Qiskit.
+### Algoritmos
 
-### `05_algoritmos/`
+- [05_algoritmos/README.md](05_algoritmos/README.md)
+- [11_algoritmos_variacionales/README.md](11_algoritmos_variacionales/README.md)
 
-Deutsch-Jozsa, Bernstein-Vazirani, Grover y QFT.
+### Ruido, informacion y correccion
 
-### `06_ruido_y_hardware/`
+- [06_ruido_y_hardware/README.md](06_ruido_y_hardware/README.md)
+- [08_informacion_cuantica/README.md](08_informacion_cuantica/README.md)
+- [09_correccion_errores/README.md](09_correccion_errores/README.md)
+- [14_surface_codes_y_horizonte_fault_tolerant/README.md](14_surface_codes_y_horizonte_fault_tolerant/README.md)
 
-Decoherencia, fidelidad, mitigacion de errores y paso hacia hardware real.
+### Aplicaciones y fisica computacional
 
-### `07_apendices/`
+- [12_aplicaciones/README.md](12_aplicaciones/README.md)
+- [15_hamiltonianos_y_evolucion_temporal/README.md](15_hamiltonianos_y_evolucion_temporal/README.md)
+- [16_canales_cuanticos_y_ruido/README.md](16_canales_cuanticos_y_ruido/README.md)
+- [17_medicion_avanzada_y_observables/README.md](17_medicion_avanzada_y_observables/README.md)
+- [18_complejidad_cuantica/README.md](18_complejidad_cuantica/README.md)
+- [19_tomografia_y_caracterizacion/README.md](19_tomografia_y_caracterizacion/README.md)
+- [20_simulacion_cuantica_avanzada/README.md](20_simulacion_cuantica_avanzada/README.md)
 
-Bibliografia comentada, referencias y material de apoyo.
+### Cierre y apoyo
 
-## Cuadernos asociados
+- [13_limites_actuales_y_realismo/README.md](13_limites_actuales_y_realismo/README.md)
+- [07_apendices/bibliografia_comentada.md](07_apendices/bibliografia_comentada.md)
 
-La carpeta `../Cuadernos/` se organiza ahora en tres niveles:
+## Material practico asociado
+
+La carpeta [../Cuadernos](../Cuadernos/README.md) se organiza en tres niveles:
 
 - `ejemplos/` para ideas concretas;
 - `problemas_resueltos/` para desarrollos guiados;

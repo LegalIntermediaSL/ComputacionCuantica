@@ -51,3 +51,4 @@ Este tema es importante porque conecta muy bien con:
 ## Navegacion
 
 - Anterior: [Matrices de densidad y estados mixtos](01_matrices_de_densidad_y_estados_mixtos.md)
+- Siguiente: [Qubit logico y codigo de repeticion](../09_correccion_errores/01_qubit_logico_y_codigo_de_repeticion.md)

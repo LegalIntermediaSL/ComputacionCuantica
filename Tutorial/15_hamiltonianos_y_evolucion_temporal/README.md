@@ -18,3 +18,10 @@ flowchart TD
 ## Foco
 
 Introducir el lenguaje de Hamiltonianos, evolución temporal y simulación digital como paso natural después de algoritmos, información cuántica y Qiskit avanzado.
+
+## Lo que aporta este modulo
+
+- conecta observables, valores esperados y energia;
+- prepara el paso hacia simulacion cuantica mas seria;
+- refuerza la relacion entre `Estimator`, `SparsePauliOp` y aplicaciones variacionales;
+- da una primera intuicion de por que la computacion cuantica sirve tambien para imitar dinamicas fisicas.

@@ -26,7 +26,16 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - primeras intuiciones de `Sampler` y `Estimator`;
 - laboratorios iniciales de VQE y QAOA;
 - `SparsePauliOp` y observables sencillos;
+- observables, valores esperados y Hamiltonianos introductorios;
 - introduccion a modelos de ruido conceptuales;
+- canales cuanticos y operadores de Kraus a nivel introductorio;
+- trotterizacion y evolucion guiada;
+- medicion avanzada, proyectores y POVM a nivel intuitivo;
+- estimator y energia esperada en Hamiltonianos sencillos;
+- complejidad cuantica y BQP a nivel introductorio;
+- tomografia, reconstruccion y fidelidad a nivel conceptual;
+- simulacion hamiltoniana avanzada y trade-offs de precision;
+- comparaciones conceptuales entre ruido y fidelidad;
 - matrices de densidad, subsistemas e informacion cuantica;
 - esfera de Bloch;
 - producto tensorial;

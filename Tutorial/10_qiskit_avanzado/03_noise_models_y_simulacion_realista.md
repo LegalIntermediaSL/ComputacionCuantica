@@ -33,3 +33,4 @@ La leccion correcta es:
 ## Navegacion
 
 - Anterior: [Operators, Pauli y representaciones utiles](02_operator_y_paulis.md)
+- Siguiente: [Circuitos parametrizados y optimizacion](../11_algoritmos_variacionales/01_circuitos_parametrizados_y_optimizacion.md)

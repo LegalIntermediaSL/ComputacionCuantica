@@ -48,6 +48,25 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - `ruta_de_estudio.md` y `tabla_cobertura.md`.
 - Nuevo modulo `15_hamiltonianos_y_evolucion_temporal/`.
 - Ejemplos adicionales sobre counts, histogramas y comparacion ideal frente a ruidoso.
+- Nuevo modulo `16_canales_cuanticos_y_ruido/`.
+- Ampliacion fuerte del bloque `15_hamiltonianos_y_evolucion_temporal/`.
+- Nuevos cuadernos sobre observables, valores esperados, canales cuanticos y trotterizacion.
+- Secciones de ejercicios sugeridos y material asociado en los articulos nuevos.
+- Nuevo modulo `17_medicion_avanzada_y_observables/`.
+- Nuevos cuadernos sobre `Estimator`, Hamiltonianos sencillos y POVM.
+- Nuevo laboratorio guiado sobre energia esperada.
+- Nuevo resumen sobre Hamiltonianos, ruido y medicion avanzada.
+- `soluciones_avanzadas_seleccionadas.md`.
+- Nuevo modulo `18_complejidad_cuantica/`.
+- Nuevo modulo `19_tomografia_y_caracterizacion/`.
+- Nuevos cuadernos sobre BQP, complejidad, tomografia y fidelidad conceptual.
+- Nuevo laboratorio sobre matrices de densidad, ruido y tomografia.
+- Nuevos resumenes sobre variacionales/aplicaciones y complejidad/tomografia.
+- `glosario.md` y `lecturas_recomendadas.md`.
+- Nuevo modulo `20_simulacion_cuantica_avanzada/`.
+- Nuevos cuadernos sobre simulacion hamiltoniana y fidelidad frente a ruido.
+- Nuevos laboratorios sobre ruido/fidelidad y Trotter-Suzuki.
+- Refuerzo pedagogico en articulos avanzados con prerequisitos, objetivos y errores comunes.
 
 ## [0.1.0] - 2026-04-19
 

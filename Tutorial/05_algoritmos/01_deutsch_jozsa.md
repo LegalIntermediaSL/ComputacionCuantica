@@ -28,4 +28,5 @@ Aunque no sea el algoritmo mas util en aplicaciones reales, es una excelente pue
 
 ## Navegacion
 
+- Anterior: [Qiskit Runtime y primitives](../04_qiskit/01_qiskit_runtime_y_primitives.md)
 - Siguiente: [Bernstein-Vazirani](02_bernstein_vazirani.md)

@@ -28,4 +28,5 @@ La correccion de errores cuanticos no es solo una extension obvia de la clasica.
 
 ## Navegacion
 
+- Anterior: [Traza parcial y entropia](../08_informacion_cuantica/02_traza_parcial_y_entropia.md)
 - Siguiente: [Codigo de Shor: intuicion](02_codigo_de_shor_intuicion.md)

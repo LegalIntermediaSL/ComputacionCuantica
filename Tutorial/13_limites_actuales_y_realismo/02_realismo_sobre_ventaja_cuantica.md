@@ -21,3 +21,4 @@ Este bloque ayuda a que el proyecto mantenga credibilidad y madurez. La computac
 ## Navegacion
 
 - Anterior: [Que puede y que no puede hacer la computacion cuantica hoy](01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+- Siguiente: [Bibliografia comentada](../07_apendices/bibliografia_comentada.md)

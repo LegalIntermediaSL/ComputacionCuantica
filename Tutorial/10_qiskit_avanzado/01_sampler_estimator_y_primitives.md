@@ -52,4 +52,5 @@ En este tutorial, `Sampler` y `Estimator` deben introducirse como una puerta de 
 
 ## Navegacion
 
+- Anterior: [Fault tolerance como horizonte](../14_surface_codes_y_horizonte_fault_tolerant/02_fault_tolerance_como_horizonte.md)
 - Siguiente: [Operators, Pauli y representaciones utiles](02_operator_y_paulis.md)

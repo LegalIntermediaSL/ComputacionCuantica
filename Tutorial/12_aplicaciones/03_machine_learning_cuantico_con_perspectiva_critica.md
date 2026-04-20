@@ -28,3 +28,4 @@ Este tema puede incluirse como ventana a aplicaciones, pero sin convertir el rep
 ## Navegacion
 
 - Anterior: [Optimizacion](02_optimizacion.md)
+- Siguiente: [Simulacion digital y Hamiltonianos sencillos](04_simulacion_digital_y_hamiltonianos_sencillos.md)

@@ -24,3 +24,4 @@ En una etapa introductoria, la mitigacion es una buena puerta de entrada porque 
 ## Navegacion
 
 - Anterior: [Decoherencia y ruido](01_decoherencia_y_ruido.md)
+- Siguiente: [Matrices de densidad y estados mixtos](../08_informacion_cuantica/01_matrices_de_densidad_y_estados_mixtos.md)

@@ -23,4 +23,5 @@ Un circuito correcto en el papel puede degradarse rapidamente en hardware. Por e
 
 ## Navegacion
 
+- Anterior: [Phase Estimation](../05_algoritmos/05_phase_estimation.md)
 - Siguiente: [Mitigacion de errores y fidelidad](02_mitigacion_errores_y_fidelidad.md)

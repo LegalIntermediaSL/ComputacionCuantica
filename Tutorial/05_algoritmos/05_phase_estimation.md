@@ -75,3 +75,4 @@ Aunque no sea un algoritmo para introducir en la primera clase, si debe aparecer
 ## Navegacion
 
 - Anterior: [Transformada cuantica de Fourier](04_transformada_cuantica_de_fourier.md)
+- Siguiente: [Decoherencia y ruido](../06_ruido_y_hardware/01_decoherencia_y_ruido.md)

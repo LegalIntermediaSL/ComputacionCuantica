@@ -25,3 +25,4 @@ Aunque la simulacion cuantica es una de las promesas mas serias del campo, la ut
 ## Navegacion
 
 - Anterior: [Machine learning cuantico con perspectiva critica](03_machine_learning_cuantico_con_perspectiva_critica.md)
+- Siguiente: [Observables y Hamiltonianos](../15_hamiltonianos_y_evolucion_temporal/01_observables_y_hamiltonianos.md)

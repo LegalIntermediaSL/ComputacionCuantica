@@ -34,3 +34,8 @@ Para este proyecto, no hace falta entrar inmediatamente en todos los detalles de
 - `Qiskit Runtime` y las `primitives` representan una capa de trabajo mas alta que la simple construccion de circuitos.
 - Son especialmente relevantes cuando el proyecto crece hacia ejecucion mas realista y workflows repetibles.
 - Introducirlas pronto ayuda a que el tutorial no quede anclado en una vision demasiado escolar de Qiskit.
+
+## Navegacion
+
+- Anterior: [Qiskit: transpilacion, ruido y paso hacia hardware](../09_qiskit_transpilacion_ruido_y_hardware.md)
+- Siguiente: [Deutsch-Jozsa](../05_algoritmos/01_deutsch_jozsa.md)

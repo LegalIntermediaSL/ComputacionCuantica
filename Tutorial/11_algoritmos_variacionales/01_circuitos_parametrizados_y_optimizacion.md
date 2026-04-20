@@ -24,4 +24,5 @@ Este esquema obliga a pensar la computacion cuantica no solo como una caja cerra
 
 ## Navegacion
 
+- Anterior: [Noise models y simulacion realista](../10_qiskit_avanzado/03_noise_models_y_simulacion_realista.md)
 - Siguiente: [VQE: intuicion](02_vqe_intuicion.md)

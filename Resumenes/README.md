@@ -18,3 +18,7 @@ Permitir una segunda lectura mas compacta del curso, con:
 - algoritmos y phase estimation;
 - informacion cuantica.
 - correccion de errores y fault tolerance.
+- Hamiltonianos, ruido y medicion avanzada.
+- Variacionales y aplicaciones.
+- Complejidad cuantica y tomografia.
+- Simulacion cuantica avanzada.

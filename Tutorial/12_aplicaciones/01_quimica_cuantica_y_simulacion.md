@@ -23,4 +23,5 @@ Aunque la promesa es grande, la aplicacion util a gran escala depende todavia de
 
 ## Navegacion
 
+- Anterior: [QAOA: intuicion](../11_algoritmos_variacionales/03_qaoa_intuicion.md)
 - Siguiente: [Optimizacion](02_optimizacion.md)

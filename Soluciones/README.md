@@ -14,3 +14,4 @@ No se pretende resolver inmediatamente todos los ejercicios. La idea es:
 
 - `soluciones_basicas_seleccionadas.md`
 - `soluciones_intermedias_seleccionadas.md`
+- `soluciones_avanzadas_seleccionadas.md`

@@ -1,63 +1,121 @@
 # Tutorial de Computacion Cuantica
 
-Este directorio contiene el cuerpo principal del tutorial. La idea es construir un recorrido progresivo que introduzca los fundamentos fisicos y matematicos de la computacion cuantica y, al mismo tiempo, los conecte con implementaciones practicas en Qiskit.
+Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer una ruta progresiva que combine fundamentos conceptuales, practica con Qiskit, algoritmos, ruido, informacion cuantica, correccion de errores y una mirada realista al estado actual del campo.
 
-## Ruta inicial de lectura
+## Mapa maestro
 
-1. `01_qubits_y_estados.md`
-2. `02_superposicion_medicion_y_esfera_de_bloch.md`
-3. `03_puertas_cuanticas_y_circuitos.md`
-4. `04_entrelazamiento_y_estados_de_bell.md`
-5. `05_qiskit_primeros_pasos.md`
-6. `06_algebra_lineal_minima_para_computacion_cuantica.md`
-7. `07_algoritmos_cuanticos_introductorios.md`
-8. `08_qiskit_simuladores_estado_y_resultados.md`
-9. `09_qiskit_transpilacion_ruido_y_hardware.md`
-10. `07_apendices/bibliografia_comentada.md` como apoyo de referencia
-11. `05_algoritmos/05_phase_estimation.md` como puente hacia algoritmos mas avanzados
-12. `11_algoritmos_variacionales/README.md`
-13. `12_aplicaciones/README.md`
-14. `13_limites_actuales_y_realismo/README.md`
+- [Indice general](indice_general.md)
+- [Ruta de estudio](../ruta_de_estudio.md)
+- [Tabla de cobertura](../tabla_cobertura.md)
 
-## Estado de modulos
+## Recorrido principal recomendado
 
-| Modulo | Estado |
-|---|---|
-| `fundamentos iniciales` | base solida |
-| `04_qiskit` | en fuerte desarrollo |
-| `05_algoritmos` | en desarrollo |
-| `06_ruido_y_hardware` | borrador solido |
-| `07_apendices` | en desarrollo |
-| `08_informacion_cuantica` | abierto |
-| `09_correccion_errores` | abierto |
-| `10_qiskit_avanzado` | abierto |
-| `11_algoritmos_variacionales` | abierto |
-| `12_aplicaciones` | abierto |
-| `13_limites_actuales_y_realismo` | abierto |
-| `14_surface_codes_y_horizonte_fault_tolerant` | abierto |
+### 1. Fundamentos
+
+1. [Qubits y estados cuanticos](01_qubits_y_estados.md)
+2. [Superposicion, medicion y esfera de Bloch](02_superposicion_medicion_y_esfera_de_bloch.md)
+3. [Puertas cuanticas y circuitos](03_puertas_cuanticas_y_circuitos.md)
+4. [Entrelazamiento y estados de Bell](04_entrelazamiento_y_estados_de_bell.md)
+5. [Qiskit: primeros pasos y flujo de trabajo practico](05_qiskit_primeros_pasos.md)
+6. [Algebra lineal minima para computacion cuantica](06_algebra_lineal_minima_para_computacion_cuantica.md)
+7. [Algoritmos cuanticos introductorios](07_algoritmos_cuanticos_introductorios.md)
+
+### 2. Qiskit y flujo de ejecucion
+
+8. [Qiskit: simuladores, estado cuantico y resultados](08_qiskit_simuladores_estado_y_resultados.md)
+9. [Qiskit: transpilacion, ruido y paso hacia hardware](09_qiskit_transpilacion_ruido_y_hardware.md)
+10. [Qiskit Runtime y primitives](04_qiskit/01_qiskit_runtime_y_primitives.md)
+
+### 3. Algoritmos
+
+11. [Deutsch-Jozsa](05_algoritmos/01_deutsch_jozsa.md)
+12. [Bernstein-Vazirani](05_algoritmos/02_bernstein_vazirani.md)
+13. [Grover](05_algoritmos/03_grover.md)
+14. [Transformada cuantica de Fourier](05_algoritmos/04_transformada_cuantica_de_fourier.md)
+15. [Phase Estimation](05_algoritmos/05_phase_estimation.md)
+
+### 4. Ruido, informacion y correccion
+
+16. [Decoherencia y ruido](06_ruido_y_hardware/01_decoherencia_y_ruido.md)
+17. [Mitigacion de errores y fidelidad](06_ruido_y_hardware/02_mitigacion_errores_y_fidelidad.md)
+18. [Matrices de densidad y estados mixtos](08_informacion_cuantica/01_matrices_de_densidad_y_estados_mixtos.md)
+19. [Traza parcial y entropia](08_informacion_cuantica/02_traza_parcial_y_entropia.md)
+20. [Qubit logico y codigo de repeticion](09_correccion_errores/01_qubit_logico_y_codigo_de_repeticion.md)
+21. [Codigo de Shor: intuicion](09_correccion_errores/02_codigo_de_shor_intuicion.md)
+22. [Surface codes: intuicion](14_surface_codes_y_horizonte_fault_tolerant/01_surface_codes_intuicion.md)
+23. [Fault tolerance como horizonte](14_surface_codes_y_horizonte_fault_tolerant/02_fault_tolerance_como_horizonte.md)
+
+### 5. Qiskit avanzado y algoritmos variacionales
+
+24. [Sampler, Estimator y primitives](10_qiskit_avanzado/01_sampler_estimator_y_primitives.md)
+25. [Operators, Pauli y representaciones utiles](10_qiskit_avanzado/02_operator_y_paulis.md)
+26. [Noise models y simulacion realista](10_qiskit_avanzado/03_noise_models_y_simulacion_realista.md)
+27. [Circuitos parametrizados y optimizacion](11_algoritmos_variacionales/01_circuitos_parametrizados_y_optimizacion.md)
+28. [VQE: intuicion](11_algoritmos_variacionales/02_vqe_intuicion.md)
+29. [QAOA: intuicion](11_algoritmos_variacionales/03_qaoa_intuicion.md)
+
+### 6. Aplicaciones y Hamiltonianos
+
+30. [Quimica cuantica y simulacion](12_aplicaciones/01_quimica_cuantica_y_simulacion.md)
+31. [Optimizacion](12_aplicaciones/02_optimizacion.md)
+32. [Machine learning cuantico con perspectiva critica](12_aplicaciones/03_machine_learning_cuantico_con_perspectiva_critica.md)
+33. [Simulacion digital y Hamiltonianos sencillos](12_aplicaciones/04_simulacion_digital_y_hamiltonianos_sencillos.md)
+34. [Observables y Hamiltonianos](15_hamiltonianos_y_evolucion_temporal/01_observables_y_hamiltonianos.md)
+35. [Evolucion unitaria y Trotterizacion](15_hamiltonianos_y_evolucion_temporal/02_evolucion_unitaria_y_trotterizacion.md)
+
+### 7. Canales y ruido
+
+36. [Canales cuanticos: intuicion y representacion](16_canales_cuanticos_y_ruido/01_canales_cuanticos_intuicion_y_representacion.md)
+37. [Operadores de Kraus, decoherencia y modelos efectivos](16_canales_cuanticos_y_ruido/02_kraus_decoherencia_y_modelos_efectivos.md)
+
+### 8. Medicion avanzada
+
+38. [Proyectores, valores esperados y varianza](17_medicion_avanzada_y_observables/01_proyectores_valores_esperados_y_varianza.md)
+39. [POVM: intuicion y medicion generalizada](17_medicion_avanzada_y_observables/02_povm_intuicion_y_medicion_generalizada.md)
+
+### 9. Complejidad y caracterizacion
+
+40. [BQP, oraculos y speedup](18_complejidad_cuantica/01_bqp_oraculos_y_speedup.md)
+41. [Limites de la ventaja y comparacion clasica](18_complejidad_cuantica/02_limites_de_la_ventaja_y_comparacion_clasica.md)
+42. [Tomografia de estados: intuicion y reconstruccion](19_tomografia_y_caracterizacion/01_tomografia_de_estados_intuicion_y_reconstruccion.md)
+43. [Fidelidad y caracterizacion operacional](19_tomografia_y_caracterizacion/02_fidelidad_y_caracterizacion_operacional.md)
+
+### 10. Simulacion cuantica avanzada
+
+44. [Trotter-Suzuki y coste de simulacion](20_simulacion_cuantica_avanzada/01_trotter_suzuki_y_coste_de_simulacion.md)
+45. [Simulacion digital frente a analogica](20_simulacion_cuantica_avanzada/02_simulacion_digital_frente_a_analogica.md)
+
+### 11. Cierre y perspectiva
+
+46. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+47. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+48. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+
+## Modulos especializados
+
+- [04_qiskit](04_qiskit/README.md)
+- [05_algoritmos](05_algoritmos/README.md)
+- [06_ruido_y_hardware](06_ruido_y_hardware/README.md)
+- [07_apendices](07_apendices/README.md)
+- [08_informacion_cuantica](08_informacion_cuantica/README.md)
+- [09_correccion_errores](09_correccion_errores/README.md)
+- [10_qiskit_avanzado](10_qiskit_avanzado/README.md)
+- [11_algoritmos_variacionales](11_algoritmos_variacionales/README.md)
+- [12_aplicaciones](12_aplicaciones/README.md)
+- [13_limites_actuales_y_realismo](13_limites_actuales_y_realismo/README.md)
+- [14_surface_codes_y_horizonte_fault_tolerant](14_surface_codes_y_horizonte_fault_tolerant/README.md)
+- [15_hamiltonianos_y_evolucion_temporal](15_hamiltonianos_y_evolucion_temporal/README.md)
+- [16_canales_cuanticos_y_ruido](16_canales_cuanticos_y_ruido/README.md)
+- [17_medicion_avanzada_y_observables](17_medicion_avanzada_y_observables/README.md)
+- [18_complejidad_cuantica](18_complejidad_cuantica/README.md)
+- [19_tomografia_y_caracterizacion](19_tomografia_y_caracterizacion/README.md)
+- [20_simulacion_cuantica_avanzada](20_simulacion_cuantica_avanzada/README.md)
 
 ## Filosofia del material
 
 - empezar por intuicion y lenguaje;
-- pasar despues a representaciones matematicas manejables;
-- introducir circuitos y puertas de forma operativa;
-- consolidar la base algebraica minima;
-- abrir despues la puerta a algoritmos cuanticos introductorios;
-- desarrollar una ruta practica fuerte centrada en Qiskit;
-- cerrar con bibliografia, laboratorios y material de apoyo;
-- reforzar la teoria con cuadernos Jupyter y ejemplos en Qiskit.
-
-## Cuadernos asociados
-
-Los notebooks del directorio `../Cuadernos/` deben funcionar como complemento directo de estos articulos, no como material separado.
-
-## Nota de estructura
-
-Los cuatro primeros bloques del curso se mantienen como articulos directos en la raiz de `Tutorial/`:
-
-- `01_qubits_y_estados.md`
-- `02_superposicion_medicion_y_esfera_de_bloch.md`
-- `03_puertas_cuanticas_y_circuitos.md`
-- `04_entrelazamiento_y_estados_de_bell.md`
-
-Las carpetas modulares se reservan a partir de los bloques donde ya existe desarrollo multipieza real.
+- consolidar una base matematica minima sin volver el arranque demasiado abstracto;
+- conectar pronto teoria y practica con Qiskit;
+- separar con claridad fundamentos, herramientas, algoritmos, ruido y aplicaciones;
+- dejar enlaces de navegacion entre articulos para que la lectura sea continua;
+- reforzar teoria con cuadernos Jupyter, ejercicios, resumentes y laboratorios.

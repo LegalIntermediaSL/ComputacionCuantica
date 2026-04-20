@@ -17,3 +17,7 @@ Muy recomendable para una segunda vuelta mas madura sobre algoritmos, correccion
 [IBM Quantum Documentation](https://quantum.cloud.ibm.com/docs/en)
 
 La referencia principal para sintaxis, herramientas del SDK, flujo de trabajo actual y detalles practicos que pueden cambiar con el tiempo.
+
+## Navegacion
+
+- Anterior: [Realismo sobre ventaja cuantica](../13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
