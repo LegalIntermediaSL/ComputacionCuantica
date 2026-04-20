@@ -3,6 +3,7 @@
 ## Contenido
 
 - `01_surface_codes_intuicion.md`
+- `02_fault_tolerance_como_horizonte.md`
 
 ## Foco
 

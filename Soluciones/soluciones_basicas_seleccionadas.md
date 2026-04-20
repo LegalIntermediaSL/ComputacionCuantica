@@ -1,6 +1,12 @@
 # Soluciones basicas seleccionadas
 
-## Ejercicio: normalizacion de $(|0\\rangle + |1\\rangle)/\\sqrt{2}$
+## Ejercicio: normalizacion de un estado de superposicion equilibrada
+
+Estado considerado:
+
+$$
+\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
+$$
 
 Calculamos la norma:
 

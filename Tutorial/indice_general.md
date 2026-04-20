@@ -17,21 +17,14 @@ flowchart TD
 
 ## Modulos
 
-### `00_fundamentos/`
+### Bloque inicial en articulos
 
-Base conceptual y matematica minima para leer el resto del curso.
+- `01_qubits_y_estados.md`
+- `02_superposicion_medicion_y_esfera_de_bloch.md`
+- `03_puertas_cuanticas_y_circuitos.md`
+- `04_entrelazamiento_y_estados_de_bell.md`
 
-### `01_qubits_y_medicion/`
-
-Qubits, superposicion, bases, medicion y esfera de Bloch.
-
-### `02_puertas_y_circuitos/`
-
-Puertas unitarias, circuitos y estructura operativa de la computacion cuantica.
-
-### `03_entrelazamiento/`
-
-Estados de Bell, correlaciones no clasicas y estados reducidos.
+Estos cuatro textos cubren el arranque conceptual del curso sin necesidad de carpetas modulares separadas.
 
 ### `04_qiskit/`
 

@@ -123,8 +123,18 @@ Por eso entender bien la estructura del estado de un solo qubit es el primer pas
 
 ## 10. Ejercicios sugeridos
 
-1. Verificar que el estado $\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$ esta normalizado.
-2. Calcular las probabilidades de medicion del estado $\sqrt{3}/2 \, |0\rangle + 1/2 \, |1\rangle$.
+1. Verificar que el siguiente estado esta normalizado:
+
+$$
+\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
+$$
+
+2. Calcular las probabilidades de medicion del siguiente estado:
+
+$$
+\frac{\sqrt{3}}{2} |0\rangle + \frac{1}{2} |1\rangle
+$$
+
 3. Explicar con tus palabras la diferencia entre fase global y fase relativa.
 4. Dar un ejemplo de vector de dos componentes que no represente todavia un estado fisico y normalizarlo.
 

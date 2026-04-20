@@ -312,6 +312,48 @@ Reforzar la practica del proyecto con ejercicios organizados y desarrollar la si
 
 El proyecto gana una capa de estudio activo y una forma mas clara de presentar su madurez actual modulo por modulo.
 
+## Entrada de practica avanzada y resúmenes ampliados
+
+### Fecha
+
+2026-04-19
+
+### Objetivo
+
+Pasar de sugerencias generales a una capa más tangible de práctica avanzada y consolidación pedagógica.
+
+### Trabajo realizado
+
+- Se añadieron cuadernos conceptuales sobre `Sampler`, `Estimator` y ruido.
+- Se añadieron laboratorios guiados sobre `phase estimation`, `VQE` y `QAOA`.
+- Se amplió el bloque de surface codes con fault tolerance como horizonte.
+- Se añadieron nuevos resúmenes sobre algoritmos e información cuántica.
+
+### Resultado
+
+El proyecto gana una continuidad mucho más clara entre teoría avanzada, práctica en Qiskit y repaso estructurado por bloques.
+
+## Entrada de consolidacion variacional y aplicaciones
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Evitar que los bloques de algoritmos variacionales y aplicaciones queden solo como introducciones teóricas sin apoyo práctico mínimo.
+
+### Trabajo realizado
+
+- Se añadieron laboratorios nuevos para VQE y QAOA.
+- Se añadió un ejemplo básico con `SparsePauliOp`.
+- Se amplió el bloque de aplicaciones con simulación digital y Hamiltonianos sencillos.
+- Se completó la tabla maestra del `README.md` con más módulos.
+
+### Resultado
+
+El proyecto queda más equilibrado entre teoría, práctica y orientación temática, especialmente en las zonas que estaban empezando a abrirse.
+
 ## Entrada de FAQ, soluciones y realismo
 
 ### Fecha

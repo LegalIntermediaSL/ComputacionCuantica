@@ -17,4 +17,9 @@ Servir como espacios de exploracion guiada donde se combinan:
 - teleportacion guiada;
 - transpilacion y comparacion;
 - Bernstein-Vazirani guiado;
-- QFT con tres qubits.
+- QFT con tres qubits;
+- phase estimation guiada;
+- VQE guiado;
+- QAOA guiado.
+- barrido de energia tipo VQE;
+- paisaje de coste tipo QAOA.

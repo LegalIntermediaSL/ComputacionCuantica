@@ -40,6 +40,11 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - `11_algoritmos_variacionales/` y `13_limites_actuales_y_realismo/`.
 - `12_aplicaciones/` y `14_surface_codes_y_horizonte_fault_tolerant/`.
 - `estructura_del_proyecto.md` y `CONTRIBUTING.md`.
+- Nuevos laboratorios guiados para `phase estimation`, `VQE` y `QAOA`.
+- Resumenes adicionales sobre algoritmos e informacion cuantica.
+- Ampliacion del bloque de surface codes con fault tolerance.
+- Nuevos laboratorios y ejemplos para reforzar VQE, QAOA y observables con `SparsePauliOp`.
+- Ampliacion del modulo de aplicaciones con simulacion digital y Hamiltonianos sencillos.
 
 ## [0.1.0] - 2026-04-19
 

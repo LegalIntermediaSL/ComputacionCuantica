@@ -24,6 +24,9 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - laboratorios guiados para Grover, Bernstein-Vazirani, teleportacion y QFT;
 - phase estimation guiada;
 - primeras intuiciones de `Sampler` y `Estimator`;
+- laboratorios iniciales de VQE y QAOA;
+- `SparsePauliOp` y observables sencillos;
+- introduccion a modelos de ruido conceptuales;
 - matrices de densidad, subsistemas e informacion cuantica;
 - esfera de Bloch;
 - producto tensorial;

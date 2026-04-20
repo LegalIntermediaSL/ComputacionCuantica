@@ -76,6 +76,10 @@ Se abre ademas un bloque de aplicaciones y un primer horizonte hacia surface cod
 | Informacion cuantica | abierto | si | si | si |
 | Correccion de errores | abierto | si | parcial | no |
 | Qiskit avanzado | abierto | si | parcial | no |
+| Algoritmos variacionales | abierto | si | parcial | si |
+| Aplicaciones | abierto | si | parcial | no |
+| Limites actuales y realismo | abierto | si | no | no |
+| Surface codes y fault tolerance | abierto | si | no | no |
 
 ## Vinculos, enlaces y referencias
 

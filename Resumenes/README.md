@@ -10,3 +10,10 @@ Permitir una segunda lectura mas compacta del curso, con:
 - formulas minimas;
 - errores comunes;
 - cuadernos recomendados.
+
+## Cobertura inicial
+
+- qubits y medicion;
+- Qiskit;
+- algoritmos y phase estimation;
+- informacion cuantica.
