@@ -20,5 +20,5 @@ Un tutorial serio no debe presentar la computacion cuantica como una solucion ma
 
 ## Navegacion
 
-- Anterior: [Simulacion digital frente a analogica](../20_simulacion_cuantica_avanzada/02_simulacion_digital_frente_a_analogica.md)
+- Anterior: [No-clonacion y limites operacionales](../22_recursos_cuanticos/02_no_clonacion_y_limites_operacionales.md)
 - Siguiente: [Realismo sobre ventaja cuantica](02_realismo_sobre_ventaja_cuantica.md)

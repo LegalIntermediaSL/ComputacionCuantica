@@ -14,8 +14,13 @@ flowchart TD
     F --> G["Algoritmos variacionales"]
     G --> H["Aplicaciones"]
     H --> I["Hamiltonianos y evolucion"]
-    I --> J["Limites y realismo"]
-    J --> K["Bibliografia"]
+    I --> J["Canales y medicion avanzada"]
+    J --> K["Complejidad y caracterizacion"]
+    K --> L["Simulacion avanzada"]
+    L --> M["Open quantum systems"]
+    M --> N["Recursos cuanticos"]
+    N --> O["Limites y realismo"]
+    O --> P["Bibliografia"]
 ```
 
 ## Bloques del curso
@@ -53,11 +58,19 @@ flowchart TD
 
 - [12_aplicaciones/README.md](12_aplicaciones/README.md)
 - [15_hamiltonianos_y_evolucion_temporal/README.md](15_hamiltonianos_y_evolucion_temporal/README.md)
+
+### Estructuras avanzadas del estado y la medida
+
 - [16_canales_cuanticos_y_ruido/README.md](16_canales_cuanticos_y_ruido/README.md)
 - [17_medicion_avanzada_y_observables/README.md](17_medicion_avanzada_y_observables/README.md)
+
+### Complejidad, caracterizacion y simulacion
+
 - [18_complejidad_cuantica/README.md](18_complejidad_cuantica/README.md)
 - [19_tomografia_y_caracterizacion/README.md](19_tomografia_y_caracterizacion/README.md)
 - [20_simulacion_cuantica_avanzada/README.md](20_simulacion_cuantica_avanzada/README.md)
+- [21_open_quantum_systems/README.md](21_open_quantum_systems/README.md)
+- [22_recursos_cuanticos/README.md](22_recursos_cuanticos/README.md)
 
 ### Cierre y apoyo
 
@@ -71,3 +84,9 @@ La carpeta [../Cuadernos](../Cuadernos/README.md) se organiza en tres niveles:
 - `ejemplos/` para ideas concretas;
 - `problemas_resueltos/` para desarrollos guiados;
 - `laboratorios/` para exploracion mas abierta.
+
+## Criterio de lectura
+
+- la primera mitad del curso busca continuidad entre fundamentos, Qiskit y algoritmos;
+- la segunda mitad reorganiza el campo por capas: ruido, caracterizacion, simulacion, sistemas abiertos, recursos y limites;
+- [Tutorial/README.md](README.md) mantiene la ruta lineal principal, mientras que este indice agrupa por familias tematicas.

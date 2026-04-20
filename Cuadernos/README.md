@@ -36,6 +36,9 @@ Este directorio reune notebooks de apoyo para el tutorial de computacion cuantic
 - tomografia, reconstruccion y fidelidad a nivel conceptual;
 - simulacion hamiltoniana avanzada y trade-offs de precision;
 - comparaciones conceptuales entre ruido y fidelidad;
+- sistemas abiertos, Lindblad y dinamica efectiva a nivel intuitivo;
+- comparaciones entre observables, `Estimator` y estadistica de medicion;
+- recursos cuanticos como coherencia, entrelazamiento y no-clonacion;
 - matrices de densidad, subsistemas e informacion cuantica;
 - esfera de Bloch;
 - producto tensorial;

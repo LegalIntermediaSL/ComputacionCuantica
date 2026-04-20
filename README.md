@@ -55,6 +55,9 @@ El proyecto esta en fase inicial de estructuracion. La documentacion base ya se 
 - `changelog.md`: historial de cambios relevantes.
 - `glosario.md`: definiciones breves de conceptos clave.
 - `lecturas_recomendadas.md`: guia de referencias y rutas externas de estudio.
+- `Qiskit_en_este_repositorio.md`: guia para usar la parte practica del proyecto.
+- `mapa_visual_del_curso.md`: mapa Mermaid del recorrido formativo.
+- `preguntas_frecuentes_avanzadas.md`: respuestas cortas a dudas de nivel intermedio y avanzado.
 
 La primera version del contenido ya cubre qubits, superposicion, medicion, puertas, circuitos, entrelazamiento, algebra lineal minima, primeros pasos con Qiskit y una introduccion a algoritmos cuanticos elementales.
 
@@ -75,6 +78,12 @@ Se añade ademas una capa mas fina sobre medicion avanzada, observables y POVM, 
 El proyecto empieza tambien a incorporar complejidad cuantica, tomografia y caracterizacion, para equilibrar mejor el triangulo entre algoritmos, hardware y evaluacion experimental.
 
 Tambien se abre ahora una capa de simulacion cuantica avanzada para conectar mejor Hamiltonianos, coste de aproximacion, precision y arquitecturas de simulacion.
+
+Se incorpora ademas una guia de uso de Qiskit dentro del repositorio, un mapa visual del curso y un bloque de `open quantum systems` para reforzar la descripcion de dinamica abierta y ruido continuo.
+
+Tambien se empiezan a reforzar las comparaciones practicas entre `DensityMatrix`, `Estimator`, shots y fidelidad para que la parte avanzada sea mas operativa.
+
+Se abre ahora tambien un bloque sobre recursos cuanticos para ordenar mejor la relacion entre coherencia, entrelazamiento, interferencia y limites como la no-clonacion.
 
 ## Tabla maestra de modulos
 
@@ -98,6 +107,8 @@ Tambien se abre ahora una capa de simulacion cuantica avanzada para conectar mej
 | Complejidad cuantica | abierto | si | parcial | no |
 | Tomografia y caracterizacion | abierto | si | parcial | si |
 | Simulacion cuantica avanzada | abierto | si | parcial | si |
+| Open quantum systems | abierto | si | parcial | no |
+| Recursos cuanticos | abierto | si | parcial | no |
 | Limites actuales y realismo | abierto | si | no | no |
 | Surface codes y fault tolerance | abierto | si | no | no |
 

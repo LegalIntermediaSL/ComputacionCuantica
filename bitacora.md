@@ -463,6 +463,68 @@ Convertir el repositorio en una herramienta de estudio mas completa, no solo com
 
 El proyecto gana profundidad, autonomia pedagogica y mejores puentes entre fundamentos, aplicaciones fisicas y estudio posterior fuera del propio repositorio.
 
+## Entrada de guia Qiskit, mapa visual y sistemas abiertos
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Mejorar la usabilidad del repositorio como curso completo y reforzar la capa de fisica de sistemas abiertos, que da mas continuidad a los bloques de ruido y canales cuanticos.
+
+### Trabajo realizado
+
+- Se crearon `Qiskit_en_este_repositorio.md` y `mapa_visual_del_curso.md`.
+- Se abrio `21_open_quantum_systems/`.
+- Se añadio un cuaderno introductorio sobre sistemas abiertos.
+- Se actualizo la ruta principal del tutorial para integrar este nuevo bloque.
+
+### Resultado
+
+El proyecto se vuelve mas facil de recorrer, mas claro en su parte practica con Qiskit y mas solido en la transicion entre ruido discreto, canales y dinamica abierta.
+
+## Entrada de comparativas practicas avanzadas
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Reforzar la utilidad practica de los bloques avanzados con comparaciones mas concretas sobre estadistica de medicion, observables y descripciones de estados en presencia de ruido.
+
+### Trabajo realizado
+
+- Se añadieron cuadernos sobre shots, `DensityMatrix`, sistemas abiertos y observables distintos.
+- Se creo `preguntas_frecuentes_avanzadas.md`.
+- Se reforzo el bloque `21_open_quantum_systems/` con material asociado adicional.
+
+### Resultado
+
+La parte avanzada gana mas valor operativo: ya no solo introduce conceptos, sino que los aterriza en comparaciones que ayudan a interpretar mejor simulacion, ruido y estimacion.
+
+## Entrada de recursos cuanticos
+
+### Fecha
+
+2026-04-20
+
+### Objetivo
+
+Dar mas unidad conceptual al curso incorporando una seccion explicita sobre recursos cuanticos, para que la ventaja y los limites del formalismo no aparezcan como ideas aisladas.
+
+### Trabajo realizado
+
+- Se abrio `22_recursos_cuanticos/`.
+- Se añadieron cuadernos sobre coherencia, entrelazamiento y no-clonacion.
+- Se añadió un resumen adicional sobre recursos cuanticos.
+- Se integro el nuevo bloque dentro de la ruta principal del tutorial.
+
+### Resultado
+
+El proyecto gana una capa de interpretacion mas fuerte sobre que estructuras cuanticas importan realmente y por que ciertos limites son tan formativos como los propios algoritmos.
+
 ## Entrada de FAQ, soluciones y realismo
 
 ### Fecha

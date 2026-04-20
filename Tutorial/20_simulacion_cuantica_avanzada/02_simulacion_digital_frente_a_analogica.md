@@ -56,4 +56,4 @@ Este contraste ayuda a reorganizar varias intuiciones ya vistas:
 ## Navegacion
 
 - Anterior: [Trotter-Suzuki y coste de simulacion](01_trotter_suzuki_y_coste_de_simulacion.md)
-- Siguiente: [Que puede y que no puede hacer la computacion cuantica hoy](../13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+- Siguiente: [Lindblad y dinamica efectiva](../21_open_quantum_systems/01_lindblad_y_dinamica_efectiva.md)

@@ -85,11 +85,21 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 44. [Trotter-Suzuki y coste de simulacion](20_simulacion_cuantica_avanzada/01_trotter_suzuki_y_coste_de_simulacion.md)
 45. [Simulacion digital frente a analogica](20_simulacion_cuantica_avanzada/02_simulacion_digital_frente_a_analogica.md)
 
-### 11. Cierre y perspectiva
+### 11. Open quantum systems
 
-46. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
-47. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
-48. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+46. [Lindblad y dinamica efectiva](21_open_quantum_systems/01_lindblad_y_dinamica_efectiva.md)
+47. [Decoherencia, relajacion y markovianidad](21_open_quantum_systems/02_decoherencia_relajacion_y_markovianidad.md)
+
+### 12. Recursos cuanticos
+
+48. [Coherencia, entrelazamiento y utilidad](22_recursos_cuanticos/01_coherencia_entrelazamiento_y_utilidad.md)
+49. [No-clonacion y limites operacionales](22_recursos_cuanticos/02_no_clonacion_y_limites_operacionales.md)
+
+### 13. Cierre y perspectiva
+
+50. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+51. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+52. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
 
 ## Modulos especializados
 
@@ -110,6 +120,8 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 - [18_complejidad_cuantica](18_complejidad_cuantica/README.md)
 - [19_tomografia_y_caracterizacion](19_tomografia_y_caracterizacion/README.md)
 - [20_simulacion_cuantica_avanzada](20_simulacion_cuantica_avanzada/README.md)
+- [21_open_quantum_systems](21_open_quantum_systems/README.md)
+- [22_recursos_cuanticos](22_recursos_cuanticos/README.md)
 
 ## Filosofia del material
 

@@ -67,6 +67,14 @@ El formato sigue una adaptacion simple de Keep a Changelog y usa versionado sema
 - Nuevos cuadernos sobre simulacion hamiltoniana y fidelidad frente a ruido.
 - Nuevos laboratorios sobre ruido/fidelidad y Trotter-Suzuki.
 - Refuerzo pedagogico en articulos avanzados con prerequisitos, objetivos y errores comunes.
+- `Qiskit_en_este_repositorio.md` y `mapa_visual_del_curso.md`.
+- Nuevo modulo `21_open_quantum_systems/`.
+- Nuevo cuaderno introductorio sobre sistemas abiertos.
+- Nuevos cuadernos sobre shots, `DensityMatrix`, sistemas abiertos y observables distintos.
+- `preguntas_frecuentes_avanzadas.md`.
+- Nuevo modulo `22_recursos_cuanticos/`.
+- Nuevos cuadernos sobre coherencia, entrelazamiento y no-clonacion.
+- Nuevo resumen sobre recursos cuanticos.
 
 ## [0.1.0] - 2026-04-19
 
