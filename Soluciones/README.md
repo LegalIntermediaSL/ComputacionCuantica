@@ -1,6 +1,6 @@
 # Problemas Resueltos (Soluciones)
 
-Este directorio contiene la biblioteca de soluciones modulares que acompañan al tutorial de 52 artículos. El material está organizado por bloques temáticos para facilitar la consulta tras la lectura de cada sección.
+Este directorio contiene la biblioteca de soluciones modulares que acompañan al tutorial de 52+ artículos. El material está organizado por bloques temáticos para facilitar la consulta tras la lectura de cada sección.
 
 ## Artículos de Soluciones
 
@@ -13,7 +13,8 @@ Este directorio contiene la biblioteca de soluciones modulares que acompañan al
 7. [Hamiltonianos y Evolución](15_20_hamiltonianos_y_evolucion.md)
 8. [Canales y Sistemas Abiertos](16_21_canales_y_sistemas_abiertos.md)
 9. [Medición, Complejidad y Tomografía](17_18_19_medicion_complejidad_y_tomografia.md)
-10. [Recursos Cuánticos](22_recursos_cuanticos.md)
+10. [Hardware y Control (Pulse, PQC)](23_24_hardware_y_control.md)
+11. [Recursos Cuánticos](22_recursos_cuanticos.md)
 
 ## Filosofía
-No se trata de resolver cada pequeño ejercicio del texto, sino de ofrecer **modelos de resolución** detallados con rigor matemático (LaTeX) y explicaciones pedagógicas para los conceptos clave.
+Ofrecer modelos de resolución detallados con rigor matemático (LaTeX) y explicaciones pedagógicas para los conceptos clave.

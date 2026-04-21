@@ -19,8 +19,10 @@ flowchart TD
     K --> L["Simulacion avanzada"]
     L --> M["Open quantum systems"]
     M --> N["Recursos cuanticos"]
-    N --> O["Limites y realismo"]
-    O --> P["Bibliografia"]
+    N --> O["Hardware y Control"]
+    O --> P["Criptografia PQC"]
+    P --> Q["Limites y realismo"]
+    Q --> R["Bibliografia"]
 ```
 
 ## Bloques del curso
@@ -71,6 +73,12 @@ flowchart TD
 - [20_simulacion_cuantica_avanzada/README.md](20_simulacion_cuantica_avanzada/README.md)
 - [21_open_quantum_systems/README.md](21_open_quantum_systems/README.md)
 - [22_recursos_cuanticos/README.md](22_recursos_cuanticos/README.md)
+
+### Implementacion y Futuro
+
+- [23_hardware_fisico_y_arquitecturas/README.md](23_hardware_fisico_y_arquitecturas/README.md)
+- [24_control_de_pulsos_y_qiskit_pulse/README.md](24_control_de_pulsos_y_qiskit_pulse/README.md)
+- [25_criptografia_post_cuantica_pqc/README.md](25_criptografia_post_cuantica_pqc/README.md)
 
 ### Cierre y apoyo
 

@@ -8,4 +8,4 @@ Finalizamos recordando la maldición formal inexpugnable estricta subyacente de 
 ## Navegacion
 
 - Anterior: [Coherencia, entrelazamiento y utilidad](01_coherencia_entrelazamiento_y_utilidad.md)
-- Siguiente: [Que puede y que no puede hacer la computacion cuantica hoy](../13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+- Siguiente: [Transmones y circuitos superconductores](../23_hardware_fisico_y_arquitecturas/01_transmones_y_circuitos_superconductores.md)

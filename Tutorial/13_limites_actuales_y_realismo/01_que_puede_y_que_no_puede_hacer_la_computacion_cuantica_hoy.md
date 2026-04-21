@@ -11,5 +11,5 @@ Si envías una cadena matemática larga de 50 compuertas CNOT entrelazantes (com
 
 ## Navegacion
 
-- Anterior: [No-clonacion y limites operacionales](../22_recursos_cuanticos/02_no_clonacion_y_limites_operacionales.md)
+- Anterior: [Criptografía Post-Cuántica (PQC)](../25_criptografia_post_cuantica_pqc/01_criptografia_post_cuantica_pqc.md)
 - Siguiente: [Realismo sobre ventaja cuantica](02_realismo_sobre_ventaja_cuantica.md)

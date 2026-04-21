@@ -67,7 +67,7 @@ Cuando una API concreta cambie, el objetivo pedagogico del cuaderno debe seguir 
 
 Las secciones teoricas mas ligadas a Qiskit son:
 
-- [Tutorial/04_qiskit](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/Tutorial/04_qiskit/README.md)
-- [Tutorial/10_qiskit_avanzado](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/Tutorial/10_qiskit_avanzado/README.md)
-- [Tutorial/15_hamiltonianos_y_evolucion_temporal](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/Tutorial/15_hamiltonianos_y_evolucion_temporal/README.md)
-- [Tutorial/19_tomografia_y_caracterizacion](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/Tutorial/19_tomografia_y_caracterizacion/README.md)
+- [Tutorial/04_qiskit](Tutorial/04_qiskit/README.md)
+- [Tutorial/10_qiskit_avanzado](Tutorial/10_qiskit_avanzado/README.md)
+- [Tutorial/15_hamiltonianos_y_evolucion_temporal](Tutorial/15_hamiltonianos_y_evolucion_temporal/README.md)
+- [Tutorial/19_tomografia_y_caracterizacion](Tutorial/19_tomografia_y_caracterizacion/README.md)

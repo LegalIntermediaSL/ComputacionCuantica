@@ -95,11 +95,25 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 48. [Coherencia, entrelazamiento y utilidad](22_recursos_cuanticos/01_coherencia_entrelazamiento_y_utilidad.md)
 49. [No-clonacion y limites operacionales](22_recursos_cuanticos/02_no_clonacion_y_limites_operacionales.md)
 
-### 13. Cierre y perspectiva
+### 13. Implementacion de Hardware
 
-50. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
-51. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
-52. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+50. [Transmones y circuitos superconductores](23_hardware_fisico_y_arquitecturas/01_transmones_y_circuitos_superconductores.md)
+51. [Iones atrapados y otras arquitecturas](23_hardware_fisico_y_arquitecturas/02_iones_atrapados_y_otras_arquitecturas.md)
+
+### 14. Control de calibracion y Pulsos (Qiskit Pulse)
+
+52. [Introduccion al control por microondas](24_control_de_pulsos_y_qiskit_pulse/01_introduccion_al_control_por_microondas.md)
+53. [Programacion de pulsos con Qiskit Pulse](24_control_de_pulsos_y_qiskit_pulse/02_programacion_de_pulsos_con_qiskit_pulse.md)
+
+### 15. Criptografia Post-Cuantica
+
+54. [Criptografia Post-Cuantica (PQC)](25_criptografia_post_cuantica_pqc/01_criptografia_post_cuantica_pqc.md)
+
+### 16. Cierre y perspectiva
+
+55. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+56. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+57. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
 
 ## Modulos especializados
 
@@ -122,6 +136,9 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 - [20_simulacion_cuantica_avanzada](20_simulacion_cuantica_avanzada/README.md)
 - [21_open_quantum_systems](21_open_quantum_systems/README.md)
 - [22_recursos_cuanticos](22_recursos_cuanticos/README.md)
+- [23_hardware_fisico_y_arquitecturas](23_hardware_fisico_y_arquitecturas/README.md)
+- [24_control_de_pulsos_y_qiskit_pulse](24_control_de_pulsos_y_qiskit_pulse/README.md)
+- [25_criptografia_post_cuantica_pqc](25_criptografia_post_cuantica_pqc/README.md)
 
 ## Filosofia del material
 

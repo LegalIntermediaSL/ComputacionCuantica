@@ -4,6 +4,19 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [0.5.0] - 2026-04-21
+
+### Added
+- Finalización de los 52 artículos del tutorial con profundidad técnica y matemática.
+- Nueva biblioteca de Soluciones Modulares (10 artículos organizados por bloques).
+- Verificación de navegación bidireccional en todo el repositorio.
+- Corrección de rutas absolutas en archivos de documentación raíz.
+- Ampliación de laboratorios prácticos (27 cuadernos Jupyter en total).
+
+### Fixed
+- Corrección de rutas locales absolutas en `README.md`, `lecturas_recomendadas.md` y `Qiskit_en_este_repositorio.md`.
+
+
 ## [Unreleased]
 
 ### Planned

@@ -568,3 +568,26 @@ Seguir ampliando el proyecto hacia una visión más completa del campo, incluyen
 ### Resultado
 
 El proyecto gana valor como repositorio formativo y también como proyecto mantenible, con mejor orientación para lectores distintos y una visión más amplia del ecosistema de computación cuántica.
+
+## Entrada de finalización de la fase maestra
+
+### Fecha
+
+2026-04-21
+
+### Objetivo
+
+Consolidar el repositorio como una enciclopedia completa de 52 artículos, con soluciones modulares y navegación verificada, eliminando rastro de rutas locales.
+
+### Trabajo realizado
+
+- Se completaron los 52 artículos del tutorial (Lote 1-4 completados).
+- Se crearon 10 artículos de soluciones modulares por bloque temático.
+- Se verificó la navegación bidireccional en el 100% de los documentos.
+- Se corrigieron rutas absolutas en la documentación raíz.
+- Se actualizaron los índices maestros (`Tutorial/README.md`, `Soluciones/README.md`).
+
+### Resultado
+
+El proyecto ha alcanzado su primera versión mayor estable teórica (v0.5.0), con una de las coberturas más profundas de computación cuántica en español, integrando teoría avanzada y práctica moderna con Qiskit.
+

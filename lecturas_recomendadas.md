@@ -26,6 +26,6 @@
 
 ## Para seguir en este repositorio
 
-- Empezar por [ruta_de_estudio.md](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/ruta_de_estudio.md)
-- Ver [Tutorial/README.md](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/Tutorial/README.md)
-- Complementar con [referencias.md](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/referencias.md)
+- Empezar por [ruta_de_estudio.md](ruta_de_estudio.md)
+- Ver [Tutorial/README.md](Tutorial/README.md)
+- Complementar con [referencias.md](referencias.md)

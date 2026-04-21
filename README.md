@@ -114,7 +114,7 @@ Se abre ahora tambien un bloque sobre recursos cuanticos para ordenar mejor la r
 
 ## Vinculos, enlaces y referencias
 
-El proyecto ya incluye una base inicial de referencias en [referencias.md](/Users/legalintermedia/Documents/GitHub/ComputacionCuantica/referencias.md).
+El proyecto ya incluye una base inicial de referencias en [referencias.md](referencias.md).
 
 Recursos destacados:
 
