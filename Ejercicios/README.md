@@ -1,13 +1,14 @@
 # Ejercicios
 
-Este directorio organiza ejercicios por nivel para acompañar la lectura del tutorial.
+Este directorio organiza la práctica sugerida para complementar el tutorial.
 
 ## Estructura
+- [Ejercicios Básicos](ejercicios_basicos.md)
+- [Ejercicios Intermedios](ejercicios_intermedios.md)
+- [Ejercicios Avanzados](ejercicios_avanzados.md)
 
-- `ejercicios_basicos.md`
-- `ejercicios_intermedios.md`
-- `ejercicios_avanzados.md`
+## Soluciones
+Las soluciones ya no están agrupadas por nivel, sino que siguen una **estructura modular temática** para coincidir con los bloques del tutorial. Puedes encontrarlas en el directorio [`Soluciones/`](../Soluciones/README.md).
 
 ## Objetivo
-
-Separar el trabajo de práctica del cuerpo principal del tutorial y permitir futuras soluciones seleccionadas sin romper la lectura de los artículos.
+Separar el cuerpo teórico de la práctica operativa, permitiendo al lector validar sus conocimientos de forma estructurada.
