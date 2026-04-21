@@ -16,4 +16,4 @@ Este módulo (Evoluciones Físicas Abstractas) sienta la perfecta analogía cone
 ## Navegacion
 
 - Anterior: [Machine learning cuantico con perspectiva critica](03_machine_learning_cuantico_con_perspectiva_critica.md)
-- Siguiente: [Observables y Hamiltonianos](../15_hamiltonianos_y_evolucion_temporal/01_observables_y_hamiltonianos.md)
+- Siguiente: [Finanzas cuanticas optimizacion de carteras](05_finanzas_cuanticas_optimizacion_de_carteras.md)

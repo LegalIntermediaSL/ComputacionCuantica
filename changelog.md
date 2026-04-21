@@ -4,6 +4,14 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [0.7.0] - 2026-04-22
+
+### Added
+- Expansión de Verticales Industriales: Finanzas (Markowitz/QAE), QML Avanzado (Kernels/QNN) y Ciencia de Materiales.
+- 5 nuevos artículos técnicos de alta profundidad en el bloque 12 de aplicaciones.
+- 3 nuevos laboratorios prácticos sobre optimización de carteras, pricing y alineación de kernels.
+- Renumeración completa del tutorial hasta alcanzar los 62 artículos temáticos.
+
 ## [0.5.0] - 2026-04-21
 
 ### Added

@@ -58,7 +58,15 @@ flowchart TD
 
 ### Aplicaciones y fisica computacional
 
-- [12_aplicaciones/README.md](12_aplicaciones/README.md)
+- [01_quimica_cuantica_y_simulacion.md](12_aplicaciones/01_quimica_cuantica_y_simulacion.md)
+- [02_optimizacion.md](12_aplicaciones/02_optimizacion.md)
+- [03_machine_learning_cuantico_con_perspectiva_critica.md](12_aplicaciones/03_machine_learning_cuantico_con_perspectiva_critica.md)
+- [04_simulacion_digital_y_hamiltonianos_sencillos.md](12_aplicaciones/04_simulacion_digital_y_hamiltonianos_sencillos.md)
+- [05_finanzas_cuanticas_optimizacion_de_carteras.md](12_aplicaciones/05_finanzas_cuanticas_optimizacion_de_carteras.md)
+- [06_valoracion_de_activos_y_monte_carlo_cuantico.md](12_aplicaciones/06_valoracion_de_activos_y_monte_carlo_cuantico.md)
+- [07_kernels_cuanticos_y_espacios_de_caracteristicas.md](12_aplicaciones/07_kernels_cuanticos_y_espacios_de_caracteristicas.md)
+- [08_redes_neuronales_cuanticas_qnn.md](12_aplicaciones/08_redes_neuronales_cuanticas_qnn.md)
+- [09_simulacion_de_materiales_y_estructuras_complejas.md](12_aplicaciones/09_simulacion_de_materiales_y_estructuras_complejas.md)
 - [15_hamiltonianos_y_evolucion_temporal/README.md](15_hamiltonianos_y_evolucion_temporal/README.md)
 
 ### Estructuras avanzadas del estado y la medida

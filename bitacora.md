@@ -591,3 +591,25 @@ Consolidar el repositorio como una enciclopedia completa de 52 artículos, con s
 
 El proyecto ha alcanzado su primera versión mayor estable teórica (v0.5.0), con una de las coberturas más profundas de computación cuántica en español, integrando teoría avanzada y práctica moderna con Qiskit.
 
+## Entrada de expansión: Verticales Industriales y QML
+
+### Fecha
+
+2026-04-22
+
+### Objetivo
+
+Elevar la utilidad práctica del repositorio mediante la inclusión de aplicaciones financieras, aprendizaje automático cuántico (QML) de vanguardia y simulación de materiales complejos.
+
+### Trabajo realizado
+
+- Se añadieron 5 artículos técnicos al módulo de Aplicaciones (Finanzas, QAE, Kernels, QNN, Hubbard).
+- Se crearon laboratorios específicos para optimización de carteras y SVM cuánticos.
+- Se reajustó la navegación maestra para integrar estos contenidos sin romper la linealidad del curso.
+- Sincronización de índices y registros para una publicación estable en GitHub (v0.7.0).
+
+### Resultado
+
+El repositorio deja de ser solo un tutorial de fundamentos para convertirse en una guía de aplicaciones de industria, cubriendo ahora 62 artículos y 30 laboratorios guiados.
+
+

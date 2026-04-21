@@ -60,60 +60,65 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 31. [Optimizacion](12_aplicaciones/02_optimizacion.md)
 32. [Machine learning cuantico con perspectiva critica](12_aplicaciones/03_machine_learning_cuantico_con_perspectiva_critica.md)
 33. [Simulacion digital y Hamiltonianos sencillos](12_aplicaciones/04_simulacion_digital_y_hamiltonianos_sencillos.md)
-34. [Observables y Hamiltonianos](15_hamiltonianos_y_evolucion_temporal/01_observables_y_hamiltonianos.md)
-35. [Evolucion unitaria y Trotterizacion](15_hamiltonianos_y_evolucion_temporal/02_evolucion_unitaria_y_trotterizacion.md)
+34. [Finanzas cuanticas: optimizacion de carteras (Markowitz)](12_aplicaciones/05_finanzas_cuanticas_optimizacion_de_carteras.md)
+35. [Valoracion de activos y Monte Carlo cuantico (QAE)](12_aplicaciones/06_valoracion_de_activos_y_monte_carlo_cuantico.md)
+36. [Kernels cuanticos y espacios de caracteristicas](12_aplicaciones/07_kernels_cuanticos_y_espacios_de_caracteristicas.md)
+37. [Redes neuronales cuanticas (QNN)](12_aplicaciones/08_redes_neuronales_cuanticas_qnn.md)
+38. [Simulacion de materiales y estructuras complejas](12_aplicaciones/09_simulacion_de_materiales_y_estructuras_complejas.md)
+39. [Observables y Hamiltonianos](15_hamiltonianos_y_evolucion_temporal/01_observables_y_hamiltonianos.md)
+40. [Evolucion unitaria y Trotterizacion](15_hamiltonianos_y_evolucion_temporal/02_evolucion_unitaria_y_trotterizacion.md)
 
 ### 7. Canales y ruido
 
-36. [Canales cuanticos: intuicion y representacion](16_canales_cuanticos_y_ruido/01_canales_cuanticos_intuicion_y_representacion.md)
-37. [Operadores de Kraus, decoherencia y modelos efectivos](16_canales_cuanticos_y_ruido/02_kraus_decoherencia_y_modelos_efectivos.md)
+41. [Canales cuanticos: intuicion y representacion](16_canales_cuanticos_y_ruido/01_canales_cuanticos_intuicion_y_representacion.md)
+42. [Operadores de Kraus, decoherencia y modelos efectivos](16_canales_cuanticos_y_ruido/02_kraus_decoherencia_y_modelos_efectivos.md)
 
 ### 8. Medicion avanzada
 
-38. [Proyectores, valores esperados y varianza](17_medicion_avanzada_y_observables/01_proyectores_valores_esperados_y_varianza.md)
-39. [POVM: intuicion y medicion generalizada](17_medicion_avanzada_y_observables/02_povm_intuicion_y_medicion_generalizada.md)
+43. [Proyectores, valores esperados y varianza](17_medicion_avanzada_y_observables/01_proyectores_valores_esperados_y_varianza.md)
+44. [POVM: intuicion y medicion generalizada](17_medicion_avanzada_y_observables/02_povm_intuicion_y_medicion_generalizada.md)
 
 ### 9. Complejidad y caracterizacion
 
-40. [BQP, oraculos y speedup](18_complejidad_cuantica/01_bqp_oraculos_y_speedup.md)
-41. [Limites de la ventaja y comparacion clasica](18_complejidad_cuantica/02_limites_de_la_ventaja_y_comparacion_clasica.md)
-42. [Tomografia de estados: intuicion y reconstruccion](19_tomografia_y_caracterizacion/01_tomografia_de_estados_intuicion_y_reconstruccion.md)
-43. [Fidelidad y caracterizacion operacional](19_tomografia_y_caracterizacion/02_fidelidad_y_caracterizacion_operacional.md)
+45. [BQP, oraculos y speedup](18_complejidad_cuantica/01_bqp_oraculos_y_speedup.md)
+46. [Limites de la ventaja y comparacion clasica](18_complejidad_cuantica/02_limites_de_la_ventaja_y_comparacion_clasica.md)
+47. [Tomografia de estados: intuicion y reconstruccion](19_tomografia_y_caracterizacion/01_tomografia_de_estados_intuicion_y_reconstruccion.md)
+48. [Fidelidad y caracterizacion operacional](19_tomografia_y_caracterizacion/02_fidelidad_y_caracterizacion_operacional.md)
 
 ### 10. Simulacion cuantica avanzada
 
-44. [Trotter-Suzuki y coste de simulacion](20_simulacion_cuantica_avanzada/01_trotter_suzuki_y_coste_de_simulacion.md)
-45. [Simulacion digital frente a analogica](20_simulacion_cuantica_avanzada/02_simulacion_digital_frente_a_analogica.md)
+49. [Trotter-Suzuki y coste de simulacion](20_simulacion_cuantica_avanzada/01_trotter_suzuki_y_coste_de_simulacion.md)
+50. [Simulacion digital frente a analogica](20_simulacion_cuantica_avanzada/02_simulacion_digital_frente_a_analogica.md)
 
 ### 11. Open quantum systems
 
-46. [Lindblad y dinamica efectiva](21_open_quantum_systems/01_lindblad_y_dinamica_efectiva.md)
-47. [Decoherencia, relajacion y markovianidad](21_open_quantum_systems/02_decoherencia_relajacion_y_markovianidad.md)
+51. [Lindblad y dinamica efectiva](21_open_quantum_systems/01_lindblad_y_dinamica_efectiva.md)
+52. [Decoherencia, relajacion y markovianidad](21_open_quantum_systems/02_decoherencia_relajacion_y_markovianidad.md)
 
 ### 12. Recursos cuanticos
 
-48. [Coherencia, entrelazamiento y utilidad](22_recursos_cuanticos/01_coherencia_entrelazamiento_y_utilidad.md)
-49. [No-clonacion y limites operacionales](22_recursos_cuanticos/02_no_clonacion_y_limites_operacionales.md)
+53. [Coherencia, entrelazamiento y utilidad](22_recursos_cuanticos/01_coherencia_entrelazamiento_y_utilidad.md)
+54. [No-clonacion y limites operacionales](22_recursos_cuanticos/02_no_clonacion_y_limites_operacionales.md)
 
 ### 13. Implementacion de Hardware
 
-50. [Transmones y circuitos superconductores](23_hardware_fisico_y_arquitecturas/01_transmones_y_circuitos_superconductores.md)
-51. [Iones atrapados y otras arquitecturas](23_hardware_fisico_y_arquitecturas/02_iones_atrapados_y_otras_arquitecturas.md)
+55. [Transmones y circuitos superconductores](23_hardware_fisico_y_arquitecturas/01_transmones_y_circuitos_superconductores.md)
+56. [Iones atrapados y otras arquitecturas](23_hardware_fisico_y_arquitecturas/02_iones_atrapados_y_otras_arquitecturas.md)
 
 ### 14. Control de calibracion y Pulsos (Qiskit Pulse)
 
-52. [Introduccion al control por microondas](24_control_de_pulsos_y_qiskit_pulse/01_introduccion_al_control_por_microondas.md)
-53. [Programacion de pulsos con Qiskit Pulse](24_control_de_pulsos_y_qiskit_pulse/02_programacion_de_pulsos_con_qiskit_pulse.md)
+57. [Introduccion al control por microondas](24_control_de_pulsos_y_qiskit_pulse/01_introduccion_al_control_por_microondas.md)
+58. [Programacion de pulsos con Qiskit Pulse](24_control_de_pulsos_y_qiskit_pulse/02_programacion_de_pulsos_con_qiskit_pulse.md)
 
 ### 15. Criptografia Post-Cuantica
 
-54. [Criptografia Post-Cuantica (PQC)](25_criptografia_post_cuantica_pqc/01_criptografia_post_cuantica_pqc.md)
+59. [Criptografia Post-Cuantica (PQC)](25_criptografia_post_cuantica_pqc/01_criptografia_post_cuantica_pqc.md)
 
 ### 16. Cierre y perspectiva
 
-55. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
-56. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
-57. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+60. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+61. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+62. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
 
 ## Modulos especializados
 
