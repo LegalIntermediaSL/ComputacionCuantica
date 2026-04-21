@@ -4,6 +4,14 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [0.8.0] - 2026-04-22
+
+### Added
+- Nueva herramienta: [visualizador/app.py](visualizador/app.py) (Aplicación Streamlit para visualización interactiva de la Esfera de Bloch y ruido).
+- Bloque 17: Cálculo Gráfico y ZX-Calculus (2 artículos sobre la optimización gráfica de circuitos).
+- Bloque 18: Comunicaciones e Internet Cuántico (2 artículos sobre repetidores y protocolos de red).
+- Ampliación del tutorial hasta alcanzar los 66 artículos finales comprobados.
+
 ## [0.7.0] - 2026-04-22
 
 ### Added

@@ -30,3 +30,16 @@ Sirven para organizar preguntas diferentes sobre un circuito:
 
 - `Sampler` cuando interesa la distribucion de salidas;
 - `Estimator` cuando interesan valores esperados de observables.
+
+## ¿Qué aporta el ZX-Calculus frente a los circuitos tradicionales?
+
+Permite optimizar y simplificar circuitos complejos mediante un lenguaje gráfico de "arañas". Es especialmente útil para reducir el número de puertas CNOT en algoritmos ruidosos, algo que la transpilación estándar a veces no detecta.
+
+## ¿Por qué el algoritmo de Shor no rompe la criptografía basada en retículos (PQC)?
+
+Porque el algoritmo de Shor explota la estructura de periodicidad de grupos abelianos finitos (como la factorización). Problemas como *Learning With Errors (LWE)* en retículos de alta dimensión no tienen esa estructura periódica explotable, por lo que se consideran seguros frente a hardware cuántico actual.
+
+## ¿Cómo ejecuto el visualizador interactivo del repositorio?
+
+Necesitas instalar las dependencias (`pip install -r requirements.txt`) y luego ejecutar `streamlit run visualizador/app.py`. Esto abrirá una web local para manipular qubits y ruido visualmente.
+

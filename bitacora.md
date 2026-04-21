@@ -612,4 +612,26 @@ Elevar la utilidad práctica del repositorio mediante la inclusión de aplicacio
 
 El repositorio deja de ser solo un tutorial de fundamentos para convertirse en una guía de aplicaciones de industria, cubriendo ahora 62 artículos y 30 laboratorios guiados.
 
+## Entrada de expansión: Interactividad y Fronteras Teóricas
+
+### Fecha
+
+2026-04-22
+
+### Objetivo
+
+Dotar al repositorio de una dimensión visual dinámica e integrar los temas más avanzados de la literatura actual (ZX-Calculus e Internet Cuántico).
+
+### Trabajo realizado
+
+- Creación del visualizador interactivo con **Streamlit** (Esfera de Bloch + Simulador de Ruido).
+- Redacción de 4 artículos técnicos de vanguardia (Bloques 17 y 18).
+- Renumeración y sincronización total de 66 artículos en índices y navegación bidireccional.
+- Actualización de `requirements.txt` con bibliotecas de visualización.
+
+### Resultado
+
+El proyecto alcanza un nivel de excelencia pedagógica y tecnológica poco común en repositorios educativos, integrando software interactivo y teoría avanzada.
+
+
 

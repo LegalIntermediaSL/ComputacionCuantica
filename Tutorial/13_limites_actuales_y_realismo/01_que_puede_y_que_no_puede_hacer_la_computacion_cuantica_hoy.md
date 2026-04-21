@@ -11,5 +11,5 @@ Si envías una cadena matemática larga de 50 compuertas CNOT entrelazantes (com
 
 ## Navegacion
 
-- Anterior: [Criptografía Post-Cuántica (PQC)](../25_criptografia_post_cuantica_pqc/01_criptografia_post_cuantica_pqc.md)
+- Anterior: [Repetidores y redes de entrelazamiento](../27_internet_cuantico_and_comunicaciones/02_repetidores_y_entanglement_swapping.md)
 - Siguiente: [Realismo sobre ventaja cuantica](02_realismo_sobre_ventaja_cuantica.md)

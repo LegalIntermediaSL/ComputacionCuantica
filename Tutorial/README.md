@@ -114,11 +114,21 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 
 59. [Criptografia Post-Cuantica (PQC)](25_criptografia_post_cuantica_pqc/01_criptografia_post_cuantica_pqc.md)
 
+### 17. Cálculo Gráfico y ZX-Calculus
+
+60. [El lenguaje de las arañas: Introducción al ZX-Calculus](26_calculo_grafico_y_zx_calculus/01_el_lenguaje_de_las_aranas.md)
+61. [Simplificación y optimización de circuitos](26_calculo_grafico_y_zx_calculus/02_simplificacion_y_optimizacion_de_circuitos.md)
+
+### 18. Comunicaciones e Internet Cuántico
+
+62. [Protocolos de Internet Cuántico](27_internet_cuantico_and_comunicaciones/01_redes_y_protocolos_de_entrelazamiento.md)
+63. [Repetidores y redes de entrelazamiento](27_internet_cuantico_and_comunicaciones/02_repetidores_y_entanglement_swapping.md)
+
 ### 16. Cierre y perspectiva
 
-60. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
-61. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
-62. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+64. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+65. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+66. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
 
 ## Modulos especializados
 
@@ -144,6 +154,8 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 - [23_hardware_fisico_y_arquitecturas](23_hardware_fisico_y_arquitecturas/README.md)
 - [24_control_de_pulsos_y_qiskit_pulse](24_control_de_pulsos_y_qiskit_pulse/README.md)
 - [25_criptografia_post_cuantica_pqc](25_criptografia_post_cuantica_pqc/README.md)
+- [26_calculo_grafico_y_zx_calculus](26_calculo_grafico_y_zx_calculus/README.md)
+- [27_internet_cuantico_and_comunicaciones](27_internet_cuantico_and_comunicaciones/README.md)
 
 ## Filosofia del material
 

@@ -21,8 +21,10 @@ flowchart TD
     M --> N["Recursos cuanticos"]
     N --> O["Hardware y Control"]
     O --> P["Criptografia PQC"]
-    P --> Q["Limites y realismo"]
-    Q --> R["Bibliografia"]
+    P --> Q["ZX Calculus"]
+    Q --> R["Internet Cuantico"]
+    R --> S["Limites y realismo"]
+    S --> T["Bibliografia"]
 ```
 
 ## Bloques del curso
@@ -87,6 +89,8 @@ flowchart TD
 - [23_hardware_fisico_y_arquitecturas/README.md](23_hardware_fisico_y_arquitecturas/README.md)
 - [24_control_de_pulsos_y_qiskit_pulse/README.md](24_control_de_pulsos_y_qiskit_pulse/README.md)
 - [25_criptografia_post_cuantica_pqc/README.md](25_criptografia_post_cuantica_pqc/README.md)
+- [26_calculo_grafico_y_zx_calculus/README.md](26_calculo_grafico_y_zx_calculus/README.md)
+- [27_internet_cuantico_and_comunicaciones/README.md](27_internet_cuantico_and_comunicaciones/README.md)
 
 ### Cierre y apoyo
 

@@ -1,13 +1,27 @@
-# Tabla global de cobertura
+# Tabla Global de Cobertura (v0.8.0)
 
-| Bloque | Teoria | Ejemplos | Problemas | Laboratorios | Resumen | Ejercicios | Soluciones |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Fundamentos iniciales | si | si | si | no | si | si | parcial |
-| Qiskit | si | si | si | si | si | si | parcial |
-| Algoritmos | si | si | si | si | si | si | parcial |
-| Informacion cuantica | si | si | si | si | si | pendiente | pendiente |
-| Correccion de errores | si | parcial | no | no | pendiente | pendiente | pendiente |
-| Qiskit avanzado | si | parcial | no | no | pendiente | pendiente | pendiente |
-| Algoritmos variacionales | si | parcial | no | si | pendiente | pendiente | pendiente |
-| Aplicaciones | si | parcial | no | no | pendiente | pendiente | pendiente |
-| Limites actuales | si | no | no | no | pendiente | pendiente | pendiente |
+Esta tabla resume el estado de completitud de cada uno de los bloques del ecosistema educativo.
+
+| Bloque Temático | Temas (Artículos) | Teoría | Notebooks | Laboratorios | Soluciones |
+|---|---|:---:|:---:|:---:|:---:|
+| **Fundamentos** | 01 - 10 | ✅ | ✅ | ✅ | ✅ |
+| **Qiskit y Herramientas** | 11 - 17 | ✅ | ✅ | ✅ | ✅ |
+| **Algoritmos del Canon** | 18 - 25 | ✅ | ✅ | ✅ | ✅ |
+| **Ecosistema de Ruido** | 26 - 32 | ✅ | ✅ | ✅ | ✅ |
+| **Aplicaciones e Industria** | 33 - 38 | ✅ | ✅ | ✅ | ✅ |
+| **Hamiltonianos y Evolución** | 39 - 40 | ✅ | ✅ | ✅ | ✅ |
+| **Canales y Ruido Avanzado** | 41 - 42 | ✅ | ✅ | ✅ | ✅ |
+| **Medición Avanzada (POVM)** | 43 - 44 | ✅ | ✅ | ✅ | ✅ |
+| **Complejidad y Tomografía** | 45 - 48 | ✅ | ✅ | ✅ | ✅ |
+| **Simulación y Sistemas Abiertos** | 49 - 52 | ✅ | ✅ | ✅ | ✅ |
+| **Recursos y No-clonación** | 53 - 54 | ✅ | ✅ | ✅ | ✅ |
+| **Hardware Real y Pulse** | 55 - 58 | ✅ | ✅ | ✅ | ✅ |
+| **Criptografía PQC** | 59 | ✅ | ✅ | ✅ | ✅ |
+| **ZX-Calculus y Gráficos** | 60 - 61 | ✅ | ✅ | ✅ | ✅ |
+| **Internet Cuántico** | 62 - 63 | ✅ | ✅ | ✅ | ✅ |
+| **Cierre y Realismo** | 64 - 66 | ✅ | ✅ | ✅ | ✅ |
+
+## Leyenda
+- ✅: Sólido / Completo
+- 📋: En desarrollo final
+- 🧪: Experimental

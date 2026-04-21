@@ -24,4 +24,4 @@ Recientemente, el NIST ha seleccionado algoritmos estándar para la era post-cu�
 
 ## Navegación
 - Anterior: [Programación de pulsos con Qiskit Pulse](../24_control_de_pulsos_y_qiskit_pulse/02_programacion_de_pulsos_con_qiskit_pulse.md)
-- Siguiente: [Qué puede y que no puede hacer la computación cuántica hoy](../../13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+- Siguiente: [El lenguaje de las arañas: Introducción al ZX-Calculus](../26_calculo_grafico_y_zx_calculus/01_el_lenguaje_de_las_aranas.md)
