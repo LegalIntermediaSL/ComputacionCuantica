@@ -1,5 +1,11 @@
-qiskit>=1.0.0
-qiskit-aer
-streamlit
+qiskit>=2.0,<3.0
+qiskit-aer>=0.15
+streamlit>=1.35
 matplotlib
 numpy
+scipy
+pandas
+jupyter
+nbconvert
+# Optional: pyzx (for pyzx_optimizacion.ipynb and module 26)
+# pip install pyzx

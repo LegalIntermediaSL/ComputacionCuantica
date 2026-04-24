@@ -23,8 +23,9 @@ flowchart TD
     O --> P["Criptografia PQC"]
     P --> Q["ZX Calculus"]
     Q --> R["Internet Cuantico"]
-    R --> S["Limites y realismo"]
-    S --> T["Bibliografia"]
+    R --> S["Aplicaciones emergentes"]
+    S --> T["Limites y realismo"]
+    T --> U["Bibliografia"]
 ```
 
 ## Bloques del curso
@@ -91,6 +92,7 @@ flowchart TD
 - [25_criptografia_post_cuantica_pqc/README.md](25_criptografia_post_cuantica_pqc/README.md)
 - [26_calculo_grafico_y_zx_calculus/README.md](26_calculo_grafico_y_zx_calculus/README.md)
 - [27_internet_cuantico_and_comunicaciones/README.md](27_internet_cuantico_and_comunicaciones/README.md)
+- [28_aplicaciones_emergentes/README.md](28_aplicaciones_emergentes/README.md)
 
 ### Cierre y apoyo
 

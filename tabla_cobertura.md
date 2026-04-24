@@ -1,4 +1,4 @@
-# Tabla Global de Cobertura (v0.8.0)
+# Tabla Global de Cobertura (v0.9.0)
 
 Esta tabla resume el estado de completitud de cada uno de los bloques del ecosistema educativo.
 

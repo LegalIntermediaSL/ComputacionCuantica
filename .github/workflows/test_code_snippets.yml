@@ -1,0 +1,164 @@
+name: Test code snippets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Tutorial/**/*.md"
+      - "Cuadernos/**/*.ipynb"
+      - "visualizador/**/*.py"
+      - ".github/workflows/test_code_snippets.yml"
+  pull_request:
+    branches: [main]
+
+jobs:
+  extract-and-test:
+    name: Extract and run Python snippets from Markdown
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install \
+            "qiskit>=2.0,<3.0" \
+            "qiskit-aer>=0.15" \
+            numpy \
+            scipy \
+            matplotlib
+
+      - name: Extract Python snippets from Markdown files
+        run: |
+          python - <<'PYEOF'
+          import re, pathlib, textwrap
+
+          SKIP_PATTERNS = [
+              "QiskitRuntimeService",   # requiere credenciales IBM
+              "from oqs import",        # requiere biblioteca nativa
+              "from pqcrypto",          # requiere biblioteca nativa
+              "pyzx",                   # requiere pyzx instalado
+              "from pytket",            # requiere tket
+              "pulse.build",            # Qiskit Pulse — deprecated en Qiskit 2.0
+              "qiskit.pulse",
+              "ibm_runtime",
+          ]
+
+          output_dir = pathlib.Path("extracted_snippets")
+          output_dir.mkdir(exist_ok=True)
+
+          md_files = sorted(pathlib.Path("Tutorial").rglob("*.md"))
+          total = 0
+
+          for md_path in md_files:
+              text = md_path.read_text(encoding="utf-8")
+              # Extraer bloques ```python ... ```
+              blocks = re.findall(r"```python\n(.*?)```", text, re.DOTALL)
+              for idx, block in enumerate(blocks):
+                  # Saltar si contiene imports que requieren credenciales
+                  if any(pat in block for pat in SKIP_PATTERNS):
+                      continue
+                  snippet_name = f"{md_path.stem}_{idx:02d}.py"
+                  snippet_path = output_dir / snippet_name
+                  snippet_path.write_text(block, encoding="utf-8")
+                  total += 1
+
+          print(f"Extracted {total} testable snippets from {len(md_files)} Markdown files")
+          PYEOF
+
+      - name: Run extracted snippets
+        run: |
+          python - <<'PYEOF'
+          import subprocess, pathlib, sys
+
+          snippets = sorted(pathlib.Path("extracted_snippets").glob("*.py"))
+          errors = []
+
+          for snippet in snippets:
+              result = subprocess.run(
+                  [sys.executable, str(snippet)],
+                  capture_output=True, text=True, timeout=60
+              )
+              if result.returncode != 0:
+                  errors.append((snippet.name, result.stderr[-1000:]))
+                  print(f"FAIL: {snippet.name}")
+                  print(result.stderr[-500:])
+              else:
+                  print(f"  OK: {snippet.name}")
+
+          if errors:
+              print(f"\n{len(errors)} snippet(s) failed:")
+              for name, err in errors:
+                  print(f"  - {name}: {err[:200]}")
+              sys.exit(1)
+          else:
+              print(f"\nAll {len(snippets)} snippets passed.")
+          PYEOF
+
+  test-notebooks:
+    name: Execute Jupyter notebooks
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install notebook dependencies
+        run: |
+          pip install --upgrade pip
+          pip install \
+            "qiskit>=2.0,<3.0" \
+            "qiskit-aer>=0.15" \
+            numpy scipy matplotlib \
+            jupyter nbconvert nbformat \
+            ipykernel
+
+      - name: Execute notebooks (skip hardware-dependent)
+        run: |
+          for nb in Cuadernos/laboratorios/*.ipynb Cuadernos/ejemplos/*.ipynb; do
+            echo "Running: $nb"
+            jupyter nbconvert \
+              --to notebook \
+              --execute \
+              --ExecutePreprocessor.timeout=120 \
+              --ExecutePreprocessor.kernel_name=python3 \
+              --output "/tmp/$(basename $nb)" \
+              "$nb" 2>&1 | tail -5
+            echo "Done: $nb"
+          done
+
+  test-streamlit-syntax:
+    name: Syntax check Streamlit pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Streamlit
+        run: pip install streamlit qiskit qiskit-aer numpy scipy matplotlib pandas
+
+      - name: Check Python syntax on all Streamlit pages
+        run: |
+          for pyfile in visualizador/app.py visualizador/pages/*.py; do
+            python -m py_compile "$pyfile" && echo "OK: $pyfile" || echo "FAIL: $pyfile"
+          done

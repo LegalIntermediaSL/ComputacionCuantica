@@ -124,11 +124,17 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 62. [Protocolos de Internet Cuántico](27_internet_cuantico_and_comunicaciones/01_redes_y_protocolos_de_entrelazamiento.md)
 63. [Repetidores y redes de entrelazamiento](27_internet_cuantico_and_comunicaciones/02_repetidores_y_entanglement_swapping.md)
 
+### 19. Aplicaciones emergentes
+
+64. [Mitigacion de errores: ZNE y PEC](28_aplicaciones_emergentes/01_error_mitigation_zne_pec.md)
+65. [Quantum Machine Learning: kernels y barreras](28_aplicaciones_emergentes/02_quantum_machine_learning_kernels.md)
+66. [Ventaja cuantica demostrada: experimentos reales](28_aplicaciones_emergentes/03_ventaja_cuantica_demostrada.md)
+
 ### 16. Cierre y perspectiva
 
-64. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
-65. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
-66. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
+67. [Que puede y que no puede hacer la computacion cuantica hoy](13_limites_actuales_y_realismo/01_que_puede_y_que_no_puede_hacer_la_computacion_cuantica_hoy.md)
+68. [Realismo sobre ventaja cuantica](13_limites_actuales_y_realismo/02_realismo_sobre_ventaja_cuantica.md)
+69. [Bibliografia comentada](07_apendices/bibliografia_comentada.md)
 
 ## Modulos especializados
 
@@ -137,6 +143,7 @@ Este directorio contiene el cuerpo principal del curso. El objetivo es ofrecer u
 - [06_ruido_y_hardware](06_ruido_y_hardware/README.md)
 - [07_apendices](07_apendices/README.md)
 - [08_informacion_cuantica](08_informacion_cuantica/README.md)
+- [28_aplicaciones_emergentes](28_aplicaciones_emergentes/README.md)
 - [09_correccion_errores](09_correccion_errores/README.md)
 - [10_qiskit_avanzado](10_qiskit_avanzado/README.md)
 - [11_algoritmos_variacionales](11_algoritmos_variacionales/README.md)

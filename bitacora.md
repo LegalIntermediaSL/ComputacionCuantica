@@ -633,5 +633,36 @@ Dotar al repositorio de una dimensión visual dinámica e integrar los temas má
 
 El proyecto alcanza un nivel de excelencia pedagógica y tecnológica poco común en repositorios educativos, integrando software interactivo y teoría avanzada.
 
+## Entrada de expansión masiva a v0.9.0: 37 artículos reescritos
+
+### Fecha
+
+2026-04-24
+
+### Objetivo
+
+Elevar todos los artículos del tutorial que tenían contenido insuficiente (stub, menos de 30 líneas) al estándar de calidad del resto del repositorio: formalismo matemático completo, código Qiskit ejecutable, tablas comparativas y ejercicios sugeridos.
+
+### Trabajo realizado
+
+- **Módulo 05 (algoritmos del canon):** reescritura completa de Deutsch-Jozsa, Bernstein-Vazirani, Grover, QFT y QPE con derivaciones matemáticas completas y código Qiskit con `StatevectorSampler`/`StatevectorEstimator`.
+- **Módulo 11 (variacionales):** reescritura completa de circuitos parametrizados (regla del cambio de parámetro), VQE (principio variacional, `EfficientSU2`, COBYLA) y QAOA (MaxCut, ansatz de p capas, `rzz` nativo).
+- **Módulos 13-14 (límites y surface codes):** artículos reescritos desde stub de 15 líneas a artículos de ~160 líneas con tablas de hardware, escalado de overhead y análisis de umbrales de error.
+- **Módulo 15 (Hamiltonianos):** reescritura con descomposición de Pauli, Jordan-Wigner, `SparsePauliOp` y Trotter completo.
+- **Módulo 16 (canales cuánticos):** reescritura con representación Bloch-vector, Kraus operators para los tres canales principales y `NoiseModel` de Qiskit Aer.
+- **Módulo 17 (medición avanzada):** reescritura con Born rule para estados mixtos, principio de incertidumbre, POVM formal, teorema de Neumark y cota de Helstrom.
+- **Módulos 18-19 (complejidad, tomografía):** reescritura con la jerarquía BQP⊆PSPACE, el teorema de Simon, QST con Pauli, randomized benchmarking y métricas QV/CLOPS.
+- **Módulos 20-21 (simulación y sistemas abiertos):** reescritura con tabla de costes de Trotter, qubitización LCU, comparativa digital vs analógica, ecuación de Lindblad completa, T1/T2 y secuencias de refocalización.
+- **Módulo 22 (recursos cuánticos):** reescritura completa desde stub ilegible a artículos completos sobre teoría de coherencia (medidas ℓ₁, entropía relativa), entropía de entrelazamiento, no-clonación (prueba por linealidad), monogamia del entrelazamiento (CKW), principio de Landauer cuántico y cota de Holevo.
+- **Módulo 23 (hardware físico):** expansión con Hamiltoniano del transmón, circuit QED dispersivo, puertas Cross-Resonance, tablas de parámetros actuales (2024), comparativa completa de arquitecturas (superconductores, iones, Rydberg, NV, fotónica).
+- **Módulo 24 (control de pulsos):** expansión con marco rotatorio, Hamiltoniano de drive, mezclador IQ, envolventes DRAG, experimento de Rabi y Ramsey, implementación en Qiskit Pulse.
+- **Módulo 25 (PQC):** expansión con problema LWE, estándares NIST 2024 (ML-KEM/Kyber, ML-DSA/Dilithium, SLH-DSA/SPHINCS+), escenario "harvest now decrypt later", comparativa QKD vs PQC.
+- **Módulo 26 (ZX-Calculus):** expansión con definición formal de arañas Z/X, todas las reglas de reescritura, phase gadgets en QAOA, código PyZX.
+- **Módulo 27 (internet cuántico):** expansión con BB84 formal (análisis de error), E91 (desigualdad CHSH), arquitectura por capas, satélite Micius, entanglement swapping (circuito Qiskit completo), purificación DEJMPS, memorias cuánticas y Blind Quantum Computing.
+
+### Resultado
+
+El repositorio alcanza v0.9.0 con 63+ artículos de calidad homogénea. Todos los módulos del tutorial tienen formalismo matemático completo, código Qiskit ejecutable con la API moderna (Qiskit 2.0) y ejercicios sugeridos. Ningún artículo es ya un stub.
+
 
 

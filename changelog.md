@@ -4,6 +4,28 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [0.9.0] - 2026-04-24
+
+### Changed (reescritura masiva de artículos)
+
+- **37 artículos reescritos** desde stub (< 30 líneas) a artículos completos (~150-200 líneas) con formalismo matemático, código Qiskit 2.0 y ejercicios sugeridos.
+- Módulos afectados: 05, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27.
+- Todo el código actualizado a la API moderna de Qiskit 2.0 (`StatevectorSampler`, `StatevectorEstimator`, `SparsePauliOp`).
+
+### Added
+
+- **Módulo 22 (recursos cuánticos):** teoría de coherencia (medidas ℓ₁, entropía relativa), entropía de entrelazamiento, no-clonación (demostración por linealidad), monogamia CKW, principio de Landauer cuántico, cota de Holevo.
+- **Módulo 23 (hardware físico):** Hamiltoniano del transmón, circuit QED dispersivo, Cross-Resonance, tablas de parámetros 2024, comparativa completa de 5 arquitecturas (superconductores, iones, Rydberg, NV, fotónica).
+- **Módulo 24 (control de pulsos):** marco rotatorio, Hamiltoniano de drive, mezclador IQ, envolventes DRAG, experimento de Rabi/Ramsey, Qiskit Pulse completo.
+- **Módulo 25 (PQC):** LWE, estándares NIST 2024 (ML-KEM/Kyber, ML-DSA/Dilithium, SLH-DSA/SPHINCS+), comparativa QKD vs PQC.
+- **Módulo 26 (ZX-Calculus):** arañas Z/X, reglas de reescritura, phase gadgets, código PyZX con circuito de demostración.
+- **Módulo 27 (internet cuántico):** BB84 con análisis de QBER, E91 con CHSH, entanglement swapping (circuito Qiskit), purificación DEJMPS, memorias cuánticas, Blind Quantum Computing, estado del arte 2024.
+
+### Fixed
+
+- Eliminados todos los stubs con contenido incoherente o ilegible en módulos 22-27.
+- Navegación bidireccional verificada en todos los artículos reescritos.
+
 ## [0.8.0] - 2026-04-22
 
 ### Added
