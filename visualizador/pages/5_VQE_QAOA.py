@@ -30,6 +30,11 @@ if modo == "VQE":
         coef_XX = st.number_input("Coef. XX", value=0.1809, format="%.4f")
         reps_ansatz = st.slider("Profundidad ansatz (reps)", 1, 4, 2)
         max_iter   = st.slider("Iteraciones máximas", 20, 500, 100)
+        optimizadores = st.multiselect(
+            "Optimizadores a comparar",
+            ["COBYLA", "SPSA", "Nelder-Mead"],
+            default=["COBYLA"],
+        )
 
     H = SparsePauliOp.from_list([
         ("II", coef_II), ("ZI", coef_ZI), ("IZ", coef_IZ),
@@ -38,36 +43,78 @@ if modo == "VQE":
     n_qubits = 2
     ansatz = EfficientSU2(n_qubits, reps=reps_ansatz, entanglement="linear")
     estimator = StatevectorEstimator()
-    energy_history = []
 
-    def cost_fn(params):
-        bound = ansatz.assign_parameters(params)
-        result = estimator.run([(bound, H)]).result()
-        e = float(result[0].data.evs)
-        energy_history.append(e)
-        return e
+    def make_cost_fn(history):
+        def cost_fn(params):
+            bound = ansatz.assign_parameters(params)
+            result = estimator.run([(bound, H)]).result()
+            e = float(result[0].data.evs)
+            history.append(e)
+            return e
+        return cost_fn
+
+    def spsa_minimize(cost_fn, x0, max_iter, a=0.2, c=0.1):
+        """SPSA simplificado (Simultaneous Perturbation Stochastic Approximation)."""
+        x = x0.copy()
+        history = []
+        for k in range(1, max_iter + 1):
+            ak = a / (k + 1) ** 0.602
+            ck = c / k ** 0.101
+            delta = np.random.choice([-1, 1], size=len(x))
+            f_plus  = cost_fn(x + ck * delta)
+            f_minus = cost_fn(x - ck * delta)
+            grad = (f_plus - f_minus) / (2 * ck * delta)
+            x -= ak * grad
+            history.append(cost_fn(x))
+        return x, min(history)
 
     if st.button("Ejecutar VQE"):
+        if not optimizadores:
+            st.warning("Selecciona al menos un optimizador.")
+            st.stop()
+
+        resultados = {}
+        colors_opt = {"COBYLA": "#3498db", "SPSA": "#e74c3c", "Nelder-Mead": "#2ecc71"}
+
         with st.spinner("Optimizando..."):
-            np.random.seed(42)
-            x0 = np.random.uniform(-np.pi, np.pi, ansatz.num_parameters)
-            energy_history.clear()
-            res = minimize(cost_fn, x0, method="COBYLA",
-                           options={"maxiter": max_iter, "rhobeg": 0.5})
+            for opt_name in optimizadores:
+                hist = []
+                cost = make_cost_fn(hist)
+                np.random.seed(42)
+                x0 = np.random.uniform(-np.pi, np.pi, ansatz.num_parameters)
+
+                if opt_name == "SPSA":
+                    x_opt, e_min = spsa_minimize(cost, x0, max_iter)
+                    class FakeResult:
+                        fun = e_min
+                        success = True
+                    res = FakeResult()
+                else:
+                    method = "cobyla" if opt_name == "COBYLA" else "Nelder-Mead"
+                    res = minimize(cost, x0, method=method,
+                                   options={"maxiter": max_iter,
+                                            **({"rhobeg": 0.5} if opt_name == "COBYLA" else {})})
+                resultados[opt_name] = {"history": hist, "res": res}
 
         col1, col2 = st.columns([2, 1])
         with col1:
             fig, ax = plt.subplots(figsize=(9, 4))
-            ax.plot(energy_history, color="#3498db", linewidth=1.5)
-            ax.axhline(y=res.fun, color="#e74c3c", linestyle="--", alpha=0.7,
-                       label=f"E_min = {res.fun:.6f}")
+            for opt_name, data in resultados.items():
+                color = colors_opt.get(opt_name, "#8e44ad")
+                ax.plot(data["history"], color=color, linewidth=1.5, label=opt_name)
+                ax.axhline(y=data["res"].fun, color=color, linestyle="--", alpha=0.4)
+            ax.axhline(y=-1.8572, color="black", linestyle=":", alpha=0.6, label="FCI ref. −1.8572 Ha")
             ax.set_xlabel("Iteración")
             ax.set_ylabel("⟨H⟩ (Hartree)")
-            ax.set_title("Curva de convergencia VQE")
-            ax.legend()
+            ax.set_title("Curva de convergencia VQE — comparativa de optimizadores")
+            ax.legend(); ax.grid(alpha=0.2)
             st.pyplot(fig)
 
         with col2:
+            best_opt = min(resultados, key=lambda k: resultados[k]["res"].fun)
+            res = resultados[best_opt]["res"]
+            energy_history = resultados[best_opt]["history"]
+            st.metric("Mejor optimizador", best_opt)
             st.metric("Energía mínima encontrada", f"{res.fun:.6f} Ha")
             st.metric("Iteraciones realizadas", len(energy_history))
             st.metric("Convergencia", "Sí" if res.success else "No (max_iter)")

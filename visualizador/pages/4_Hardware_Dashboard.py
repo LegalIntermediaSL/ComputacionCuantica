@@ -15,21 +15,34 @@ st.markdown(
 
 # ─── Datos de procesadores IBM ───────────────────────────────────────────────
 PROCESADORES = pd.DataFrame([
-    {"Procesador": "IBM Falcon (2019)", "Qubits": 27,  "T1_us": 70,  "T2_us": 80,  "F_1q_pct": 99.7, "F_2q_pct": 99.0, "Año": 2019},
-    {"Procesador": "IBM Eagle (2021)",  "Qubits": 127, "T1_us": 100, "T2_us": 90,  "F_1q_pct": 99.8, "F_2q_pct": 99.1, "Año": 2021},
-    {"Procesador": "IBM Osprey (2022)", "Qubits": 433, "T1_us": 150, "T2_us": 130, "F_1q_pct": 99.9, "F_2q_pct": 99.3, "Año": 2022},
-    {"Procesador": "IBM Condor (2023)", "Qubits": 1121,"T1_us": 200, "T2_us": 150, "F_1q_pct": 99.9, "F_2q_pct": 99.4, "Año": 2023},
-    {"Procesador": "IBM Heron (2024)",  "Qubits": 133, "T1_us": 300, "T2_us": 200, "F_1q_pct": 99.95,"F_2q_pct": 99.7, "Año": 2024},
-    {"Procesador": "Google Sycamore",   "Qubits": 70,  "T1_us": 100, "T2_us": 80,  "F_1q_pct": 99.8, "F_2q_pct": 99.5, "Año": 2023},
-    {"Procesador": "Quantinuum H2",     "Qubits": 56,  "T1_us": 1e6, "T2_us": 1e6, "F_1q_pct": 99.99,"F_2q_pct": 99.8, "Año": 2024},
+    {"Procesador": "IBM Falcon (2019)",    "Qubits": 27,   "T1_us": 70,   "T2_us": 80,   "F_1q_pct": 99.7,  "F_2q_pct": 99.0, "Año": 2019, "Arquitectura": "Superconductor"},
+    {"Procesador": "IBM Eagle (2021)",     "Qubits": 127,  "T1_us": 100,  "T2_us": 90,   "F_1q_pct": 99.8,  "F_2q_pct": 99.1, "Año": 2021, "Arquitectura": "Superconductor"},
+    {"Procesador": "IBM Osprey (2022)",    "Qubits": 433,  "T1_us": 150,  "T2_us": 130,  "F_1q_pct": 99.9,  "F_2q_pct": 99.3, "Año": 2022, "Arquitectura": "Superconductor"},
+    {"Procesador": "IBM Condor (2023)",    "Qubits": 1121, "T1_us": 200,  "T2_us": 150,  "F_1q_pct": 99.9,  "F_2q_pct": 99.4, "Año": 2023, "Arquitectura": "Superconductor"},
+    {"Procesador": "IBM Heron (2024)",     "Qubits": 133,  "T1_us": 300,  "T2_us": 200,  "F_1q_pct": 99.95, "F_2q_pct": 99.7, "Año": 2024, "Arquitectura": "Superconductor"},
+    {"Procesador": "Google Sycamore",      "Qubits": 70,   "T1_us": 100,  "T2_us": 80,   "F_1q_pct": 99.8,  "F_2q_pct": 99.5, "Año": 2023, "Arquitectura": "Superconductor"},
+    {"Procesador": "Google Willow (2024)", "Qubits": 105,  "T1_us": 100,  "T2_us": 150,  "F_1q_pct": 99.9,  "F_2q_pct": 99.7, "Año": 2024, "Arquitectura": "Superconductor"},
+    {"Procesador": "Quantinuum H2 (2024)","Qubits": 56,   "T1_us": 1e6,  "T2_us": 1e6,  "F_1q_pct": 99.99, "F_2q_pct": 99.8, "Año": 2024, "Arquitectura": "Iones atrapados"},
+    {"Procesador": "IonQ Forte (2024)",    "Qubits": 35,   "T1_us": 5e5,  "T2_us": 5e5,  "F_1q_pct": 99.97, "F_2q_pct": 99.5, "Año": 2024, "Arquitectura": "Iones atrapados"},
+    {"Procesador": "Atom Computing (2024)","Qubits": 1180, "T1_us": 3e4,  "T2_us": 3e4,  "F_1q_pct": 99.9,  "F_2q_pct": 99.0, "Año": 2024, "Arquitectura": "Átomos neutros"},
 ])
 
 with st.sidebar:
     st.header("Filtros")
+    arqs_disponibles = ["Todas"] + sorted(PROCESADORES["Arquitectura"].unique().tolist())
+    arq_filtro = st.selectbox("Arquitectura", arqs_disponibles)
+    año_min, año_max = int(PROCESADORES["Año"].min()), int(PROCESADORES["Año"].max())
+    rango_año = st.slider("Rango de años", año_min, año_max, (año_min, año_max))
+    candidatos = PROCESADORES[
+        (PROCESADORES["Año"] >= rango_año[0]) &
+        (PROCESADORES["Año"] <= rango_año[1])
+    ]
+    if arq_filtro != "Todas":
+        candidatos = candidatos[candidatos["Arquitectura"] == arq_filtro]
     mostrar = st.multiselect(
         "Procesadores a mostrar",
-        PROCESADORES["Procesador"].tolist(),
-        default=PROCESADORES["Procesador"].tolist(),
+        candidatos["Procesador"].tolist(),
+        default=candidatos["Procesador"].tolist(),
     )
     metrica = st.selectbox("Métrica principal", ["T1_us", "T2_us", "F_1q_pct", "F_2q_pct", "Qubits"])
     escala_log_T = st.checkbox("Escala log para T1/T2", value=True)
@@ -53,9 +66,10 @@ with col4:
 
 # ─── Tabla ────────────────────────────────────────────────────────────────────
 st.dataframe(
-    df[["Procesador", "Año", "Qubits", "T1_us", "T2_us", "F_1q_pct", "F_2q_pct"]]
+    df[["Procesador", "Año", "Arquitectura", "Qubits", "T1_us", "T2_us", "F_1q_pct", "F_2q_pct"]]
     .rename(columns={"T1_us": "T1 (μs)", "T2_us": "T2 (μs)",
-                     "F_1q_pct": "F 1Q (%)", "F_2q_pct": "F 2Q (%)"}),
+                     "F_1q_pct": "F 1Q (%)", "F_2q_pct": "F 2Q (%)",
+                     "Arquitectura": "Tipo"}),
     use_container_width=True,
 )
 
