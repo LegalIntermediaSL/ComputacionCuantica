@@ -2,7 +2,7 @@
 import streamlit as st
 import numpy as np
 from qiskit import QuantumCircuit
-from qiskit.quantum_info import Statevector, DensityMatrix
+from qiskit.quantum_info import Statevector, DensityMatrix, SparsePauliOp
 from qiskit.visualization import plot_bloch_multivector, plot_histogram
 from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel, depolarizing_error, phase_damping_error
@@ -36,9 +36,9 @@ rho_ideal = DensityMatrix(sv_ideal)
 
 # Bloch vector ideal
 r_ideal = np.array([
-    sv_ideal.expectation_value("X").real,
-    sv_ideal.expectation_value("Y").real,
-    sv_ideal.expectation_value("Z").real,
+    sv_ideal.expectation_value(SparsePauliOp("X")).real,
+    sv_ideal.expectation_value(SparsePauliOp("Y")).real,
+    sv_ideal.expectation_value(SparsePauliOp("Z")).real,
 ])
 
 # --- Aplicar canal de ruido a la matriz de densidad ---

@@ -130,7 +130,7 @@ jobs:
 
       - name: Execute notebooks (skip hardware-dependent)
         run: |
-          for nb in Cuadernos/laboratorios/*.ipynb Cuadernos/ejemplos/*.ipynb; do
+          for nb in Cuadernos/laboratorios/*.ipynb Cuadernos/ejemplos/*.ipynb Cuadernos/problemas_resueltos/*.ipynb; do
             echo "Running: $nb"
             jupyter nbconvert \
               --to notebook \

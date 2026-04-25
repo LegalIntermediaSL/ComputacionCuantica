@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 from qiskit.quantum_info import DensityMatrix
+from scipy.linalg import sqrtm
 
 st.set_page_config(page_title="Canales y Ruido", layout="wide")
 st.title("Modelos de ruido: contracción de la esfera de Bloch")
@@ -88,8 +89,8 @@ rows = []
 for nombre, p, _ in channels_to_plot:
     rho_out = apply_channel(rho0, nombre, p)
     r_out   = bloch_vector(rho_out)
-    rho_sqrt = np.linalg.matrix_power(rho0, 1)  # aproximación
-    F = float(np.abs(np.sqrt(np.sqrt(rho0)) @ rho_out @ np.sqrt(rho0)).trace() ** 2)
+    sqrt_rho0 = sqrtm(rho0)
+    F = float(np.abs(np.trace(sqrtm(sqrt_rho0 @ rho_out @ sqrt_rho0))) ** 2)
     pureza  = float(np.trace(rho_out @ rho_out).real)
     norm    = float(np.linalg.norm(r_out))
     rows.append({

@@ -1,11 +1,11 @@
 qiskit>=2.0,<3.0
-qiskit-aer>=0.15
-streamlit>=1.35
-matplotlib
-numpy
-scipy
-pandas
-jupyter
-nbconvert
+qiskit-aer>=0.15,<1.0
+streamlit>=1.35,<2.0
+matplotlib>=3.8,<4.0
+numpy>=1.26,<3.0
+scipy>=1.12,<2.0
+pandas>=2.1,<3.0
+jupyter>=1.0
+nbconvert>=7.0
 # Optional: pyzx (for pyzx_optimizacion.ipynb and module 26)
-# pip install pyzx
+# pip install pyzx>=0.7
