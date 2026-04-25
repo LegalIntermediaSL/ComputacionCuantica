@@ -8,6 +8,9 @@ from qiskit.quantum_info import Statevector, DensityMatrix, SparsePauliOp
 from qiskit.visualization import plot_bloch_multivector, plot_histogram
 from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel, depolarizing_error, phase_damping_error
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Esfera de Bloch", layout="wide")
 st.title("Esfera de Bloch e impacto del ruido")
@@ -15,6 +18,34 @@ st.markdown(
     "Manipula el estado de un qubit con los ángulos de Bloch y observa cómo "
     "distintos canales de ruido degradan el estado."
 )
+
+_TOUR_STEPS = [
+    {"title": "Ángulos de Bloch (θ, φ)",
+     "body": "En la barra lateral, **θ** controla la latitud en la esfera (0 = polo norte |0⟩, "
+             "π = polo sur |1⟩) y **φ** controla la longitud. El ecuador (θ = π/2) contiene "
+             "los estados de superposición máxima como |+⟩ y |i⟩."},
+    {"title": "Canal de ruido",
+     "body": "Elige entre **despolarizante** (contrae uniformemente la esfera), "
+             "**bit-flip** (mezcla |0⟩ y |1⟩), **phase-flip** (destruye coherencias en X/Y) "
+             "y **amortiguamiento de amplitud** (relaja hacia |0⟩ simulando T1)."},
+    {"title": "Parámetro de ruido p",
+     "body": "Desliza **p** de 0 a 1. Con p=0 el estado es puro (sobre la superficie). "
+             "Al aumentar p el vector se contrae hacia el centro de la esfera (estado mixto). "
+             "Con p=1 el canal despolarizante da la identidad I/2."},
+    {"title": "Esfera de Bloch: puro vs. ruidoso",
+     "body": "La esfera muestra en **azul** el estado inicial (puro) y en **rojo** el estado "
+             "tras el canal de ruido. Observa cómo el vector se acorta — la longitud del "
+             "vector de Bloch |r| es la *pureza* del estado."},
+    {"title": "Valores esperados ⟨X⟩, ⟨Y⟩, ⟨Z⟩",
+     "body": "Las barras muestran los valores esperados de los tres operadores de Pauli. "
+             "El ruido despolarizante los reduce proporcionalmente. El amortiguamiento de "
+             "amplitud lleva ⟨Z⟩ hacia +1 (estado |0⟩) independientemente del estado inicial."},
+    {"title": "Trayectoria de Bloch",
+     "body": "Activa la opción **Mostrar trayectoria** para ver cómo el estado se mueve "
+             "al barrer θ de 0 a 2π, describiendo una espiral cuando hay ruido — "
+             "visualmente intuye el principio de decoherencia."},
+]
+show_tour("bloch", _TOUR_STEPS)
 
 # --- Controles ---
 with st.sidebar:

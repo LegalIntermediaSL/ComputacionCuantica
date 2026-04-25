@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector, DensityMatrix, SparsePauliOp
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Tomografía de Estados", layout="wide")
 st.title("Tomografía de estados cuánticos")
@@ -13,6 +16,35 @@ st.markdown(
     "tres bases de Pauli (X, Y, Z). Con ruido añadido se observa cómo la reconstrucción "
     "diverge del estado ideal."
 )
+
+_TOUR_STEPS = [
+    {"title": "Estado a preparar",
+     "body": "Elige el estado inicial: **|0⟩**, **|1⟩**, **|+⟩** (superposición), "
+             "**|i⟩** (fase imaginaria), **Bell |Φ+⟩** (entrelazado) o **personalizado** "
+             "con ángulos θ y φ en la esfera de Bloch."},
+    {"title": "Ruido de readout",
+     "body": "El slider **ε_readout** añade un error de medición: con probabilidad ε "
+             "el resultado se invierte (flip). Con ε=0 la tomografía es perfecta; "
+             "con ε=0.1 (10%) los estados se reconstruyen con error notable."},
+    {"title": "Número de shots",
+     "body": "Más **shots** = menor error estadístico de la tomografía pero más tiempo. "
+             "Con 1000 shots el error es ~1/√1000 ≈ 3%. "
+             "En hardware real 8000-10000 shots es habitual para tomografía de estado."},
+    {"title": "Matriz de densidad reconstruida",
+     "body": "Los heatmaps muestran las partes **real** e **imaginaria** de ρ. "
+             "Una diagonal real = estado clásico (mixto). Las coherencias fuera de la "
+             "diagonal indican superposición cuántica. La proyección PSD asegura que "
+             "eigenvalores negativos (artefactos de ruido) se corrijan a cero."},
+    {"title": "Fidelidad de Bures",
+     "body": "La **fidelidad de Bures** F = Tr(√(√ρ_ideal · ρ_tomo · √ρ_ideal))² "
+             "mide cuánto se parece el estado reconstruido al ideal. "
+             "F=1 = reconstrucción perfecta. F<0.9 indica ruido excesivo."},
+    {"title": "Vector de Bloch 3D",
+     "body": "El gráfico 3D compara el vector de Bloch ideal (azul) con el "
+             "reconstruido por tomografía (rojo). La diferencia de longitud indica "
+             "cuánta pureza se pierde en el proceso de medición ruidosa."},
+]
+show_tour("tomografia", _TOUR_STEPS)
 
 # ─── Sidebar ────────────────────────────────────────────────────────────────
 with st.sidebar:

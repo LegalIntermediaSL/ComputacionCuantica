@@ -6,6 +6,9 @@ from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector, SparsePauliOp
 from qiskit.visualization import plot_bloch_multivector
 from qiskit.primitives import StatevectorSampler
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Compositor de Circuitos", layout="wide")
 st.title("Compositor de circuitos cuánticos")
@@ -13,6 +16,34 @@ st.markdown(
     "Construye tu propio circuito cuántico añadiendo puertas qubit a qubit. "
     "El estado y las probabilidades se actualizan en tiempo real."
 )
+
+_TOUR_STEPS = [
+    {"title": "Número de qubits",
+     "body": "Elige entre 1 y 4 qubits. El estado inicial es siempre |0...0⟩. "
+             "Con n qubits hay 2ⁿ estados base posibles. Con 4 qubits tendrás "
+             "16 amplitudes complejas en el vector de estado."},
+    {"title": "Añadir puertas",
+     "body": "Usa el menú de puertas para añadir operaciones: **H** (Hadamard), "
+             "**X/Y/Z** (Pauli), **Rz/Rx/Ry** (rotaciones con ángulo configurable), "
+             "**CNOT/CZ** (puertas entrelazadoras entre dos qubits)."},
+    {"title": "Diagrama del circuito",
+     "body": "La pestaña **Diagrama** muestra el circuito en formato visual estándar "
+             "(notación de líneas y cajas). Puedes copiar el código Qiskit generado "
+             "automáticamente en la pestaña **Código**."},
+    {"title": "Estado cuántico y esfera de Bloch",
+     "body": "La pestaña **Bloch** muestra la esfera de Bloch de cada qubit "
+             "(traza parcial del estado). Para estados entrelazados los qubits "
+             "individuales son mixtos — sus vectores de Bloch están dentro de la esfera."},
+    {"title": "Histograma de mediciones",
+     "body": "La pestaña **Mediciones** simula 1024 disparos y muestra la distribución "
+             "de resultados. El histograma es la cuadra de las amplitudes |α_i|². "
+             "Para un estado de Bell verás P(00) ≈ P(11) ≈ 0.5."},
+    {"title": "Exportar código Qiskit",
+     "body": "El botón **Copiar código** genera el circuito equivalente en Qiskit 2.0. "
+             "Puedes pegarlo directamente en un notebook o en un script de Python "
+             "para ejecutarlo en hardware real con IBM Quantum."},
+]
+show_tour("compositor", _TOUR_STEPS)
 
 # ─── Sidebar ────────────────────────────────────────────────────────────────
 with st.sidebar:

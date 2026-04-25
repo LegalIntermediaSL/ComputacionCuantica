@@ -5,9 +5,36 @@ from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Algoritmos Paso a Paso", layout="wide")
 st.title("Algoritmos cuánticos paso a paso")
+
+_TOUR_STEPS = [
+    {"title": "Elige el algoritmo",
+     "body": "En la barra lateral selecciona **Grover** (búsqueda cuántica) o "
+             "**QPE** (Estimación de Fase). Cada uno tiene sus propios controles."},
+    {"title": "Grover — estado objetivo y número de iteraciones",
+     "body": "Elige el **estado marcado** (el que el oráculo marca con fase −1) y "
+             "el número de **iteraciones k**. El número óptimo es "
+             "k_opt ≈ π/(4)·√N. Con k > k_opt la amplitud vuelve a bajar."},
+    {"title": "Grover — rotación en el círculo de Bloch",
+     "body": "Cada iteración rota el estado un ángulo 2θ donde sin(θ) = 1/√N. "
+             "El gráfico de barras muestra la amplitud de cada estado base — "
+             "observa cómo la amplitud del estado objetivo crece con cada iteración."},
+    {"title": "QPE — puerta unitaria y ancilla",
+     "body": "QPE estima la fase φ tal que U|ψ⟩ = e^{2πiφ}|ψ⟩. "
+             "Configura el número de **qubits ancilla** (precisión) y la fase a estimar. "
+             "Más ancilla = más bits de precisión en φ."},
+    {"title": "QPE — histograma de mediciones",
+     "body": "El histograma muestra la distribución de mediciones en los qubits ancilla. "
+             "Para una fase exactamente representable (p.ej. φ=1/8 con 3 bits) la barra "
+             "correspondiente tendrá probabilidad ≈ 1. Fases no representables dan "
+             "distribuciones más anchas."},
+]
+show_tour("algoritmos", _TOUR_STEPS)
 
 algoritmo = st.sidebar.radio("Algoritmo", ["Grover", "QPE (Phase Estimation)"])
 

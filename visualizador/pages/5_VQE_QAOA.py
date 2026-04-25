@@ -7,9 +7,45 @@ from qiskit import QuantumCircuit
 from qiskit.primitives import StatevectorEstimator, StatevectorSampler
 from qiskit.quantum_info import SparsePauliOp
 from qiskit.circuit.library import EfficientSU2
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="VQE / QAOA Interactivo", layout="wide")
 st.title("VQE y QAOA interactivos")
+
+_TOUR_STEPS = [
+    {"title": "VQE o QAOA",
+     "body": "Elige en la barra lateral: **VQE** (Variational Quantum Eigensolver) para "
+             "encontrar el estado de mínima energía de un Hamiltoniano, o **QAOA** para "
+             "resolver problemas de optimización combinatoria (MAX-CUT)."},
+    {"title": "VQE — Hamiltoniano H₂",
+     "body": "Los coeficientes del Hamiltoniano corresponden a la molécula de H₂ en la "
+             "base STO-3G. Cada término (ZI, IZ, ZZ, XX) representa interacciones "
+             "electrónicas tras la transformación de Jordan-Wigner."},
+    {"title": "VQE — Ansatz EfficientSU2",
+     "body": "El **ansatz** (circuito parametrizado) determina qué estados puede preparar "
+             "el optimizador. Más capas = más expresividad pero más barren plateaus. "
+             "El optimizador COBYLA/SPSA ajusta los ángulos para minimizar ⟨H⟩."},
+    {"title": "VQE — Curva de convergencia",
+     "body": "Observa cómo la energía decae con las iteraciones del optimizador. "
+             "La línea punteada indica la energía exacta (FCI). La brecha entre la "
+             "energía VQE y FCI mide la *correlación no capturada* por el ansatz."},
+    {"title": "QAOA — Grafo de MAX-CUT",
+     "body": "Define el grafo con la matriz de adyacencia. El objetivo es bipartir "
+             "los nodos para maximizar las aristas entre las dos particiones. "
+             "Con p=1 capa QAOA recupera solo una fracción de la solución óptima."},
+    {"title": "QAOA — Parámetros γ y β",
+     "body": "**γ** controla la intensidad de la fase de costo (cuánto se penalizan "
+             "los cortes malos). **β** controla el mixer (cuánta superposición se mantiene). "
+             "Los valores óptimos dependen del grafo y se encuentran por optimización."},
+    {"title": "Comparativa de optimizadores",
+     "body": "El panel de comparativa muestra COBYLA, SPSA y Nelder-Mead en la misma "
+             "gráfica. COBYLA es preciso pero lento. SPSA es ruidoso pero escalable "
+             "(ideal para hardware ruidoso real). Nelder-Mead es el más rápido para "
+             "funciones de costo lisas."},
+]
+show_tour("vqe_qaoa", _TOUR_STEPS)
 
 modo = st.sidebar.radio("Algoritmo", ["VQE", "QAOA MaxCut"])
 

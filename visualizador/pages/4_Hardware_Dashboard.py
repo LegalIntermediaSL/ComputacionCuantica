@@ -5,6 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Hardware Dashboard", layout="wide")
 st.title("Dashboard de hardware cuántico")
@@ -12,6 +15,31 @@ st.markdown(
     "Parámetros representativos de los principales procesadores superconductores "
     "y comparativa de arquitecturas (datos de referencia 2024, no en tiempo real)."
 )
+
+_TOUR_STEPS = [
+    {"title": "Filtros de arquitectura y año",
+     "body": "En la barra lateral filtra los procesadores por **tipo de arquitectura** "
+             "(superconductor, ión, Rydberg) y por **año de lanzamiento**. "
+             "Selecciona varios a la vez con Ctrl+Click."},
+    {"title": "T1 y T2: tiempos de coherencia",
+     "body": "**T1** (tiempo de relajación de amplitud) mide cuánto tarda un qubit en "
+             "decaer de |1⟩ a |0⟩. **T2** (decoherencia de fase) mide cuánto dura la "
+             "superposición. Para QEC se necesita T2 >> tiempo de ciclo de síndrome (~1 μs)."},
+    {"title": "F_1q y F_2q: fidelidades de puerta",
+     "body": "**F_1q** es la fidelidad de puertas de un qubit (Rz, X, H). "
+             "**F_2q** es la fidelidad de puertas de dos qubits (CNOT, CZ, ECR). "
+             "El umbral para QEC con código de superficie requiere F_2q > 99%."},
+    {"title": "Gráfica de evolución temporal",
+     "body": "El gráfico de líneas muestra cómo ha mejorado el recuento de qubits o "
+             "las fidelidades a lo largo de los años. La ley de escala cuántica (Moore "
+             "cuántico) predice doblar qubits cada 2 años aproximadamente."},
+    {"title": "Comparativa entre arquitecturas",
+     "body": "Los superconductores lideran en velocidad de ciclo (1 μs). "
+             "Los iones atrapados tienen mayor fidelidad (99.9%+) pero son más lentos (1-10 ms). "
+             "Los átomos de Rydberg son los más escalables en conteo de qubits. "
+             "Cada arquitectura tiene ventajas para distintas aplicaciones."},
+]
+show_tour("hardware", _TOUR_STEPS)
 
 # ─── Datos de procesadores IBM ───────────────────────────────────────────────
 PROCESADORES = pd.DataFrame([

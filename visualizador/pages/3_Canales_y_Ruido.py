@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 from qiskit.quantum_info import DensityMatrix
 from scipy.linalg import sqrtm
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Canales y Ruido", layout="wide")
 st.title("Modelos de ruido: contracción de la esfera de Bloch")
@@ -12,6 +15,31 @@ st.markdown(
     "Cada canal cuántico actúa sobre el vector de Bloch $\\vec{r} = (x, y, z)$ "
     "contrayéndolo de forma característica. Compara hasta 4 canales simultáneamente."
 )
+
+_TOUR_STEPS = [
+    {"title": "Canal cuántico: qué es",
+     "body": "Un **canal cuántico** es un mapa completamente positivo que preserva la traza: "
+             "ρ → ε(ρ). En la esfera de Bloch, actúa como una transformación afín: "
+             "**r → T·r + t**. La forma de la transformación caracteriza el tipo de ruido."},
+    {"title": "Selección de canales a comparar",
+     "body": "En la barra lateral elige hasta 4 canales. Los disponibles incluyen: "
+             "**despolarizante** (isotrópico), **bit-flip** (rota alrededor de X), "
+             "**phase-flip** (rota alrededor de Z), **amortiguamiento de amplitud** (T1) "
+             "y **amortiguamiento de fase** (T2)."},
+    {"title": "Parámetro p de cada canal",
+     "body": "Cada canal tiene un slider de probabilidad **p ∈ [0,1]**. "
+             "Con p=0 la esfera no cambia. Con p=1 el canal lleva el estado al "
+             "polo norte (amortiguamiento de amplitud), al ecuador o al origen (despolarizante)."},
+    {"title": "Esfera antes y después",
+     "body": "La esfera en **azul** muestra el estado inicial y la **roja** el estado "
+             "tras cada canal. Observa la forma elipsoidal o el aplanamiento según el tipo "
+             "de canal — cada uno tiene una signatura geométrica distinta."},
+    {"title": "Fidelidad y pureza",
+     "body": "Las métricas bajo la esfera muestran la **fidelidad** F entre el estado inicial "
+             "y el canal (qué información se preserva) y la **pureza** Tr(ρ²) ∈ [1/2, 1]. "
+             "Un estado puro tiene pureza = 1; la mezcla máxima tiene pureza = 1/2."},
+]
+show_tour("canales", _TOUR_STEPS)
 
 
 def apply_channel(rho: np.ndarray, canal: str, p: float) -> np.ndarray:

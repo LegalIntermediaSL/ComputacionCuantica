@@ -6,6 +6,9 @@ from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector
 from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel, depolarizing_error
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
 
 st.set_page_config(page_title="Corrección de Errores", layout="wide")
 st.title("Corrección de errores cuánticos")
@@ -13,6 +16,30 @@ st.markdown(
     "Observa cómo los códigos de corrección de errores protegen la información cuántica "
     "frente a errores de bit-flip y phase-flip."
 )
+
+_TOUR_STEPS = [
+    {"title": "Código de repetición vs. código de Shor",
+     "body": "El **código de repetición de 3 qubits** protege solo contra bit-flips. "
+             "El **código de Shor de 9 qubits** protege contra bit-flips Y phase-flips "
+             "(protección completa) a costa de más qubits físicos."},
+    {"title": "Tasa de error ε por qubit",
+     "body": "El slider **ε** controla la probabilidad de error en cada qubit físico "
+             "por ciclo. Debajo del umbral (~1%), aumentar la distancia del código "
+             "reduce el error lógico. Por encima del umbral lo empeora."},
+    {"title": "Comparativa: error físico vs. lógico",
+     "body": "El gráfico muestra la curva teórica P_L ≈ (ε/ε_th)^{⌈(d+1)/2⌉} "
+             "donde d es la distancia del código. La línea roja marca el umbral. "
+             "Cuando ε < ε_th, el error lógico decae con d (zona verde = útil)."},
+    {"title": "Simulación de síndromes",
+     "body": "El circuito aplica errores aleatorios según ε, mide los **ancilla** "
+             "de paridad (síndromes) y aplica la corrección. Los síndromes son "
+             "la diferencia entre mediciones sucesivas, no el estado directamente."},
+    {"title": "Decodificador: MWPM",
+     "body": "El decodificador MWPM (Minimum Weight Perfect Matching) encuentra el "
+             "conjunto de errores más probable que explica los síndromes. "
+             "Es óptimo pero costoso (O(n³)). Para hardware real se usa Union-Find (~O(n))."},
+]
+show_tour("qec", _TOUR_STEPS)
 
 # ─── Sidebar ────────────────────────────────────────────────────────────────
 with st.sidebar:
