@@ -24,8 +24,9 @@ flowchart TD
     P --> Q["ZX Calculus"]
     Q --> R["Internet Cuantico"]
     R --> S["Aplicaciones emergentes"]
-    S --> T["Limites y realismo"]
-    T --> U["Bibliografia"]
+    S --> T["Fault-Tolerant Computing"]
+    T --> U["Limites y realismo"]
+    U --> V["Bibliografia"]
 ```
 
 ## Bloques del curso
@@ -93,6 +94,10 @@ flowchart TD
 - [26_calculo_grafico_y_zx_calculus/README.md](26_calculo_grafico_y_zx_calculus/README.md)
 - [27_internet_cuantico_and_comunicaciones/README.md](27_internet_cuantico_and_comunicaciones/README.md)
 - [28_aplicaciones_emergentes/README.md](28_aplicaciones_emergentes/README.md)
+- [29_fault_tolerant_computing/README.md](29_fault_tolerant_computing/README.md)
+- [29_fault_tolerant_computing/01_threshold_theorem.md](29_fault_tolerant_computing/01_threshold_theorem.md)
+- [29_fault_tolerant_computing/02_magic_state_distillation.md](29_fault_tolerant_computing/02_magic_state_distillation.md)
+- [29_fault_tolerant_computing/03_hoja_de_ruta_fault_tolerant.md](29_fault_tolerant_computing/03_hoja_de_ruta_fault_tolerant.md)
 
 ### Cierre y apoyo
 

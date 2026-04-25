@@ -115,10 +115,13 @@ with col1:
         else:
             qc_viz = circuito_bit_flip()
 
-        fig_circ, ax_circ = plt.subplots(figsize=(7, 3))
-        qc_viz.draw("mpl", ax=ax_circ, style="iqp")
-        st.pyplot(fig_circ)
-        plt.close(fig_circ)
+        try:
+            fig_circ, ax_circ = plt.subplots(figsize=(7, 3))
+            qc_viz.draw("mpl", ax=ax_circ, style="iqp")
+            st.pyplot(fig_circ)
+            plt.close(fig_circ)
+        except Exception:
+            st.code(qc_viz.draw("text"), language="text")
 
     # Métricas para p actual
     if "Shor" in codigo:
