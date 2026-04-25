@@ -1,6 +1,6 @@
 # Módulo 28: Aplicaciones Emergentes
 
-Tres artículos que conectan los fundamentos del tutorial con el estado actual de la investigación y los experimentos reales publicados hasta 2024.
+Cinco artículos que conectan los fundamentos del tutorial con el estado actual de la investigación y los experimentos reales publicados hasta 2024.
 
 ## Artículos
 
@@ -12,6 +12,12 @@ Tres artículos que conectan los fundamentos del tutorial con el estado actual d
 
 3. [Ventaja cuántica demostrada: experimentos reales](03_ventaja_cuantica_demostrada.md)
    — Google Sycamore 2019, IBM Eagle 2023, Quantinuum H2 2024, Google Willow 2024.
+
+4. [Benchmarking NISQ: Quantum Volume, CLOPS y Mirror Circuits](04_benchmarking_nisq_y_quantum_volume.md)
+   — Métricas de rendimiento cuántico, evolución histórica, supremacía vs. ventaja práctica.
+
+5. [Perspectivas y hoja de ruta: de NISQ a FT](05_perspectivas_y_hoja_de_ruta.md)
+   — Las tres eras del cómputo cuántico, aplicaciones con horizonte realista, RSA y criptografía.
 
 ## Prerequisitos recomendados
 
