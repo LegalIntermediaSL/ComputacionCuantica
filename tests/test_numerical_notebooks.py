@@ -390,6 +390,7 @@ def test_magic_state_distillation_overhead():
 # Módulo 28 — VQE-UCCSD: H₂ debe estar dentro del umbral químico (1.6 mHa)
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_uccsd_h2_chemical_accuracy():
     """
     VQE-UCCSD H₂ (2 qubits): energía dentro de 2 mHa de la solución exacta.
@@ -430,6 +431,7 @@ def test_uccsd_h2_chemical_accuracy():
         f"UCCSD H₂ 2q: ΔE = {delta_mHa:.3f} mHa, umbral = 2 mHa"
 
 
+@pytest.mark.slow
 def test_uccsd_variational_principle():
     """UCCSD en estado HF da energía mayor que el estado base (principio variacional)."""
     from qiskit.quantum_info import SparsePauliOp, Statevector
@@ -573,6 +575,7 @@ def test_iqae_accuracy():
 # Módulo 34 — Lindblad: convergencia al estado de Gibbs
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_lindblad_t1_decay():
     """Canal T1: P(|1⟩) debe decaer como exp(-t/T1)."""
     T1 = 1.0
@@ -605,6 +608,7 @@ def test_lindblad_t1_decay():
         f"Decaimiento T1: P1(T1)={P1_at_T1:.4f}, esperado exp(-1)={expected:.4f}"
 
 
+@pytest.mark.slow
 def test_lindblad_thermal_equilibrium():
     """Sistema con operadores de absorción/emisión debe converger al estado de Gibbs."""
     from scipy.linalg import expm
@@ -698,6 +702,7 @@ def test_depolarizing_chi_trace():
 # Módulo 32 — DQC: swapping de entrelazamiento y purificación BBPSSW
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_entanglement_swapping_bell_state():
     """
     Entanglement swapping: condicionado al resultado 00, qubits A-B deben ser |Φ+⟩.
@@ -873,6 +878,7 @@ def test_ramsey_phase_estimation():
 # Módulo 39 — Compilación: descomposición KAK
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_kak_max_cx_count():
     """Toda unitaria de 2 qubits requiere ≤ 3 puertas CX (KAK)."""
     from qiskit.synthesis import TwoQubitBasisDecomposer
@@ -889,6 +895,7 @@ def test_kak_max_cx_count():
         assert cx_count <= 3, f"KAK produjo {cx_count} CX gates, máximo es 3"
 
 
+@pytest.mark.slow
 def test_kak_unitary_fidelity():
     """La unitaria sintetizada por KAK debe ser fiel a la original."""
     from qiskit.synthesis import TwoQubitBasisDecomposer
@@ -907,6 +914,7 @@ def test_kak_unitary_fidelity():
         assert fidelidad > 0.9999, f"Fidelidad KAK = {fidelidad:.6f}, esperada > 0.9999"
 
 
+@pytest.mark.slow
 def test_transpile_reduces_cx():
     """Qiskit optimization_level=3 reduce CX respecto a level=0."""
     from qiskit import QuantumCircuit, transpile
@@ -924,6 +932,7 @@ def test_transpile_reduces_cx():
     assert cx3 <= cx0, f"Nivel 3 tiene más CX ({cx3}) que nivel 0 ({cx0})"
 
 
+@pytest.mark.slow
 def test_solovay_kitaev_approximation():
     """Síntesis de unitaria 1q con OneQubitEulerDecomposer debe ser fiel."""
     from qiskit.synthesis import OneQubitEulerDecomposer
@@ -1023,6 +1032,7 @@ def test_hhl_qsvt_query_complexity():
 # Notebook 32 — Química: UCCSD H₂
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_uccsd_h2_landscape_minimum():
     """El mínimo del landscape UCCSD H₂ debe estar en t1 ∈ [-π, 0]."""
     import numpy as np
@@ -1053,6 +1063,7 @@ def test_uccsd_h2_landscape_minimum():
 # Notebook 33 — Compilación
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_circuit_depth_decreases_with_optimization():
     """Qiskit nivel 2 debe reducir profundidad frente a nivel 0 en QFT 4q."""
     from qiskit import transpile
@@ -1069,6 +1080,7 @@ def test_circuit_depth_decreases_with_optimization():
 # Notebook 34 — Quantum Walks
 # ---------------------------------------------------------------------------
 
+@pytest.mark.slow
 def test_dtqw_ballistic_propagation():
     """DTQW en 1D debe propagarse balísticamente: σ(t) ≈ t/√2."""
     import numpy as np
@@ -1139,6 +1151,7 @@ def test_ctqw_search_success_probability():
     assert p_target > 0.9, f"P(w) CTQW search = {p_target:.4f}, esperado > 0.9"
 
 
+@pytest.mark.slow
 def test_dtqw_coin_affects_distribution():
     """Distintas monedas deben producir distribuciones distintas."""
     import numpy as np

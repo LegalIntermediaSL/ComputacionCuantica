@@ -1,0 +1,117 @@
+{
+  "_comment": "Valores de referencia para tests de regresión numérica. Actualizar con: python tests/update_baseline.py",
+  "_generated": "2026-04-26",
+  "_version": "1.0.0",
+
+  "mod01_fundamentos": {
+    "bell_state_entropy_ebits": 1.0,
+    "qubit_norm": 1.0
+  },
+
+  "mod05_qft": {
+    "n3_amplitude_uniform": 0.35355339,
+    "n3_phases_count": 8
+  },
+
+  "mod07_grover": {
+    "2q_target_prob_min": 0.95,
+    "iterations_optimal": 1
+  },
+
+  "mod08_qpe": {
+    "eigenvalue_error_max": 0.05,
+    "n_bits": 3
+  },
+
+  "mod09_vqe_h2": {
+    "E_min_Ha": -1.85,
+    "E_hf_Ha": -1.12,
+    "chemical_accuracy_Ha": 0.0016
+  },
+
+  "mod10_qaoa_maxcut": {
+    "approx_ratio_min": 0.7,
+    "p1_cut_value_min": 2.0
+  },
+
+  "mod21_shor": {
+    "N15_a7_period": 4,
+    "factors": [3, 5]
+  },
+
+  "mod24_hhl": {
+    "A_condition_number": 2.0,
+    "solution_fidelity_min": 0.99
+  },
+
+  "mod27_lindblad": {
+    "t1_decay_at_T1": 0.368,
+    "gibbs_P1_kBT05": 0.268
+  },
+
+  "mod28_process_tomo": {
+    "chi_identity_00": 1.0,
+    "chi_X_11": 1.0,
+    "depolarizing_trace": 1.0
+  },
+
+  "mod29_pennylane": {
+    "param_shift_error_max": 1e-10,
+    "barren_plateau_var_ratio_min": 1.0
+  },
+
+  "mod33_hhl_iqae": {
+    "iqae_error_max": 0.05,
+    "hhl_fidelity_min": 0.99
+  },
+
+  "mod34_quantum_walks": {
+    "dtqw_sigma_t50_min": 14.14,
+    "ctqw_norm_error_max": 1e-10,
+    "ctqw_search_prob_min": 0.9,
+    "dtqw_coins_tvd_min": 0.1
+  },
+
+  "mod38_sensing": {
+    "qfi_ghz_n2": 4.0,
+    "qfi_ghz_n3": 9.0,
+    "qfi_ghz_n4": 16.0,
+    "qfi_product_n2": 2.0,
+    "qfi_product_n3": 3.0,
+    "qfi_product_n4": 4.0,
+    "ramsey_p_phi_pi4_t1": 0.14644661
+  },
+
+  "mod39_compilacion": {
+    "kak_max_cx": 3,
+    "kak_fidelity_min": 0.9999,
+    "euler_1q_fidelity_min": 0.999
+  },
+
+  "mod40_qsvt": {
+    "chebyshev_sgn_d15_error_max": 0.1,
+    "qsvt_depth_formula": "2d+1",
+    "hhl_queries_kappa10_min": 100
+  },
+
+  "nb32_quimica": {
+    "uccsd_h2_E_min_Ha": -1.8,
+    "uccsd_variational_principle": true
+  },
+
+  "nb33_compilacion": {
+    "qft4_depth_level3_leq_level0": true
+  },
+
+  "nb34_quantum_walks": {
+    "dtqw_ballistic_sigma_gt_2x_classical": true,
+    "ctqw_norm_conserved": true,
+    "ctqw_search_p_min": 0.9
+  },
+
+  "entanglement_purification": {
+    "swapping_fidelity_min": 0.99,
+    "bbpssw_improves_F70": true,
+    "bbpssw_improves_F90": true
+  }
+}

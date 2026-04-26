@@ -4,6 +4,27 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [1.0.0] - 2026-04-27
+
+### Added (Fase 10 — QSVT, Sensing, Compilación)
+
+- **Módulos 38-40**: Quantum Sensing y Metrología (QFI, Cramér-Rao, magnetometría NV), Compilación Cuántica Avanzada (Qiskit passes, t|ket⟩, Solovay-Kitaev), QSVT y Block-Encoding (aproximación Chebyshev, HHL, simulación hamiltoniana óptima).
+- **Lab 32** `32_quimica_avanzada_vqe_uccsd.ipynb`: VQE-UCCSD H₂ y LiH, curva de energía potencial vs FCI, mapeos JW/BK/Paridad, coste de medición QWC.
+- **Lab 33** `33_compilacion_tket_qiskit.ipynb`: Qiskit niveles 0-3, descomposición KAK, síntesis de unitarias, comparativa con t|ket⟩ (opcional).
+- **Lab 34** `34_quantum_walk_dtqw_ctqw.ipynb`: DTQW balístico, distintas monedas, CTQW en grafo de línea/hipercubo/Petersen, búsqueda cuántica en K_N con O(√N).
+- **Visualizador páginas 11-12**: Estimador de Recursos FT (surface code, distilación T, viabilidad por algoritmo), Landscape VQE/QAOA (barren plateaus, comparativa COBYLA/SLSQP).
+- **Ejercicios de investigación** `Ejercicios/ejercicios_investigacion.md`: 8 problemas de frontera (QSVT, block-encoding, barren plateaus, ZNE, sensing, QML kernel, fault tolerance, advantage cuántica).
+- **Tests**: 31 → 48 casos (módulos 38-40, QFI/HL, KAK, DTQW/CTQW balístico, Chebyshev).
+- **Infraestructura**: `environment.yml` (conda), `Makefile`, `pyproject.toml` (PEP 517 + extras), `.devcontainer/devcontainer.json` (GitHub Codespaces/VS Code).
+- **PLAN_EXPANSION.md**: documento vivo con historial de fases (1-10), Fase 11 en progreso y Fases 12-13 planificadas.
+
+### Fixed
+
+- Visualizador página 9 (Simulador Ruidoso): `NoiseModel` aplicaba error de 2 qubits a `ccx` (3 qubits) → `NoiseError` al cargar. Añadido error depolarizante de 3 qubits para `ccx`.
+- Páginas 10, 11, 12: `_TOUR_STEPS` en formato de tuplas incompatible con `tour_guide.show_tour` (espera dicts `{"title", "body"}`). Convertido en las tres páginas.
+
+---
+
 ## [0.9.0] - 2026-04-24
 
 ### Changed (reescritura masiva de artículos)

@@ -30,6 +30,9 @@ tket = ["pytket", "pytket-qiskit"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q --tb=short"
+markers = [
+    "slow: tests que requieren simulación pesada (excluidos con -m 'not slow')",
+]
 
 [tool.ruff]
 line-length = 100
