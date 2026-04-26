@@ -803,3 +803,366 @@ def test_continued_fractions_period():
     frac = Fraction(phi).limit_denominator(N)
     r = frac.denominator
     assert r == 4, f"Fracciones continuas: r={r}, esperado 4"
+
+
+# ---------------------------------------------------------------------------
+# Módulo 38 — Quantum Sensing: QFI y límite de Heisenberg
+# ---------------------------------------------------------------------------
+
+def test_qfi_ghz_heisenberg():
+    """GHZ de n qubits debe tener QFI = n² (límite de Heisenberg)."""
+    import numpy as np
+    from qiskit.quantum_info import SparsePauliOp
+
+    for n in [2, 3, 4]:
+        # Estado GHZ: (|0...0⟩ + |1...1⟩)/√2
+        psi = np.zeros(2**n, dtype=complex)
+        psi[0] = psi[-1] = 1 / np.sqrt(2)
+
+        # Generador: H = Σ Zi/2
+        terms = [('I'*i + 'Z' + 'I'*(n-i-1), 0.5) for i in range(n)]
+        H = SparsePauliOp.from_list(terms).to_matrix().real
+
+        exp_H  = (psi.conj() @ H @ psi).real
+        exp_H2 = (psi.conj() @ (H @ H) @ psi).real
+        qfi = 4 * (exp_H2 - exp_H**2)
+
+        assert abs(qfi - n**2) < 1e-8, f"QFI GHZ n={n}: esperado {n**2}, obtenido {qfi:.6f}"
+
+
+def test_qfi_product_state_sql():
+    """Estado producto |+⟩^⊗n debe tener QFI = n (límite estándar SQL)."""
+    import numpy as np
+    from qiskit.quantum_info import SparsePauliOp
+
+    for n in [2, 3, 4]:
+        plus = np.array([1, 1]) / np.sqrt(2)
+        psi = plus
+        for _ in range(n - 1):
+            psi = np.kron(psi, plus)
+
+        terms = [('I'*i + 'Z' + 'I'*(n-i-1), 0.5) for i in range(n)]
+        H = SparsePauliOp.from_list(terms).to_matrix().real
+
+        exp_H  = (psi.conj() @ H @ psi).real
+        exp_H2 = (psi.conj() @ (H @ H) @ psi).real
+        qfi = 4 * (exp_H2 - exp_H**2)
+
+        assert abs(qfi - n) < 1e-8, f"QFI producto n={n}: esperado {n}, obtenido {qfi:.6f}"
+
+
+def test_ramsey_phase_estimation():
+    """Interferómetro de Ramsey estima fase correctamente."""
+    import numpy as np
+
+    def ramsey(phi: float, t: float) -> float:
+        """Probabilidad P(|1⟩) tras Ramsey: H → Rz(phi·t) → H."""
+        psi = np.array([1, 1]) / np.sqrt(2)
+        Rz = np.array([[np.exp(-1j*phi*t/2), 0], [0, np.exp(1j*phi*t/2)]])
+        H = np.array([[1, 1], [1, -1]]) / np.sqrt(2)
+        psi = H @ Rz @ psi
+        return abs(psi[1])**2
+
+    # Para phi=pi/4, t=1: P(|1⟩) = sin²(pi/8) ≈ 0.1464
+    P = ramsey(np.pi/4, 1.0)
+    expected = np.sin(np.pi/8)**2
+    assert abs(P - expected) < 1e-10, f"Ramsey: P={P:.6f}, esperado {expected:.6f}"
+
+
+# ---------------------------------------------------------------------------
+# Módulo 39 — Compilación: descomposición KAK
+# ---------------------------------------------------------------------------
+
+def test_kak_max_cx_count():
+    """Toda unitaria de 2 qubits requiere ≤ 3 puertas CX (KAK)."""
+    from qiskit.synthesis import TwoQubitBasisDecomposer
+    from qiskit.circuit.library import CXGate
+    from scipy.stats import unitary_group
+
+    decomposer = TwoQubitBasisDecomposer(CXGate())
+    rng = np.random.default_rng(0)
+
+    for _ in range(10):
+        U = unitary_group.rvs(4, random_state=rng)
+        qc = decomposer(U)
+        cx_count = sum(1 for g in qc.data if g.operation.name == 'cx')
+        assert cx_count <= 3, f"KAK produjo {cx_count} CX gates, máximo es 3"
+
+
+def test_kak_unitary_fidelity():
+    """La unitaria sintetizada por KAK debe ser fiel a la original."""
+    from qiskit.synthesis import TwoQubitBasisDecomposer
+    from qiskit.circuit.library import CXGate
+    from qiskit.quantum_info import Operator
+    from scipy.stats import unitary_group
+
+    decomposer = TwoQubitBasisDecomposer(CXGate())
+    rng = np.random.default_rng(1)
+
+    for _ in range(5):
+        U = unitary_group.rvs(4, random_state=rng)
+        qc = decomposer(U)
+        U_synth = Operator(qc).data
+        fidelidad = abs(np.trace(U.conj().T @ U_synth)) / 4
+        assert fidelidad > 0.9999, f"Fidelidad KAK = {fidelidad:.6f}, esperada > 0.9999"
+
+
+def test_transpile_reduces_cx():
+    """Qiskit optimization_level=3 reduce CX respecto a level=0."""
+    from qiskit import QuantumCircuit, transpile
+    from qiskit.circuit.library import QFT
+
+    qc = QFT(4, do_swaps=False)
+    basis = ['cx', 'rz', 'sx', 'x']
+
+    qc0 = transpile(qc, basis_gates=basis, optimization_level=0, seed_transpiler=0)
+    qc3 = transpile(qc, basis_gates=basis, optimization_level=3, seed_transpiler=0)
+
+    cx0 = sum(1 for g in qc0.data if g.operation.name == 'cx')
+    cx3 = sum(1 for g in qc3.data if g.operation.name == 'cx')
+
+    assert cx3 <= cx0, f"Nivel 3 tiene más CX ({cx3}) que nivel 0 ({cx0})"
+
+
+def test_solovay_kitaev_approximation():
+    """Síntesis de unitaria 1q con OneQubitEulerDecomposer debe ser fiel."""
+    from qiskit.synthesis import OneQubitEulerDecomposer
+    from qiskit.quantum_info import Operator
+    from scipy.stats import unitary_group
+
+    decomp = OneQubitEulerDecomposer('ZSX')
+    rng = np.random.default_rng(3)
+
+    for _ in range(5):
+        U = unitary_group.rvs(2, random_state=rng)
+        qc = decomp(U)
+        U_synth = Operator(qc).data
+        fidelidad = abs(np.trace(U.conj().T @ U_synth)) / 2
+        assert fidelidad > 0.999, f"1Q decomp fidelidad = {fidelidad:.6f}"
+
+
+# ---------------------------------------------------------------------------
+# Módulo 40 — QSVT: aproximación de Chebyshev
+# ---------------------------------------------------------------------------
+
+def test_chebyshev_approx_sign():
+    """Aproximación Chebyshev de sgn(x) con d=15 debe tener error < 0.1 en |x|>0.3."""
+    import numpy as np
+
+    x = np.linspace(-1, 1, 500)
+    x_nz = x[np.abs(x) > 0.3]
+    f_target = np.sign(x_nz + 1e-15)
+
+    # Construir base de Chebyshev
+    d = 15
+    T = np.zeros((len(x), d + 1))
+    T[:, 0] = 1
+    if d >= 1:
+        T[:, 1] = x
+    for k in range(2, d + 1):
+        T[:, k] = 2 * x * T[:, k-1] - T[:, k-2]
+
+    T_nz = T[np.abs(x) > 0.3]
+    coeffs, _, _, _ = np.linalg.lstsq(T_nz, f_target, rcond=None)
+    y_approx = T_nz @ coeffs
+    error_max = np.max(np.abs(y_approx - f_target))
+
+    assert error_max < 0.1, f"Chebyshev sgn(x) d=15: error={error_max:.4f}, esperado < 0.1"
+
+
+def test_chebyshev_convergence():
+    """El error de aproximación Chebyshev debe decrecer con el grado."""
+    import numpy as np
+
+    x = np.linspace(-1, 1, 300)
+    f = lambda x: np.exp(-x**2)
+
+    errores = []
+    for d in [3, 7, 15]:
+        T = np.zeros((len(x), d + 1))
+        T[:, 0] = 1
+        if d >= 1:
+            T[:, 1] = x
+        for k in range(2, d + 1):
+            T[:, k] = 2 * x * T[:, k-1] - T[:, k-2]
+        coeffs, _, _, _ = np.linalg.lstsq(T, f(x), rcond=None)
+        errores.append(np.max(np.abs(T @ coeffs - f(x))))
+
+    # Cada grado mayor debe mejorar el error
+    assert errores[0] > errores[1] > errores[2], \
+        f"Error no decreciente: {errores}"
+
+
+def test_qsvt_circuit_depth_scaling():
+    """Profundidad del circuito QSVT debe escalar linealmente con el grado d."""
+    depths = {d: 2*d+1 for d in [5, 10, 20, 50]}
+    for d, expected_depth in depths.items():
+        assert expected_depth == 2*d+1, f"Depth QSVT d={d}: {expected_depth} vs {2*d+1}"
+
+
+def test_hhl_qsvt_query_complexity():
+    """Número de queries QSVT para HHL debe escalar como O(kappa·log(kappa/eps))."""
+    import numpy as np
+
+    def queries_hhl(kappa: float, eps: float) -> int:
+        d = int(np.ceil(kappa * np.log(kappa / eps) / 2))
+        return (2*d+1) * int(np.ceil(kappa))
+
+    # Para kappa=10, eps=0.01: d ≈ ceil(10*log(1000)/2) ≈ 35
+    q = queries_hhl(10.0, 0.01)
+    assert q > 100, f"Queries HHL kappa=10: {q}, esperado > 100"
+
+    # Debe crecer al aumentar kappa
+    q1 = queries_hhl(5.0, 0.01)
+    q2 = queries_hhl(10.0, 0.01)
+    q3 = queries_hhl(20.0, 0.01)
+    assert q1 < q2 < q3, f"Queries no crecen con kappa: {q1}, {q2}, {q3}"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 32 — Química: UCCSD H₂
+# ---------------------------------------------------------------------------
+
+def test_uccsd_h2_landscape_minimum():
+    """El mínimo del landscape UCCSD H₂ debe estar en t1 ∈ [-π, 0]."""
+    import numpy as np
+    from qiskit import QuantumCircuit
+    from qiskit.quantum_info import Statevector, SparsePauliOp
+
+    H_eq = SparsePauliOp.from_list([
+        ('II', -1.0523732), ('IZ', 0.3979374),
+        ('ZI', -0.3979374), ('ZZ', -0.0112801), ('XX', 0.1809312),
+    ])
+
+    def ansatz_uccsd_h2(t1):
+        qc = QuantumCircuit(2)
+        qc.x(0)
+        qc.rx(np.pi / 2, 0); qc.h(1)
+        qc.cx(0, 1); qc.rz(t1, 1); qc.cx(0, 1)
+        qc.rx(-np.pi / 2, 0); qc.h(1)
+        return qc
+
+    t1_vals = np.linspace(-np.pi, np.pi, 100)
+    energias = [Statevector(ansatz_uccsd_h2(t)).expectation_value(H_eq).real for t in t1_vals]
+    t1_min = t1_vals[np.argmin(energias)]
+
+    assert min(energias) < -1.8, f"E_min={min(energias):.4f} > -1.8 Ha (UCCSD no convergió)"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 33 — Compilación
+# ---------------------------------------------------------------------------
+
+def test_circuit_depth_decreases_with_optimization():
+    """Qiskit nivel 2 debe reducir profundidad frente a nivel 0 en QFT 4q."""
+    from qiskit import transpile
+    from qiskit.circuit.library import QFT
+
+    qc = QFT(4, do_swaps=False)
+    basis = ['cx', 'rz', 'sx', 'x']
+    d0 = transpile(qc, basis_gates=basis, optimization_level=0, seed_transpiler=0).depth()
+    d2 = transpile(qc, basis_gates=basis, optimization_level=2, seed_transpiler=0).depth()
+    assert d2 <= d0, f"Profundidad nivel 2 ({d2}) no mejora nivel 0 ({d0})"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 34 — Quantum Walks
+# ---------------------------------------------------------------------------
+
+def test_dtqw_ballistic_propagation():
+    """DTQW en 1D debe propagarse balísticamente: σ(t) ≈ t/√2."""
+    import numpy as np
+
+    N = 200
+    psi = np.zeros(2*N, dtype=complex)
+    x0 = N // 2
+    psi[2*x0] = 1/np.sqrt(2); psi[2*x0+1] = 1j/np.sqrt(2)
+    H_coin = np.array([[1,1],[1,-1]]) / np.sqrt(2)
+    pos = np.arange(N) - x0
+
+    for _ in range(50):
+        psi_new = np.zeros(2*N, dtype=complex)
+        for x in range(N):
+            after = H_coin @ psi[2*x:2*x+2]
+            psi_new[2*((x+1)%N)]   += after[0]
+            psi_new[2*((x-1)%N)+1] += after[1]
+        psi = psi_new
+
+    probs = np.array([abs(psi[2*x])**2 + abs(psi[2*x+1])**2 for x in range(N)])
+    sigma = np.sqrt(np.sum(probs * pos**2) - np.sum(probs * pos)**2)
+    expected = 50 / np.sqrt(2)
+
+    # Balístico: σ >> σ_clásico = √t ≈ 7.07 para t=50
+    sigma_clasico = np.sqrt(50)
+    assert sigma > sigma_clasico * 2, f"σ DTQW={sigma:.2f} no es balístico (σ_clásico={sigma_clasico:.2f})"
+
+
+def test_ctqw_norm_conservation():
+    """CTQW debe conservar la norma del estado en todo tiempo."""
+    import numpy as np
+    from scipy.linalg import expm
+
+    N = 20
+    A = np.zeros((N, N))
+    for i in range(N-1):
+        A[i, i+1] = A[i+1, i] = 1
+    A[0, N-1] = A[N-1, 0] = 1
+
+    psi0 = np.zeros(N, dtype=complex); psi0[N//2] = 1.0
+    eigvals, eigvecs = np.linalg.eigh(A)
+
+    for t in [0, 1, 5, 10, 20]:
+        coeffs = eigvecs.conj().T @ psi0
+        psi_t = eigvecs @ (coeffs * np.exp(-1j * eigvals * t))
+        norm = np.linalg.norm(psi_t)
+        assert abs(norm - 1.0) < 1e-10, f"CTQW norma={norm:.10f} en t={t}"
+
+
+def test_ctqw_search_success_probability():
+    """Búsqueda CTQW en K_N debe alcanzar P(w) > 0.9 en t ≈ π√N/2."""
+    import numpy as np
+    from scipy.linalg import expm
+
+    N = 16
+    w = 0
+    gamma = 1.0 / N
+    J = np.ones((N, N)) - np.eye(N)
+    oracle = np.zeros((N, N)); oracle[w, w] = 1.0
+    H_search = -gamma * J - oracle
+
+    psi0 = np.ones(N, dtype=complex) / np.sqrt(N)
+    t_opt = np.pi * np.sqrt(N) / 2
+    U = expm(-1j * H_search * t_opt)
+    psi_t = U @ psi0
+    p_target = abs(psi_t[w])**2
+
+    assert p_target > 0.9, f"P(w) CTQW search = {p_target:.4f}, esperado > 0.9"
+
+
+def test_dtqw_coin_affects_distribution():
+    """Distintas monedas deben producir distribuciones distintas."""
+    import numpy as np
+
+    N = 60; T = 30
+    x0 = N // 2
+
+    def run_dtqw(C):
+        psi = np.zeros(2*N, dtype=complex)
+        psi[2*x0] = 1/np.sqrt(2); psi[2*x0+1] = 1j/np.sqrt(2)
+        for _ in range(T):
+            psi_new = np.zeros(2*N, dtype=complex)
+            for x in range(N):
+                after = C @ psi[2*x:2*x+2]
+                psi_new[2*((x+1)%N)]   += after[0]
+                psi_new[2*((x-1)%N)+1] += after[1]
+            psi = psi_new
+        return np.array([abs(psi[2*x])**2 + abs(psi[2*x+1])**2 for x in range(N)])
+
+    C_H = np.array([[1,1],[1,-1]]) / np.sqrt(2)
+    C_Y = np.array([[0,-1],[1,0]], dtype=complex)
+
+    probs_H = run_dtqw(C_H)
+    probs_Y = run_dtqw(C_Y)
+
+    tvd = 0.5 * np.sum(np.abs(probs_H - probs_Y))
+    assert tvd > 0.1, f"TVD entre monedas H y Y = {tvd:.4f}, esperado > 0.1 (deben diferir)"

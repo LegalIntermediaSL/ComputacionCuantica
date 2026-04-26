@@ -1,0 +1,23 @@
+name: qc-edu
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26,<3.0
+  - scipy>=1.12,<2.0
+  - matplotlib>=3.8,<4.0
+  - pandas>=2.1,<3.0
+  - jupyter>=1.0
+  - ipykernel
+  - nbconvert>=7.0
+  - pytest>=8.0
+  - pip:
+      - qiskit>=2.0,<3.0
+      - qiskit-aer>=0.15,<1.0
+      - streamlit>=1.35,<2.0
+      # Opcionales (descomentar si se necesitan)
+      # - qiskit-nature[pyscf]
+      # - pytket
+      # - pytket-qiskit

@@ -1,4 +1,4 @@
-# Computación Cuántica: Teoría y Práctica (v2.5)
+# Computación Cuántica: Teoría y Práctica (v3.0)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
 [![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
@@ -8,9 +8,9 @@ Este repositorio es un proyecto educativo de alto nivel diseñado para acompaña
 ## Puntos Destacados
 
 - **80+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-40.
-- **31 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT.
-- **37 Ejercicios progresivos:** Básicos, intermedios, avanzados e investigación con código ejecutable.
-- **Visualizador Interactivo:** Aplicación Streamlit de 10 páginas — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
+- **34 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, Química avanzada, Compilación y Quantum Walks.
+- **45+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (8 problemas de frontera) con código ejecutable.
+- **Visualizador Interactivo:** Aplicación Streamlit de **12 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
 - **Hardware de Nueva Generación:** Fluxonium, Majorana 2025, Spin-Si, Quantum Sensing.
 - **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states.
 - **Criptografía Post-Cuántica:** ML-KEM/ML-DSA FIPS 2024, migración TLS híbrido.
@@ -27,12 +27,17 @@ streamlit run visualizador/app.py
 
 Páginas disponibles:
 1. **Esfera de Bloch** — estado qubit con canales de ruido y trayectoria 3D
-2. **Algoritmos** — Deutsch-Jozsa, Bernstein-Vazirani, Grover paso a paso
+2. **Algoritmos paso a paso** — Deutsch-Jozsa, Bernstein-Vazirani, Grover
 3. **Canales y Ruido** — simulación de decoherencia con fidelidad Bures
 4. **Hardware Dashboard** — comparativa de 10 procesadores reales (2019-2024)
 5. **VQE / QAOA** — optimización variacional con comparativa COBYLA / SPSA / Nelder-Mead
 6. **Corrección de Errores** — código de repetición y Shor con curva de protección
 7. **Compositor de Circuitos** — 15 puertas, hasta 4 qubits, exporta código Qiskit
+8. **Tomografía** — reconstrucción de estado 1-2q con matriz χ
+9. **Simulador Ruidoso** — comparativa ideal vs ruidoso con TVD/Hellinger/XEB
+10. **Algoritmos Completos** — simulación paso a paso con amplitudes complejas
+11. **Estimador de Recursos FT** — surface code, magic states, viabilidad por algoritmo
+12. **Landscape VQE/QAOA** — barren plateaus, comparativa de optimizadores
 
 ## Mapa del Curso e Índices
 
@@ -44,7 +49,7 @@ Páginas disponibles:
 
 - `Tutorial/`: El núcleo teórico (29 bloques temáticos, ~70 artículos).
 - `Cuadernos/`: Laboratorios guiados y ejemplos de código.
-- `visualizador/`: Aplicación interactiva Streamlit (7 páginas).
+- `visualizador/`: Aplicación interactiva Streamlit (12 páginas).
 - `Soluciones/`: Biblioteca de problemas resueltos por bloques temáticos.
 - `Ejercicios/`: Práctica clasificada por niveles de dificultad.
 - `Resumenes/`: Material de repaso rápido para cada sección.
@@ -67,6 +72,27 @@ Páginas disponibles:
 - [Básicos (15)](Ejercicios/ejercicios_basicos.md) — Puertas, circuitos, medición, entrelazamiento
 - [Intermedios (12)](Ejercicios/ejercicios_intermedios.md) — Algoritmos, QFT, estimación de fase, VQE
 - [Avanzados (10)](Ejercicios/ejercicios_avanzados.md) — Corrección de errores, QAOA, QML, mitigación
+- [Investigación (8)](Ejercicios/ejercicios_investigacion.md) — QSVT, block-encoding, barren plateaus, sensing, QML kernel, fault tolerance, advantage cuántica
+
+## Infraestructura
+
+```bash
+# Conda (recomendado)
+conda env create -f environment.yml
+conda activate qc-edu
+
+# pip
+pip install -e ".[dev]"
+
+# Tests
+make test          # todos los tests (48+)
+make test-fast     # tests rápidos
+
+# Visualizador
+make streamlit
+```
+
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/LegalIntermediaSL/ComputacionCuantica)
 
 ---
 *Mantenido como recurso abierto para la comunidad hispana de computación cuántica.*
