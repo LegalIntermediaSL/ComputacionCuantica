@@ -21,12 +21,12 @@ st.title("🔬 Simulador de Algoritmos Completos")
 st.markdown("Ejecuta el circuito **paso a paso** y observa cómo evoluciona el vector de estado.")
 
 _TOUR_STEPS = [
-    ("🔬 Simulador de Algoritmos", "Elige un algoritmo y simúlalo paso a paso para ver cómo evoluciona el estado cuántico en cada puerta."),
-    ("📋 Selección de algoritmo", "Cada algoritmo tiene su circuito canónico. Puedes ajustar parámetros como el número de qubits o el estado objetivo."),
-    ("⏭️ Control de pasos", "Usa el deslizador 'Paso' para avanzar o retroceder en el circuito. El estado se recalcula en tiempo real."),
-    ("📊 Distribución de probabilidad", "El histograma muestra |amplitud|² para cada estado base. Es lo que mediría un detector real."),
-    ("🌐 Amplitudes complejas", "La tabla muestra amplitudes reales e imaginarias: cada estado base tiene una amplitud compleja α con |α|²=probabilidad."),
-    ("🔗 Entrelazamiento", "Observa cómo las puertas de 2 qubits (CNOT, CZ) crean correlaciones — los estados de múltiples qubits no se pueden factorizar."),
+    {"title": "🔬 Simulador de Algoritmos", "body": "Elige un algoritmo y simúlalo paso a paso para ver cómo evoluciona el estado cuántico en cada puerta."},
+    {"title": "📋 Selección de algoritmo", "body": "Cada algoritmo tiene su circuito canónico. Puedes ajustar parámetros como el número de qubits o el estado objetivo."},
+    {"title": "⏭️ Control de pasos", "body": "Usa el deslizador 'Paso' para avanzar o retroceder en el circuito. El estado se recalcula en tiempo real."},
+    {"title": "📊 Distribución de probabilidad", "body": "El histograma muestra |amplitud|² para cada estado base. Es lo que mediría un detector real."},
+    {"title": "🌐 Amplitudes complejas", "body": "La tabla muestra amplitudes reales e imaginarias: cada estado base tiene una amplitud compleja α con |α|²=probabilidad."},
+    {"title": "🔗 Entrelazamiento", "body": "Observa cómo las puertas de 2 qubits (CNOT, CZ) crean correlaciones — los estados de múltiples qubits no se pueden factorizar."},
 ]
 
 show_tour("algoritmos_completos", _TOUR_STEPS)

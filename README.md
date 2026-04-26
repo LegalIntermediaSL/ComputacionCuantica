@@ -1,20 +1,25 @@
-# Computación Cuántica: Teoría y Práctica (v1.0)
+# Computación Cuántica: Teoría y Práctica (v2.5)
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
+[![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
 
 Este repositorio es un proyecto educativo de alto nivel diseñado para acompañar al estudiante desde los fundamentos más básicos del qubit hasta las fronteras de la investigación actual en hardware, algoritmos de industria y comunicaciones cuánticas.
 
 ## Puntos Destacados
 
-- **70+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX).
-- **30+ Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2).
-- **37 Ejercicios progresivos:** Básicos, intermedios y avanzados con código ejecutable y pistas graduadas.
-- **Visualizador Interactivo:** Aplicación Streamlit de 7 páginas para explorar la física cuántica de forma visual.
-- **Especialización Industrial:** Módulos dedicados a Finanzas, QML Avanzado y Ciencia de Materiales.
-- **Hardware y Control:** Deep-dive en Transmones, Iones Atrapados y Qiskit Pulse.
-- **Computación Tolerante a Fallos:** Módulo 29 con teorema del umbral, distilación de magic states y hoja de ruta 2033.
+- **80+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-40.
+- **31 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT.
+- **37 Ejercicios progresivos:** Básicos, intermedios, avanzados e investigación con código ejecutable.
+- **Visualizador Interactivo:** Aplicación Streamlit de 10 páginas — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
+- **Hardware de Nueva Generación:** Fluxonium, Majorana 2025, Spin-Si, Quantum Sensing.
+- **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states.
+- **Criptografía Post-Cuántica:** ML-KEM/ML-DSA FIPS 2024, migración TLS híbrido.
 
 ## Visualizador Cuántico Interactivo
 
-El repositorio incluye una herramienta visual dinámica con 7 páginas interactivas. Para lanzarla:
+🌐 **[Acceso online](https://computacioncuantica-legalintermedia.streamlit.app/)** — sin instalación.
+
+Para lanzarlo localmente:
 ```bash
 pip install -r requirements.txt
 streamlit run visualizador/app.py

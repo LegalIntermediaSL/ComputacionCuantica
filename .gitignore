@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
+
+# Credenciales — nunca commitear
+.env
+.env.*
+*.env
+secrets.json

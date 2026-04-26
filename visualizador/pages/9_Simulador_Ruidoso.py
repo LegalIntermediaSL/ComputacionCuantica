@@ -125,7 +125,9 @@ if usar_depolar and p_depolar_1q > 0:
     noise_model.add_all_qubit_quantum_error(err_1q, ['h', 'x', 'rz', 'ry', 'rx', 'sx', 's'])
 if usar_depolar and p_depolar_2q > 0:
     err_2q = depolarizing_error(p_depolar_2q, 2)
-    noise_model.add_all_qubit_quantum_error(err_2q, ['cx', 'cz', 'ccx', 'cp'])
+    noise_model.add_all_qubit_quantum_error(err_2q, ['cx', 'cz', 'cp'])
+    err_3q = depolarizing_error(min(3 * p_depolar_2q, 0.999), 3)
+    noise_model.add_all_qubit_quantum_error(err_3q, ['ccx'])
 
 if usar_t1t2:
     T1_ns = T1_us * 1000
@@ -262,7 +264,9 @@ with st.expander("Análisis: TVD vs. tasa de error (sweep)"):
                                           ['h', 'x', 'rz', 'ry', 'rx', 'sx'])
         if p_val > 0:
             nm_sw.add_all_qubit_quantum_error(depolarizing_error(min(5*p_val, 0.5), 2),
-                                              ['cx', 'cz', 'ccx'])
+                                              ['cx', 'cz'])
+            nm_sw.add_all_qubit_quantum_error(depolarizing_error(min(15*p_val, 0.999), 3),
+                                              ['ccx'])
         sim_sw = AerSimulator(noise_model=nm_sw)
         from qiskit.compiler import transpile as tp2
         qc_sw = tp2(qc_meas, sim_sw)
