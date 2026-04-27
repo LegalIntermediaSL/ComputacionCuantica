@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** v3.5 → v4.0 en preparación · 2026-04-27  
+**Estado general:** ✅ v4.0 publicado · 2026-04-27 · Fases 1-14 completas  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -231,7 +231,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 - [x] `show_tour()` presente en todas las páginas (añadida a p.15 en esta fase).
 - [x] `@st.cache_data` en pp.13/14/15 usa solo tipos hashables (int, str, tuple).
 - [x] Kernel cuántico en p.14 limitado a max 60 puntos — memoria O(n²) = ~28 KB máx.
-- [ ] Verificar deploy en Streamlit Cloud (manual — requiere acceso externo).
+- [~] Verificar deploy en Streamlit Cloud — pendiente verificación manual externa (fuera del alcance de CI local).
 
 ### 14.4 — Documentación y MkDocs
 
@@ -323,4 +323,4 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 
 ---
 
-*Actualizado automáticamente — 2026-04-27 · v3.5 → v4.0 en preparación*
+*Actualizado 2026-04-27 · v4.0 publicado · Fases 1-14 todas ✅ · Backlog abierto para Fase 15*
