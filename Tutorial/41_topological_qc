@@ -1,0 +1,246 @@
+# Módulo 41 — Computación Cuántica Topológica
+
+## Índice
+
+1. [Motivación: más allá de los códigos estabilizadores clásicos](#1-motivación)
+2. [Anyones: estadística fraccional](#2-anyones)
+3. [El modelo de Kitaev: código tórico](#3-código-tórico)
+4. [Operadores de vértice y cara](#4-operadores-av-y-bp)
+5. [Espacio de código lógico](#5-espacio-lógico)
+6. [Corrección de errores topológica](#6-corrección-de-errores)
+7. [Umbral de error del código tórico](#7-umbral)
+8. [Anyones de Fibonacci y computación universal](#8-anyones-fibonacci)
+9. [Implementación en hardware: qubits topológicos de Microsoft](#9-hardware)
+10. [Resumen y conexiones](#10-resumen)
+
+---
+
+## 1. Motivación
+
+Los códigos cuánticos de corrección de errores vistos hasta ahora (código de repetición, código de superficie) emplean operadores de **estabilizadores locales** para detectar y corregir errores. El **código tórico de Kitaev** (1997) lleva esta idea al extremo: los qubits físicos viven en las **aristas** de un retículo, y la información lógica queda codificada en propiedades **topológicas** del espacio, no en grados de libertad locales.
+
+La ventaja clave es que **ninguna perturbación local** puede introducir un error lógico: para corromper el estado codificado hay que aplicar una cadena de operadores que rodee completamente el toro, lo que requiere un número de errores proporcional al **tamaño lineal** del retículo.
+
+---
+
+## 2. Anyones: estadística fraccional
+
+En 2+1 dimensiones el grupo de trenzas es más rico que el grupo de permutaciones. Las cuasipartículas pueden tener estadísticas **intermedias** entre bosones y fermiones:
+
+$$\Psi(\ldots, r_i, \ldots, r_j, \ldots) = e^{i\theta}\,\Psi(\ldots, r_j, \ldots, r_i, \ldots)$$
+
+Para θ = 0 → bosones, θ = π → fermiones, θ ≠ 0, π → **anyones**.
+
+### Tipos de anyones en el código tórico
+
+El código tórico tiene cuatro tipos de cuasipartículas (sector anyónico):
+
+| Tipo | Nombre | Operador creador | Estadística |
+|------|--------|-----------------|-------------|
+| **1** | vacío | I | bosónica |
+| **e** | eléctrico | viola A_v | bosónica |
+| **m** | magnético | viola B_p | bosónica |
+| **ε = e·m** | fermión | viola ambos | fermiónica |
+
+Los anyones e y m son **mutuamente semiónicos**: intercambiar uno alrededor del otro produce una fase −1.
+
+---
+
+## 3. El código tórico de Kitaev
+
+### Retículo
+
+Considera un retículo cuadrado L×L sobre un **toro** (condiciones de contorno periódicas). Los qubits físicos se colocan en las **aristas** del retículo:
+
+- Número de qubits físicos: $n = 2L^2$
+- Número de qubits lógicos: $k = 2$ (el toro tiene genus g = 1)
+- Distancia del código: $d = L$
+
+### Hamiltoniano de Kitaev
+
+$$H = -J_e\sum_v A_v - J_m \sum_p B_p$$
+
+donde la suma recorre todos los **vértices** v y todas las **caras** (plaquetas) p del retículo.
+
+---
+
+## 4. Operadores A_v y B_p
+
+### Operador de vértice (vertex operator)
+
+Para cada vértice v, define:
+
+$$A_v = \prod_{e \ni v} X_e$$
+
+Es el producto de las puertas **X** sobre las 4 aristas que inciden en el vértice v.
+
+**Propiedades:**
+- $A_v^2 = I$ → autovalores ±1
+- $[A_v, A_{v'}] = 0$ para todo v, v'
+- $[A_v, B_p] = 0$ (¡esto no es obvio — cualquier arista compartida aparece en exactamente 2 operadores, cancelando los signos!)
+
+### Operador de cara (plaquette operator)
+
+Para cada plaqueta p (cara del retículo), define:
+
+$$B_p = \prod_{e \in \partial p} Z_e$$
+
+Es el producto de las puertas **Z** sobre las 4 aristas que bordean la plaqueta p.
+
+**Propiedades:**
+- $B_p^2 = I$ → autovalores ±1
+- $[B_p, B_{p'}] = 0$ para todo p, p'
+- $[A_v, B_p] = 0$
+
+### Restricción global
+
+Los operadores no son todos independientes:
+
+$$\prod_v A_v = I, \qquad \prod_p B_p = I$$
+
+Por tanto hay $2L^2 - 1$ operadores A_v independientes y $2L^2 - 1$ operadores B_p independientes, con $n = 2L^2$ qubits físicos. El espacio del código tiene dimensión $2^k = 4$, codificando **k = 2 qubits lógicos**.
+
+---
+
+## 5. Espacio lógico
+
+El **espacio de código** es el subespacio de estados que satisfacen simultáneamente:
+
+$$A_v|\psi\rangle = +|\psi\rangle \quad \forall v, \qquad B_p|\psi\rangle = +|\psi\rangle \quad \forall p$$
+
+Las **operaciones lógicas** son cadenas de operadores que commutan con todos los estabilizadores pero no son producto de ellos:
+
+- **$\bar{X}_1$**: cadena de X a lo largo del ciclo horizontal del toro.
+- **$\bar{Z}_1$**: cadena de Z a lo largo del ciclo vertical del toro.
+- **$\bar{X}_2$**: cadena de X a lo largo del otro ciclo horizontal.
+- **$\bar{Z}_2$**: cadena de Z a lo largo del otro ciclo vertical.
+
+Estas cadenas no pueden detectarse midiendo los estabilizadores locales: **la información lógica es topológica**.
+
+```
+  ───●───●───●───
+  |  e1  |  e2  |
+  ●───●───●───●───
+  |  e3  |  e4  |
+  ...
+
+  Z̄₁ = Z_e × Z_f × ...  (columna vertical completa)
+  X̄₁ = X_e × X_f × ...  (fila horizontal completa)
+```
+
+---
+
+## 6. Corrección de errores topológica
+
+### Síndrome
+
+Un error X en la arista e crea dos anyones **eléctricos** e en los vértices adyacentes (viola A_v = +1 en esos dos vértices).
+
+Un error Z en la arista e crea dos anyones **magnéticos** m en las plaquetas adyacentes (viola B_p = +1 en esas dos plaquetas).
+
+### Decodificación por minimum-weight matching
+
+Para corregir errores se busca el **emparejamiento de mínimo peso** entre los síndromes activados:
+
+1. Medir todos los $A_v$ y $B_p$ → obtener posiciones de anyones.
+2. Construir grafo con los anyones como nodos, distancias del retículo como pesos.
+3. Encontrar el matching de mínimo peso (algoritmo de Blossom V, O(n³)).
+4. Aplicar la cadena de corrección que conecta los pares.
+
+La corrección falla si la cadena de errores forma un **ciclo no trivial** del toro.
+
+### Umbral de error
+
+La corrección tiene éxito mientras la densidad de errores p sea menor que el **umbral topológico**:
+
+$$p < p_{\text{th}} \approx 10.9\%$$
+
+(para el modelo de error independiente, determinado por la transición de fase del modelo de Ising desordenado en 2D).
+
+---
+
+## 7. Umbral del código tórico
+
+El umbral ~10.9% es notablemente alto comparado con:
+
+| Código | Umbral | Referencia |
+|--------|--------|-----------|
+| Código de repetición | ~50% | trivial |
+| Código de superficie | ~1% (hardware real) | variante del tórico |
+| **Código tórico (decodificación ideal)** | **~10.9%** | Dennis et al. 2002 |
+| Código tórico (medición ruidosa) | ~2.9% | Dennis et al. 2002 |
+| Código de color | ~10.56% | Bombin et al. |
+
+La diferencia entre el 10.9% teórico y el ~1% de hardware se debe a que en hardware **las mediciones de los síndromes también son ruidosas** (no se pueden hacer perfectamente).
+
+---
+
+## 8. Anyones de Fibonacci y computación universal
+
+El código tórico usa anyones **abelianos** (e y m): el espacio de fusión es unidimensional, las operaciones de trenzado solo añaden fases. Esto **no es suficiente para computación universal**.
+
+Para computación topológica universal se necesitan anyones **no abelianos**, donde el espacio de fusión de múltiples anyones es degenerado:
+
+### Anyones de Fibonacci
+
+- Único tipo no trivial: τ
+- Reglas de fusión: τ × τ = 1 + τ (el espacio de fusión de 2 anyones τ es 2D)
+- La dimensión cuántica: $d_\tau = \phi = (1+\sqrt{5})/2$ (razón áurea)
+- Las operaciones de trenzado (braid group) en este espacio son **densas en SU(N)** → computación universal
+
+### Estado del arte (2025)
+
+Microsoft ha apostado por los **qubits topológicos de Majorana**:
+
+- Se basan en **modos cero de Majorana** en nanohilos semiconductores + superconductores.
+- Los fermiones de Majorana son "la mitad de un fermión" ($\gamma = \gamma^\dagger$).
+- En 2023 Microsoft anunció evidencia de qubits de Majorana reproducibles.
+- No son anyones de Fibonacci puros, pero la arquitectura es más viable experimentalmente.
+
+---
+
+## 9. Implementación en hardware
+
+### Qubits de Majorana (Microsoft)
+
+```
+nanohilo SC: ●━━━━━━━━━━━●
+             γ₁    γ₂   (modos cero de Majorana)
+
+Qubit lógico = paridad de γ₁γ₂ (protegido topológicamente)
+```
+
+Ventajas:
+- Los errores de decoherencia requieren mover un Majorana de un extremo al otro → protección exponencial en longitud.
+- Operaciones de puerta por **trenzado** (braiding) sin pulsos de microondas.
+
+### Qubits de trampa de iones (Quantinuum, IonQ)
+
+No son topológicos pero implementan el **código de superficie** (pariente del tórico) con alta fidelidad. En 2024 Quantinuum demostró corrección de errores repetida con el código tórico en un procesador de 56 qubits.
+
+---
+
+## 10. Resumen y conexiones
+
+| Concepto | Código repetición | Código superficie | **Código tórico** |
+|----------|-----------------|-----------------|-----------------|
+| Geometría | 1D | 2D (con bordes) | 2D (toro) |
+| Qubits lógicos | 1 | 1 | **2** |
+| Distancia d | L | L | L |
+| Umbral (ideal) | 50% | ~10.9% | **10.9%** |
+| Síndrome | peso 2 | peso 4 | peso 4 |
+| Anyones | — | e, m (bordes) | **e, m (libres)** |
+
+### Conexiones con otros módulos
+
+- **Módulo 09** (QEC repetición) → base para entender estabilizadores.
+- **Módulo 10** (Primitivas V2) → síndrome measurement con Sampler.
+- **Módulo 40** (QSVT) → los algoritmos FT asumen un código tórico o de superficie subyacente.
+- **Lab 45** (`45_toric_code.ipynb`) → implementación del código tórico L=2 con Qiskit.
+
+### Referencias clave
+
+1. Kitaev, A. (2003). *Fault-tolerant quantum computation by anyons*. Annals of Physics, 303(1), 2–30.
+2. Dennis, E., Kitaev, A., Landahl, A., & Preskill, J. (2002). *Topological quantum memory*. Journal of Mathematical Physics, 43(9).
+3. Fowler, A. et al. (2012). *Surface codes: Towards practical large-scale quantum computation*. PRA 86, 032324.
+4. Nayak, C. et al. (2008). *Non-Abelian anyons and topological quantum computation*. Rev. Mod. Phys. 80, 1083.

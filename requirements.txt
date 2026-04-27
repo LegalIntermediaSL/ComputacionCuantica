@@ -8,5 +8,6 @@ pandas>=2.1,<3.0
 scikit-learn>=1.4,<2.0
 jupyter>=1.0
 nbconvert>=7.0
+hypothesis>=6.100
 # Optional: pyzx (for pyzx_optimizacion.ipynb and module 26)
 # pip install pyzx>=0.7

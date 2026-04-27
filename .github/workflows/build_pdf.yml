@@ -1,0 +1,75 @@
+name: Build PDF
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versión del PDF (ej. v4.0)"
+        required: false
+        default: "latest"
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 \
+            libffi-dev libjpeg-dev libopenjp2-7 \
+            fonts-liberation fonts-noto-core
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install \
+            mkdocs-material==9.5.* \
+            mkdocs-minify-plugin \
+            weasyprint==61.* \
+            mkdocs-pdf-export-plugin
+
+      - name: Build PDF with MkDocs
+        run: |
+          export ENABLE_PDF_EXPORT=1
+          mkdocs build --strict
+        env:
+          ENABLE_PDF_EXPORT: "1"
+
+      - name: Rename PDF with version
+        run: |
+          VERSION="${{ github.event.inputs.version || github.ref_name || 'latest' }}"
+          PDF_SRC=$(find site -name "*.pdf" | head -1)
+          if [ -n "$PDF_SRC" ]; then
+            cp "$PDF_SRC" "ComputacionCuantica-${VERSION}.pdf"
+            echo "PDF generado: ComputacionCuantica-${VERSION}.pdf"
+          else
+            echo "No se encontró PDF — verificar mkdocs-pdf-export-plugin"
+            exit 1
+          fi
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: computacion-cuantica-pdf
+          path: "ComputacionCuantica-*.pdf"
+          retention-days: 90
+
+      - name: Attach PDF to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "ComputacionCuantica-*.pdf"

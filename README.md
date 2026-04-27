@@ -1,4 +1,4 @@
-# Computación Cuántica: Teoría y Práctica (v4.0)
+# Computación Cuántica: Teoría y Práctica (v5.0)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
 [![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
@@ -7,14 +7,14 @@ Este repositorio es un proyecto educativo de alto nivel diseñado para acompaña
 
 ## Puntos Destacados
 
-- **85+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-40.
-- **44 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, DQC, QML teórico, Hubbard, Finance cuántica y Advantage cuántica.
+- **85+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-41 (incluye Topological QC — código tórico de Kitaev).
+- **45 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, DQC, QML teórico, Hubbard, Finance cuántica, Advantage cuántica y **Código Tórico**.
 - **55+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (8 problemas de frontera con soluciones completas R1-R8) + examen de certificación (50 preguntas).
-- **Visualizador Interactivo:** Aplicación Streamlit de **15 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
-- **76 Tests pytest:** Suite con regresión numérica, baseline JSON y marcadores `@pytest.mark.slow`.
+- **Visualizador Interactivo:** Aplicación Streamlit de **16 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
+- **101 Tests pytest:** Suite con regresión numérica + 25 tests de propiedades (Hypothesis), baseline JSON y marcadores `@pytest.mark.slow`.
 - **API REST FastAPI:** Endpoints `/run-circuit`, `/run-vqe`, `/run-grover` — Docker incluido.
-- **Hardware de Nueva Generación:** Fluxonium, Majorana 2025, Spin-Si, Quantum Sensing.
-- **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states.
+- **PDF descargable:** Generación automática vía GitHub Actions en cada release.
+- **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states, **código tórico** con umbral ~10.9%.
 - **Aplicaciones industriales:** Quantum Finance (QAOA portfolio), QML (kernel cuántico), Advantage cuántica (RCS, Boson Sampling).
 
 ## Visualizador Cuántico Interactivo
@@ -43,6 +43,7 @@ Páginas disponibles:
 13. **Quantum Walk** — DTQW/CTQW interactivo, propagación balística vs difusiva, 4 monedas
 14. **Finance & QML** — Portfolio QAOA + frontera Markowitz, kernel cuántico vs RBF
 15. **Certificación** — Quiz interactivo 20 preguntas, badge SVG descargable
+16. **Benchmark Hardware** — Comparativa CLOPS/QV/T1/T2 2025, calculadora overhead FT
 
 ## Mapa del Curso e Índices
 

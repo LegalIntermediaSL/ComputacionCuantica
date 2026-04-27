@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v4.0 publicado · 2026-04-27 · Fases 1-14 completas  
+**Estado general:** ✅ v5.0 publicado · 2026-04-27 · Fases 1-15 completas  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -10,13 +10,13 @@
 
 | Recurso | v1.0 | v2.0 | v2.5 | v3.0 | **v3.5** | Objetivo v4.0 |
 |---|---|---|---|---|---|---|
-| Artículos tutoriales | 30 | 55 | 70 | 80+ | **85+** | 90 |
-| Laboratorios Jupyter | 10 | 20 | 31 | 34 | **44** | 45 |
-| Páginas visualizador | 3 | 7 | 10 | 12 | **15** | 15 |
-| Ejercicios totales | 20 | 35 | 37 | 45+ | **55+** | 65 |
-| Tests pytest | 0 | 15 | 31 | 48 | **76** | 80 |
+| Artículos tutoriales | 30 | 55 | 70 | 80+ | 85+ | **86+** |
+| Laboratorios Jupyter | 10 | 20 | 31 | 34 | 44 | **45** |
+| Páginas visualizador | 3 | 7 | 10 | 12 | 15 | **16** |
+| Ejercicios totales | 20 | 35 | 37 | 45+ | 55+ | **55+** |
+| Tests pytest | 0 | 15 | 31 | 48 | 76 | **101** |
 | Soluciones investigación | 0 | 0 | 0 | 4 | **8/8** | 8 |
-| Páginas de docs (MkDocs) | 5 | 12 | 18 | 22 | **30** | 32 |
+| Páginas de docs (MkDocs) | 5 | 12 | 18 | 22 | 30 | **32** |
 
 ---
 
@@ -28,10 +28,10 @@ v1.0        v1.5        v2.0        v2.2        v2.5
  │           │           │            │            │
  ✅          ✅          ✅           ✅           ✅
 
-v3.0        v3.1        v3.5        v4.0-pre     v4.0
- ├── F10     ├── F11     ├── F12      ├── F13      ├── F14
- │           │           │            │            │
- ✅          ✅          ✅          ✅              ✅
+v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0
+ ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15
+ │           │           │            │            │           │
+ ✅          ✅          ✅          ✅              ✅          ✅
 ```
 
 ---
@@ -50,6 +50,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 | 12 | Aplicaciones industriales | ✅ | v3.5 | 2026-04-27 | Labs 38-41, R5-R8, pp 13-14, 65 tests |
 | 13 | Ecosistema completo | ✅ | v4.0 | 2026-04-27 | Certificación, módulos 41-43, IBM real, API |
 | 14 | Revisión y QA | ✅ | v4.0 | 2026-04-27 | 76 tests, 0 errores, deps sync, show_tour p.15 |
+| 15 | Topological QC + Property Tests + PDF CI | ✅ | v5.0 | 2026-04-27 | Módulo 41, Lab 45, p.16 Benchmark, Hypothesis 101 tests, PDF pipeline |
 
 ---
 
@@ -242,6 +243,45 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 
 ---
 
+## ✅ Fase 15 — Topological QC, Property Tests y PDF CI (v5.0) — 2026-04-27
+
+### 15.1 — Módulo 41: Computación Cuántica Topológica
+
+- ✅ `Tutorial/41_topological_qc`: Anyones, código tórico de Kitaev, operadores Av/Bp, espacio lógico, umbral ~10.9%, anyones de Fibonacci, qubits de Majorana (Microsoft 2025).
+
+### 15.2 — Lab 45: Código Tórico con Qiskit
+
+- ✅ `45_toric_code.ipynb`: Construcción retículo L×L, verificación [Av,Bp]=0 para todos los pares, estado de código vía proyector gauge, operadores lógicos X̄/Z̄, introducción/corrección de errores, error lógico indetectable por síndrome, escalado de P_L vs umbral.
+
+### 15.3 — Página 16: Benchmark Hardware Interactivo
+
+- ✅ `16_Benchmark_Hardware.py`: Tabla comparativa 6 sistemas (IBM Heron/Eagle, Google Willow, Quantinuum H2, IonQ Forte, QuEra Aquila), 4 tabs de gráficos (error 2Q vs umbral, QV vs CLOPS, T1/T2, evolución histórica), calculadora de overhead FT con código de superficie.
+
+### 15.4 — PDF automático vía GitHub Actions
+
+- ✅ `.github/workflows/build_pdf.yml`: Build MkDocs + WeasyPrint en release, adjunta PDF al release de GitHub, artifact de 90 días, `workflow_dispatch` manual.
+- ✅ `mkdocs.yml`: Plugin `pdf-export` habilitado vía variable de entorno `ENABLE_PDF_EXPORT`.
+
+### 15.5 — Property-based tests con Hypothesis (101 tests totales)
+
+- ✅ `tests/test_property_based.py`: 25 tests nuevos con Hypothesis (76 → 101 total).
+  - Estados cuánticos: norma, entropía von Neumann, PSD, traza
+  - Algebra de Pauli: involutividad, anticonmutación, unitariedad de rotaciones
+  - Código tórico: paridad aristas compartidas, síndromes X/Z, conteos
+  - Principio variacional para Hamiltoniano aleatorio
+  - PAC learning: monotonicidad en ε y |H|
+  - BB84: QBER=0 sin Eva, QBER≈25% con Eva completa
+  - Barren plateaus: Var[grad] ∝ 4^(-n)
+  - Teleportación: monotonicidad y límite F(0.5)=2/3
+  - Umbral tórico: P_L decreciente con L
+
+### 15.6 — Dependencias actualizadas
+
+- ✅ `hypothesis>=6.100` añadido a `requirements.txt`, `environment.yml`, `pyproject.toml` (dev).
+- ✅ `mkdocs.yml`: módulo 41 y lab 45 añadidos a nav, sección "Topológica" creada.
+
+---
+
 ## Decisiones de arquitectura
 
 | Decisión | Elección | Razón |
@@ -279,6 +319,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 | 13 | `13_Quantum_Walk.py` | DTQW/CTQW interactivo |
 | 14 | `14_Finance_QML.py` | Portfolio QAOA + kernel |
 | 15 | `15_Certificacion.py` | Quiz interactivo + badge SVG |
+| 16 | `16_Benchmark_Hardware.py` | Benchmark CLOPS/QV/T1 2025 + overhead FT |
 
 ### Soluciones investigación (`Soluciones/investigacion/`)
 | Solución | Tema | Estado |
@@ -300,11 +341,11 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 - [ ] Soporte para IonQ y Quantinuum via cloud providers
 - [ ] Versión LaTeX del tutorial completo (PDF descargable vía GitHub Actions)
 - [ ] Benchmark CLOPS/QV actualizado 2025 con gráfica comparativa de proveedores
-- [ ] Módulo 44: Quantum Gravity ligero (AdS/CFT, tensor networks holográficos)
-- [ ] Módulo 45: Topological QC (anyones, código tórico de Kitaev)
+- [ ] Módulo 46: Quantum Gravity ligero (AdS/CFT, tensor networks holográficos)
+- ✅ Módulo 41: Topological QC (anyones, código tórico de Kitaev) — completado en Fase 15
 - [ ] Simulación en GPU real con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
 - [ ] Integración con Jupyter Book para versión navegable offline
 
 ---
 
-*Actualizado 2026-04-27 · v4.0 publicado · Fases 1-14 todas ✅ · Backlog abierto para Fase 15*
+*Actualizado 2026-04-27 · v5.0 publicado · Fases 1-15 todas ✅ · Backlog abierto para Fase 16*

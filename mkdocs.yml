@@ -36,6 +36,12 @@ plugins:
   - search:
       lang: es
   - mkdocstrings
+  - pdf-export:
+      verbose: false
+      media_type: print
+      enabled_if_env: ENABLE_PDF_EXPORT
+      combined: true
+      combined_output_path: pdf/computacion-cuantica.pdf
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -97,6 +103,9 @@ nav:
     - Lab 42 — DQC Avanzada: Cuadernos/laboratorios/README.md
     - Lab 43 — QML Teórico: Cuadernos/laboratorios/README.md
     - Lab 44 — Hubbard VQE: Cuadernos/laboratorios/README.md
+    - Lab 45 — Código Tórico: Cuadernos/laboratorios/README.md
+  - Topológica:
+    - Módulo 41 — Topological QC: Tutorial/41_topological_qc
   - Práctica:
     - Ejercicios básicos: Ejercicios/ejercicios_basicos.md
     - Ejercicios intermedios: Ejercicios/ejercicios_intermedios.md
@@ -108,6 +117,7 @@ nav:
   - Hardware real:
     - Guía IBM Quantum: docs/guia_ibm_quantum.md
     - Error rates 2025: docs/error_rates_2025.md
+    - Benchmark interactivo: visualizador/pages/16_Benchmark_Hardware.py
   - Contribuir:
     - Guía de contribución: CONTRIBUTING.md
     - Traducir el curso: TRANSLATING.md
