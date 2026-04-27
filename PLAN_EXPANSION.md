@@ -1,22 +1,22 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v5.0 publicado · 2026-04-27 · Fases 1-15 completas  
+**Estado general:** ✅ v5.1 publicado · 2026-04-28 · Fases 1-16 completas  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
 ---
 
-## Métricas actuales (v3.5)
+## Métricas actuales (v5.0)
 
-| Recurso | v1.0 | v2.0 | v2.5 | v3.0 | **v3.5** | Objetivo v4.0 |
-|---|---|---|---|---|---|---|
-| Artículos tutoriales | 30 | 55 | 70 | 80+ | 85+ | **86+** |
-| Laboratorios Jupyter | 10 | 20 | 31 | 34 | 44 | **45** |
-| Páginas visualizador | 3 | 7 | 10 | 12 | 15 | **16** |
-| Ejercicios totales | 20 | 35 | 37 | 45+ | 55+ | **55+** |
-| Tests pytest | 0 | 15 | 31 | 48 | 76 | **101** |
-| Soluciones investigación | 0 | 0 | 0 | 4 | **8/8** | 8 |
-| Páginas de docs (MkDocs) | 5 | 12 | 18 | 22 | 30 | **32** |
+| Recurso | v1.0 | v2.0 | v3.0 | v4.0 | **v5.0** |
+|---|---|---|---|---|---|
+| Módulos tutoriales | 10 | 20 | 40 | 41 | **42** |
+| Laboratorios Jupyter | 10 | 20 | 34 | 45 | **46** |
+| Páginas visualizador | 3 | 7 | 12 | 16 | **16** |
+| Tests pytest | 0 | 15 | 48 | 101 | **115** |
+| Soluciones investigación | 0 | 0 | 4 | 8 | **8** |
+| Páginas de docs (MkDocs) | 5 | 12 | 22 | 30 | **33+** |
+| Workflows GitHub Actions | 0 | 1 | 2 | 4 | **5** |
 
 ---
 
@@ -28,10 +28,10 @@ v1.0        v1.5        v2.0        v2.2        v2.5
  │           │           │            │            │
  ✅          ✅          ✅           ✅           ✅
 
-v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0
- ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15
- │           │           │            │            │           │
- ✅          ✅          ✅          ✅              ✅          ✅
+v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1
+ ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15     ├── F16
+ │           │           │            │            │           │           │
+ ✅          ✅          ✅          ✅              ✅          ✅          ✅
 ```
 
 ---
@@ -48,9 +48,10 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0
 | 10 | QSVT, Sensing, Compilación | ✅ | v3.0 | 2026-04-27 | Módulos 38-40, labs 32-34, pp 11-12, infra |
 | 11 | Soluciones + Labs 35-37 + CI | ✅ | v3.1 | 2026-04-27 | R1-R4, labs 35-37, p.13, baseline JSON |
 | 12 | Aplicaciones industriales | ✅ | v3.5 | 2026-04-27 | Labs 38-41, R5-R8, pp 13-14, 65 tests |
-| 13 | Ecosistema completo | ✅ | v4.0 | 2026-04-27 | Certificación, módulos 41-43, IBM real, API |
+| 13 | Ecosistema completo | ✅ | v4.0 | 2026-04-27 | Certificación, labs 42-44, IBM real, API, Docker |
 | 14 | Revisión y QA | ✅ | v4.0 | 2026-04-27 | 76 tests, 0 errores, deps sync, show_tour p.15 |
 | 15 | Topological QC + Property Tests + PDF CI | ✅ | v5.0 | 2026-04-27 | Módulo 41, Lab 45, p.16 Benchmark, Hypothesis 101 tests, PDF pipeline |
+| 16 | Tensor Networks + Jupyter Book | ✅ | v5.1 | 2026-04-28 | Módulo 42, Lab 46, Jupyter Book, 14 tests MPS → 115 total |
 
 ---
 
@@ -243,6 +244,38 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0
 
 ---
 
+## ✅ Fase 16 — Tensor Networks y Jupyter Book (v5.1) — 2026-04-28
+
+### 16.1 — Módulo 42: Tensor Networks y DMRG
+
+- ✅ `Tutorial/42_tensor_networks/README.md`: MPS, notación diagramática, Schmidt decomposition, area law (Hastings), operaciones MPS (forma canónica, truncamiento SVD), DMRG (barridos, eigenproblema efectivo), TEBD (Trotter, cadena XX), PEPS/MERA/TTN, conexión con QC (dequantización, VQE vs DMRG).
+
+### 16.2 — Lab 46: MPS con numpy
+
+- ✅ `46_mps_tensor_networks.ipynb`: Implementación MPS desde cero — SVD recursiva, reconstrucción exacta, truncamiento con fidelidad, entropía de entrelazamiento por corte (Néel/GHZ/W/aleatorio), TEBD cadena XX (magnetización spacio-temporal + crecimiento de entrelazamiento), comparativa parámetros MPS vs vector completo.
+
+### 16.3 — Jupyter Book
+
+- ✅ `_config.yml`: configuración Jupyter Book v5.1 — launch buttons (Binder/Colab), MyST extensions, tema book.
+- ✅ `_toc.yml`: tabla de contenidos del libro — 7 partes, módulos 01-42, labs 32-46, ejercicios, hardware, contribución.
+- ✅ `.github/workflows/build_jupyterbook.yml`: build automático en push a `main` cuando cambian Tutorial/Cuadernos/docs.
+
+### 16.4 — Tests Tensor Networks (115 totales, +14 nuevos)
+
+- ✅ `tests/test_tensor_networks.py`: 14 tests nuevos.
+  - Estado producto: χ=1, S=0 en todos los cortes
+  - Estado Néel: χ=1 (estado producto aunque alternado)
+  - Estado GHZ: χ=2, S=1 ebit exacto
+  - Reconstrucción exacta: fidelidad > 1-10⁻¹⁰
+  - Fidelidad monótona con χ
+  - Entropía: no negativa, acotada por min(cut, n-cut)
+  - Valores de Schmidt: Σλ_k²=1 en todos los cortes
+  - Bond dimension máximo: χ ≤ 2^(n//2)
+  - Conteo de tensores y dimensión física
+  - TEBD: norma conservada tras evolución
+
+---
+
 ## ✅ Fase 15 — Topological QC, Property Tests y PDF CI (v5.0) — 2026-04-27
 
 ### 15.1 — Módulo 41: Computación Cuántica Topológica
@@ -335,17 +368,20 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0
 
 ---
 
-## Backlog (no prioritario)
+## Backlog (candidatos Fase 17)
 
+- ✅ Módulo 42: Tensor Networks y DMRG — completado en Fase 16
+- ✅ Lab 46: Simulación MPS — completado en Fase 16
+- ✅ Jupyter Book — completado en Fase 16
+- [ ] Módulo 43: Quantum Gravity ligero (AdS/CFT, tensor networks holográficos)
+- [ ] Lab 47: DMRG completo para cadena de Heisenberg con quimb
 - [ ] Integración con IBM Quantum Network (credenciales por usuario, no por repo)
 - [ ] Soporte para IonQ y Quantinuum via cloud providers
-- [ ] Versión LaTeX del tutorial completo (PDF descargable vía GitHub Actions)
-- [ ] Benchmark CLOPS/QV actualizado 2025 con gráfica comparativa de proveedores
-- [ ] Módulo 46: Quantum Gravity ligero (AdS/CFT, tensor networks holográficos)
-- ✅ Módulo 41: Topological QC (anyones, código tórico de Kitaev) — completado en Fase 15
-- [ ] Simulación en GPU real con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
-- [ ] Integración con Jupyter Book para versión navegable offline
+- [ ] Simulación en GPU con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
+- ✅ PDF descargable vía GitHub Actions — completado en Fase 15 (`build_pdf.yml`)
+- ✅ Benchmark CLOPS/QV 2025 interactivo — completado en Fase 15 (Página 16)
+- ✅ Módulo 41: Topological QC — completado en Fase 15
 
 ---
 
-*Actualizado 2026-04-27 · v5.0 publicado · Fases 1-15 todas ✅ · Backlog abierto para Fase 16*
+*Actualizado 2026-04-28 · v5.1 publicado · Fases 1-16 todas ✅ · Backlog abierto para Fase 17*

@@ -1,0 +1,65 @@
+# Jupyter Book Configuration — Computación Cuántica: Teoría y Práctica
+# Coexiste con MkDocs (mkdocs.yml). Jupyter Book genera una versión offline
+# navegable con todos los notebooks renderizados.
+
+title: "Computación Cuántica: Teoría y Práctica"
+author: "LegalIntermediaSL"
+logo: ""
+
+# Versión del contenido
+version: "5.0"
+
+# Configuración del repositorio
+repository:
+  url: https://github.com/LegalIntermediaSL/ComputacionCuantica
+  path_to_book: .
+  branch: main
+
+# Launch buttons — permite abrir notebooks en Binder/Colab
+launch_buttons:
+  notebook_interface: "jupyterlab"
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: false
+
+# Opciones de ejecución de notebooks
+execute:
+  execute_notebooks: "off"     # no ejecutar durante el build (evita dependencias)
+  timeout: 300
+  allow_errors: false
+
+# Parsers y extensiones
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_image
+    - linkify
+    - substitution
+    - tasklist
+
+# HTML config
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: false
+  home_page_in_navbar: false
+  extra_navbar: ""
+  google_analytics_id: ""
+  comments:
+    hypothesis: false
+
+# LaTeX / PDF
+latex:
+  latex_engine: "pdflatex"
+  use_jupyterbook_latex: true
+
+# Sphinx
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+  config:
+    html_theme: "sphinx_book_theme"
+    language: "es"

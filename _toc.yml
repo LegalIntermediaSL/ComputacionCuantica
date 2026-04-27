@@ -1,0 +1,66 @@
+# Jupyter Book — Tabla de Contenidos
+# Estructura del libro. Coexiste con mkdocs.yml.
+# Build: jupyter-book build .
+
+format: jb-book
+root: README
+
+parts:
+  - caption: Fundamentos
+    chapters:
+      - file: Tutorial/01_fundamentos/README
+      - file: Tutorial/02_qiskit_basico/README
+      - file: Tutorial/04_qiskit/README
+      - file: Tutorial/05_algoritmos/README
+      - file: Tutorial/06_ruido_y_hardware/README
+      - file: Tutorial/08_informacion_cuantica/README
+      - file: Tutorial/09_correccion_errores/README
+
+  - caption: Algoritmos Cuánticos
+    chapters:
+      - file: Tutorial/11_algoritmos_variacionales/README
+      - file: Tutorial/12_aplicaciones/README
+      - file: Tutorial/18_complejidad_cuantica/README
+      - file: Tutorial/29_fault_tolerant_computing/README
+      - file: Tutorial/30_quantum_advantage_casos_reales/README
+
+  - caption: Hardware y Ruido
+    chapters:
+      - file: Tutorial/14_surface_codes_y_horizonte_fault_tolerant/README
+      - file: Tutorial/16_canales_cuanticos_y_ruido/README
+      - file: Tutorial/21_open_quantum_systems/README
+      - file: Tutorial/22_recursos_cuanticos/README
+      - file: Tutorial/23_hardware_fisico_y_arquitecturas/README
+      - file: Tutorial/31_qec_en_hardware/README
+
+  - caption: Fronteras de la investigación
+    chapters:
+      - file: Tutorial/38_quantum_sensing/README
+      - file: Tutorial/39_compilacion_avanzada/README
+      - file: Tutorial/40_qsvt/README
+      - file: Tutorial/41_topological_qc
+      - file: Tutorial/42_tensor_networks/README
+
+  - caption: Laboratorios
+    chapters:
+      - glob: Cuadernos/laboratorios/3[2-9]_*.ipynb
+      - glob: Cuadernos/laboratorios/4[0-6]_*.ipynb
+
+  - caption: Práctica y Evaluación
+    chapters:
+      - file: Ejercicios/ejercicios_basicos
+      - file: Ejercicios/ejercicios_intermedios
+      - file: Ejercicios/ejercicios_avanzados
+      - file: Ejercicios/ejercicios_investigacion
+      - file: Ejercicios/examen_certificacion
+      - file: Ejercicios/autoevaluacion_modular
+
+  - caption: Hardware real y API
+    chapters:
+      - file: docs/guia_ibm_quantum
+      - file: docs/error_rates_2025
+
+  - caption: Contribuir
+    chapters:
+      - file: CONTRIBUTING
+      - file: TRANSLATING

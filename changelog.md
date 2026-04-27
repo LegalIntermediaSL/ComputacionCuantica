@@ -4,6 +4,39 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [2.1.0] - 2026-04-28
+
+### Added (Fase 16 — Tensor Networks y Jupyter Book · v5.1)
+
+- **Módulo 42** `Tutorial/42_tensor_networks/README.md`: MPS (representación, parámetros, ejemplos exactos), notación diagramática, descomposición de Schmidt, area law de Hastings (1D gapped), operaciones MPS (forma canónica, truncamiento SVD), DMRG (barridos two-site), TEBD (Trotter + cadena XX), más allá de 1D (PEPS/MERA/TTN), conexión con QC (dequantización, VQE vs DMRG).
+- **Lab 46** `46_mps_tensor_networks.ipynb`: implementación MPS desde cero con numpy — SVD recursiva, reconstrucción exacta, truncamiento con fidelidad, entropía de entrelazamiento por corte, TEBD cadena XX con propagación de magnetización y crecimiento de entrelazamiento, comparativa parámetros MPS vs estado completo.
+- **Jupyter Book** `_config.yml` + `_toc.yml`: versión offline navegable del curso — 7 secciones, módulos 01-42, labs 32-46, launch buttons para Binder/Colab.
+- **Workflow Jupyter Book** `.github/workflows/build_jupyterbook.yml`: build automático en push a main (Tutorial/Cuadernos/docs cambiados), artifact HTML de 30 días.
+- **14 tests nuevos** `tests/test_tensor_networks.py`: χ producto=1, GHZ χ=2 S=1ebit, reconstrucción exacta, fidelidad monótona en χ, entropía no negativa y acotada, Σλ²=1, χ_max ≤ 2^(n//2), TEBD norma conservada. **Total: 115 tests**.
+- **PLAN_EXPANSION.md**: Fase 16 añadida ✅, métricas v5.1 actualizadas, backlog reorganizado para Fase 17.
+
+### Fixed
+
+- `mps_from_statevector`: truncamiento de valores singulares near-zero con tolerancia relativa para bond dimension exacto en estados producto y GHZ.
+
+## [2.0.0] - 2026-04-28
+
+### Added (Fase 15 — Topological QC, Property Tests y PDF CI · v5.0)
+
+- **Módulo 41** `Tutorial/41_topological_qc`: Computación Cuántica Topológica completa — anyones, código tórico de Kitaev, operadores Av/Bp, espacio lógico (2 qubits por toro), umbral ~10.9%, anyones de Fibonacci, qubits de Majorana (Microsoft 2025).
+- **Lab 45** `45_toric_code.ipynb`: Simulación Qiskit del código tórico L×L — verificación [Av,Bp]=0 para todos los pares, estado de código vía proyector gauge, operadores lógicos X̄/Z̄, introducción/detección/corrección de errores X y Z, error lógico indetectable por síndrome, escalado P_L vs L.
+- **Página 16** `16_Benchmark_Hardware.py`: Benchmark interactivo CLOPS/QV/T1/T2 de 6 plataformas 2025 (IBM Heron/Eagle, Google Willow, Quantinuum H2, IonQ Forte, QuEra Aquila); 4 tabs de visualización; calculadora de overhead FT para código de superficie.
+- **Workflow PDF** `.github/workflows/build_pdf.yml`: generación automática de PDF (MkDocs + WeasyPrint) en cada release de GitHub; adjunta PDF al release y como artifact de 90 días.
+- **Property-based tests** `tests/test_property_based.py`: 25 tests con Hypothesis — estados cuánticos, algebra de Pauli, código tórico (paridad de aristas, síndromes), principio variacional, PAC learning, BB84, barren plateaus, teleportación, umbral tórico. Total: **101 tests**.
+- **`hypothesis>=6.100`** añadido a `requirements.txt`, `environment.yml`, `pyproject.toml[dev]`.
+- **`mkdocs.yml`**: módulo 41, lab 45, sección "Topológica" en nav; plugin `pdf-export` configurado con `ENABLE_PDF_EXPORT`.
+- **`pyproject.toml`**: versión `4.0.0` → `5.0.0`.
+
+### Fixed
+
+- Bug en constructor de plaquetas del código tórico: borde derecho era `v_edge(pi, pj-1)` → corregido a `v_edge(pi, pj+1)` (Lab 45 y tests).
+- Backlog: ítems de PDF y Benchmark marcados como completados.
+
 ## [1.4.0] - 2026-04-27
 
 ### Changed (Fase 14 — Revisión y QA v4.0)
