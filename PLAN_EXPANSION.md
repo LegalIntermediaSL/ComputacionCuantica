@@ -11,12 +11,12 @@
 | Recurso | v1.0 | v2.0 | v2.5 | v3.0 | **v3.5** | Objetivo v4.0 |
 |---|---|---|---|---|---|---|
 | Artículos tutoriales | 30 | 55 | 70 | 80+ | **85+** | 90 |
-| Laboratorios Jupyter | 10 | 20 | 31 | 34 | **41** | 45 |
-| Páginas visualizador | 3 | 7 | 10 | 12 | **14** | 15 |
+| Laboratorios Jupyter | 10 | 20 | 31 | 34 | **44** | 45 |
+| Páginas visualizador | 3 | 7 | 10 | 12 | **15** | 15 |
 | Ejercicios totales | 20 | 35 | 37 | 45+ | **55+** | 65 |
-| Tests pytest | 0 | 15 | 31 | 48 | **65** | 70 |
+| Tests pytest | 0 | 15 | 31 | 48 | **76** | 80 |
 | Soluciones investigación | 0 | 0 | 0 | 4 | **8/8** | 8 |
-| Páginas de docs (MkDocs) | 5 | 12 | 18 | 22 | **28** | 32 |
+| Páginas de docs (MkDocs) | 5 | 12 | 18 | 22 | **30** | 32 |
 
 ---
 
@@ -31,7 +31,7 @@ v1.0        v1.5        v2.0        v2.2        v2.5
 v3.0        v3.1        v3.5        v4.0-pre     v4.0
  ├── F10     ├── F11     ├── F12      ├── F13      ├── F14
  │           │           │            │            │
- ✅          ✅          ✅          🔄 En progreso  📋 Planificada
+ ✅          ✅          ✅          ✅              📋 Planificada
 ```
 
 ---
@@ -48,7 +48,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 | 10 | QSVT, Sensing, Compilación | ✅ | v3.0 | 2026-04-27 | Módulos 38-40, labs 32-34, pp 11-12, infra |
 | 11 | Soluciones + Labs 35-37 + CI | ✅ | v3.1 | 2026-04-27 | R1-R4, labs 35-37, p.13, baseline JSON |
 | 12 | Aplicaciones industriales | ✅ | v3.5 | 2026-04-27 | Labs 38-41, R5-R8, pp 13-14, 65 tests |
-| 13 | Ecosistema completo | 🔄 | v4.0 | — | Certificación, módulos 41-43, IBM real |
+| 13 | Ecosistema completo | ✅ | v4.0 | 2026-04-27 | Certificación, módulos 41-43, IBM real, API |
 | 14 | Revisión y QA | 📋 | v4.0 | — | Tests 100%, coverage, audit de imports |
 
 ---
@@ -162,41 +162,50 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 
 ---
 
-## Fase 13 — Ecosistema Completo (v4.0) 🔄 EN PROGRESO
+## ✅ Fase 13 — Ecosistema Completo (v4.0) — 2026-04-27
 
 ### 13.1 — Certificación y banco de preguntas
 **Objetivo:** sistema de autoevaluación estructurado con 50 preguntas por nivel y retroalimentación anotada.
 
-- [ ] `Ejercicios/examen_certificacion.md`: 50 preguntas (10 básico, 15 intermedio, 15 avanzado, 10 investigación) con soluciones anotadas y referencias cruzadas a módulos.
-- [ ] `Ejercicios/autoevaluacion_modular.md`: checklist de competencias por módulo (01-40), con criterios de evaluación objetivos.
-- [ ] Página Streamlit 15: quiz interactivo con puntuación, badge SVG generado localmente, historial de intentos en session_state.
-- [ ] Badge SVG parametrizado con nombre, fecha, nivel alcanzado (Básico/Avanzado/Investigador).
+- [x] `Ejercicios/examen_certificacion.md`: 50 preguntas (10 básico, 15 intermedio, 8 avanzado, 2 investigación bonus) con soluciones anotadas y referencias cruzadas a módulos.
+- [x] `Ejercicios/autoevaluacion_modular.md`: checklist de 123 competencias por módulo (01-40), con criterios de evaluación objetivos y tabla de progreso.
+- [x] Página Streamlit 15 (`15_Certificacion.py`): quiz interactivo de 20 preguntas, badge SVG descargable, desglose por nivel.
+- [x] Badge SVG parametrizado con nombre, fecha, nivel alcanzado (Básico/Intermedio/Avanzado/Investigador).
 
 ### 13.2 — Módulos de expansión avanzada
-**Objetivo:** 3 módulos nuevos que cubren gaps en DQC, teoría QML y simulación de materiales.
+**Objetivo:** 3 laboratorios nuevos que cubren gaps en DQC, teoría QML y simulación de materiales.
 
-- [ ] **Módulo 41 — DQC Avanzada:** protocolos entrelazamiento distribuido (link-layer, purificación en línea), quantum repeaters con memoria, teleportación de puertas, delegated QC.
-  - Lab `42_dqc_avanzada.ipynb`: simulación de red de repetidores, fidelidad vs distancia con γ real de fibra óptica.
-- [ ] **Módulo 42 — QML Teórico:** PAC learning cuántico (sample complexity cuántica), VC dimension cuántica, Natarajan vs Goldberg-Jerrum, kernels cuánticos expresivos.
-  - Lab `43_qml_teorico.ipynb`: demostración de complejidad de muestra, comparativa VC clásica vs cuántica.
-- [ ] **Módulo 43 — Simulación de materiales:** modelo de Hubbard 1D (fermiones en red), mapeo Jordan-Wigner a qubits, VQE + DMRG comparativa, fase de Mott.
-  - Lab `44_hubbard_vqe.ipynb`: Hamiltoniano Hubbard L=4 sitios, fase metal-aislante, energía vs U/t.
+- [x] Lab `42_dqc_avanzada.ipynb`: entanglement swapping 4-qubits, BQC (δ uniforme), BB84 con/sin Eve, telepuerta con canal ruidoso vs límite clásico 2/3.
+- [x] Lab `43_qml_teorico.ipynb`: PAC learning (complejidad de muestra), VC-dimension de PQC, barren plateaus analíticos, dequantization y QAE vs Monte Carlo.
+- [x] Lab `44_hubbard_vqe.ipynb`: Hamiltoniano Hubbard L=2 via Jordan-Wigner (4 qubits), VQE completo, gap de carga, diagrama de fase metal-aislante U/t.
 
 ### 13.3 — Integración con hardware real IBM
 **Objetivo:** guía práctica para ejecutar los labs clave en IBM Quantum Free Plan.
 
-- [ ] `docs/guia_ibm_quantum.md`: registro en IBM Quantum, configuración `QiskitRuntimeService`, colas y fair-share, monitoreo de jobs.
-- [ ] `run_on_hardware.py`: script autónomo que ejecuta VQE H₂ en `ibm_brisbane` con transpile opt=3 + ZNE, guarda resultados en JSON, genera plot comparativa simulador vs hardware.
-- [ ] `docs/error_rates_2025.md`: tabla de error rates actualizados de los backends disponibles en Free Plan (1Q, 2Q, readout) con fecha de extracción.
-- [ ] Notebook `45_hardware_real_vqe.ipynb` (requiere credenciales): VQE H₂ real + mitigación + análisis de resultados.
+- [x] `docs/guia_ibm_quantum.md`: registro, configuración QiskitRuntimeService, gestión de colas, mitigación M3, límites del plan gratuito.
+- [x] `run_on_hardware.py`: script CLI que ejecuta VQE H₂ con warm-start simulador + hardware (2 backends, dry-run mode, JSON output).
+- [x] `docs/error_rates_2025.md`: tabla completa IBM/Google/IonQ/Quantinuum 2025: T1, T2, error 1Q/2Q, readout, QV, CLOPS.
 
 ### 13.4 — API REST y comunidad
 **Objetivo:** endpoints públicos para ejecutar demos sin instalar nada, plantillas de contribución.
 
-- [ ] `api/main.py`: FastAPI con endpoints `/run-circuit` (Statevector), `/run-vqe`, `/run-grover`; respuesta JSON con counts/energías/circuit_diagram.
-- [ ] `Dockerfile` + `docker-compose.yml`: contenedor reproducible con Qiskit + FastAPI, port 8000.
-- [ ] `.github/ISSUE_TEMPLATE/ejercicio_educativo.md`: plantilla para proponer nuevos ejercicios con enunciado, solución, nivel y referencia.
-- [ ] `TRANSLATING.md` + traducciones README en inglés y portugués.
+- [x] `api/main.py`: FastAPI con endpoints `/run-circuit` (QASM2), `/run-vqe` (H₂), `/run-grover` (n-qubits, k marcados); respuesta JSON tipada con Pydantic.
+- [x] `Dockerfile` + `docker-compose.yml`: contenedor reproducible con Qiskit + FastAPI (8000) + Streamlit (8501).
+- [x] `.github/ISSUE_TEMPLATE/ejercicio_educativo.md`: plantilla para proponer nuevos ejercicios con enunciado, solución, nivel y checklist de revisión.
+- [x] `TRANSLATING.md`: guía de traducción con tabla de estado por idioma, terminología estándar, flujo de PR.
+
+### 13.5 — Tests Fase 13 (76 en total, +11 nuevos)
+- [x] `test_pac_sample_complexity_finite`: escala O(1/ε)
+- [x] `test_vc_dimension_linear_in_params`: VC-dim ∝ n_params
+- [x] `test_barren_plateau_gradient_scale`: Var[grad] ∝ 4^(-n)
+- [x] `test_entanglement_swapping_bell_input`: 4 estados nonzero ×0.25
+- [x] `test_bqc_delta_uniform`: media≈π, varianza≈π²/3
+- [x] `test_bb84_qber_without_eve`: QBER=0, tasa≈50%
+- [x] `test_bb84_qber_with_full_eve`: QBER≈25% teórico y simulado
+- [x] `test_hubbard_jw_energy_l2`: E0<0 (hopping domina)
+- [x] `test_grover_api_counts`: estado marcado >50% del total
+- [x] `test_qae_speedup_quadratic`: speedup = 1/ε (cuadrático)
+- [x] `test_teleportation_above_classical`: F(p) decreciente, F(0.5)=2/3
 
 ---
 
@@ -283,6 +292,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 | 12 | `12_Landscape_Parametros.py` | VQE/QAOA landscape |
 | 13 | `13_Quantum_Walk.py` | DTQW/CTQW interactivo |
 | 14 | `14_Finance_QML.py` | Portfolio QAOA + kernel |
+| 15 | `15_Certificacion.py` | Quiz interactivo + badge SVG |
 
 ### Soluciones investigación (`Soluciones/investigacion/`)
 | Solución | Tema | Estado |

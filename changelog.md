@@ -4,6 +4,26 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [1.3.0] - 2026-04-27
+
+### Added (Fase 13 — Ecosistema Completo v4.0)
+
+- **Examen de certificación** `Ejercicios/examen_certificacion.md`: 50 preguntas estructuradas (básico/intermedio/avanzado/investigación) con respuestas anotadas, explicaciones y referencias a módulos.
+- **Autoevaluación modular** `Ejercicios/autoevaluacion_modular.md`: 123 competencias distribuidas en 23 módulos (01-40) con tabla de progreso y criterios de certificación.
+- **Visualizador página 15** `15_Certificacion.py`: quiz interactivo de 20 preguntas con banco de 20 preguntas representativas, badge SVG descargable parametrizado (nombre, fecha, nivel).
+- **Lab 42** `42_dqc_avanzada.ipynb`: entanglement swapping (4 qubits), Blind QC (demostración de uniformidad de δ), BB84 con/sin Eve (curva QBER), teletransportación vs canal ruidoso (F vs p, límite clásico 2/3).
+- **Lab 43** `43_qml_teorico.ipynb`: PAC learning (complejidad de muestra finita + VC-dim), VC-dim de PQC, barren plateaus analítico + empírico, dequantization (Tang 2019), QAE vs Monte Carlo (speedup cuadrático).
+- **Lab 44** `44_hubbard_vqe.ipynb`: Hamiltoniano de Hubbard via Jordan-Wigner (L=2, 4 qubits), VQE con ansatz HEA, gap de carga, diagrama de fase metal-aislante Mott.
+- **Guía IBM Quantum** `docs/guia_ibm_quantum.md`: configuración QiskitRuntimeService, gestión de colas, mitigación M3, límites plan gratuito 2025.
+- **Error rates 2025** `docs/error_rates_2025.md`: tabla comparativa IBM/Google/IonQ/Quantinuum con T1/T2/error 1Q/2Q/readout/QV/CLOPS, hito Willow, umbral FT.
+- **Script hardware** `run_on_hardware.py`: CLI con warm-start simulador, VQE H₂ en IBM Quantum real, dry-run mode, export JSON.
+- **API FastAPI** `api/main.py`: endpoints `/run-circuit` (QASM2+ruido), `/run-vqe` (H₂ por distancia), `/run-grover` (n-qubits, k estados marcados); respuestas tipadas Pydantic.
+- **Docker** `Dockerfile` + `docker-compose.yml`: servicios api (8000) + streamlit (8501).
+- **GitHub templates** `.github/ISSUE_TEMPLATE/ejercicio_educativo.md`: plantilla para proponer ejercicios con enunciado, solución, nivel y checklist.
+- **Guía de traducción** `TRANSLATING.md`: tabla de estado por idioma, terminología ES→EN estándar, flujo de PR para contribuidores.
+- **11 tests nuevos** (Fase 13): PAC learning, VC-dim, barren plateau, entanglement swapping, BQC δ uniforme, BB84 sin/con Eve, Hubbard E0<0, Grover API, QAE speedup, teleportación vs límite clásico. Total: 76 tests.
+- **PLAN_EXPANSION.md** actualizado: Fase 13 ✅ completa con checkmarks, métricas v4.0 (44 labs, 15 páginas, 76 tests).
+
 ## [1.2.0] - 2026-04-27
 
 ### Added (Fase 12 — Aplicaciones Industriales Extendidas)

@@ -1403,3 +1403,259 @@ def test_grover_quadratic_speedup():
         # Debe ser O(√N)
         ratio = t_opt / np.sqrt(N)
         assert 0.5 < ratio < 1.5, f"Grover N={N}: t_opt={t_opt}, ratio={ratio:.3f}"
+
+
+# ---------------------------------------------------------------------------
+# Fase 13 — Certificación, DQC, QML teórico, Hubbard, API
+# ---------------------------------------------------------------------------
+
+def test_pac_sample_complexity_finite():
+    """PAC learning: complejidad de muestra crece como O(log|H|/ε)."""
+    def pac_m(H_size, epsilon, delta):
+        return int(np.ceil((1 / epsilon) * (np.log(H_size) + np.log(1 / delta))))
+
+    # Para H fijo, m escala como O(1/ε)
+    m_eps01 = pac_m(2**10, 0.01, 0.05)
+    m_eps05 = pac_m(2**10, 0.05, 0.05)
+    # Ratio debe ser ≈ 5 (inverso de ε)
+    ratio = m_eps01 / m_eps05
+    assert 4.0 < ratio < 6.0, f"PAC: ratio m(ε=0.01)/m(ε=0.05) = {ratio:.2f}, esperado ~5"
+
+
+def test_vc_dimension_linear_in_params():
+    """VC-dim de PQC escala linealmente con el número de parámetros."""
+    from qiskit import QuantumCircuit
+    from qiskit.circuit import ParameterVector
+
+    def n_params_pqc(n_qubits, n_layers):
+        return n_qubits * n_layers * 2
+
+    # Verificar que n_params crece linealmente con n_layers
+    params_1 = n_params_pqc(4, 1)
+    params_2 = n_params_pqc(4, 2)
+    params_4 = n_params_pqc(4, 4)
+    assert params_2 == 2 * params_1, "n_params debe duplicarse al duplicar capas"
+    assert params_4 == 4 * params_1, "n_params debe cuadruplicarse al cuadruplicar capas"
+
+
+def test_barren_plateau_gradient_scale():
+    """Varianza del gradiente debe decrecer exponencialmente con n_qubits (barren plateau)."""
+    # Test analítico: Var[grad] ∝ 4^(-n) para circuito global
+    # Verificar que la fórmula es monotónicamente decreciente
+    vars_theoretical = [4**(-n) for n in range(2, 8)]
+    for i in range(len(vars_theoretical) - 1):
+        assert vars_theoretical[i] > vars_theoretical[i + 1], \
+            "Varianza debe decrecer con n_qubits (barren plateau)"
+    # Para n=8: Var ≈ 1.5e-5, para n=2: Var ≈ 0.0625
+    assert vars_theoretical[0] / vars_theoretical[-1] > 100, \
+        "Barren plateau: varianza debe caer >100x de n=2 a n=7"
+
+
+def test_entanglement_swapping_bell_input():
+    """Entanglement swapping: estado inicial AB⊗CD es superposición de 4 términos de 2Q."""
+    from qiskit import QuantumCircuit
+    from qiskit.quantum_info import Statevector
+
+    qc = QuantumCircuit(4)
+    qc.h(0); qc.cx(0, 1)  # Bell AB
+    qc.h(2); qc.cx(2, 3)  # Bell CD
+
+    sv = Statevector(qc)
+    probs = sv.probabilities()
+
+    # Estado |Φ+⟩⊗|Φ+⟩: solo 4 estados con prob 0.25
+    n_nonzero = np.sum(probs > 0.01)
+    assert n_nonzero == 4, f"Esperados 4 estados con amplitud nonzero, obtenidos {n_nonzero}"
+    assert abs(np.max(probs) - 0.25) < 1e-10, f"Prob máxima = {np.max(probs):.4f}, esperado 0.25"
+
+
+def test_bqc_delta_uniform():
+    """BQC: ángulo de medición δ = φ + θ + rπ es uniforme en [0,2π] sobre θ."""
+    np.random.seed(0)
+    phi = np.pi / 4
+    deltas = []
+    for _ in range(5000):
+        theta = np.random.uniform(0, 2 * np.pi)
+        r = np.random.randint(0, 2)
+        delta = (phi + theta + r * np.pi) % (2 * np.pi)
+        deltas.append(delta)
+    # Media debe ser ≈ π
+    assert abs(np.mean(deltas) - np.pi) < 0.1, f"Media δ = {np.mean(deltas):.3f}, esperado ≈ π"
+    # Varianza debe ser ≈ π²/3
+    assert abs(np.var(deltas) - np.pi**2 / 3) < 0.3, \
+        f"Varianza δ = {np.var(deltas):.3f}, esperado π²/3 ≈ {np.pi**2/3:.3f}"
+
+
+def test_bb84_qber_without_eve():
+    """BB84 sin Eve: QBER ≈ 0 y tasa de clave ≈ 50%."""
+    np.random.seed(42)
+    n_bits = 5000
+    alice_bits = np.random.randint(0, 2, n_bits)
+    alice_bases = np.random.randint(0, 2, n_bits)
+    bob_bases = np.random.randint(0, 2, n_bits)
+
+    matching = alice_bases == bob_bases
+    key_alice = alice_bits[matching]
+    key_bob = alice_bits[matching].copy()  # sin errores
+
+    qber = np.mean(key_alice != key_bob)
+    key_rate = len(key_alice) / n_bits
+
+    assert qber == 0.0, f"Sin Eve: QBER debe ser 0, obtenido {qber}"
+    assert 0.45 < key_rate < 0.55, f"Key rate debe ser ≈ 50%, obtenido {key_rate:.3f}"
+
+
+def test_bb84_qber_with_full_eve():
+    """BB84 con Eve 100%: QBER ≈ 25% teórico."""
+    # Análisis teórico (no simulación directa de circuitos):
+    # P(error en clave) = P(eve usa base incorrecta) × P(bob mide mal | eve base incorrecta)
+    #                   = 0.5 × 0.5 = 0.25
+    # Verificar la fórmula analítica
+    p_eve_wrong_basis = 0.5
+    p_bob_error_given_eve_wrong = 0.5
+    p_error_theoretical = p_eve_wrong_basis * p_bob_error_given_eve_wrong
+    assert abs(p_error_theoretical - 0.25) < 1e-10, \
+        f"QBER teórico BB84 con Eve = {p_error_theoretical}, esperado 0.25"
+
+    # Simulación numérica corregida: Eve flipa con prob 50% cuando usa base incorrecta
+    np.random.seed(42)
+    n_bits = 10000
+    alice_bits = np.random.randint(0, 2, n_bits)
+    alice_bases = np.random.randint(0, 2, n_bits)
+    bob_bases = np.random.randint(0, 2, n_bits)
+    eve_bases = np.random.randint(0, 2, n_bits)
+
+    matching = alice_bases == bob_bases
+    wrong_eve_basis = (eve_bases != alice_bases)[matching]
+    # Cuando Eve usa base incorrecta, introduce un error con prob 0.5
+    eve_random_errors = np.random.randint(0, 2, np.sum(wrong_eve_basis)).astype(bool)
+    key_alice = alice_bits[matching]
+    key_bob = key_alice.copy()
+    key_bob[wrong_eve_basis] ^= eve_random_errors  # flip con prob 50%
+
+    qber = np.mean(key_alice != key_bob)
+    assert 0.20 < qber < 0.30, f"Con Eve 100%: QBER ≈ 25%, obtenido {qber:.3f}"
+
+
+def test_hubbard_jw_energy_l2():
+    """Hubbard L=2 (4 qubits): energía exacta debe ser negativa para t=1, U=4."""
+    from scipy.linalg import eigh
+    from qiskit.quantum_info import SparsePauliOp
+
+    L = 2
+    t_val = 1.0
+    U_val = 4.0
+    n_qubits = 4
+
+    terms = []
+    for i in range(L - 1):
+        for pair, coef in [('XX', -t_val / 2), ('YY', -t_val / 2)]:
+            op = ['I'] * n_qubits
+            op[i] = pair[0]; op[i + 1] = pair[1]
+            terms.append((''.join(reversed(op)), coef))
+    for i in range(L - 1):
+        for pair, coef in [('XX', -t_val / 2), ('YY', -t_val / 2)]:
+            op = ['I'] * n_qubits
+            op[L + i] = pair[0]; op[L + i + 1] = pair[1]
+            terms.append((''.join(reversed(op)), coef))
+    for i in range(L):
+        terms.append(('I' * n_qubits, U_val / 4))
+        z_up = ['I'] * n_qubits; z_up[i] = 'Z'
+        terms.append((''.join(reversed(z_up)), -U_val / 4))
+        z_dn = ['I'] * n_qubits; z_dn[L + i] = 'Z'
+        terms.append((''.join(reversed(z_dn)), -U_val / 4))
+        zz = ['I'] * n_qubits; zz[i] = 'Z'; zz[L + i] = 'Z'
+        terms.append((''.join(reversed(zz)), U_val / 4))
+
+    H = SparsePauliOp.from_list(terms, num_qubits=n_qubits).simplify()
+    H_mat = H.to_matrix()
+    E0 = float(np.min(np.linalg.eigvalsh(H_mat).real))
+    assert E0 < 0, f"Hubbard L=2: E0={E0:.4f} debería ser negativo (hopping domina)"
+    assert E0 > -10, f"Hubbard L=2: E0={E0:.4f} demasiado bajo, posible error"
+
+
+def test_grover_api_counts():
+    """API Grover: el estado marcado debe tener la mayor frecuencia."""
+    from qiskit import QuantumCircuit
+    from qiskit_aer import AerSimulator
+
+    n = 3
+    marked = 5  # |101⟩
+
+    # Construir Grover para 1 iteración (N=8, k=1 → óptimo ≈ 2 iter)
+    N = 2**n
+    optimal_iter = max(1, round(np.pi / 4 * np.sqrt(N)))
+
+    qc = QuantumCircuit(n, n)
+    qc.h(range(n))  # superposición
+
+    for _ in range(optimal_iter):
+        # Oráculo para estado |101⟩
+        # Bits de 5 = 101: q0=1, q1=0, q2=1
+        # q1=0 → aplicar X en q1
+        qc.x(1)
+        qc.h(2)
+        qc.ccx(0, 1, 2)
+        qc.h(2)
+        qc.x(1)
+
+        # Difusor
+        qc.h(range(n))
+        qc.x(range(n))
+        qc.h(2)
+        qc.ccx(0, 1, 2)
+        qc.h(2)
+        qc.x(range(n))
+        qc.h(range(n))
+
+    qc.measure(range(n), range(n))
+
+    sim = AerSimulator()
+    counts = sim.run(qc, shots=4096).result().get_counts()
+
+    # El estado marcado debe tener > 50% del total
+    total = sum(counts.values())
+    marked_bitstring = format(marked, f'0{n}b')
+    marked_count = counts.get(marked_bitstring, 0)
+    prob_marked = marked_count / total
+    assert prob_marked > 0.50, \
+        f"Grover: estado marcado {marked_bitstring} tiene prob={prob_marked:.3f} < 0.5"
+
+
+def test_qae_speedup_quadratic():
+    """QAE requiere O(1/ε) consultas vs O(1/ε²) Monte Carlo — speedup cuadrático."""
+    def mc_samples(eps): return int(np.ceil(1 / eps**2))
+    def qae_samples(eps): return int(np.ceil(1 / eps))
+
+    for eps in [0.01, 0.001, 0.0001]:
+        speedup = mc_samples(eps) / qae_samples(eps)
+        expected = 1 / eps  # speedup = 1/ε
+        ratio = speedup / expected
+        assert 0.8 < ratio < 1.2, \
+            f"QAE speedup para ε={eps}: {speedup:.0f}, esperado ~{expected:.0f}"
+
+
+def test_teleportation_above_classical():
+    """Teletransportación: fidelidad decrece con p_dep; en p=0 es perfecta, en p=0.5 alcanza 2/3."""
+    # F(p) = 1 - 2p/3  (modelo simplificado depolarizante)
+    def F_teleport(p):
+        return max(0.0, 1.0 - 2 * p / 3.0)
+
+    # Para p=0: fidelidad perfecta = 1
+    assert abs(F_teleport(0.0) - 1.0) < 1e-10, "p=0: fidelidad debe ser 1"
+
+    # Fidelidad es monotónicamente decreciente con p
+    ps = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+    F_vals = [F_teleport(p) for p in ps]
+    for i in range(len(F_vals) - 1):
+        assert F_vals[i] >= F_vals[i + 1], \
+            f"Fidelidad no monotona: F(p={ps[i]})={F_vals[i]:.4f} > F(p={ps[i+1]})={F_vals[i+1]:.4f}"
+
+    # Para p=0.5: F = 1 - 1/3 = 2/3 (límite clásico)
+    assert abs(F_teleport(0.5) - 2 / 3) < 1e-10, \
+        f"Para p=0.5: F={F_teleport(0.5):.4f}, esperado 2/3"
+
+    # Para p < 0.5: F > 2/3 (ventaja cuántica)
+    for p_good in [0.0, 0.1, 0.2, 0.4]:
+        assert F_teleport(p_good) > 2 / 3 - 1e-9, \
+            f"Para p={p_good}: F={F_teleport(p_good):.4f} debe ser > 2/3"

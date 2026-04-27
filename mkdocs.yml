@@ -94,10 +94,20 @@ nav:
     - Lab 39 — Química + Hardware: Cuadernos/laboratorios/README.md
     - Lab 40 — QML Real: Cuadernos/laboratorios/README.md
     - Lab 41 — Advantage Cuántica: Cuadernos/laboratorios/README.md
+    - Lab 42 — DQC Avanzada: Cuadernos/laboratorios/README.md
+    - Lab 43 — QML Teórico: Cuadernos/laboratorios/README.md
+    - Lab 44 — Hubbard VQE: Cuadernos/laboratorios/README.md
   - Práctica:
     - Ejercicios básicos: Ejercicios/ejercicios_basicos.md
     - Ejercicios intermedios: Ejercicios/ejercicios_intermedios.md
     - Ejercicios avanzados: Ejercicios/ejercicios_avanzados.md
     - Ejercicios de investigación: Ejercicios/ejercicios_investigacion.md
+    - Examen de certificación: Ejercicios/examen_certificacion.md
+    - Autoevaluación modular: Ejercicios/autoevaluacion_modular.md
     - Soluciones R1-R8: Soluciones/investigacion/README.md
-  - Contribuir: CONTRIBUTING.md
+  - Hardware real:
+    - Guía IBM Quantum: docs/guia_ibm_quantum.md
+    - Error rates 2025: docs/error_rates_2025.md
+  - Contribuir:
+    - Guía de contribución: CONTRIBUTING.md
+    - Traducir el curso: TRANSLATING.md
