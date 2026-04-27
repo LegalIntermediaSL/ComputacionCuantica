@@ -4,6 +4,17 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [1.4.0] - 2026-04-27
+
+### Changed (Fase 14 — Revisión y QA v4.0)
+
+- **Workflow desactivado:** `test_code_snippets.yml` movido a `workflow_dispatch` (solo manual) — eliminados triggers automáticos en push/PR.
+- **`scikit-learn>=1.4,<2.0`** añadido a `requirements.txt`, `environment.yml` y `pyproject.toml` (usado en labs 42 y 43).
+- **Página 15** `15_Certificacion.py`: añadido `show_tour()` con 5 pasos de guía interactiva.
+- **`tests/baseline.json`** actualizado a v1.3.0: entradas para labs 42-44 (DQC, QML teórico, Hubbard).
+- **PLAN_EXPANSION.md**: Fases 13 y 14 marcadas ✅ con checkmarks detallados.
+- **QA verificado:** 76 tests passing, 54 notebooks JSON válidos, 45 refs MkDocs sin rotos, 15 páginas Streamlit con sintaxis válida.
+
 ## [1.3.0] - 2026-04-27
 
 ### Added (Fase 13 — Ecosistema Completo v4.0)

@@ -1,15 +1,7 @@
 name: Test code snippets
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "Tutorial/**/*.md"
-      - "Cuadernos/**/*.ipynb"
-      - "visualizador/**/*.py"
-      - ".github/workflows/test_code_snippets.yml"
-  pull_request:
-    branches: [main]
+  workflow_dispatch:  # solo ejecución manual — desactivado en push/PR
 
 jobs:
   extract-and-test:

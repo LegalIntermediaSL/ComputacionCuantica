@@ -6,7 +6,20 @@ import random
 import xml.etree.ElementTree as ET
 from datetime import date
 
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+from tour_guide import show_tour
+
 st.set_page_config(page_title="Certificación Cuántica", page_icon="🏆", layout="wide")
+
+_TOUR_STEPS = [
+    {"title": "🏆 Quiz de Certificación", "body": "20 preguntas representativas del curso completo (módulos 01-40). Responde sin notas para obtener una evaluación honesta de tu nivel."},
+    {"title": "⚙️ Configuración", "body": "Ajusta el número de preguntas, los niveles a incluir y si quieres orden aleatorio desde el panel lateral."},
+    {"title": "📊 Niveles", "body": "Básico (módulos 01-06), Intermedio (módulos 05-14), Avanzado (módulos 28-40). El quiz mezcla niveles para una evaluación completa."},
+    {"title": "🏅 Badge SVG", "body": "Al completar el quiz obtienes un badge descargable parametrizado con tu nombre, fecha y nivel alcanzado (Básico/Intermedio/Avanzado/Investigador)."},
+    {"title": "📋 Más recursos", "body": "Para prepararte: consulta el examen completo de 50 preguntas (Ejercicios/examen_certificacion.md) y la autoevaluación modular de 123 competencias."},
+]
+show_tour("certificacion", _TOUR_STEPS)
 
 st.title("🏆 Certificación en Computación Cuántica")
 st.markdown(

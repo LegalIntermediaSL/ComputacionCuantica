@@ -1,77 +1,66 @@
 {
-  "_comment": "Valores de referencia para tests de regresión numérica. Actualizar con: python tests/update_baseline.py",
+  "_comment": "Valores de referencia para tests de regresi\u00f3n num\u00e9rica. Actualizar con: python tests/update_baseline.py",
   "_generated": "2026-04-26",
-  "_version": "1.2.0",
-
+  "_version": "1.3.0",
   "mod01_fundamentos": {
     "bell_state_entropy_ebits": 1.0,
     "qubit_norm": 1.0
   },
-
   "mod05_qft": {
     "n3_amplitude_uniform": 0.35355339,
     "n3_phases_count": 8
   },
-
   "mod07_grover": {
     "2q_target_prob_min": 0.95,
     "iterations_optimal": 1
   },
-
   "mod08_qpe": {
     "eigenvalue_error_max": 0.05,
     "n_bits": 3
   },
-
   "mod09_vqe_h2": {
     "E_min_Ha": -1.85,
     "E_hf_Ha": -1.12,
     "chemical_accuracy_Ha": 0.0016
   },
-
   "mod10_qaoa_maxcut": {
     "approx_ratio_min": 0.7,
     "p1_cut_value_min": 2.0
   },
-
   "mod21_shor": {
     "N15_a7_period": 4,
-    "factors": [3, 5]
+    "factors": [
+      3,
+      5
+    ]
   },
-
   "mod24_hhl": {
     "A_condition_number": 2.0,
     "solution_fidelity_min": 0.99
   },
-
   "mod27_lindblad": {
     "t1_decay_at_T1": 0.368,
     "gibbs_P1_kBT05": 0.268
   },
-
   "mod28_process_tomo": {
     "chi_identity_00": 1.0,
     "chi_X_11": 1.0,
     "depolarizing_trace": 1.0
   },
-
   "mod29_pennylane": {
     "param_shift_error_max": 1e-10,
     "barren_plateau_var_ratio_min": 1.0
   },
-
   "mod33_hhl_iqae": {
     "iqae_error_max": 0.05,
     "hhl_fidelity_min": 0.99
   },
-
   "mod34_quantum_walks": {
     "dtqw_sigma_t50_min": 14.14,
     "ctqw_norm_error_max": 1e-10,
     "ctqw_search_prob_min": 0.9,
     "dtqw_coins_tvd_min": 0.1
   },
-
   "mod38_sensing": {
     "qfi_ghz_n2": 4.0,
     "qfi_ghz_n3": 9.0,
@@ -81,52 +70,43 @@
     "qfi_product_n4": 4.0,
     "ramsey_p_phi_pi4_t1": 0.14644661
   },
-
   "mod39_compilacion": {
     "kak_max_cx": 3,
     "kak_fidelity_min": 0.9999,
     "euler_1q_fidelity_min": 0.999
   },
-
   "mod40_qsvt": {
     "chebyshev_sgn_d15_error_max": 0.1,
     "qsvt_depth_formula": "2d+1",
     "hhl_queries_kappa10_min": 100
   },
-
   "nb32_quimica": {
     "uccsd_h2_E_min_Ha": -1.8,
     "uccsd_variational_principle": true
   },
-
   "nb33_compilacion": {
     "qft4_depth_level3_leq_level0": true
   },
-
   "nb34_quantum_walks": {
     "dtqw_ballistic_sigma_gt_2x_classical": true,
     "ctqw_norm_conserved": true,
     "ctqw_search_p_min": 0.9
   },
-
   "nb38_finance": {
     "sharpe_ratio_positive": true,
     "qae_amplitude_encoding_error": 1e-12,
     "qubo_diagonal_formula": "-mu_i/2 + lambda*sigma_ii/4"
   },
-
   "nb39_quimica_zne": {
     "circuit_folding_gate_multiplier": "2k+1",
     "richardson_linear_extrapolation": "(3*E1 - E3) / 2",
     "zne_improves_for_p_lt_003": true
   },
-
   "nb40_qml_kernel": {
     "quantum_kernel_symmetric": true,
     "quantum_kernel_self_similarity": 1.0,
     "kta_perfect_kernel": 1.0
   },
-
   "nb41_advantage": {
     "permanent_identity_n2": 1.0,
     "permanent_identity_n3": 1.0,
@@ -134,12 +114,29 @@
     "permanent_allones_n3": 6.0,
     "xeb_uniform_approx_zero": true,
     "mps_cost_chi_cubic": true,
-    "grover_ratio_range": [0.5, 1.5]
+    "grover_ratio_range": [
+      0.5,
+      1.5
+    ]
   },
-
   "entanglement_purification": {
     "swapping_fidelity_min": 0.99,
     "bbpssw_improves_F70": true,
     "bbpssw_improves_F90": true
+  },
+  "nb42_dqc": {
+    "entanglement_swapping_max_prob": 0.25,
+    "entanglement_swapping_nonzero_states": 4,
+    "bb84_qber_no_eve": 0.0,
+    "bb84_qber_eve_theoretical": 0.25
+  },
+  "nb43_qml_teorico": {
+    "pac_sample_complexity_H1024_eps005_delta005": 199,
+    "barren_plateau_decay_factor": 0.25,
+    "qae_speedup_eps001": 10000
+  },
+  "nb44_hubbard": {
+    "hubbard_L2_t1_U4_ground_energy": -1.0,
+    "hubbard_L2_t1_U4_energy_negative": true
   }
 }
