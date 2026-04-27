@@ -4,7 +4,7 @@ build-backend = "setuptools.backends.legacy:build"
 
 [project]
 name = "computacion-cuantica"
-version = "2.5.0"
+version = "3.5.0"
 description = "Curso interactivo de Computación Cuántica: Teoría y Práctica"
 readme = "README.md"
 requires-python = ">=3.11"

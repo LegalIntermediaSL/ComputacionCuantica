@@ -1,115 +1,249 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** v3.5 · 2026-04-27  
-**Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)
+**Estado general:** v3.5 → v4.0 en preparación · 2026-04-27  
+**Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
+**Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
 ---
 
-## Resumen ejecutivo
+## Métricas actuales (v3.5)
 
-| Recurso | v1.0 | v2.0 | v2.5 | v3.0 | v3.5 | Objetivo v4.0 |
+| Recurso | v1.0 | v2.0 | v2.5 | v3.0 | **v3.5** | Objetivo v4.0 |
 |---|---|---|---|---|---|---|
-| Artículos tutoriales | 30 | 55 | 70 | 80+ | 85+ | 90 |
-| Laboratorios Jupyter | 10 | 20 | 31 | 34 | 42 | 45 |
-| Páginas visualizador | 3 | 7 | 10 | 12 | 14 | 15 |
-| Ejercicios | 20 | 35 | 37 | 45+ | 55+ | 65 |
-| Tests pytest | 0 | 15 | 31 | 48 | 60+ | 70 |
-| Soluciones investigación | 0 | 0 | 0 | 4 | 8 | 8 |
+| Artículos tutoriales | 30 | 55 | 70 | 80+ | **85+** | 90 |
+| Laboratorios Jupyter | 10 | 20 | 31 | 34 | **41** | 45 |
+| Páginas visualizador | 3 | 7 | 10 | 12 | **14** | 15 |
+| Ejercicios totales | 20 | 35 | 37 | 45+ | **55+** | 65 |
+| Tests pytest | 0 | 15 | 31 | 48 | **65** | 70 |
+| Soluciones investigación | 0 | 0 | 0 | 4 | **8/8** | 8 |
+| Páginas de docs (MkDocs) | 5 | 12 | 18 | 22 | **28** | 32 |
 
 ---
 
-## Estado de fases
+## Mapa de fases
 
-| Fase | Título | Estado | Versión | Fecha |
-|---|---|---|---|---|
-| 1–4 | Fundamentos (v1.0) | ✅ Completa | v1.0 | — |
-| 5–6 | Algoritmos y Hardware | ✅ Completa | v1.5 | — |
-| 7 | Infraestructura educativa | ✅ Completa | v2.0 | — |
-| 8 | Hardware avanzado y QML | ✅ Completa | v2.2 | — |
-| 9 | Fronteras modernas | ✅ Completa | v2.5 | — |
-| 10 | QSVT, Sensing, Compilación | ✅ Completa | v3.0 | 2026-04-27 |
-| 11 | Soluciones + Labs 35-37 + CI | ✅ Completa | v3.1 | 2026-04-27 |
-| 12 | Aplicaciones industriales extendidas | ✅ Completa | v3.5 | 2026-04-27 |
-| 13 | Ecosistema completo | 🔄 En progreso | v4.0 | — |
+```
+v1.0        v1.5        v2.0        v2.2        v2.5
+ ├── F1-4    ├── F5-6    ├── F7       ├── F8       ├── F9
+ │           │           │            │            │
+ ✅          ✅          ✅           ✅           ✅
+
+v3.0        v3.1        v3.5        v4.0-pre     v4.0
+ ├── F10     ├── F11     ├── F12      ├── F13      ├── F14
+ │           │           │            │            │
+ ✅          ✅          ✅          🔄 En progreso  📋 Planificada
+```
 
 ---
 
-## Fases completadas
+## Estado detallado de todas las fases
+
+| # | Título | Estado | Versión | Fecha | Entregables clave |
+|---|---|---|---|---|---|
+| 1–4 | Fundamentos | ✅ | v1.0 | — | Módulos 01-10, labs 01-10, tests básicos |
+| 5–6 | Algoritmos y Hardware | ✅ | v1.5 | — | Módulos 11-20, VQE/QAOA, labs 11-20 |
+| 7 | Infraestructura educativa | ✅ | v2.0 | — | MkDocs, CI/CD, tour interactivo, evaluador |
+| 8 | Hardware avanzado y QML | ✅ | v2.2 | — | Módulos 21-27, labs 21-28, Simulador Ruidoso |
+| 9 | Fronteras modernas | ✅ | v2.5 | — | Módulos 28-37, lab 31, visualizador pp 8-10 |
+| 10 | QSVT, Sensing, Compilación | ✅ | v3.0 | 2026-04-27 | Módulos 38-40, labs 32-34, pp 11-12, infra |
+| 11 | Soluciones + Labs 35-37 + CI | ✅ | v3.1 | 2026-04-27 | R1-R4, labs 35-37, p.13, baseline JSON |
+| 12 | Aplicaciones industriales | ✅ | v3.5 | 2026-04-27 | Labs 38-41, R5-R8, pp 13-14, 65 tests |
+| 13 | Ecosistema completo | 🔄 | v4.0 | — | Certificación, módulos 41-43, IBM real |
+| 14 | Revisión y QA | 📋 | v4.0 | — | Tests 100%, coverage, audit de imports |
+
+---
+
+## Fases completadas — detalle
 
 ### ✅ Fase 1–4 — Fundamentos (v1.0)
-- Módulos 01-10: qubits, puertas, entrelazamiento, Qiskit básico
-- 10 laboratorios iniciales, tests básicos
+
+**Módulos:** 01 Qubits, 02 Qiskit básico, 03 Entrelazamiento, 04 Runtime, 05 Algoritmos, 06 Ruido y hardware, 07 QPE, 08 Matrices densidad, 09 QEC repetición, 10 Primitivas V2.
+
+**Laboratorios:** `01_grover_dos_qubits`, `02_teleportacion_guiada`, `03_transpilacion`, `04_bernstein_vazirani`, `05_qft_tres_qubits`, `06_informacion_cuantica`, `07_phase_estimation`, `08_matrices_densidad`, `09_correccion_errores`, `10_qiskit_primitives`.
+
+**Tests iniciales:** norma de estado, entrelazamiento Bell, fases QFT, amplificación Grover, QPE.
+
+---
 
 ### ✅ Fase 5–6 — Algoritmos y Hardware (v1.5)
-- Módulos 11-20: VQE, QAOA, hardware, ruido
-- Visualizador Streamlit (3 páginas), laboratorios 11-20
+
+**Módulos 11-20:** VQE, QAOA, hardware superconductor, pulsos, tomografía, POVM, Hamiltoniano Ising.
+
+**Labs 11-20:** `11_vqe_y_circuitos_parametrizados`, `12_optimizacion_quimica`, `13_estimator_y_energia`, `14_densitymatrix_ruido_y_tomografia`, `15_evolucion_tiempo_trotter`, `16_canales_de_kraus`, `17_medidas_povm`, `18_calibracion_pulsos_rabi`, `19_tomografia_estados`, `20_intro_qiskit_pulse`.
+
+**Visualizador v1:** páginas 1-3 (Bloch, Algoritmos paso a paso, Canales y Ruido).
+
+---
 
 ### ✅ Fase 7 — Infraestructura educativa (v2.0)
-- MkDocs + GitHub Pages, CONTRIBUTING, CODE_OF_CONDUCT
-- Autoevaluación interactiva, evaluador de ejercicios
-- CI/CD con GitHub Actions, tour interactivo
+
+- **MkDocs Material** con GitHub Pages y tema bilingüe.
+- **CI/CD** GitHub Actions: pytest en push, lint, despliegue automático docs.
+- **Tour interactivo** `tour_guide.py` con pasos guiados por página.
+- **Evaluador de ejercicios** con feedback automático y puntuación.
+- **CONTRIBUTING.md** y **CODE_OF_CONDUCT.md**.
+
+---
 
 ### ✅ Fase 8 — Hardware avanzado y QML (v2.2)
-- Módulos 21-27: sistemas abiertos, recursos, hardware físico, pulsos, PQC, ZX-Calculus
-- Laboratorios 21-28 (Pennylane, GPU, UCCSD, QML), Simulador Ruidoso
+
+**Módulos 21-27:** sistemas abiertos (Lindblad), recursos cuánticos (entrelazamiento de formación), hardware real (calibración, error rates), pulsos (Rabi, eco), PQC avanzado (ansatz hardware-efficient), ZX-Calculus (reescritura de diagramas), internet cuántico (swapping, purificación).
+
+**Labs 21-28:** `21_optimizacion_carteras_vqe`, `22_qae_valoracion_activos`, `23_qml_kernel_alignment`, `24_error_mitigation_zne_pec`, `25_zx_calculus`, `26_qiskit_runtime`, `27_qml_datos_reales`, `28_vqe_uccsd_moleculas`.
+
+**Visualizador páginas 4-9:** Hardware Dashboard, VQE/QAOA, QEC, Compositor, Tomografía, Simulador Ruidoso.
+
+---
 
 ### ✅ Fase 9 — Fronteras modernas (v2.5)
-- Módulos 28-37, Notebook 31 Qiskit Patterns
-- Visualizador páginas 8-10, tests 31 casos
+
+**Módulos 28-37:** advantage casos reales, QEC hardware, DQC, algoritmos FT, sistemas abiertos avanzados, computación adiabática, PQC profundidad, nuevos qubits, redes cuánticas, computación distribuida.
+
+**Lab 31:** `31_qiskit_patterns` — Qiskit Patterns + Sampler/Estimator V2.
+
+**Visualizador páginas 8-10:** Tomografía interactiva, Simulador Ruidoso (Aer), Algoritmos completos.
+
+**Tests:** 31 casos, cobertura de ruido, VQE, QAOA.
+
+---
 
 ### ✅ Fase 10 — QSVT, Sensing y Compilación (v3.0) — 2026-04-27
-- [x] Módulos 38-40: Sensing, Compilación Avanzada, QSVT
-- [x] Laboratorios 32-34: Química UCCSD, compilación, Quantum Walks
-- [x] Visualizador páginas 11-12: Estimador FT, Landscape VQE/QAOA
-- [x] Ejercicios investigación R1-R8 (enunciados con stubs)
-- [x] Tests: 31 → 48 (QFI, KAK, DTQW, CTQW, Chebyshev)
-- [x] Infraestructura: `environment.yml`, `Makefile`, `pyproject.toml`, `.devcontainer/`
-- [x] Fix: Simulador Ruidoso (ccx noise model), tour_guide tuples→dicts
+
+**Módulos 38-40:**
+- `38` Quantum Sensing y Metrología: QFI, Cramér-Rao, magnetometría NV, límites SQL/HL.
+- `39` Compilación cuántica avanzada: pases Qiskit, descomposición KAK, Solovay-Kitaev, t|ket⟩.
+- `40` QSVT y Block-Encoding: aproximación Chebyshev, HHL óptimo, block-encoding QR.
+
+**Labs 32-34:**
+- `32_quimica_avanzada_vqe_uccsd`: VQE UCCSD H₂/LiH, curva potencial vs FCI, QWC cost.
+- `33_compilacion_tket_qiskit`: Qiskit niveles 0-3, KAK, t|ket⟩ opcional.
+- `34_quantum_walk_dtqw_ctqw`: DTQW balístico, 4 monedas, CTQW, búsqueda en K_N.
+
+**Visualizador pp 11-12:** Estimador FT (surface code, overhead, magic state), Landscape VQE/QAOA (barren plateaus, optimizadores).
+
+**Ejercicios investigación:** 8 enunciados con stubs de código (`ejercicios_investigacion.md`).
+
+**Tests 31→48:** QFI GHZ/SQL, Ramsey, KAK ≤3 CX, transpile optimiza, Euler 1Q, Chebyshev sgn, QSVT depth, HHL queries, UCCSD H₂, DTQW balístico, CTQW norma, búsqueda CTQW, coins differ.
+
+**Infraestructura:** `environment.yml` (conda qc-edu), `Makefile` (install/test/streamlit/clean), `pyproject.toml` (PEP 517, extras dev/chemistry/tket), `.devcontainer/devcontainer.json`.
+
+**Fixes críticos:** Simulador Ruidoso `ccx` noise model (2Q→3Q), tour_guide tuples→dicts en pp 10/11/12.
+
+---
 
 ### ✅ Fase 11 — Soluciones, Labs 35-37, Baseline CI (v3.1) — 2026-04-27
-- [x] **11.1** Soluciones investigación R1-R4 (`Soluciones/investigacion/`)
-- [x] **11.2** Notebook 35: Computación Adiabática y QAOA avanzado
-- [x] **11.3** Notebook 36: Nuevos Qubits (Fluxonium, Majorana, Spin-Si)
-- [x] **11.4** Notebook 37: Redes Cuánticas y QKD avanzado (BB84, E91, repeaters)
-- [x] **11.5** Tests baseline JSON + pytest markers `@pytest.mark.slow` (13 tests)
-- [x] **11.6** Visualizador página 13: Quantum Walk interactivo (DTQW/CTQW)
-- [x] **11.7** MkDocs: labs 32-37, módulos 38-40, ejercicios investigación
+
+- [x] **11.1** `R1_qsvt_chebyshev.md`: Chebyshev sgn(x), α=π²/(4ln(1/δ)), QSVT vs LCU-Taylor.
+- [x] **11.2** `R2_block_encoding.md`: QR-completion, verificación ||U[:4,:4]-A||, ancilla count.
+- [x] **11.3** `R3_barren_plateaus.md`: Var[grad] vs n, base ≈ (4/3)^(-n), identity-init mitigation.
+- [x] **11.4** `R4_zne_error_mitigation.md`: Richardson λ=1,3,5, ZNE vs PEC comparison table.
+- [x] **11.5** `35_computacion_adiabatica_qaoa.ipynb`: brecha adiabática, Trotter, QAOA p=1-4 MAX-CUT.
+- [x] **11.6** `36_nuevos_qubits_fluxonium_majorana.ipynb`: transamón vs Fluxonium, plataformas 2024-28.
+- [x] **11.7** `37_redes_cuanticas_qkd.ipynb`: BB84+Eva, E91 CHSH, BBPSSW, repeaters, MDI/TF-QKD.
+- [x] **11.8** `tests/baseline.json`: valores de referencia para 15 módulos.
+- [x] **11.9** `@pytest.mark.slow` en 13 tests; `make test-fast` excluye lentos.
+- [x] **11.10** `13_Quantum_Walk.py`: DTQW/CTQW interactivo, 4 monedas, σ(t), exportar PNG.
+- [x] **11.11** `mkdocs.yml`: labs 32-37, módulos 38-40, ejercicios investigación en nav.
+
+---
 
 ### ✅ Fase 12 — Aplicaciones Industriales Extendidas (v3.5) — 2026-04-27
-- [x] **12.1** Notebook 38: Quantum Finance — QAE Monte Carlo + portfolio QAOA (`38_quantum_finance_qae.ipynb`)
-- [x] **12.2** Notebook 39: Química + Hardware — VQE H₂ con ZNE/PEC en hardware mock (`39_quimica_hardware_zne.ipynb`)
-- [x] **12.3** Notebook 40: QML con datos reales — kernel cuántico vs RBF (`40_qml_datos_reales.ipynb`)
-- [x] **12.4** Notebook 41: Advantage cuántica — RCS, boson sampling, límites MPS (`41_advantage_cuantica.ipynb`)
-- [x] **12.5** Soluciones investigación R5: QFI sensing y límite de Heisenberg (`R5_qfi_sensing.md`)
-- [x] **12.6** Soluciones investigación R6: Kernel cuántico vs clásico (`R6_qml_kernel.md`)
-- [x] **12.7** Soluciones investigación R7: Umbral fault tolerance + overhead (`R7_fault_tolerance.md`)
-- [x] **12.8** Soluciones investigación R8: Complejidad cuántica y lower bounds (`R8_advantage_complejidad.md`)
-- [x] **12.9** Visualizador página 14: Dashboard Finance + QML (`14_Finance_QML.py`)
-- [ ] **12.10** Tests: 48 → 65+ (notebooks 38-41, finance, kernel, advantage) — *pendiente*
+
+- [x] **12.1** `38_quantum_finance_qae.ipynb`: QAE Monte Carlo, portfolio QAOA media-varianza, CVaR cuántico.
+- [x] **12.2** `39_quimica_hardware_zne.ipynb`: VQE H₂ + AerSimulator mock + ZNE Richardson + curva disociación.
+- [x] **12.3** `40_qml_datos_reales.ipynb`: ZZFeatureMap manual, kernel cuántico vs RBF/lineal, KTA, boundaries.
+- [x] **12.4** `41_advantage_cuantica.ipynb`: RCS/XEB, Boson Sampling (permanente Ryser), límites MPS, outlook 2025.
+- [x] **12.5** `R5_qfi_sensing.md`: GHZ vs SQL, Cramér-Rao, dephasing óptimo n_opt≈1/(2γt).
+- [x] **12.6** `R6_qml_kernel.md`: ZZFeatureMap, KTA, cuándo supera al RBF, Huang 2021.
+- [x] **12.7** `R7_fault_tolerance.md`: p_th repetición=0.5, surface ≈1%, overhead d², magic state distillation.
+- [x] **12.8** `R8_advantage_complejidad.md`: jerarquía BQP/QMA/PSPACE, lower bounds, dequantization, crossover.
+- [x] **12.9** `14_Finance_QML.py`: QAOA portfolio + frontera Markowitz, kernel ZZFeatureMap + KTA interactivo.
+- [x] **12.10** Tests 48→65: portfolio, ZNE folding, kernel simetría/KTA, boson sampling permanente, XEB, QFI, FT.
 
 ---
 
 ## Fase 13 — Ecosistema Completo (v4.0) 🔄 EN PROGRESO
 
-### 13.1 — Certificación y examen
-- [ ] Banco de 50 preguntas con soluciones anotadas (`Ejercicios/examen_certificacion.md`)
-- [ ] Sistema de autoevaluación con puntuación y retroalimentación por módulo
-- [ ] Badge digital generado localmente (SVG parametrizado)
+### 13.1 — Certificación y banco de preguntas
+**Objetivo:** sistema de autoevaluación estructurado con 50 preguntas por nivel y retroalimentación anotada.
+
+- [ ] `Ejercicios/examen_certificacion.md`: 50 preguntas (10 básico, 15 intermedio, 15 avanzado, 10 investigación) con soluciones anotadas y referencias cruzadas a módulos.
+- [ ] `Ejercicios/autoevaluacion_modular.md`: checklist de competencias por módulo (01-40), con criterios de evaluación objetivos.
+- [ ] Página Streamlit 15: quiz interactivo con puntuación, badge SVG generado localmente, historial de intentos en session_state.
+- [ ] Badge SVG parametrizado con nombre, fecha, nivel alcanzado (Básico/Avanzado/Investigador).
 
 ### 13.2 — Módulos de expansión avanzada
-- [ ] Módulo 41: DQC avanzada — protocolos entrelazamiento distribuido, quantum repeaters
-- [ ] Módulo 42: QML teórico — PAC learning cuántico, VC dimension cuántica
-- [ ] Módulo 43: Simulación de materiales — Hamiltoniano Hubbard, Fermi-Hubbard
+**Objetivo:** 3 módulos nuevos que cubren gaps en DQC, teoría QML y simulación de materiales.
 
-### 13.3 — Integración con hardware real
-- [ ] Guía IBM Quantum Free Plan: credenciales, job submission, queue management
-- [ ] Script `run_on_hardware.py`: ejecuta VQE H₂ en ibm_brisbane con transpile + ZNE
-- [ ] Comparativa simulador vs hardware real para circuitos cortos
+- [ ] **Módulo 41 — DQC Avanzada:** protocolos entrelazamiento distribuido (link-layer, purificación en línea), quantum repeaters con memoria, teleportación de puertas, delegated QC.
+  - Lab `42_dqc_avanzada.ipynb`: simulación de red de repetidores, fidelidad vs distancia con γ real de fibra óptica.
+- [ ] **Módulo 42 — QML Teórico:** PAC learning cuántico (sample complexity cuántica), VC dimension cuántica, Natarajan vs Goldberg-Jerrum, kernels cuánticos expresivos.
+  - Lab `43_qml_teorico.ipynb`: demostración de complejidad de muestra, comparativa VC clásica vs cuántica.
+- [ ] **Módulo 43 — Simulación de materiales:** modelo de Hubbard 1D (fermiones en red), mapeo Jordan-Wigner a qubits, VQE + DMRG comparativa, fase de Mott.
+  - Lab `44_hubbard_vqe.ipynb`: Hamiltoniano Hubbard L=4 sitios, fase metal-aislante, energía vs U/t.
 
-### 13.4 — API pública y comunidad
-- [ ] FastAPI endpoints REST para ejecutar circuitos demo (Dockerfile incluido)
-- [ ] ISSUE_TEMPLATE para ejercicios educativos
-- [ ] Traducción inglés: README y módulos 01-05
+### 13.3 — Integración con hardware real IBM
+**Objetivo:** guía práctica para ejecutar los labs clave en IBM Quantum Free Plan.
+
+- [ ] `docs/guia_ibm_quantum.md`: registro en IBM Quantum, configuración `QiskitRuntimeService`, colas y fair-share, monitoreo de jobs.
+- [ ] `run_on_hardware.py`: script autónomo que ejecuta VQE H₂ en `ibm_brisbane` con transpile opt=3 + ZNE, guarda resultados en JSON, genera plot comparativa simulador vs hardware.
+- [ ] `docs/error_rates_2025.md`: tabla de error rates actualizados de los backends disponibles en Free Plan (1Q, 2Q, readout) con fecha de extracción.
+- [ ] Notebook `45_hardware_real_vqe.ipynb` (requiere credenciales): VQE H₂ real + mitigación + análisis de resultados.
+
+### 13.4 — API REST y comunidad
+**Objetivo:** endpoints públicos para ejecutar demos sin instalar nada, plantillas de contribución.
+
+- [ ] `api/main.py`: FastAPI con endpoints `/run-circuit` (Statevector), `/run-vqe`, `/run-grover`; respuesta JSON con counts/energías/circuit_diagram.
+- [ ] `Dockerfile` + `docker-compose.yml`: contenedor reproducible con Qiskit + FastAPI, port 8000.
+- [ ] `.github/ISSUE_TEMPLATE/ejercicio_educativo.md`: plantilla para proponer nuevos ejercicios con enunciado, solución, nivel y referencia.
+- [ ] `TRANSLATING.md` + traducciones README en inglés y portugués.
+
+---
+
+## Fase 14 — Revisión y QA (v4.0) 📋 PLANIFICADA
+
+**Objetivo:** verificar la integridad de todos los entregables v3.5 antes de publicar v4.0.
+
+### 14.1 — Tests y cobertura
+
+- [ ] Ejecutar suite completa pytest (65 tests) y verificar 0 fallos.
+- [ ] Ejecutar `make test-fast` (tests sin `@pytest.mark.slow`) y verificar < 60 s.
+- [ ] Añadir `pytest-cov` y generar reporte de cobertura; objetivo: > 80% en módulos core.
+- [ ] Verificar que `tests/baseline.json` tiene valores para todos los módulos 01-41.
+
+### 14.2 — Integridad de notebooks
+
+- [ ] Verificar formato JSON válido para los 41 notebooks (`python -m json.tool`).
+- [ ] Ejecutar `nbconvert --to script` en todos y verificar que los imports no fallan.
+- [ ] Verificar que todos los notebooks tienen `nbformat=4` y `nbformat_minor=5`.
+- [ ] Eliminar outputs residuales (`nbstripout`) para reducir tamaño del repo.
+
+### 14.3 — Visualizador Streamlit
+
+- [ ] Verificar que las 14 páginas cargan sin excepción importando cada módulo.
+- [ ] Comprobar que `tour_guide.show_tour()` funciona en todas las páginas.
+- [ ] Verificar que `export_figure_button()` no falla cuando matplotlib no tiene figura activa.
+- [ ] Probar en Streamlit Cloud que el deploy no regresa a error.
+
+### 14.4 — Documentación y MkDocs
+
+- [ ] `mkdocs build --strict`: verificar 0 warnings ni broken links.
+- [ ] Verificar que todos los archivos referenciados en `mkdocs.yml` existen.
+- [ ] Revisar que el `README.md` refleja el estado v3.5: 14 páginas, 41 labs, 65 tests.
+- [ ] Verificar que `changelog.md` tiene entradas para v1.0.0, v1.1.0, v1.2.0.
+
+### 14.5 — Dependencias y entorno
+
+- [ ] Verificar que `requirements.txt` y `environment.yml` están sincronizados.
+- [ ] Verificar que `pyproject.toml` tiene la versión correcta (`3.5.0` o similar).
+- [ ] Comprobar que todos los imports de los nuevos notebooks (38-41) están en requirements.
+- [ ] Ejecutar `pip check` en el entorno limpio y verificar 0 conflictos.
+
+### 14.6 — Revisión de código de las páginas nuevas (13-14)
+
+- [ ] `13_Quantum_Walk.py`: verificar que `@st.cache_data` no tiene argumentos no hashables.
+- [ ] `14_Finance_QML.py`: verificar que el cálculo del kernel cuántico con N>60 no agota memoria.
+- [ ] Verificar que todas las páginas tienen `export_figure_button` y `show_tour`.
 
 ---
 
@@ -117,25 +251,64 @@
 
 | Decisión | Elección | Razón |
 |---|---|---|
-| Framework cuántico principal | Qiskit 2.x (Primitives V2) | Ecosistema más amplio, soporte IBM |
-| Framework secundario | Pennylane (autodiff) | Diferenciación exacta de circuitos |
-| t\|ket⟩ | Opcional (Lab 33) | No en PyPI de Streamlit Cloud |
-| Simulador ruidoso | Qiskit Aer | Modelos de ruido realistas |
-| Visualizador | Streamlit | Sin backend, deploy trivial |
-| Docs | MkDocs Material | Indexación por Google, tema profesional |
-| Tests | pytest + JSON baseline | Regresión numérica + CI GitHub Actions |
-| Contenedores | DevContainer + conda | Reproducibilidad garantizada |
+| Framework cuántico principal | Qiskit 2.x (Primitives V2) | Ecosistema más amplio, soporte IBM, estabilidad API |
+| Framework secundario | Pennylane (autodiff) | Diferenciación exacta por parameter-shift sin simulador ruidoso |
+| t\|ket⟩ | Opcional (Lab 33) | Ausente de PyPI de Streamlit Cloud |
+| Simulador ruidoso | Qiskit Aer | Modelos de ruido realistas (depolarizante, T1/T2, readout) |
+| Visualizador | Streamlit | Sin backend, deploy trivial en Community Cloud |
+| Documentación | MkDocs Material | Indexable por Google, tema profesional, búsqueda integrada |
+| Tests | pytest + JSON baseline | Regresión numérica determinista + CI GitHub Actions |
+| Contenedores | DevContainer + conda | Reproducibilidad garantizada en Codespaces/VS Code |
+| Notebooks | Jupyter nbformat 4 | Estándar universal, compatible nbviewer/Colab/JupyterHub |
+| Soluciones | Markdown con código | Legibles en GitHub sin ejecución |
+
+---
+
+## Inventario de archivos clave (v3.5)
+
+### Visualizador (`visualizador/pages/`)
+| Página | Archivo | Tema |
+|---|---|---|
+| 1 | `1_Esfera_de_Bloch.py` | Bloch sphere, estados Pauli |
+| 2 | `2_Algoritmos_Paso_a_Paso.py` | Grover, QFT, QPE animado |
+| 3 | `3_Canales_y_Ruido.py` | Canales Kraus, proceso |
+| 4 | `4_Hardware_Dashboard.py` | Error rates, conectividad |
+| 5 | `5_VQE_QAOA.py` | Landscape interactivo |
+| 6 | `6_Corrección_de_Errores.py` | Código repetición, surface |
+| 7 | `7_Compositor_de_Circuitos.py` | Drag-and-drop circuitos |
+| 8 | `8_Tomografia.py` | Tomografía de estados |
+| 9 | `9_Simulador_Ruidoso.py` | AerSimulator + métricas |
+| 10 | `10_Algoritmos_Completos.py` | Shor, HHL, QAOA |
+| 11 | `11_Recursos_FT.py` | Surface code, overhead |
+| 12 | `12_Landscape_Parametros.py` | VQE/QAOA landscape |
+| 13 | `13_Quantum_Walk.py` | DTQW/CTQW interactivo |
+| 14 | `14_Finance_QML.py` | Portfolio QAOA + kernel |
+
+### Soluciones investigación (`Soluciones/investigacion/`)
+| Solución | Tema | Estado |
+|---|---|---|
+| R1 | QSVT: Chebyshev óptimo | ✅ Completa |
+| R2 | Block-encoding explícita | ✅ Completa |
+| R3 | Barren plateaus: escalado + mitigación | ✅ Completa |
+| R4 | ZNE vs PEC | ✅ Completa |
+| R5 | QFI y límite de Heisenberg | ✅ Completa |
+| R6 | Kernel cuántico vs clásico | ✅ Completa |
+| R7 | Fault tolerance: umbral + overhead | ✅ Completa |
+| R8 | Advantage cuántica: complejidad | ✅ Completa |
 
 ---
 
 ## Backlog (no prioritario)
 
-- [ ] Integración con IBM Quantum Network (credenciales por usuario)
+- [ ] Integración con IBM Quantum Network (credenciales por usuario, no por repo)
 - [ ] Soporte para IonQ y Quantinuum via cloud providers
-- [ ] Versión LaTeX del tutorial (PDF descargable)
-- [ ] Benchmark CLOPS/QV actualizado 2025
-- [ ] Módulo 44: Quantum Gravity (AdS/CFT, tensor networks)
+- [ ] Versión LaTeX del tutorial completo (PDF descargable vía GitHub Actions)
+- [ ] Benchmark CLOPS/QV actualizado 2025 con gráfica comparativa de proveedores
+- [ ] Módulo 44: Quantum Gravity ligero (AdS/CFT, tensor networks holográficos)
+- [ ] Módulo 45: Topological QC (anyones, código tórico de Kitaev)
+- [ ] Simulación en GPU real con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
+- [ ] Integración con Jupyter Book para versión navegable offline
 
 ---
 
-*Actualizado — 2026-04-27 · v3.5*
+*Actualizado automáticamente — 2026-04-27 · v3.5 → v4.0 en preparación*

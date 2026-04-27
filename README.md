@@ -1,4 +1,4 @@
-# Computación Cuántica: Teoría y Práctica (v3.0)
+# Computación Cuántica: Teoría y Práctica (v3.5)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
 [![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
@@ -7,13 +7,14 @@ Este repositorio es un proyecto educativo de alto nivel diseñado para acompaña
 
 ## Puntos Destacados
 
-- **80+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-40.
-- **34 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, Química avanzada, Compilación y Quantum Walks.
-- **45+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (8 problemas de frontera) con código ejecutable.
-- **Visualizador Interactivo:** Aplicación Streamlit de **12 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
+- **85+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-40.
+- **41 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, Química avanzada, Compilación, Quantum Walks, Finance cuántica, QML y Advantage cuántica.
+- **55+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (8 problemas de frontera con soluciones completas R1-R8).
+- **Visualizador Interactivo:** Aplicación Streamlit de **14 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
+- **65 Tests pytest:** Suite con regresión numérica, baseline JSON y marcadores `@pytest.mark.slow`.
 - **Hardware de Nueva Generación:** Fluxonium, Majorana 2025, Spin-Si, Quantum Sensing.
 - **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states.
-- **Criptografía Post-Cuántica:** ML-KEM/ML-DSA FIPS 2024, migración TLS híbrido.
+- **Aplicaciones industriales:** Quantum Finance (QAOA portfolio), QML (kernel cuántico), Advantage cuántica (RCS, Boson Sampling).
 
 ## Visualizador Cuántico Interactivo
 
@@ -38,6 +39,8 @@ Páginas disponibles:
 10. **Algoritmos Completos** — simulación paso a paso con amplitudes complejas
 11. **Estimador de Recursos FT** — surface code, magic states, viabilidad por algoritmo
 12. **Landscape VQE/QAOA** — barren plateaus, comparativa de optimizadores
+13. **Quantum Walk** — DTQW/CTQW interactivo, propagación balística vs difusiva, 4 monedas
+14. **Finance & QML** — Portfolio QAOA + frontera Markowitz, kernel cuántico vs RBF
 
 ## Mapa del Curso e Índices
 
@@ -49,7 +52,7 @@ Páginas disponibles:
 
 - `Tutorial/`: El núcleo teórico (29 bloques temáticos, ~70 artículos).
 - `Cuadernos/`: Laboratorios guiados y ejemplos de código.
-- `visualizador/`: Aplicación interactiva Streamlit (12 páginas).
+- `visualizador/`: Aplicación interactiva Streamlit (14 páginas).
 - `Soluciones/`: Biblioteca de problemas resueltos por bloques temáticos.
 - `Ejercicios/`: Práctica clasificada por niveles de dificultad.
 - `Resumenes/`: Material de repaso rápido para cada sección.
@@ -85,8 +88,8 @@ conda activate qc-edu
 pip install -e ".[dev]"
 
 # Tests
-make test          # todos los tests (48+)
-make test-fast     # tests rápidos
+make test          # todos los tests (65)
+make test-fast     # tests rápidos (52, excluye @slow)
 
 # Visualizador
 make streamlit
