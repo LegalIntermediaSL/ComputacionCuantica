@@ -57,77 +57,61 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0
 
 ### ✅ Fase 1–4 — Fundamentos (v1.0)
 
-**Módulos:** 01 Qubits, 02 Qiskit básico, 03 Entrelazamiento, 04 Runtime, 05 Algoritmos, 06 Ruido y hardware, 07 QPE, 08 Matrices densidad, 09 QEC repetición, 10 Primitivas V2.
-
-**Laboratorios:** `01_grover_dos_qubits`, `02_teleportacion_guiada`, `03_transpilacion`, `04_bernstein_vazirani`, `05_qft_tres_qubits`, `06_informacion_cuantica`, `07_phase_estimation`, `08_matrices_densidad`, `09_correccion_errores`, `10_qiskit_primitives`.
-
-**Tests iniciales:** norma de estado, entrelazamiento Bell, fases QFT, amplificación Grover, QPE.
+- [x] Módulos 01-10: Qubits, Qiskit básico, Entrelazamiento, Runtime, Algoritmos, Ruido y hardware, QPE, Matrices densidad, QEC repetición, Primitivas V2.
+- [x] Labs 01-10: `01_grover_dos_qubits`, `02_teleportacion_guiada`, `03_transpilacion`, `04_bernstein_vazirani`, `05_qft_tres_qubits`, `06_informacion_cuantica`, `07_phase_estimation`, `08_matrices_densidad`, `09_correccion_errores`, `10_qiskit_primitives`.
+- [x] Tests iniciales: norma de estado, entrelazamiento Bell, fases QFT, amplificación Grover, QPE.
 
 ---
 
 ### ✅ Fase 5–6 — Algoritmos y Hardware (v1.5)
 
-**Módulos 11-20:** VQE, QAOA, hardware superconductor, pulsos, tomografía, POVM, Hamiltoniano Ising.
-
-**Labs 11-20:** `11_vqe_y_circuitos_parametrizados`, `12_optimizacion_quimica`, `13_estimator_y_energia`, `14_densitymatrix_ruido_y_tomografia`, `15_evolucion_tiempo_trotter`, `16_canales_de_kraus`, `17_medidas_povm`, `18_calibracion_pulsos_rabi`, `19_tomografia_estados`, `20_intro_qiskit_pulse`.
-
-**Visualizador v1:** páginas 1-3 (Bloch, Algoritmos paso a paso, Canales y Ruido).
+- [x] Módulos 11-20: VQE, QAOA, hardware superconductor, pulsos, tomografía, POVM, Hamiltoniano Ising.
+- [x] Labs 11-20: `11_vqe_y_circuitos_parametrizados`, `12_optimizacion_quimica`, `13_estimator_y_energia`, `14_densitymatrix_ruido_y_tomografia`, `15_evolucion_tiempo_trotter`, `16_canales_de_kraus`, `17_medidas_povm`, `18_calibracion_pulsos_rabi`, `19_tomografia_estados`, `20_intro_qiskit_pulse`.
+- [x] Visualizador páginas 1-3: Bloch, Algoritmos paso a paso, Canales y Ruido.
 
 ---
 
 ### ✅ Fase 7 — Infraestructura educativa (v2.0)
 
-- **MkDocs Material** con GitHub Pages y tema bilingüe.
-- **CI/CD** GitHub Actions: pytest en push, lint, despliegue automático docs.
-- **Tour interactivo** `tour_guide.py` con pasos guiados por página.
-- **Evaluador de ejercicios** con feedback automático y puntuación.
-- **CONTRIBUTING.md** y **CODE_OF_CONDUCT.md**.
+- [x] MkDocs Material con GitHub Pages y tema bilingüe.
+- [x] CI/CD GitHub Actions: pytest en push, lint, despliegue automático docs.
+- [x] Tour interactivo `tour_guide.py` con pasos guiados por página.
+- [x] Evaluador de ejercicios con feedback automático y puntuación.
+- [x] `CONTRIBUTING.md` y `CODE_OF_CONDUCT.md`.
 
 ---
 
 ### ✅ Fase 8 — Hardware avanzado y QML (v2.2)
 
-**Módulos 21-27:** sistemas abiertos (Lindblad), recursos cuánticos (entrelazamiento de formación), hardware real (calibración, error rates), pulsos (Rabi, eco), PQC avanzado (ansatz hardware-efficient), ZX-Calculus (reescritura de diagramas), internet cuántico (swapping, purificación).
-
-**Labs 21-28:** `21_optimizacion_carteras_vqe`, `22_qae_valoracion_activos`, `23_qml_kernel_alignment`, `24_error_mitigation_zne_pec`, `25_zx_calculus`, `26_qiskit_runtime`, `27_qml_datos_reales`, `28_vqe_uccsd_moleculas`.
-
-**Visualizador páginas 4-9:** Hardware Dashboard, VQE/QAOA, QEC, Compositor, Tomografía, Simulador Ruidoso.
+- [x] Módulos 21-27: sistemas abiertos (Lindblad), recursos cuánticos, hardware real, pulsos (Rabi, eco), PQC avanzado, ZX-Calculus, internet cuántico (swapping, purificación).
+- [x] Labs 21-28: `21_optimizacion_carteras_vqe`, `22_qae_valoracion_activos`, `23_qml_kernel_alignment`, `24_error_mitigation_zne_pec`, `25_zx_calculus`, `26_qiskit_runtime`, `27_qml_datos_reales`, `28_vqe_uccsd_moleculas`.
+- [x] Visualizador páginas 4-9: Hardware Dashboard, VQE/QAOA, QEC, Compositor, Tomografía, Simulador Ruidoso.
 
 ---
 
 ### ✅ Fase 9 — Fronteras modernas (v2.5)
 
-**Módulos 28-37:** advantage casos reales, QEC hardware, DQC, algoritmos FT, sistemas abiertos avanzados, computación adiabática, PQC profundidad, nuevos qubits, redes cuánticas, computación distribuida.
-
-**Lab 31:** `31_qiskit_patterns` — Qiskit Patterns + Sampler/Estimator V2.
-
-**Visualizador páginas 8-10:** Tomografía interactiva, Simulador Ruidoso (Aer), Algoritmos completos.
-
-**Tests:** 31 casos, cobertura de ruido, VQE, QAOA.
+- [x] Módulos 28-37: advantage casos reales, QEC hardware, DQC, algoritmos FT, sistemas abiertos avanzados, computación adiabática, PQC profundidad, nuevos qubits, redes cuánticas.
+- [x] Lab 31: `31_qiskit_patterns` — Qiskit Patterns + Sampler/Estimator V2.
+- [x] Visualizador páginas 8-10: Tomografía interactiva, Simulador Ruidoso (Aer), Algoritmos completos.
+- [x] Tests: 31 casos, cobertura de ruido, VQE, QAOA.
 
 ---
 
 ### ✅ Fase 10 — QSVT, Sensing y Compilación (v3.0) — 2026-04-27
 
-**Módulos 38-40:**
-- `38` Quantum Sensing y Metrología: QFI, Cramér-Rao, magnetometría NV, límites SQL/HL.
-- `39` Compilación cuántica avanzada: pases Qiskit, descomposición KAK, Solovay-Kitaev, t|ket⟩.
-- `40` QSVT y Block-Encoding: aproximación Chebyshev, HHL óptimo, block-encoding QR.
-
-**Labs 32-34:**
-- `32_quimica_avanzada_vqe_uccsd`: VQE UCCSD H₂/LiH, curva potencial vs FCI, QWC cost.
-- `33_compilacion_tket_qiskit`: Qiskit niveles 0-3, KAK, t|ket⟩ opcional.
-- `34_quantum_walk_dtqw_ctqw`: DTQW balístico, 4 monedas, CTQW, búsqueda en K_N.
-
-**Visualizador pp 11-12:** Estimador FT (surface code, overhead, magic state), Landscape VQE/QAOA (barren plateaus, optimizadores).
-
-**Ejercicios investigación:** 8 enunciados con stubs de código (`ejercicios_investigacion.md`).
-
-**Tests 31→48:** QFI GHZ/SQL, Ramsey, KAK ≤3 CX, transpile optimiza, Euler 1Q, Chebyshev sgn, QSVT depth, HHL queries, UCCSD H₂, DTQW balístico, CTQW norma, búsqueda CTQW, coins differ.
-
-**Infraestructura:** `environment.yml` (conda qc-edu), `Makefile` (install/test/streamlit/clean), `pyproject.toml` (PEP 517, extras dev/chemistry/tket), `.devcontainer/devcontainer.json`.
-
-**Fixes críticos:** Simulador Ruidoso `ccx` noise model (2Q→3Q), tour_guide tuples→dicts en pp 10/11/12.
+- [x] **10.1** `Tutorial/38` Quantum Sensing y Metrología: QFI, Cramér-Rao, magnetometría NV, límites SQL/HL.
+- [x] **10.2** `Tutorial/39` Compilación cuántica avanzada: pases Qiskit, descomposición KAK, Solovay-Kitaev, t|ket⟩.
+- [x] **10.3** `Tutorial/40` QSVT y Block-Encoding: aproximación Chebyshev, HHL óptimo, block-encoding QR.
+- [x] **10.4** `32_quimica_avanzada_vqe_uccsd.ipynb`: VQE UCCSD H₂/LiH, curva potencial vs FCI, QWC cost.
+- [x] **10.5** `33_compilacion_tket_qiskit.ipynb`: Qiskit niveles 0-3, KAK, t|ket⟩ opcional.
+- [x] **10.6** `34_quantum_walk_dtqw_ctqw.ipynb`: DTQW balístico, 4 monedas, CTQW, búsqueda en K_N.
+- [x] **10.7** `11_Recursos_FT.py`: Estimador FT (surface code, overhead, magic state).
+- [x] **10.8** `12_Landscape_Parametros.py`: Landscape VQE/QAOA (barren plateaus, optimizadores).
+- [x] **10.9** `ejercicios_investigacion.md`: 8 enunciados con stubs de código.
+- [x] **10.10** Tests 31→48: QFI GHZ/SQL, Ramsey, KAK ≤3 CX, transpile optimiza, Euler 1Q, Chebyshev sgn, QSVT depth, HHL queries, UCCSD H₂, DTQW balístico, CTQW norma, búsqueda CTQW, coins differ.
+- [x] **10.11** Infraestructura: `environment.yml`, `Makefile`, `pyproject.toml` PEP 517, `.devcontainer/devcontainer.json`.
+- [x] **10.12** Fixes críticos: Simulador Ruidoso `ccx` noise model (2Q→3Q), tour_guide tuples→dicts en pp 10/11/12.
 
 ---
 
