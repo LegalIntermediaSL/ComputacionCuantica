@@ -4,6 +4,31 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [1.2.0] - 2026-04-27
+
+### Added (Fase 12 — Aplicaciones Industriales Extendidas)
+
+- **Lab 38** `38_quantum_finance_qae.ipynb`: QAE para Monte Carlo cuántico, portfolio QAOA media-varianza, Quantum Risk Analysis con CVaR.
+- **Lab 39** `39_quimica_hardware_zne.ipynb`: VQE H₂ con AerSimulator mock + ZNE (circuit folding + Richardson), comparativa ZNE vs PEC, curva de disociación H₂.
+- **Lab 40** `40_qml_datos_reales.ipynb`: ZZFeatureMap manual, kernel cuántico vs RBF/lineal en moons/circles/blobs, Kernel Target Alignment (KTA), decision boundaries.
+- **Lab 41** `41_advantage_cuantica.ipynb`: RCS y Cross-Entropy Benchmarking, Boson Sampling (permanente de Ryser), límites MPS (bond dimension χ), análisis del advantage cuántico 2025.
+- **Soluciones R5-R8** completas con código ejecutable: QFI sensing (GHZ vs SQL, Cramér-Rao, dephasing), kernel cuántico vs clásico, umbral fault-tolerant (repetición + surface code + magic state distillation), complejidad cuántica y lower bounds (Grover óptimo, dequantization, crossover clásico-cuántico).
+- **Visualizador página 14** `14_Finance_QML.py`: portafolio QAOA interactivo con frontera de Markowitz, kernel cuántico ZZFeatureMap con heatmap y KTA en tiempo real.
+- **MkDocs** actualizado: labs 32-41, módulos 38-40, ejercicios de investigación R1-R8 en el índice de navegación.
+- **PLAN_EXPANSION.md** v3.5: Fases 1-12 marcadas como ✅ completas con checkmarks por ítem.
+
+## [1.1.0] - 2026-04-27
+
+### Added (Fase 11 — Soluciones + Labs 35-37 + CI baseline)
+
+- **Lab 35** `35_computacion_adiabatica_qaoa.ipynb`: brecha adiabática, Trotter, fidelidad vs T, QAOA p=1-4 en MAX-CUT.
+- **Lab 36** `36_nuevos_qubits_fluxonium_majorana.ipynb`: transamón vs Fluxonium, tabla plataformas 2024-2028, overhead surface code.
+- **Lab 37** `37_redes_cuanticas_qkd.ipynb`: BB84 + Eva, E91 CHSH, purificación BBPSSW, repeaters cuánticos, MDI-QKD/TF-QKD.
+- **Soluciones R1-R4** con código ejecutable: Chebyshev QSVT, block-encoding, barren plateaus + identity-init, ZNE Richardson + PEC.
+- `tests/baseline.json`: valores de referencia numérica para 15 módulos.
+- `@pytest.mark.slow` en 13 tests pesados; `make test-fast` excluye lentos.
+- **Visualizador página 13** `13_Quantum_Walk.py`: DTQW/CTQW interactivo, moneda seleccionable, σ(t) balístico vs difusivo, exportar PNG.
+
 ## [1.0.0] - 2026-04-27
 
 ### Added (Fase 10 — QSVT, Sensing, Compilación)

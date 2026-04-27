@@ -1,7 +1,7 @@
 {
   "_comment": "Valores de referencia para tests de regresión numérica. Actualizar con: python tests/update_baseline.py",
   "_generated": "2026-04-26",
-  "_version": "1.0.0",
+  "_version": "1.2.0",
 
   "mod01_fundamentos": {
     "bell_state_entropy_ebits": 1.0,
@@ -107,6 +107,34 @@
     "dtqw_ballistic_sigma_gt_2x_classical": true,
     "ctqw_norm_conserved": true,
     "ctqw_search_p_min": 0.9
+  },
+
+  "nb38_finance": {
+    "sharpe_ratio_positive": true,
+    "qae_amplitude_encoding_error": 1e-12,
+    "qubo_diagonal_formula": "-mu_i/2 + lambda*sigma_ii/4"
+  },
+
+  "nb39_quimica_zne": {
+    "circuit_folding_gate_multiplier": "2k+1",
+    "richardson_linear_extrapolation": "(3*E1 - E3) / 2",
+    "zne_improves_for_p_lt_003": true
+  },
+
+  "nb40_qml_kernel": {
+    "quantum_kernel_symmetric": true,
+    "quantum_kernel_self_similarity": 1.0,
+    "kta_perfect_kernel": 1.0
+  },
+
+  "nb41_advantage": {
+    "permanent_identity_n2": 1.0,
+    "permanent_identity_n3": 1.0,
+    "permanent_allones_n2": 2.0,
+    "permanent_allones_n3": 6.0,
+    "xeb_uniform_approx_zero": true,
+    "mps_cost_chi_cubic": true,
+    "grover_ratio_range": [0.5, 1.5]
   },
 
   "entanglement_purification": {

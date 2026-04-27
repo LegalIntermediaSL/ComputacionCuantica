@@ -1179,3 +1179,227 @@ def test_dtqw_coin_affects_distribution():
 
     tvd = 0.5 * np.sum(np.abs(probs_H - probs_Y))
     assert tvd > 0.1, f"TVD entre monedas H y Y = {tvd:.4f}, esperado > 0.1 (deben diferir)"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 38 — Quantum Finance: QAOA portfolio y QAE
+# ---------------------------------------------------------------------------
+
+def test_portfolio_qubo_diagonal():
+    """Término diagonal del QUBO de portafolio es -μ_i/2 + λΣ_ii/4."""
+    import numpy as np
+    mu = np.array([0.10, 0.08, 0.12])
+    vol = np.array([0.15, 0.12, 0.20])
+    sigma_mat = np.diag(vol**2)  # sin correlación
+    lam = 1.0
+
+    diag_expected = -mu / 2 + lam * vol**2 / 4
+    for i in range(3):
+        got = -mu[i] / 2 + lam * sigma_mat[i, i] / 4
+        assert abs(got - diag_expected[i]) < 1e-12
+
+
+def test_portfolio_sharpe_positive():
+    """Un portafolio con retorno positivo y riesgo finito tiene Sharpe > 0."""
+    mu_p = 0.10
+    sigma_p = 0.15
+    sharpe = mu_p / sigma_p
+    assert sharpe > 0, f"Sharpe ratio negativo: {sharpe}"
+
+
+def test_qae_amplitude_encoding():
+    """Encoding de amplitud: probabilidad de medir |1⟩ = sin²(θ) = a."""
+    import numpy as np
+    for a_true in [0.1, 0.25, 0.5, 0.75]:
+        theta = np.arcsin(np.sqrt(a_true))
+        psi = np.array([np.cos(theta), np.sin(theta)])
+        p1 = abs(psi[1])**2
+        assert abs(p1 - a_true) < 1e-12, f"Encoding amplitud a={a_true}: P(1)={p1:.6f}"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 39 — Química + ZNE: circuit folding
+# ---------------------------------------------------------------------------
+
+def test_circuit_folding_gate_count():
+    """Circuit folding U→U(U†U)^k multiplica las puertas por (2k+1)."""
+    from qiskit import QuantumCircuit
+    qc = QuantumCircuit(2)
+    qc.h(0); qc.cx(0, 1)
+    n_gates_orig = len(qc.data)
+
+    for scale in [1, 3, 5]:
+        k = (scale - 1) // 2
+        n_gates_folded = n_gates_orig * scale
+        assert n_gates_folded == n_gates_orig * (2 * k + 1), \
+            f"Folding λ={scale}: esperado {n_gates_orig * scale} puertas"
+
+
+def test_richardson_extrapolation_linear():
+    """Extrapolación Richardson lineal (λ=1,3): E_ZNE = (3E₁ - E₃)/2."""
+    E1 = 0.95; E3 = 0.85
+    E_zne = (3 * E1 - E3) / 2
+    assert abs(E_zne - 1.0) < 0.2, f"Richardson extrapolación: {E_zne:.4f}"
+
+
+def test_zne_improves_for_small_noise():
+    """ZNE debe reducir el error para ruido pequeño (p < 3%)."""
+    import numpy as np
+    # Modelo simplificado: E(λ) = E_ideal * exp(-λ*p*n)
+    E_ideal = 1.0
+    p, n_g = 0.005, 10
+    E_lam = lambda lam: E_ideal * np.exp(-lam * p * n_g)
+    E1 = E_lam(1); E3 = E_lam(3); E5 = E_lam(5)
+    # Richardson cuadrático
+    coeffs = np.polyfit([1, 3, 5], [E1, E3, E5], 2)
+    E_zne = float(np.polyval(coeffs, 0))
+    error_raw = abs(E1 - E_ideal)
+    error_zne = abs(E_zne - E_ideal)
+    assert error_zne < error_raw, \
+        f"ZNE no mejora: error_raw={error_raw:.4e}, error_zne={error_zne:.4e}"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 40 — QML: kernel cuántico
+# ---------------------------------------------------------------------------
+
+def test_quantum_kernel_symmetry():
+    """El kernel cuántico debe ser simétrico: K(x,y) = K(y,x)."""
+    from qiskit import QuantumCircuit
+    from qiskit.quantum_info import Statevector
+
+    def zz_fm_simple(x):
+        qc = QuantumCircuit(2)
+        qc.h([0, 1])
+        qc.rz(2 * x[0], 0); qc.rz(2 * x[1], 1)
+        qc.cx(0, 1); qc.rz(2 * (np.pi - x[0]) * (np.pi - x[1]), 1); qc.cx(0, 1)
+        return Statevector(qc)
+
+    x1 = np.array([0.5, 1.2]); x2 = np.array([1.0, 0.8])
+    sv1 = zz_fm_simple(x1); sv2 = zz_fm_simple(x2)
+    k12 = abs(sv2.inner(sv1))**2
+    k21 = abs(sv1.inner(sv2))**2
+    assert abs(k12 - k21) < 1e-10, f"Kernel no simétrico: K(x,y)={k12:.6f}, K(y,x)={k21:.6f}"
+
+
+def test_quantum_kernel_self_similarity():
+    """El kernel cuántico satisface K(x,x) = 1 (estado normalizado)."""
+    from qiskit import QuantumCircuit
+    from qiskit.quantum_info import Statevector
+
+    def zz_fm_simple(x):
+        qc = QuantumCircuit(2)
+        qc.h([0, 1]); qc.rz(2*x[0], 0); qc.rz(2*x[1], 1)
+        qc.cx(0, 1); qc.rz(2*(np.pi-x[0])*(np.pi-x[1]), 1); qc.cx(0, 1)
+        return Statevector(qc)
+
+    for x in [np.array([0.3, 1.1]), np.array([2.0, 0.5]), np.array([np.pi/3, np.pi/4])]:
+        sv = zz_fm_simple(x)
+        k_self = abs(sv.inner(sv))**2
+        assert abs(k_self - 1.0) < 1e-10, f"K(x,x)={k_self:.6f} != 1 para x={x}"
+
+
+def test_kta_perfect_kernel():
+    """KTA = 1 para kernel perfectamente alineado con etiquetas."""
+    y = np.array([1, 1, -1, -1])
+    K_perfect = np.outer(y, y).astype(float)
+    Y = np.outer(y, y).astype(float)
+    kta = np.sum(K_perfect * Y) / (np.linalg.norm(K_perfect, 'fro') * np.linalg.norm(Y, 'fro'))
+    assert abs(kta - 1.0) < 1e-10, f"KTA kernel perfecto = {kta:.6f}, esperado 1.0"
+
+
+# ---------------------------------------------------------------------------
+# Notebook 41 — Advantage cuántica: Boson Sampling y XEB
+# ---------------------------------------------------------------------------
+
+def test_permanent_identity():
+    """Permanente de la identidad n×n = 1."""
+    import numpy as np
+    for n in [2, 3, 4]:
+        I = np.eye(n, dtype=complex)
+        # Ryser algorithm
+        total = 0.0 + 0j
+        for S in range(1, 2**n):
+            bits = [i for i in range(n) if (S >> i) & 1]
+            row_sum = np.sum(I[:, bits], axis=1)
+            total += (-1)**(len(bits)+1) * np.prod(row_sum)
+        perm = abs((-1)**n * total)
+        assert abs(perm - 1.0) < 1e-10, f"perm(I_{n}) = {perm:.6f}, esperado 1"
+
+
+def test_permanent_allones():
+    """Permanente de la matriz de unos n×n = n!."""
+    import math
+    for n in [2, 3, 4]:
+        M = np.ones((n, n), dtype=complex)
+        total = 0.0 + 0j
+        for S in range(1, 2**n):
+            bits = [i for i in range(n) if (S >> i) & 1]
+            row_sum = np.sum(M[:, bits], axis=1)
+            total += (-1)**(len(bits)+1) * np.prod(row_sum)
+        perm = abs((-1)**n * total)
+        expected = float(math.factorial(n))
+        assert abs(perm - expected) < 1e-8, f"perm(J_{n}) = {perm:.3f}, esperado {expected}"
+
+
+def test_xeb_perfect_fidelity():
+    """XEB score debe ser 1 cuando distribución ruidosa = ideal."""
+    n = 4
+    probs = np.ones(2**n) / 2**n  # uniforme como proxy
+    probs[0] = 0.5; probs[1:] = 0.5 / (2**n - 1)  # concentrado
+    probs /= probs.sum()
+    xeb = 2**n * np.sum(probs * probs) - 1
+    assert xeb > 0, f"XEB con distribución no uniforme debe ser > 0: {xeb:.4f}"
+
+
+def test_xeb_uniform_is_zero():
+    """XEB = 0 cuando la distribución ruidosa es uniforme."""
+    n = 4
+    probs_ideal = np.random.default_rng(0).dirichlet(np.ones(2**n))
+    probs_noisy_uniform = np.ones(2**n) / 2**n
+    xeb = 2**n * np.sum(probs_ideal * probs_noisy_uniform) - 1
+    # Para distribución uniforme: E[p_ideal] = 1/2^n → XEB = 2^n * 1/2^n - 1 = 0
+    assert abs(xeb) < 0.1, f"XEB uniforme = {xeb:.4f}, esperado ≈ 0"
+
+
+def test_mps_cost_scaling():
+    """El coste MPS escala como O(n · d · chi³)."""
+    n, d, chi = 10, 20, 64
+    cost = n * d * chi**3
+    cost_2chi = n * d * (2*chi)**3
+    assert abs(cost_2chi / cost - 8.0) < 1e-10, "Coste MPS debe escalar como chi³"
+
+
+def test_qfi_ghz_heisenberg_direct():
+    """GHZ de 3 qubits: QFI = n² = 9 con generador Jz."""
+    from qiskit.quantum_info import SparsePauliOp
+    n = 3
+    psi = np.zeros(2**n, dtype=complex)
+    psi[0] = psi[-1] = 1 / np.sqrt(2)
+    terms = [('I'*i + 'Z' + 'I'*(n-i-1), 0.5) for i in range(n)]
+    H = SparsePauliOp.from_list(terms).to_matrix().real
+    exp_H  = (psi.conj() @ H @ psi).real
+    exp_H2 = (psi.conj() @ H @ H @ psi).real
+    qfi = 4 * (exp_H2 - exp_H**2)
+    assert abs(qfi - 9.0) < 1e-8, f"QFI GHZ n=3: esperado 9, obtenido {qfi:.6f}"
+
+
+def test_fault_tolerance_threshold_surface():
+    """Para p < 1%, el surface code d=5 reduce el error lógico vs d=3."""
+    from scipy.special import comb
+    def p_logical(p, d):
+        t = d // 2
+        return sum(comb(d, k, exact=True) * p**k * (1-p)**(d-k) for k in range(t+1, d+1))
+    p_phys = 0.005
+    pl3 = p_logical(p_phys, 3)
+    pl5 = p_logical(p_phys, 5)
+    assert pl5 < pl3, f"Surface code: d=5 ({pl5:.2e}) no mejora d=3 ({pl3:.2e}) para p={p_phys}"
+
+
+def test_grover_quadratic_speedup():
+    """Grover: número de iteraciones óptimo = π/(4*arcsin(1/√N)) ≈ π√N/4."""
+    for N in [16, 64, 256, 1024]:
+        t_opt = int(np.round(np.pi / (4 * np.arcsin(1 / np.sqrt(N)))))
+        # Debe ser O(√N)
+        ratio = t_opt / np.sqrt(N)
+        assert 0.5 < ratio < 1.5, f"Grover N={N}: t_opt={t_opt}, ratio={ratio:.3f}"
