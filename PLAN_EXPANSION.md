@@ -1,22 +1,22 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v5.1 publicado · 2026-04-28 · Fases 1-16 completas  
+**Estado general:** ✅ v5.2 publicado · 2026-04-27 · Fases 1-17 completas  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
 ---
 
-## Métricas actuales (v5.0)
+## Métricas actuales (v5.2)
 
-| Recurso | v1.0 | v2.0 | v3.0 | v4.0 | **v5.0** |
-|---|---|---|---|---|---|
-| Módulos tutoriales | 10 | 20 | 40 | 41 | **42** |
-| Laboratorios Jupyter | 10 | 20 | 34 | 45 | **46** |
-| Páginas visualizador | 3 | 7 | 12 | 16 | **16** |
-| Tests pytest | 0 | 15 | 48 | 101 | **115** |
-| Soluciones investigación | 0 | 0 | 4 | 8 | **8** |
-| Páginas de docs (MkDocs) | 5 | 12 | 22 | 30 | **33+** |
-| Workflows GitHub Actions | 0 | 1 | 2 | 4 | **5** |
+| Recurso | v1.0 | v2.0 | v3.0 | v4.0 | v5.0 | **v5.2** |
+|---|---|---|---|---|---|---|
+| Módulos tutoriales | 10 | 20 | 40 | 41 | 42 | **43** |
+| Laboratorios Jupyter | 10 | 20 | 34 | 45 | 46 | **47** |
+| Páginas visualizador | 3 | 7 | 12 | 16 | 16 | **16** |
+| Tests pytest | 0 | 15 | 48 | 101 | 115 | **129** |
+| Soluciones investigación | 0 | 0 | 4 | 8 | 8 | **8** |
+| Páginas de docs (MkDocs) | 5 | 12 | 22 | 30 | 33+ | **34+** |
+| Workflows GitHub Actions | 0 | 1 | 2 | 4 | 5 | **5** |
 
 ---
 
@@ -28,10 +28,10 @@ v1.0        v1.5        v2.0        v2.2        v2.5
  │           │           │            │            │
  ✅          ✅          ✅           ✅           ✅
 
-v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1
- ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15     ├── F16
- │           │           │            │            │           │           │
- ✅          ✅          ✅          ✅              ✅          ✅          ✅
+v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1        v5.2
+ ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15     ├── F16     ├── F17
+ │           │           │            │            │           │           │           │
+ ✅          ✅          ✅          ✅              ✅          ✅          ✅          ✅
 ```
 
 ---
@@ -52,6 +52,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1
 | 14 | Revisión y QA | ✅ | v4.0 | 2026-04-27 | 76 tests, 0 errores, deps sync, show_tour p.15 |
 | 15 | Topological QC + Property Tests + PDF CI | ✅ | v5.0 | 2026-04-27 | Módulo 41, Lab 45, p.16 Benchmark, Hypothesis 101 tests, PDF pipeline |
 | 16 | Tensor Networks + Jupyter Book | ✅ | v5.1 | 2026-04-28 | Módulo 42, Lab 46, Jupyter Book, 14 tests MPS → 115 total |
+| 17 | Quantum Gravity + iDMRG + Multi-provider | ✅ | v5.2 | 2026-04-27 | Módulo 43, Lab 47, guía multiprovider, 14 tests iDMRG → 129 total |
 
 ---
 
@@ -368,20 +369,45 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1
 
 ---
 
-## Backlog (candidatos Fase 17)
+## ✅ Fase 17 — Quantum Gravity, iDMRG y Multi-provider (v5.2) — 2026-04-27
+
+### 17.1 — Módulo 43: Gravedad Cuántica ligera
+
+- ✅ `Tutorial/43_quantum_gravity/README.md`: correspondencia AdS/CFT, métrica AdS, MERA como AdS₃ discreto, fórmula de Ryu-Takayanagi S_A = Área(γ_A)/4G_N, código HaPPY (holographic pentagon [[5,1,3]]), ER=EPR (BTZ eternal black hole ↔ Bell state), OTOC scrambling y cota de Planck λ_L ≤ 2π/β, boceto SYK en Qiskit, tabla de estado del arte 2025.
+
+### 17.2 — Lab 47: iDMRG para cadena de Heisenberg
+
+- ✅ `47_dmrg_heisenberg.ipynb`: Hamiltoniano Heisenberg exact diagonalization (n=4-10), `DMRGBlock` con operadores H/Sp/Sm/Sz, `initial_block`, `enlarge_block`, `truncate_block` (density matrix eigendecomposition), `idmrg` (crecimiento simétrico hasta n=30), convergencia E₀/n → Bethe ansatz (−0.4431), convergencia en χ (4→64), función de correlación spin-spin, perfil de entrelazamiento, comparativa VQE vs DMRG.
+
+### 17.3 — Guía Multi-provider
+
+- ✅ `docs/guia_multiprovider.md`: IonQ via Amazon Braket (`qiskit-braket-provider`), Quantinuum via Azure Quantum (`azure-quantum`, créditos HQC), IonQ directo (`qiskit-ionq`), Pasqal via Azure, tabla comparativa por caso de uso, ZNE multi-provider (fold_circuit + Richardson), ejemplo VQE H₂ en IonQ Aria (simulación local + comentarios hardware), tabla de costes y planes gratuitos 2025.
+
+### 17.4 — Tests iDMRG (129 totales, +14 nuevos)
+
+- ✅ `tests/test_dmrg.py`: 14 tests nuevos.
+  - Heisenberg: Hermitiano, dimensión 2^n, E0<0 (AFM), n=2 singlete E0=-3, estado normalizado, J<0 ferromagnético E0<0
+  - DMRGBlock: `initial_block` (basis_size=2, H=0, length=1), `enlarge_block` duplica basis_size, H Hermitiano, `truncate_block` reduce basis_size ≤ chi
+  - iDMRG: E0/n negativa, convergencia a Bethe ansatz (<5% error para n=20 chi=32), E/n<-0.3 para chi moderado, χ mayor → E más baja (variacional)
+
+---
+
+## Backlog (candidatos Fase 18)
 
 - ✅ Módulo 42: Tensor Networks y DMRG — completado en Fase 16
 - ✅ Lab 46: Simulación MPS — completado en Fase 16
 - ✅ Jupyter Book — completado en Fase 16
-- [ ] Módulo 43: Quantum Gravity ligero (AdS/CFT, tensor networks holográficos)
-- [ ] Lab 47: DMRG completo para cadena de Heisenberg con quimb
-- [ ] Integración con IBM Quantum Network (credenciales por usuario, no por repo)
-- [ ] Soporte para IonQ y Quantinuum via cloud providers
-- [ ] Simulación en GPU con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
+- ✅ Módulo 43: Quantum Gravity ligero — completado en Fase 17
+- ✅ Lab 47: iDMRG cadena de Heisenberg — completado en Fase 17
+- ✅ Soporte para IonQ y Quantinuum via cloud providers — completado en Fase 17
 - ✅ PDF descargable vía GitHub Actions — completado en Fase 15 (`build_pdf.yml`)
 - ✅ Benchmark CLOPS/QV 2025 interactivo — completado en Fase 15 (Página 16)
 - ✅ Módulo 41: Topological QC — completado en Fase 15
+- [ ] Integración con IBM Quantum Network (credenciales por usuario, no por repo)
+- [ ] Simulación en GPU con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
+- [ ] Módulo 44: Computación cuántica distribuida (DQC) avanzada con repetidores
+- [ ] Lab 48: DMRG 2D (PEPS) para modelo de Hubbard cuadrado
 
 ---
 
-*Actualizado 2026-04-28 · v5.1 publicado · Fases 1-16 todas ✅ · Backlog abierto para Fase 17*
+*Actualizado 2026-04-27 · v5.2 publicado · Fases 1-17 todas ✅ · Backlog abierto para Fase 18*

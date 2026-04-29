@@ -4,6 +4,16 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [2.2.0] - 2026-04-27
+
+### Added (Fase 17 — Quantum Gravity, iDMRG y Multi-provider · v5.2)
+
+- **Módulo 43** `Tutorial/43_quantum_gravity/README.md`: correspondencia AdS/CFT completa — métrica AdS, dualidad bulk-boundary, fórmula de Ryu-Takayanagi (S_A = Área/4G_N), MERA como AdS₃ discreto (S(ℓ) = c/3 logℓ), código holográfico HaPPY (pentágono [[5,1,3]]), ER=EPR (BTZ eternal black hole ↔ Bell state, wormhole traversable), OTOC scrambling y cota de Planck λ_L ≤ 2π/β, sketch SYK en Qiskit, tabla de estado del arte 2025.
+- **Lab 47** `47_dmrg_heisenberg.ipynb`: iDMRG desde cero con numpy/scipy — Hamiltoniano Heisenberg antiferromagnético (J·S·S, OBC), exact diagonalization (n=4-10) como referencia, `DMRGBlock` con H/Sp/Sm/Sz, `initial_block`, `enlarge_block` (kron), `truncate_block` (density matrix eigendecomposition), `idmrg` (crecimiento simétrico, Lanczos), convergencia a Bethe ansatz (E₀/n → −0.4431), función de correlación spin-spin, perfil de entrelazamiento por corte, comparativa VQE (COBYLA) vs DMRG.
+- **Guía multi-provider** `docs/guia_multiprovider.md`: IonQ via Amazon Braket (`qiskit-braket-provider`, puertas GPi2/MS), Quantinuum via Azure Quantum (`azure-quantum`, HQC credits, emulador H2-1E), IonQ directo (`qiskit-ionq`, noise model local), Pasqal via Azure, tabla comparativa por caso de uso, ZNE multi-provider (fold_circuit + zne_extrapolate Richardson), ejemplo VQE H₂ en IonQ Aria, tabla de costes y planes gratuitos 2025.
+- **14 tests nuevos** `tests/test_dmrg.py`: Hamiltoniano Hermitiano/dimensión/E0<0/singlete n=2/normalización; DMRGBlock inicial/enlarge/hermitiano/truncar; iDMRG E0<0/Bethe ansatz/monotonía en χ. **Total: 129 tests**.
+- **PLAN_EXPANSION.md**: Fase 17 añadida ✅, métricas v5.2 actualizadas (43 módulos, 47 labs, 129 tests), backlog reorganizado para Fase 18.
+
 ## [2.1.0] - 2026-04-28
 
 ### Added (Fase 16 — Tensor Networks y Jupyter Book · v5.1)
