@@ -28,10 +28,10 @@ v1.0        v1.5        v2.0        v2.2        v2.5
  │           │           │            │            │
  ✅          ✅          ✅           ✅           ✅
 
-v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1        v5.2
- ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15     ├── F16     ├── F17
- │           │           │            │            │           │           │           │
- ✅          ✅          ✅          ✅              ✅          ✅          ✅          ✅
+v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1        v5.2        v5.3
+ ├── F10     ├── F11     ├── F12      ├── F13      ├── F14     ├── F15     ├── F16     ├── F17     ├── F18
+ │           │           │            │            │           │           │           │           │
+ ✅          ✅          ✅          ✅              ✅          ✅          ✅          ✅          🔜
 ```
 
 ---
@@ -53,6 +53,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 | 15 | Topological QC + Property Tests + PDF CI | ✅ | v5.0 | 2026-04-27 | Módulo 41, Lab 45, p.16 Benchmark, Hypothesis 101 tests, PDF pipeline |
 | 16 | Tensor Networks + Jupyter Book | ✅ | v5.1 | 2026-04-28 | Módulo 42, Lab 46, Jupyter Book, 14 tests MPS → 115 total |
 | 17 | Quantum Gravity + iDMRG + Multi-provider | ✅ | v5.2 | 2026-04-27 | Módulo 43, Lab 47, guía multiprovider, 14 tests iDMRG → 129 total |
+| 18 | DQC avanzado + PEPS + IBM Network + GPU | 🔜 | v5.3 | — | Módulo 44, Lab 48, guía IBM/GPU, ~20 tests → ~149 total |
 
 ---
 
@@ -392,22 +393,57 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 
 ---
 
-## Backlog (candidatos Fase 18)
+---
 
+## 🔜 Fase 18 — DQC Avanzado, PEPS y Escalabilidad (v5.3) — PLANIFICADA
+
+**Estado:** ⏳ Pendiente de decisión · Estimación: ~4-5 entregables · ~20 tests nuevos
+
+### 18.1 — Módulo 44: DQC avanzada con repetidores cuánticos
+
+**Objetivo:** cubrir el gap entre el Lab 42 (DQC básico) y arquitecturas reales de internet cuántico.
+
+- [ ] `Tutorial/44_dqc_repetidores/README.md`: protocolo de purificación BBPSSW/DEJMPS, repetidores cuánticos (cadena de nodos), latencia y tasa de generación de Bell pairs, quantum memory fidelity vs tiempo de almacenamiento, protocolos MDI-QKD y TF-QKD, hoja de ruta SEQC/QuICnet 2025-2035.
+
+### 18.2 — Lab 48: PEPS y DMRG 2D para modelo de Hubbard cuadrado
+
+**Objetivo:** extender DMRG 1D al caso 2D con PEPS, relevant para materiales y superconductividad de alta Tc.
+
+- [ ] `48_peps_hubbard_2d.ipynb`: definición PEPS (tensores en red 2D), contracción aproximada (boundary MPS), Hamiltoniano Hubbard 2D LxL via Jordan-Wigner, DMRG en cilindro (ancho W=2,4), gap de carga vs U/t, comparativa con ED exacta (L=2×2), dibujo de magnetización como función de U.
+
+### 18.3 — Integración IBM Quantum Network
+
+**Objetivo:** permitir al estudiante ejecutar labs clave en hardware IBM real sin credenciales hardcodeadas.
+
+- [ ] `docs/guia_ibm_network.md`: gestión de tokens via variable de entorno `IBM_QUANTUM_TOKEN`, selección dinámica del backend menos congestionado (`least_busy`), estimación de tiempo de cola, resultado con M3 readout mitigation, límites del plan Open (10 min/mes).
+- [ ] `run_on_hardware.py` extendido: soporte `--provider ionq|quantinuum|ibm`, dry-run mode, output JSON con metadata de hardware.
+
+### 18.4 — Simulación GPU con `qiskit-aer` CUDA
+
+**Objetivo:** habilitar simulaciones de >30 qubits en hardware con GPU NVIDIA.
+
+- [ ] `docs/guia_gpu_aer.md`: instalación `qiskit-aer-gpu`, backends `AerSimulator(device='GPU')` y `statevector_gpu`, benchmark n=28-36 qubits CPU vs GPU, uso con `cuStateVec`, requisitos CUDA 11.x.
+- [ ] `Makefile` target `test-gpu`: skip automático si no hay GPU disponible (`pytest.mark.skipif`).
+
+### 18.5 — Tests Fase 18 (~20 nuevos → ~149 totales)
+
+- [ ] `tests/test_dqc_advanced.py`: purificación BBPSSW (fidelidad crece con rondas), tasa Bell pairs vs distancia, fidelidad memory decay, MDI-QKD QBER.
+- [ ] `tests/test_peps.py`: norma PEPS producto=1, entropía 2D acotada por perímetro (area law 2D), energía Hubbard 2×2 vs ED exacta.
+
+---
+
+## Backlog histórico (ya completado)
+
+- ✅ Módulo 41: Topological QC — completado en Fase 15
 - ✅ Módulo 42: Tensor Networks y DMRG — completado en Fase 16
 - ✅ Lab 46: Simulación MPS — completado en Fase 16
 - ✅ Jupyter Book — completado en Fase 16
 - ✅ Módulo 43: Quantum Gravity ligero — completado en Fase 17
 - ✅ Lab 47: iDMRG cadena de Heisenberg — completado en Fase 17
 - ✅ Soporte para IonQ y Quantinuum via cloud providers — completado en Fase 17
-- ✅ PDF descargable vía GitHub Actions — completado en Fase 15 (`build_pdf.yml`)
-- ✅ Benchmark CLOPS/QV 2025 interactivo — completado en Fase 15 (Página 16)
-- ✅ Módulo 41: Topological QC — completado en Fase 15
-- [ ] Integración con IBM Quantum Network (credenciales por usuario, no por repo)
-- [ ] Simulación en GPU con `qiskit-aer` CUDA backend (requiere NVIDIA hardware)
-- [ ] Módulo 44: Computación cuántica distribuida (DQC) avanzada con repetidores
-- [ ] Lab 48: DMRG 2D (PEPS) para modelo de Hubbard cuadrado
+- ✅ PDF descargable vía GitHub Actions — completado en Fase 15
+- ✅ Benchmark CLOPS/QV 2025 interactivo — completado en Fase 15
 
 ---
 
-*Actualizado 2026-04-27 · v5.2 publicado · Fases 1-17 todas ✅ · Backlog abierto para Fase 18*
+*Actualizado 2026-04-30 · v5.2 publicado · Fases 1-17 todas ✅ · Fase 18 planificada (pendiente de decisión)*
