@@ -33,6 +33,7 @@ testpaths = ["tests"]
 addopts = "-q --tb=short"
 markers = [
     "slow: tests que requieren simulación pesada (excluidos con -m 'not slow')",
+    "gpu: tests que requieren GPU NVIDIA con qiskit-aer-gpu (skip automático sin GPU)",
 ]
 
 [tool.ruff]

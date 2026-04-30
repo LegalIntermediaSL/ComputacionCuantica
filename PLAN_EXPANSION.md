@@ -397,7 +397,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 
 ## 🔜 Fase 18 — DQC Avanzado, PEPS y Escalabilidad (v5.3) — PLANIFICADA
 
-**Estado:** 🚧 En progreso · 18.1 ✅ · 18.2 ✅ · Estimación: ~4-5 entregables · ~20 tests nuevos
+**Estado:** 🚧 En progreso · 18.1 ✅ · 18.2 ✅ · 18.4 ✅ · Estimación: ~4-5 entregables · ~20 tests nuevos
 
 ### 18.1 — Módulo 44: DQC avanzada con repetidores cuánticos
 
@@ -422,8 +422,9 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 
 **Objetivo:** habilitar simulaciones de >30 qubits en hardware con GPU NVIDIA.
 
-- [ ] `docs/guia_gpu_aer.md`: instalación `qiskit-aer-gpu`, backends `AerSimulator(device='GPU')` y `statevector_gpu`, benchmark n=28-36 qubits CPU vs GPU, uso con `cuStateVec`, requisitos CUDA 11.x.
-- [ ] `Makefile` target `test-gpu`: skip automático si no hay GPU disponible (`pytest.mark.skipif`).
+- ✅ `docs/guia_gpu_aer.md`: requisitos hardware/software (VRAM vs n qubits), instalación pip/conda/source, backends GPU (statevector/density_matrix/MPS), cuStateVec (speedup 4-8×), benchmark CPU vs GPU 24-32 qubits con tabla de referencia, ruido en GPU, precisión single (mitad de memoria), multi-GPU con blocking, integración Qiskit Runtime, troubleshooting.
+- ✅ `Makefile` target `test-gpu`: `python -m pytest tests/ -m gpu` — skip automático sin GPU.
+- ✅ `tests/test_gpu_aer.py`: 9 tests con `@pytest.mark.gpu` + `@skip_no_gpu` — detección automática, Bell state GPU vs CPU, norma statevector, VQE H₂ GPU, speedup n=24, MPS-GPU n=30, precisión single. `gpu` registrado en `pyproject.toml`.
 
 ### 18.5 — Tests Fase 18 (~20 nuevos → ~149 totales)
 
