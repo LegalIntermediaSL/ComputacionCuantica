@@ -397,13 +397,13 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 
 ## 🔜 Fase 18 — DQC Avanzado, PEPS y Escalabilidad (v5.3) — PLANIFICADA
 
-**Estado:** ⏳ Pendiente de decisión · Estimación: ~4-5 entregables · ~20 tests nuevos
+**Estado:** 🚧 En progreso · 18.1 ✅ · Estimación: ~4-5 entregables · ~20 tests nuevos
 
 ### 18.1 — Módulo 44: DQC avanzada con repetidores cuánticos
 
 **Objetivo:** cubrir el gap entre el Lab 42 (DQC básico) y arquitecturas reales de internet cuántico.
 
-- [ ] `Tutorial/44_dqc_repetidores/README.md`: protocolo de purificación BBPSSW/DEJMPS, repetidores cuánticos (cadena de nodos), latencia y tasa de generación de Bell pairs, quantum memory fidelity vs tiempo de almacenamiento, protocolos MDI-QKD y TF-QKD, hoja de ruta SEQC/QuICnet 2025-2035.
+- ✅ `Tutorial/44_dqc_repetidores/README.md`: estado Werner, purificación BBPSSW/DEJMPS (fórmulas F' y P_éxito, convergencia iterativa), entanglement swapping (circuito Qiskit), repetidores 1G/2G/3G (tasa R∝exp(-√(αL)), requisitos T_mem), fidelidad vs tiempo de memoria, MDI-QKD y TF-QKD (supera límite PLOB), métricas de red (BGR, F_link, D_eff), tabla de plataformas 2025, hoja de ruta SEQC 2025-2035, red de 3 nodos en Qiskit.
 
 ### 18.2 — Lab 48: PEPS y DMRG 2D para modelo de Hubbard cuadrado
 
