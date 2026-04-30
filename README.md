@@ -1,4 +1,4 @@
-# Computación Cuántica: Teoría y Práctica (v5.0)
+# Computación Cuántica: Teoría y Práctica (v5.2)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
 [![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
@@ -7,11 +7,12 @@ Este repositorio es un proyecto educativo de alto nivel diseñado para acompaña
 
 ## Puntos Destacados
 
-- **85+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-41 (incluye Topological QC — código tórico de Kitaev).
-- **45 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, DQC, QML teórico, Hubbard, Finance cuántica, Advantage cuántica y **Código Tórico**.
+- **90+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-43 (incluye Topological QC, Tensor Networks, AdS/CFT y gravedad cuántica).
+- **47 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, DQC, QML, iDMRG, MPS/TEBD, Código Tórico y Finance cuántica.
 - **55+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (8 problemas de frontera con soluciones completas R1-R8) + examen de certificación (50 preguntas).
 - **Visualizador Interactivo:** Aplicación Streamlit de **16 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
-- **101 Tests pytest:** Suite con regresión numérica + 25 tests de propiedades (Hypothesis), baseline JSON y marcadores `@pytest.mark.slow`.
+- **129 Tests pytest:** Suite con regresión numérica + property-based tests (Hypothesis) + iDMRG/MPS/tórico, baseline JSON y marcadores `@pytest.mark.slow`.
+- **Multi-provider:** Guía completa para IonQ (Braket/directo), Quantinuum (Azure), Pasqal — ZNE multi-provider incluido.
 - **API REST FastAPI:** Endpoints `/run-circuit`, `/run-vqe`, `/run-grover` — Docker incluido.
 - **PDF descargable:** Generación automática vía GitHub Actions en cada release.
 - **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states, **código tórico** con umbral ~10.9%.
