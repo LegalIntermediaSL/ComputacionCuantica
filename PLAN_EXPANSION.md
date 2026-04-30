@@ -397,7 +397,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 
 ## 🔜 Fase 18 — DQC Avanzado, PEPS y Escalabilidad (v5.3) — PLANIFICADA
 
-**Estado:** 🚧 En progreso · 18.1 ✅ · Estimación: ~4-5 entregables · ~20 tests nuevos
+**Estado:** 🚧 En progreso · 18.1 ✅ · 18.2 ✅ · Estimación: ~4-5 entregables · ~20 tests nuevos
 
 ### 18.1 — Módulo 44: DQC avanzada con repetidores cuánticos
 
@@ -405,11 +405,11 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 
 - ✅ `Tutorial/44_dqc_repetidores/README.md`: estado Werner, purificación BBPSSW/DEJMPS (fórmulas F' y P_éxito, convergencia iterativa), entanglement swapping (circuito Qiskit), repetidores 1G/2G/3G (tasa R∝exp(-√(αL)), requisitos T_mem), fidelidad vs tiempo de memoria, MDI-QKD y TF-QKD (supera límite PLOB), métricas de red (BGR, F_link, D_eff), tabla de plataformas 2025, hoja de ruta SEQC 2025-2035, red de 3 nodos en Qiskit.
 
-### 18.2 — Lab 48: PEPS y DMRG 2D para modelo de Hubbard cuadrado
+### 18.2 — Lab 48: PEPS y Hubbard 2D en cilindro
 
-**Objetivo:** extender DMRG 1D al caso 2D con PEPS, relevant para materiales y superconductividad de alta Tc.
+**Objetivo:** extender el análisis de redes tensoriales al caso 2D e implementar la transición metal-aislante de Mott.
 
-- [ ] `48_peps_hubbard_2d.ipynb`: definición PEPS (tensores en red 2D), contracción aproximada (boundary MPS), Hamiltoniano Hubbard 2D LxL via Jordan-Wigner, DMRG en cilindro (ancho W=2,4), gap de carga vs U/t, comparativa con ED exacta (L=2×2), dibujo de magnetización como función de U.
+- ✅ `48_peps_hubbard_2d.ipynb`: PEPS class (contracción exacta 2×2 vía einsum, escalado de entropía vs D, area law 2D), Hamiltoniano Hubbard 2D via JW (sparse, bit manipulation), ED para cilindro 2×2 y 2×4, gap de carga Δc(U/t), doble ocupación ⟨D⟩, factor de estructura antiferromagnético S(π,π), diagrama de fase metal-aislante de Mott, tabla PEPS vs MPS.
 
 ### 18.3 — Integración IBM Quantum Network
 
