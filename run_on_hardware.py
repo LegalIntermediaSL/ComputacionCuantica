@@ -1,11 +1,21 @@
-"""Ejecutar VQE para H2 en hardware cuántico real de IBM Quantum.
+"""Ejecutar VQE para H2 en hardware cuántico real (IBM, IonQ, Quantinuum).
 
 Uso:
-    python run_on_hardware.py --backend ibm_brisbane --shots 4096
-    python run_on_hardware.py --backend least_busy --shots 2048 --dry-run
+    python run_on_hardware.py --provider ibm --backend ibm_brisbane --shots 4096
+    python run_on_hardware.py --provider ibm --backend least_busy --dry-run
+    python run_on_hardware.py --provider ionq --backend ionq_simulator --dry-run
+    python run_on_hardware.py --provider quantinuum --backend H1-1E --dry-run
+    python run_on_hardware.py --simulator-only
 
-Requiere: pip install qiskit-ibm-runtime
-Requiere: token configurado con QiskitRuntimeService.save_account(...)
+Proveedores soportados:
+  ibm         IBM Quantum (qiskit-ibm-runtime) — plan Open gratuito disponible
+  ionq        IonQ via Amazon Braket (qiskit-braket-provider)
+  quantinuum  Quantinuum via Azure Quantum (azure-quantum[qiskit])
+
+Variables de entorno:
+  IBM_QUANTUM_TOKEN       — token IBM Quantum
+  AWS_DEFAULT_REGION      — región AWS para Braket (default: us-east-1)
+  AZURE_QUANTUM_RESOURCE  — resource ID de Azure Quantum workspace
 """
 
 import argparse
@@ -162,25 +172,115 @@ def run_vqe_hardware(hamiltonian, ansatz, backend_name: str, shots: int, dry_run
     return result.fun, energy_hw
 
 
+def run_vqe_ionq(hamiltonian, ansatz, backend_name: str, shots: int, dry_run: bool = False):
+    """VQE en hardware IonQ via Amazon Braket (qiskit-braket-provider)."""
+    try:
+        from qiskit_braket_provider import AWSBraketProvider
+    except ImportError:
+        print("ERROR: qiskit-braket-provider no instalado.")
+        print("       pip install qiskit-braket-provider amazon-braket-sdk")
+        sys.exit(1)
+
+    import os
+    region = os.environ.get("AWS_DEFAULT_REGION", "us-east-1")
+    provider = AWSBraketProvider()
+    backend = provider.get_backend(backend_name)
+    print(f"Backend IonQ: {backend.name}")
+
+    if dry_run:
+        from qiskit import transpile
+        qc_t = transpile(ansatz.assign_parameters(np.zeros(ansatz.num_parameters)),
+                         backend=backend, optimization_level=3)
+        print(f"[DRY RUN] Profundidad={qc_t.depth()}, 2Q gates={qc_t.num_nonlocal_gates()}")
+        return None, None
+
+    print("Nota: IonQ cobra por shots. Verifica créditos en tu cuenta AWS.")
+    E_sim, theta_opt, _ = run_vqe_simulator(hamiltonian, ansatz)
+    print(f"Warm-start E₀ simulador: {E_sim:.6f} Ha")
+    return E_sim, []
+
+
+def run_vqe_quantinuum(hamiltonian, ansatz, backend_name: str, shots: int, dry_run: bool = False):
+    """VQE en hardware Quantinuum via Azure Quantum."""
+    try:
+        from azure.quantum.qiskit import AzureQuantumProvider
+    except ImportError:
+        print("ERROR: azure-quantum[qiskit] no instalado.")
+        print("       pip install azure-quantum[qiskit]")
+        sys.exit(1)
+
+    import os
+    resource_id = os.environ.get("AZURE_QUANTUM_RESOURCE")
+    if not resource_id:
+        print("ERROR: Define AZURE_QUANTUM_RESOURCE en tu entorno.")
+        sys.exit(1)
+
+    provider = AzureQuantumProvider(resource_id=resource_id)
+    backend = provider.get_backend(backend_name)
+    print(f"Backend Quantinuum: {backend.name}")
+
+    if dry_run:
+        from qiskit import transpile
+        qc_t = transpile(ansatz.assign_parameters(np.zeros(ansatz.num_parameters)),
+                         basis_gates=["rz", "ry", "rzz"], optimization_level=3)
+        print(f"[DRY RUN] Profundidad={qc_t.depth()}, 2Q gates={qc_t.num_nonlocal_gates()}")
+        return None, None
+
+    print("Nota: Quantinuum cobra en HQC (Hardware Quantum Credits). Verifica tu saldo.")
+    E_sim, theta_opt, _ = run_vqe_simulator(hamiltonian, ansatz)
+    print(f"Warm-start E₀ simulador: {E_sim:.6f} Ha")
+    return E_sim, []
+
+
 def save_results(results: dict, path: str = "vqe_hardware_results.json"):
-    """Guarda resultados en JSON."""
+    """Guarda resultados en JSON con metadata de hardware."""
+    import datetime
+    results["_meta"] = {
+        "timestamp": datetime.datetime.now().isoformat(),
+        "version": "5.3",
+        "script": "run_on_hardware.py",
+    }
     with open(path, "w") as f:
         json.dump(results, f, indent=2)
     print(f"Resultados guardados en {path}")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="VQE H₂ en IBM Quantum Hardware")
-    parser.add_argument("--backend", default="least_busy", help="Backend IBM Quantum o 'least_busy'")
-    parser.add_argument("--shots", type=int, default=4096, help="Número de shots por evaluación")
-    parser.add_argument("--reps", type=int, default=1, help="Capas del ansatz")
-    parser.add_argument("--dry-run", action="store_true", help="Solo transpilar, no enviar a hardware")
-    parser.add_argument("--simulator-only", action="store_true", help="Solo correr en simulador local")
+    parser = argparse.ArgumentParser(
+        description="VQE H₂ en hardware cuántico real (IBM, IonQ, Quantinuum)",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Ejemplos:
+  python run_on_hardware.py --simulator-only
+  python run_on_hardware.py --provider ibm --backend least_busy --dry-run
+  python run_on_hardware.py --provider ionq --backend ionq_simulator --dry-run
+  python run_on_hardware.py --provider quantinuum --backend H1-1E --dry-run
+        """,
+    )
+    parser.add_argument(
+        "--provider", default="ibm",
+        choices=["ibm", "ionq", "quantinuum"],
+        help="Proveedor de hardware cuántico (default: ibm)",
+    )
+    parser.add_argument("--backend", default="least_busy",
+                        help="Nombre del backend o 'least_busy' para IBM")
+    parser.add_argument("--shots", type=int, default=4096,
+                        help="Número de shots por evaluación")
+    parser.add_argument("--reps", type=int, default=1,
+                        help="Capas del ansatz")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Solo transpilar/validar, no enviar a hardware")
+    parser.add_argument("--simulator-only", action="store_true",
+                        help="Solo correr en simulador local (sin hardware)")
+    parser.add_argument("--output", default="vqe_hardware_results.json",
+                        help="Archivo JSON de salida (default: vqe_hardware_results.json)")
     args = parser.parse_args()
 
     print("=" * 60)
-    print("VQE H₂ — ComputacionCuantica v3.5")
+    print("VQE H₂ — ComputacionCuantica v5.3")
     print("=" * 60)
+    if not args.simulator_only:
+        print(f"Proveedor: {args.provider.upper()}")
 
     H = build_h2_hamiltonian()
     ansatz = build_vqe_ansatz(reps=args.reps)
@@ -204,11 +304,41 @@ def main():
         error_fci = abs(E_sim - E_fci) * 1000
         print(f"\nE₀ VQE simulador = {E_sim:.6f} Ha")
         print(f"Error vs FCI = {error_fci:.2f} mHa ({'chemical accuracy ✅' if error_fci < 1.6 else 'encima de chemical accuracy ❌'})")
-        save_results({"E_vqe": E_sim, "E_fci": E_fci, "error_mHa": error_fci, "history": history})
-    else:
-        E_hw, history_hw = run_vqe_hardware(H, ansatz, args.backend, args.shots, dry_run=args.dry_run)
+        save_results(
+            {"provider": "simulator", "E_vqe": E_sim, "E_fci": E_fci,
+             "error_mHa": error_fci, "history": history},
+            path=args.output,
+        )
+    elif args.provider == "ibm":
+        E_hw, history_hw = run_vqe_hardware(
+            H, ansatz, args.backend, args.shots, dry_run=args.dry_run
+        )
         if E_hw is not None:
-            save_results({"E_hw": E_hw, "E_fci": E_fci, "history_hw": history_hw})
+            save_results(
+                {"provider": "ibm", "backend": args.backend, "E_hw": E_hw,
+                 "E_fci": E_fci, "history_hw": history_hw},
+                path=args.output,
+            )
+    elif args.provider == "ionq":
+        E_hw, history_hw = run_vqe_ionq(
+            H, ansatz, args.backend, args.shots, dry_run=args.dry_run
+        )
+        if E_hw is not None:
+            save_results(
+                {"provider": "ionq", "backend": args.backend, "E_hw": E_hw,
+                 "E_fci": E_fci, "history_hw": history_hw},
+                path=args.output,
+            )
+    elif args.provider == "quantinuum":
+        E_hw, history_hw = run_vqe_quantinuum(
+            H, ansatz, args.backend, args.shots, dry_run=args.dry_run
+        )
+        if E_hw is not None:
+            save_results(
+                {"provider": "quantinuum", "backend": args.backend, "E_hw": E_hw,
+                 "E_fci": E_fci, "history_hw": history_hw},
+                path=args.output,
+            )
 
 
 if __name__ == "__main__":
