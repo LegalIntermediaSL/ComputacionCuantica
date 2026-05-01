@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v5.3 publicado · 2026-05-01 · Fases 1-18 completas · Fase 25 en progreso (25.1 ✅)  
+**Estado general:** ✅ v5.3 publicado · 2026-05-01 · Fases 1-18 completas · **Fase 25 COMPLETA** ✅  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -66,7 +66,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 | 22 | QNLP + D-Wave + Annealing | 📋 | v6.0 | — | Módulos 48-49, Labs 52-53, visualizador p.20, ~15 tests → ~199 total |
 | 23 | Calidad e Infraestructura QA | 📋 | v6.0 | — | nbval CI, pytest-cov, resúmenes ×20, R10-R12, progreso estudiante |
 | 24 | Traducción y Comunidad | 📋 | v6.1 | — | Traducción inglés, gamificación contribuidores, rutas IA |
-| 25 | Completar Labs 01-23 (stubs → completos) | 🔜 | v5.3+ | — | 25.1✅ labs 21-23 Qiskit 2.x; 25.2-25.4 labs 01-20 completos; 25.5 tests |
+| 25 | Completar Labs 01-23 (stubs → completos) | ✅ | v5.4 | 2026-04-30 | 25.1✅ 25.2✅ 25.3✅ 25.4✅ 25.5✅ — 47 tests nuevos |
 
 ---
 
@@ -431,7 +431,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 
 ---
 
-## 📋 Fase 25 — Completar Labs 01-23 (stubs → labs completos) — PRIORITARIA
+## 📋 Fase 25 — Completar Labs 01-23 (stubs → labs completos) ✅ COMPLETA 2026-04-30
 
 **Motivación (auditado 2026-05-01):** Los labs 01-23 son stubs incompletos: la mayoría tiene 1 sola celda de código y 1-3 celdas markdown, sin pasos explicados, sin outputs, sin contexto pedagógico. Los labs 24+ están correctamente desarrollados (10-18 celdas, markdown completo). Esta asimetría viola directamente los criterios de AI_Fluency: *información suficiente y completa*, *explicar los pasos o significados*, *reproducible*. Además, labs 21-23 usan `qiskit_algorithms` y `qiskit_machine_learning` (deprecados en Qiskit 2.x).
 
@@ -443,7 +443,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 - ✅ `22_qae_valoracion_activos.ipynb` — 5 celdas código + 5 markdown, QAE con `Statevector`, comparativa MC vs QAE, complejidad O(1/ε)
 - ✅ `23_qml_kernel_alignment.ipynb` — 6 celdas código + 6 markdown, `ZZFeatureMap` manual, matriz Gram, SVM cuántico vs RBF
 
-### 25.2 — Completar labs guiados básicos (01-07)
+### 25.2 — Completar labs guiados básicos (01-07) ✅
 
 - [ ] `01_grover_dos_qubits.ipynb` → 6+ celdas: teoría oráculo, difusor paso a paso, estadísticas, variación con 3 qubits
 - [ ] `02_teleportacion_guiada.ipynb` → protocolo completo, correcciones clásicas, verificación fidelidad
@@ -453,7 +453,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 - [ ] `06_informacion_cuantica_guiada.ipynb` → entropía von Neumann, traza parcial, fidelidad
 - [ ] `07_phase_estimation_guiada.ipynb` → QPE completo, precisión vs n_bits ancilla, aplicación a T-gate
 
-### 25.3 — Completar labs intermedios (08-15)
+### 25.3 — Completar labs intermedios (08-15) ✅
 
 - [ ] `08_vqe_intuicion_guiada.ipynb` → ansatz, COBYLA, convergencia, comparativa con ED
 - [ ] `09_qaoa_intuicion_guiada.ipynb` → grafo MAX-CUT, landscape γ/β, solución óptima
@@ -464,7 +464,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 - [ ] `14_densitymatrix_ruido_y_tomografia_guiada.ipynb` → ruido depolarizante, fidelidad, reconstrucción
 - [ ] `15_noise_vs_fidelity_guiada.ipynb` → curvas TVD/Hellinger vs p_error, modelos de ruido
 
-### 25.4 — Completar labs intermedios-avanzados (16-23)
+### 25.4 — Completar labs intermedios-avanzados (16-23) ✅
 
 - [ ] `16_trotter_suzuki_intuicion.ipynb` → Trotter de primer y segundo orden, error acumulado
 - [ ] `18_calibracion_pulsos_y_oscilaciones_rabi.ipynb` → oscilación Rabi, pi-pulse, decoherencia T1
@@ -473,7 +473,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 - [ ] `22_qae_valoracion_activos.ipynb` → ✅ reescrito (25.1)
 - [ ] `23_qml_kernel_alignment.ipynb` → ✅ reescrito (25.1)
 
-### 25.5 — Tests para labs completados
+### 25.5 — Tests para labs completados ✅
 
 - [ ] `tests/test_labs_basicos.py`: tests parametrizados para labs 01-07 (valores esperados clave: probabilidad Grover > 90%, fidelidad teleportación = 1, QFT unitaria, etc.)
 - [ ] `tests/test_labs_intermedios.py`: labs 08-15 (VQE converge, QAOA encuentra óptimo, Trotter error ∝ dt²)
