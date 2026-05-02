@@ -90,6 +90,7 @@ nav:
     - Módulo 39 — Compilación avanzada: Tutorial/39_compilacion_avanzada/README.md
     - Módulo 40 — QSVT: Tutorial/40_qsvt/README.md
     - Módulo 45 — Computación Fotónica: Tutorial/45_computacion_fotonica/README.md
+    - Módulo 46 — Átomos Neutros y Rydberg: Tutorial/46_atomos_neutros_rydberg/README.md
   - Laboratorios:
     - Lab 32 — Química UCCSD: Cuadernos/laboratorios/README.md
     - Lab 33 — Compilación t|ket⟩: Cuadernos/laboratorios/README.md
@@ -106,6 +107,7 @@ nav:
     - Lab 44 — Hubbard VQE: Cuadernos/laboratorios/README.md
     - Lab 45 — Código Tórico: Cuadernos/laboratorios/README.md
     - Lab 49 — Fotónica Cuántica: Cuadernos/laboratorios/README.md
+    - Lab 50 — Rydberg Chain: Cuadernos/laboratorios/README.md
   - Topológica:
     - Módulo 41 — Topological QC: Tutorial/41_topological_qc
   - Práctica:
@@ -121,6 +123,7 @@ nav:
     - Error rates 2025: docs/error_rates_2025.md
     - Benchmark interactivo: visualizador/pages/16_Benchmark_Hardware.py
     - Computación Fotónica: visualizador/pages/17_Fotonica_Cuantica.py
+    - Rydberg Arrays: visualizador/pages/18_Rydberg.py
   - Contribuir:
     - Guía de contribución: CONTRIBUTING.md
     - Traducir el curso: TRANSLATING.md

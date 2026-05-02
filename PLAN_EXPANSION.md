@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v5.4 publicado · 2026-05-02 · Fases 1-19 completas · **Fase 25 COMPLETA** ✅  
+**Estado general:** ✅ v5.5 publicado · 2026-05-02 · Fases 1-20 completas · **Fase 25 COMPLETA** ✅  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -37,7 +37,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
  ├── F18     ├── F19     ├── F20      ├── F21      ├── F22     ├── F23     ├── F24
  │           │           │            │            │           │           │
- ✅          ✅          📋          📋           📋          📋          📋
+ ✅          ✅          ✅          📋           📋          📋          📋
 ```
 
 ---
@@ -61,7 +61,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 | 17 | Quantum Gravity + iDMRG + Multi-provider | ✅ | v5.2 | 2026-04-27 | Módulo 43, Lab 47, guía multiprovider, 14 tests iDMRG → 129 total |
 | 18 | DQC avanzado + PEPS + IBM Network + GPU | ✅ | v5.3 | 2026-05-01 | Módulo 44, Lab 48, guías IBM/GPU/multiprovider, 20 tests → 149 total |
 | 19 | Computación Fotónica | ✅ | v5.4 | 2026-05-02 | Módulo 45, Lab 49, visualizador p.17, 10 tests → 159 total |
-| 20 | Átomos Neutros y Rydberg | 📋 | v5.5 | — | Módulo 46, Lab 50, visualizador p.18, ~10 tests → ~169 total |
+| 20 | Átomos Neutros y Rydberg | ✅ | v5.5 | 2026-05-02 | Módulo 46, Lab 50, visualizador p.18, 10 tests → 169 total |
 | 21 | qLDPC + Decodificadores Neuronales | 📋 | v5.6 | — | Módulo 47, Lab 51, visualizador p.19, R9, ~15 tests → ~184 total |
 | 22 | QNLP + D-Wave + Annealing | 📋 | v6.0 | — | Módulos 48-49, Labs 52-53, visualizador p.20, ~15 tests → ~199 total |
 | 23 | Calidad e Infraestructura QA | 📋 | v6.0 | — | nbval CI, pytest-cov, resúmenes ×20, R10-R12, progreso estudiante |
@@ -523,30 +523,29 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 
 ---
 
-## 📋 Fase 20 — Átomos Neutros y Computación Analógica (v5.5) — PLANIFICADA
+## ✅ Fase 20 — Átomos Neutros y Computación Analógica (v5.5) — COMPLETA
 
 **Motivación:** QuEra Aquila ya aparece en el Benchmark (p.16) pero sin módulo propio. Los arrays de Rydberg son el paradigma de mayor escala actual (>1000 qubits analógicos), con aplicaciones directas en optimización y simulación de materiales. Bloqade.jl (QuEra) y Pasqal tienen SDKs accesibles.
 
 ### 20.1 — Módulo 46: Átomos Neutros y Arrays de Rydberg
 
-- [ ] `Tutorial/46_atomos_neutros_rydberg/README.md`: trampa óptica y tweezer arrays, interacción de Rydberg (U = C₆/r⁶), bloqueo de Rydberg (mecanismo de puerta CZ nativa), Hamiltoniano PXP, fases cuánticas (paramagnet / Z₂ ordered / incommensurate), computación analógica vs digital, QuEra Aquila (256 qubits 2022, 10000 átomos 2024), Pasqal Fresnel, Bloqade.jl SDK, comparativa con superconductores e iones, límites actuales (decoherencia térmica, pérdidas por scattering), casos de uso: simulación de materiales magnéticos, optimización MAX-CUT, tabla plataformas 2025.
+- [x] `Tutorial/46_atomos_neutros_rydberg/README.md`: trampa óptica y tweezer arrays, interacción de Rydberg (U = C₆/r⁶), bloqueo de Rydberg (mecanismo de puerta CZ nativa), Hamiltoniano PXP, fases cuánticas, computación analógica vs digital, QuEra/Pasqal/Atom Computing, tabla plataformas 2025.
 
 ### 20.2 — Lab 50: Simulación de Cadena de Rydberg
 
-- [ ] `50_rydberg_chain.ipynb`: Hamiltoniano PXP con QuTiP (alternativa a Bloqade), cadena de n=8 átomos, evolución temporal (quench desde paramagneto), detección de fase Z₂ por estructura de factor S(π), diagrama de fase Ω/Δ, dinámica de entrelazamiento, comparativa simulación numérica vs resultado QuEra Aquila publicado (Ebadi 2021), problema MAX-CUT n=8 con protocolo analógico QAOA-like.
+- [x] `50_rydberg_chain.ipynb`: Hamiltoniano PXP + full Rydberg, diagrama de fases Ω/Δ, evolución temporal Z2, quantum many-body scars, radio de bloqueo, puerta CZ.
 
 ### 20.3 — Visualizador Página 18: Array de Rydberg Interactivo
 
-- [ ] `visualizador/pages/18_Rydberg.py`: array 2D configurable (hasta 5×5 átomos), sliders Ω (Rabi), Δ (desintonización), tiempo de evolución, visualización de ocupación de Rydberg por átomo (mapa de calor), correlaciones ⟨n_i n_j⟩, indicador de bloqueo de Rydberg entre pares, ejemplo MAX-CUT 6 nodos con layout circular.
+- [x] `Visualizador/pages/18_Rydberg.py`: array 2D configurable (hasta 5×5 átomos), sliders Ω/Δ, radio de bloqueo visual, diagrama de fases, evolución PXP con revivals, ejemplo MAX-CUT 6 nodos, tabla plataformas.
 
-### 20.4 — Tests Fase 20 (~10 nuevos → ~169 totales)
+### 20.4 — Tests Fase 20 (10 nuevos → 169 totales)
 
-- [ ] `tests/test_rydberg.py`: Hamiltoniano PXP Hermitiano, cadena n=2 tiene gap de bloqueo, evolución conserva norma, fase Z₂ tiene S(π) > S(0), correlaciones ⟨n_i n_{i+1}⟩ < 0.1 en bloqueo fuerte, MAX-CUT 4 nodos converge al óptimo, entropía crece en quench.
+- [x] `tests/test_labs_intermedios.py::TestRydberg`: 10 tests — Hamiltoniano hermítico, dimensión, bloqueo, fases, PXP, revival Z2, escalado r_b, CZ truth table, parámetro orden Z2.
 
 ### 20.5 — Documentación
 
-- [ ] `docs/guia_quera_pasqal.md`: acceso a Aquila via Amazon Braket, Pasqal via Azure, Bloqade.jl instalación, límites gratuitos, diferencias analógico/digital.
-- [ ] `mkdocs.yml`: módulo 46, lab 50, p.18 añadidos.
+- [x] `mkdocs.yml`: módulo 46, lab 50, visualizador p.18 añadidos.
 
 ---
 

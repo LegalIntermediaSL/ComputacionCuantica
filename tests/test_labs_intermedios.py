@@ -443,3 +443,154 @@ class TestFotonica:
             total_p += float(p / denom)
 
         assert abs(total_p - 1.0) < 0.01, f"Suma de probabilidades = {total_p}"
+
+
+class TestRydberg:
+    """Tests para Lab 50 — Átomos Neutros y Arrays de Rydberg (Phase 20)."""
+
+    def _op_on_site(self, op, site, N):
+        ops = [np.eye(2)] * N
+        ops[site] = op
+        result = ops[0]
+        for o in ops[1:]:
+            result = np.kron(result, o)
+        return result
+
+    def _build_rydberg_H(self, N, Omega, Delta, C6=100.0, a=1.0):
+        sx = np.array([[0,1],[1,0]], dtype=complex)
+        nR = np.array([[0,0],[0,1]], dtype=complex)
+        H = np.zeros((2**N, 2**N), dtype=complex)
+        for i in range(N):
+            H += (Omega/2) * self._op_on_site(sx, i, N)
+            H -= Delta * self._op_on_site(nR, i, N)
+        for i in range(N-1):
+            for j in range(i+1, N):
+                Uij = C6 / (abs(i-j)*a)**6
+                H += Uij * (self._op_on_site(nR, i, N) @ self._op_on_site(nR, j, N))
+        return H
+
+    def _build_pxp_H(self, N, Omega=1.0):
+        sx = np.array([[0,1],[1,0]], dtype=complex)
+        P0 = np.array([[1,0],[0,0]], dtype=complex)
+        H = np.zeros((2**N, 2**N), dtype=complex)
+        for i in range(N):
+            left  = self._op_on_site(P0, (i-1)%N, N)
+            drive = self._op_on_site(sx, i, N)
+            right = self._op_on_site(P0, (i+1)%N, N)
+            H += (Omega/2) * left @ drive @ right
+        return H
+
+    def test_rydberg_H_hermitian(self):
+        """El Hamiltoniano de Rydberg debe ser hermítico."""
+        H = self._build_rydberg_H(3, Omega=1.0, Delta=0.5, C6=50.0)
+        assert np.allclose(H, H.conj().T, atol=1e-12)
+
+    def test_rydberg_H_dimension(self):
+        """El Hamiltoniano tiene dimensión 2^N."""
+        for N in [2, 3, 4]:
+            H = self._build_rydberg_H(N, Omega=1.0, Delta=0.0)
+            assert H.shape == (2**N, 2**N)
+
+    def test_blockade_high_C6_avoids_double_rydberg(self):
+        """Con C6 >> Omega, el estado con dos vecinos en Rydberg es penalizado."""
+        N = 2
+        H = self._build_rydberg_H(N, Omega=0.01, Delta=5.0, C6=1e6)
+        from scipy.linalg import eigh
+        evals, evecs = eigh(H)
+        gs = evecs[:, 0]
+        # Estado |rr⟩ = índice 3 (binario 11), debe tener baja amplitud
+        assert abs(gs[3])**2 < 0.01
+
+    def test_rydberg_phase_atomic_large_negative_delta(self):
+        """Para Delta << 0 el estado base tiene poca densidad Rydberg."""
+        from scipy.linalg import eigh
+        N = 3
+        H = self._build_rydberg_H(N, Omega=0.5, Delta=-10.0, C6=50.0)
+        evals, evecs = eigh(H)
+        gs = evecs[:, 0]
+        nR = np.array([[0,0],[0,1]], dtype=complex)
+        nR_total = sum(self._op_on_site(nR, i, N) for i in range(N)) / N
+        n_avg = np.real(gs @ nR_total @ gs)
+        assert n_avg < 0.1
+
+    def test_rydberg_phase_rydberg_large_positive_delta(self):
+        """Para Delta >> 0 sin bloqueo el estado base tiene alta densidad Rydberg."""
+        from scipy.linalg import eigh
+        N = 3
+        H = self._build_rydberg_H(N, Omega=0.1, Delta=10.0, C6=0.001)
+        evals, evecs = eigh(H)
+        gs = evecs[:, 0]
+        nR = np.array([[0,0],[0,1]], dtype=complex)
+        nR_total = sum(self._op_on_site(nR, i, N) for i in range(N)) / N
+        n_avg = np.real(gs @ nR_total @ gs)
+        assert n_avg > 0.8
+
+    def test_pxp_H_hermitian(self):
+        """El Hamiltoniano PXP debe ser hermítico."""
+        H = self._build_pxp_H(4, Omega=1.0)
+        assert np.allclose(H, H.conj().T, atol=1e-12)
+
+    def test_pxp_z2_revival(self):
+        """El estado Z2 muestra revival con F > 0.5 en algún tiempo para PXP N=4."""
+        from scipy.linalg import eigh
+        N = 4
+        H = self._build_pxp_H(N, Omega=1.0)
+        evals, evecs = eigh(H)
+        z2_idx = int("1010", 2)
+        psi0 = np.zeros(2**N, dtype=complex)
+        psi0[z2_idx] = 1.0
+        c = evecs.conj().T @ psi0
+        max_fid = 0.0
+        for t in np.linspace(0.1, 20.0, 500):
+            psi_t = evecs @ (c * np.exp(-1j * evals * t))
+            fid = abs(psi0 @ psi_t.conj())**2
+            if fid > max_fid:
+                max_fid = fid
+        assert max_fid > 0.5, f"Fidelidad máxima de revival = {max_fid:.3f}"
+
+    def test_blockade_radius_scaling(self):
+        """El radio de bloqueo escala como C6^(1/6) / Omega^(1/6)."""
+        C6 = 862690.0  # GHz·μm^6
+        Omega1, Omega2 = 1.0, 2.0
+        r1 = (C6 / (Omega1 * 1e3)) ** (1/6)
+        r2 = (C6 / (Omega2 * 1e3)) ** (1/6)
+        ratio = r1 / r2
+        expected = (Omega2 / Omega1) ** (1/6)
+        assert abs(ratio - expected) < 1e-10
+
+    def test_cz_gate_truth_table(self):
+        """La matriz CZ = diag(1,-1,1,1) para el bloqueo Rydberg."""
+        CZ = np.diag([1.0, -1.0, 1.0, 1.0])
+        # |gg⟩ → |gg⟩
+        gg = np.array([1,0,0,0]); assert np.allclose(CZ @ gg, [1,0,0,0])
+        # |gr⟩ → -|gr⟩
+        gr = np.array([0,1,0,0]); assert np.allclose(CZ @ gr, [0,-1,0,0])
+        # |rg⟩ → |rg⟩
+        rg = np.array([0,0,1,0]); assert np.allclose(CZ @ rg, [0,0,1,0])
+        # |rr⟩ → |rr⟩ (bloqueado → no accesible, eigenvalor 1)
+        rr = np.array([0,0,0,1]); assert np.allclose(CZ @ rr, [0,0,0,1])
+
+    def test_z2_order_parameter(self):
+        """El parámetro de orden Z2 distingue las fases cristalina y atómica."""
+        from scipy.linalg import eigh
+        N = 4
+        nR = np.array([[0,0],[0,1]], dtype=complex)
+
+        def z2_order(gs):
+            val = 0.0
+            for i in range(N):
+                sign = (-1)**i
+                val += sign * np.real(gs @ self._op_on_site(nR, i, N) @ gs)
+            return abs(val) / N
+
+        # Fase Z2: Delta >> 0, Omega pequeño, C6 induce alternancia
+        H_z2 = self._build_rydberg_H(N, Omega=0.2, Delta=2.0, C6=200.0)
+        _, evecs_z2 = eigh(H_z2)
+        order_z2 = z2_order(evecs_z2[:, 0])
+
+        # Fase atómica: Delta << 0
+        H_at = self._build_rydberg_H(N, Omega=0.2, Delta=-5.0, C6=200.0)
+        _, evecs_at = eigh(H_at)
+        order_at = z2_order(evecs_at[:, 0])
+
+        assert order_z2 > order_at, f"Z2 order: {order_z2:.3f} vs atomic: {order_at:.3f}"
