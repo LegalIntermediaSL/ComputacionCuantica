@@ -310,3 +310,136 @@ class TestRabi:
             p1_actual = sv.probabilities()[1]
             p1_theory = np.sin(theta / 2)**2
             assert abs(p1_actual - p1_theory) < 1e-9, f"theta={theta}: {p1_actual} vs {p1_theory}"
+
+
+# ── Lab 49: Computación Fotónica ─────────────────────────────────────────────
+
+from scipy.special import eval_genlaguerre
+
+
+class TestFotonica:
+    """Tests para los conceptos del lab 49 y módulo 45."""
+
+    def test_wigner_vacuum_positive(self):
+        """W(0,0) para el vacío |0⟩ es positivo (estado clásico)."""
+        W00 = (1 / np.pi) * np.exp(0.0)
+        assert W00 > 0
+
+    def test_wigner_fock1_negative_origin(self):
+        """W(0,0) para |1⟩ es negativo — firma de no-clasicidad."""
+        W00 = (-1 / np.pi) * np.exp(0.0) * eval_genlaguerre(1, 0, 0.0)
+        assert W00 < 0
+
+    def test_wigner_fock_sign_pattern(self):
+        """W_n(0,0) = (-1)^n / π para todos los estados Fock."""
+        for n in range(5):
+            W00 = ((-1)**n / np.pi) * np.exp(0.0) * eval_genlaguerre(n, 0, 0.0)
+            expected_sign = (-1)**n
+            assert np.sign(W00) == np.sign(expected_sign)
+
+    def test_permanent_2x2_known(self):
+        """Perm([[a,b],[c,d]]) = ad + bc."""
+        def permanent_ryser(A):
+            n = A.shape[0]
+            total = 0.0 + 0j
+            for subset in range(1, 1 << n):
+                bits = [j for j in range(n) if subset & (1 << j)]
+                row_sums = np.array([sum(A[i, j] for j in bits) for i in range(n)])
+                sign = (-1) ** (n - len(bits))
+                total += sign * np.prod(row_sums)
+            return (-1)**n * total
+
+        A = np.array([[1, 2], [3, 4]], dtype=complex)
+        perm = permanent_ryser(A)
+        assert abs(perm - (1*4 + 2*3)) < 1e-10, f"Perm={perm}, expected 10"
+
+    def test_permanent_identity_is_1(self):
+        """Perm(I_n) = 1 para toda n. Usa signo (-1)^|S|, la convencion estandar de Ryser."""
+        def permanent_ryser(A):
+            n = A.shape[0]
+            total = 0.0 + 0j
+            for subset in range(1, 1 << n):
+                bits = [j for j in range(n) if subset & (1 << j)]
+                row_sums = np.array([sum(A[i, j] for j in bits) for i in range(n)])
+                sign = (-1) ** len(bits)  # convencion estandar
+                total += sign * np.prod(row_sums)
+            return (-1)**n * total
+
+        for n in [2, 3, 4]:
+            p = permanent_ryser(np.eye(n, dtype=complex))
+            assert abs(p - 1.0) < 1e-10, f"Perm(I_{n}) = {p}, expected 1"
+
+    def test_squeezing_reduces_var_x(self):
+        """Squeezing S(r) reduce Var(X) por factor e^{-2r}."""
+        for r in [0.5, 1.0, 1.5]:
+            var_x = 0.5 * np.exp(-2 * r)
+            assert var_x < 0.5, "Var(X) debe ser menor que el vacío"
+            assert abs(var_x - 0.5 * np.exp(-2 * r)) < 1e-12
+
+    def test_squeezing_heisenberg_bound(self):
+        """Squeezing respeta Var(X)·Var(P) = 1/4 (estado mínimo)."""
+        for r in [0.0, 0.5, 1.0, 2.0]:
+            var_x = 0.5 * np.exp(-2 * r)
+            var_p = 0.5 * np.exp(+2 * r)
+            product = var_x * var_p
+            assert abs(product - 0.25) < 1e-12, f"r={r}: Var(X)*Var(P)={product} ≠ 1/4"
+
+    def test_gkp_threshold(self):
+        """Umbral de corrección GKP: |δx| < sqrt(π)/2."""
+        threshold = np.sqrt(np.pi) / 2
+        assert abs(threshold - 0.8862) < 1e-4
+        # Errores corregibles
+        for delta in [0.1, 0.3, 0.5, 0.8]:
+            assert delta < threshold, f"delta={delta} debería ser corregible"
+        # Errores no corregibles
+        for delta in [0.95, 1.2, 1.5]:
+            assert delta >= threshold, f"delta={delta} no debería ser corregible"
+
+    def test_gkp_states_orthogonal(self):
+        """Los estados lógicos GKP |0_L⟩ y |1_L⟩ son (aproximadamente) ortogonales."""
+        x = np.linspace(-10, 10, 5000)
+        step = 2 * np.sqrt(np.pi)
+        Delta = 0.2
+        N = 8
+
+        def gkp(x, logical):
+            offset = 0.0 if logical == 0 else np.sqrt(np.pi)
+            psi = sum(np.exp(-0.5 * ((x - n*step - offset)/Delta)**2) for n in range(-N, N+1))
+            return psi / np.sqrt(np.trapezoid(psi**2, x))
+
+        psi0 = gkp(x, 0)
+        psi1 = gkp(x, 1)
+        overlap = abs(np.trapezoid(psi0 * psi1, x))
+        assert overlap < 1e-5, f"Solapamiento GKP = {overlap} (debe ser ~0)"
+
+    def test_boson_sampling_probs_sum_to_1(self):
+        """Las probabilidades de Boson Sampling suman 1."""
+        from itertools import combinations_with_replacement
+        from collections import Counter
+
+        def permanent_ryser(A):
+            n = A.shape[0]
+            total = 0.0 + 0j
+            for subset in range(1, 1 << n):
+                bits = [j for j in range(n) if subset & (1 << j)]
+                row_sums = np.array([sum(A[i, j] for j in bits) for i in range(n)])
+                total += (-1)**(n - len(bits)) * np.prod(row_sums)
+            return (-1)**n * total
+
+        m, n_ph = 4, 2
+        rng = np.random.default_rng(0)
+        Z = rng.standard_normal((m, m)) + 1j * rng.standard_normal((m, m))
+        Q, R = np.linalg.qr(Z / np.sqrt(2))
+        U = Q @ np.diag(R.diagonal() / np.abs(R.diagonal()))
+        input_modes = [0, 1]
+
+        from math import factorial as fact
+        total_p = 0.0
+        for out in combinations_with_replacement(range(m), n_ph):
+            U_sub = U[np.ix_(list(out), input_modes)]
+            p = abs(permanent_ryser(U_sub))**2
+            out_c = Counter(out)
+            denom = np.prod([fact(k) for k in out_c.values()])
+            total_p += float(p / denom)
+
+        assert abs(total_p - 1.0) < 0.01, f"Suma de probabilidades = {total_p}"

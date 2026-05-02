@@ -89,6 +89,7 @@ nav:
     - Módulo 38 — Quantum Sensing: Tutorial/38_quantum_sensing/README.md
     - Módulo 39 — Compilación avanzada: Tutorial/39_compilacion_avanzada/README.md
     - Módulo 40 — QSVT: Tutorial/40_qsvt/README.md
+    - Módulo 45 — Computación Fotónica: Tutorial/45_computacion_fotonica/README.md
   - Laboratorios:
     - Lab 32 — Química UCCSD: Cuadernos/laboratorios/README.md
     - Lab 33 — Compilación t|ket⟩: Cuadernos/laboratorios/README.md
@@ -104,6 +105,7 @@ nav:
     - Lab 43 — QML Teórico: Cuadernos/laboratorios/README.md
     - Lab 44 — Hubbard VQE: Cuadernos/laboratorios/README.md
     - Lab 45 — Código Tórico: Cuadernos/laboratorios/README.md
+    - Lab 49 — Fotónica Cuántica: Cuadernos/laboratorios/README.md
   - Topológica:
     - Módulo 41 — Topological QC: Tutorial/41_topological_qc
   - Práctica:
@@ -118,6 +120,7 @@ nav:
     - Guía IBM Quantum: docs/guia_ibm_quantum.md
     - Error rates 2025: docs/error_rates_2025.md
     - Benchmark interactivo: visualizador/pages/16_Benchmark_Hardware.py
+    - Computación Fotónica: visualizador/pages/17_Fotonica_Cuantica.py
   - Contribuir:
     - Guía de contribución: CONTRIBUTING.md
     - Traducir el curso: TRANSLATING.md

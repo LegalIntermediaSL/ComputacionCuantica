@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v5.3 publicado · 2026-05-01 · Fases 1-18 completas · **Fase 25 COMPLETA** ✅  
+**Estado general:** ✅ v5.4 publicado · 2026-05-02 · Fases 1-19 completas · **Fase 25 COMPLETA** ✅  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -37,7 +37,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
  ├── F18     ├── F19     ├── F20      ├── F21      ├── F22     ├── F23     ├── F24
  │           │           │            │            │           │           │
- ✅          📋          📋          📋           📋          📋          📋
+ ✅          ✅          📋          📋           📋          📋          📋
 ```
 
 ---
@@ -60,7 +60,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 | 16 | Tensor Networks + Jupyter Book | ✅ | v5.1 | 2026-04-28 | Módulo 42, Lab 46, Jupyter Book, 14 tests MPS → 115 total |
 | 17 | Quantum Gravity + iDMRG + Multi-provider | ✅ | v5.2 | 2026-04-27 | Módulo 43, Lab 47, guía multiprovider, 14 tests iDMRG → 129 total |
 | 18 | DQC avanzado + PEPS + IBM Network + GPU | ✅ | v5.3 | 2026-05-01 | Módulo 44, Lab 48, guías IBM/GPU/multiprovider, 20 tests → 149 total |
-| 19 | Computación Fotónica | 📋 | v5.4 | — | Módulo 45, Lab 49, visualizador p.17, ~10 tests → ~159 total |
+| 19 | Computación Fotónica | ✅ | v5.4 | 2026-05-02 | Módulo 45, Lab 49, visualizador p.17, 10 tests → 159 total |
 | 20 | Átomos Neutros y Rydberg | 📋 | v5.5 | — | Módulo 46, Lab 50, visualizador p.18, ~10 tests → ~169 total |
 | 21 | qLDPC + Decodificadores Neuronales | 📋 | v5.6 | — | Módulo 47, Lab 51, visualizador p.19, R9, ~15 tests → ~184 total |
 | 22 | QNLP + D-Wave + Annealing | 📋 | v6.0 | — | Módulos 48-49, Labs 52-53, visualizador p.20, ~15 tests → ~199 total |
@@ -496,7 +496,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 
 ---
 
-## 📋 Fase 19 — Computación Fotónica (v5.4) — PLANIFICADA
+## ✅ Fase 19 — Computación Fotónica (v5.4) — COMPLETA 2026-05-02
 
 **Motivación:** La fotónica cuántica (Xanadu, PsiQuantum, QuiX) es el tercer gran paradigma junto al gate model superconductor y los átomos neutros. Strawberry Fields permite ejecutar circuitos fotónicos reales. El módulo 43 ya menciona GBS en el contexto de Boson Sampling, pero no hay cobertura pedagógica propia.
 
