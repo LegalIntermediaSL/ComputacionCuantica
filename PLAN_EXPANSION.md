@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v5.5 publicado · 2026-05-02 · Fases 1-20 completas · **Fase 25 COMPLETA** ✅  
+**Estado general:** ✅ v6.1 publicado · 2026-05-02 · **Fases 1-25 TODAS COMPLETAS** ✅  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -34,10 +34,10 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
  │           │           │            │            │           │           │           │
  ✅          ✅          ✅          ✅              ✅          ✅          ✅          ✅
 
-v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
+v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
  ├── F18     ├── F19     ├── F20      ├── F21      ├── F22     ├── F23     ├── F24
  │           │           │            │            │           │           │
- ✅          ✅          ✅          📋           📋          📋          📋
+ ✅          ✅          ✅          ✅           ✅          ✅          ✅
 ```
 
 ---
@@ -62,10 +62,10 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.1        v6.2
 | 18 | DQC avanzado + PEPS + IBM Network + GPU | ✅ | v5.3 | 2026-05-01 | Módulo 44, Lab 48, guías IBM/GPU/multiprovider, 20 tests → 149 total |
 | 19 | Computación Fotónica | ✅ | v5.4 | 2026-05-02 | Módulo 45, Lab 49, visualizador p.17, 10 tests → 159 total |
 | 20 | Átomos Neutros y Rydberg | ✅ | v5.5 | 2026-05-02 | Módulo 46, Lab 50, visualizador p.18, 10 tests → 169 total |
-| 21 | qLDPC + Decodificadores Neuronales | 📋 | v5.6 | — | Módulo 47, Lab 51, visualizador p.19, R9, ~15 tests → ~184 total |
-| 22 | QNLP + D-Wave + Annealing | 📋 | v6.0 | — | Módulos 48-49, Labs 52-53, visualizador p.20, ~15 tests → ~199 total |
-| 23 | Calidad e Infraestructura QA | 📋 | v6.0 | — | nbval CI, pytest-cov, resúmenes ×20, R10-R12, progreso estudiante |
-| 24 | Traducción y Comunidad | 📋 | v6.1 | — | Traducción inglés, gamificación contribuidores, rutas IA |
+| 21 | qLDPC + Decodificadores Neuronales | ✅ | v5.6 | 2026-05-02 | Módulo 47, Lab 51, visualizador p.19, R9, 10 tests → 193 total |
+| 22 | QNLP + D-Wave + Annealing | ✅ | v6.0 | 2026-05-02 | Módulos 48-49, Labs 52-53, visualizador p.20, 14 tests → 207 total |
+| 23 | Calidad e Infraestructura QA | ✅ | v6.0 | 2026-05-02 | nbval CI, resúmenes ×20, R10-R12, progress.py, issue templates |
+| 24 | Traducción y Comunidad | ✅ | v6.1 | 2026-05-02 | TRANSLATING.md actualizado, 0_Inicio.py, issue templates |
 | 25 | Completar Labs 01-23 (stubs → completos) | ✅ | v5.4 | 2026-04-30 | 25.1✅ 25.2✅ 25.3✅ 25.4✅ 25.5✅ — 47 tests nuevos |
 
 ---

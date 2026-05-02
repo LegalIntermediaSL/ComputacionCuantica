@@ -594,3 +594,299 @@ class TestRydberg:
         order_at = z2_order(evecs_at[:, 0])
 
         assert order_z2 > order_at, f"Z2 order: {order_z2:.3f} vs atomic: {order_at:.3f}"
+
+
+class TestQLDPC:
+    """Tests para Lab 51 — Códigos qLDPC y Decodificador Neuronal (Phase 21)."""
+
+    def _compute_syndrome(self, H, error):
+        return (H @ error) % 2
+
+    def test_steane_css_condition(self):
+        """El código de Steane [[7,1,3]] satisface H_X H_Z^T = 0 (mod 2)."""
+        H = np.array([
+            [1,0,1,0,1,0,1],
+            [0,1,1,0,0,1,1],
+            [0,0,0,1,1,1,1]
+        ], dtype=int)
+        check = (H @ H.T) % 2
+        assert np.all(check == 0), "Condición CSS violada"
+
+    def test_css_hx_hz_orthogonal(self):
+        """Código CSS [[4,2,2]]: H_X H_Z^T = 0 (mod 2)."""
+        H_X = np.array([[1,1,1,1]], dtype=int)
+        H_Z = np.array([[1,1,0,0],[0,0,1,1]], dtype=int)
+        check = (H_X @ H_Z.T) % 2
+        assert np.all(check == 0), "H_X H_Z^T debe ser 0 (mod 2)"
+
+    def test_syndrome_zero_no_error(self):
+        """Sin error, el síndrome es el vector cero."""
+        H = np.array([[1,1,0,0],[0,1,1,0],[0,0,1,1]], dtype=int)
+        e = np.zeros(4, dtype=int)
+        s = self._compute_syndrome(H, e)
+        assert np.all(s == 0)
+
+    def test_syndrome_detects_single_error(self):
+        """Un error de peso 1 produce síndrome no nulo."""
+        H = np.array([[1,1,0,0],[0,1,1,0],[0,0,1,1]], dtype=int)
+        e = np.array([0,1,0,0], dtype=int)
+        s = self._compute_syndrome(H, e)
+        assert np.any(s != 0), "El síndrome debe ser no nulo para errores de peso 1"
+
+    def test_syndrome_lookup_steane(self):
+        """Cada qubit del Steane produce un síndrome único (lookup correcto)."""
+        H = np.array([
+            [1,0,1,0,1,0,1],
+            [0,1,1,0,0,1,1],
+            [0,0,0,1,1,1,1]
+        ], dtype=int)
+        syndromes = set()
+        for i in range(7):
+            e = np.zeros(7, dtype=int); e[i] = 1
+            s = tuple(self._compute_syndrome(H, e))
+            syndromes.add(s)
+        assert len(syndromes) == 7, "Cada qubit debe tener síndrome único"
+
+    def test_error_correctable_below_threshold(self):
+        """Para p=0.05, error lógico del código repetición n=7 (voto mayoría) < 0.05."""
+        n = 7
+        np.random.seed(42)
+        errors = 0
+        for _ in range(3000):
+            err = (np.random.random(n) < 0.05).astype(int)
+            # Decodificador de voto por mayoría: si más de n//2 qubits tienen error
+            if err.sum() > n // 2: errors += 1
+        pL = errors / 3000
+        assert pL < 0.05, f"P_L voto mayoría = {pL:.4f} debe ser < 0.05 para p=0.05, n=7"
+
+    def test_mlp_decoder_trains(self):
+        """El decodificador MLP alcanza accuracy > 70% en síndrome simple."""
+        from sklearn.neural_network import MLPClassifier
+        H = np.zeros((6, 7), dtype=int)
+        for i in range(6): H[i,i]=1; H[i,i+1]=1
+        np.random.seed(42)
+        X, y = [], []
+        for _ in range(3000):
+            err = (np.random.random(7) < 0.05).astype(int)
+            X.append(self._compute_syndrome(H, err))
+            y.append(int(err.sum() % 2))
+        X, y = np.array(X), np.array(y)
+        mlp = MLPClassifier(hidden_layer_sizes=(32,), max_iter=100, random_state=42)
+        mlp.fit(X[:2400], y[:2400])
+        acc = mlp.score(X[2400:], y[2400:])
+        assert acc > 0.70, f"Accuracy MLP = {acc:.3f} < 0.70"
+
+    def test_overhead_bb_vs_surface(self):
+        """BB [[144,12,12]] tiene menor overhead n/k que surface code d=7."""
+        n_surf, k_surf = 98, 1    # surface d=7
+        n_bb, k_bb = 144, 12     # bivariate bicycle
+        overhead_surf = n_surf / k_surf
+        overhead_bb   = n_bb / k_bb
+        assert overhead_bb < overhead_surf, (
+            f"Overhead BB={overhead_bb} debe ser menor que Surface={overhead_surf}"
+        )
+
+    def test_css_code_k_formula(self):
+        """k = n - rank(H_X) - rank(H_Z) para código CSS."""
+        H = np.array([
+            [1,0,1,0,1,0,1],
+            [0,1,1,0,0,1,1],
+            [0,0,0,1,1,1,1]
+        ], dtype=int)
+        n = 7
+        k = n - int(np.linalg.matrix_rank(H)) - int(np.linalg.matrix_rank(H))
+        assert k == 1, f"k = {k} debe ser 1 para Steane [[7,1,3]]"
+
+    def test_mwpm_corrects_weight1_error(self):
+        """MWPM corrige un error de peso 1 en código cadena 1D."""
+        n = 7
+        H = np.zeros((n-1, n), dtype=int)
+        for i in range(n-1): H[i,i]=1; H[i,i+1]=1
+        e = np.array([0,0,1,0,0,0,0], dtype=int)
+        syn = self._compute_syndrome(H, e)
+        defects = [i for i,s in enumerate(syn) if s==1]
+        corr = np.zeros(n, dtype=int)
+        if len(defects) == 2:
+            for q in range(defects[0]+1, defects[1]+1):
+                corr[q] ^= 1
+        residual = (e + corr) % 2
+        assert residual.sum() % 2 == 0, "MWPM debe corregir error de peso 1"
+
+
+class TestQNLP:
+    """Tests para Lab 52 — QNLP con Circuitos IQP (Phase 22)."""
+
+    def _iqp_noun_circuit(self, theta):
+        from qiskit import QuantumCircuit
+        qc = QuantumCircuit(1)
+        qc.h(0); qc.rz(theta, 0); qc.h(0)
+        return qc
+
+    def test_noun_circuit_is_unitary(self):
+        """El circuito IQP de sustantivo (1 qubit) es unitario."""
+        from qiskit.quantum_info import Operator
+        qc = self._iqp_noun_circuit(0.5)
+        op = Operator(qc)
+        mat = op.data
+        assert np.allclose(mat @ mat.conj().T, np.eye(2), atol=1e-10)
+
+    def test_noun_circuit_dimension(self):
+        """El circuito de sustantivo tiene exactamente 1 qubit."""
+        qc = self._iqp_noun_circuit(1.0)
+        assert qc.num_qubits == 1
+
+    def test_iqp_output_is_valid_state(self):
+        """El estado de salida del circuito IQP es un estado cuántico válido."""
+        from qiskit.quantum_info import Statevector
+        qc = self._iqp_noun_circuit(0.7)
+        sv = Statevector(qc)
+        probs = sv.probabilities()
+        assert abs(sum(probs) - 1.0) < 1e-10
+        assert all(p >= 0 for p in probs)
+
+    def test_sentence_circuit_4_qubits(self):
+        """El circuito de oración SVO tiene 4 qubits."""
+        from qiskit import QuantumCircuit
+        # Versión simplificada del sentence_circuit
+        qc = QuantumCircuit(4)
+        qc.h([0,1,2,3])
+        qc.rz(0.5, 0); qc.rz(0.3, 1); qc.rz(0.8, 2); qc.rz(0.7, 3)
+        assert qc.num_qubits == 4
+
+    def test_bce_loss_binary(self):
+        """BCE loss está entre 0 y log(2) para predicciones aleatorias."""
+        def bce(p, y): return -(y*np.log(max(p,1e-7))+(1-y)*np.log(max(1-p,1e-7)))
+        loss_rand = bce(0.5, 1)
+        assert 0 < loss_rand < 1.0
+
+    def test_cobyla_reduces_loss(self):
+        """COBYLA reduce la función objetivo en al menos una iteración."""
+        from scipy.optimize import minimize
+        calls = []
+        def obj(x):
+            v = (x[0]-1.5)**2 + 0.1
+            calls.append(v)
+            return v
+        result = minimize(obj, [0.0], method='COBYLA', options={'maxiter': 20})
+        assert result.fun < calls[0], "COBYLA debe reducir el objetivo"
+
+    def test_vocab_dataset_balanced(self):
+        """Dataset de QNLP tiene igual número de ejemplos positivos y negativos."""
+        DATASET = [
+            (0,0,1,1),(0,1,2,1),(1,0,3,1),(2,1,0,1),
+            (3,0,0,1),(1,1,1,1),(2,0,3,1),(3,1,2,1),
+            (0,2,1,0),(0,3,2,0),(1,2,3,0),(2,3,0,0),
+            (3,2,0,0),(1,3,1,0),(2,2,3,0),(3,3,2,0),
+        ]
+        pos = sum(1 for d in DATASET if d[3]==1)
+        neg = sum(1 for d in DATASET if d[3]==0)
+        assert pos == neg, f"Dataset desbalanceado: {pos} pos, {neg} neg"
+
+
+class TestQUBO:
+    """Tests para Lab 53 — QUBO y Annealing (Phase 22)."""
+
+    def _brute_force(self, Q):
+        from itertools import product as iproduct
+        n = Q.shape[0]
+        best_x, best_E = None, np.inf
+        for bits in iproduct([0,1], repeat=n):
+            x = np.array(bits, dtype=float)
+            E = x @ Q @ x
+            if E < best_E: best_E, best_x = E, x.copy()
+        return best_x, best_E
+
+    def test_maxcut_qubo_ground_state_k4(self):
+        """QUBO de MAX-CUT en K_4 tiene energía negativa (existe corte positivo)."""
+        n = 4
+        Q = np.zeros((n, n))
+        for i in range(n):
+            for j in range(i+1, n):
+                Q[i,j] += -1; Q[j,i] += -1
+                Q[i,i] += 1;  Q[j,j] += 1
+        _, E = self._brute_force(-Q)
+        assert E < 0, "MAX-CUT QUBO debe tener ground state negativo"
+
+    def test_maxcut_k4_optimal_cut(self):
+        """MAX-CUT de K_4 es 4 aristas (bipartición 2-2)."""
+        n = 4
+        Q_neg = np.zeros((n, n))
+        for i in range(n):
+            for j in range(i+1, n):
+                Q_neg[i,j] += 1; Q_neg[j,i] += 1
+                Q_neg[i,i] -= 1; Q_neg[j,j] -= 1
+        x, E = self._brute_force(Q_neg)
+        cut = int(-E)
+        assert cut == 4, f"MAX-CUT K_4 debe ser 4, obtenido {cut}"
+
+    def test_qubo_feasible_solution_energy_bounded(self):
+        """Una solución factible del QUBO de portfolio tiene energía finita."""
+        Q = np.array([[0.5, 0.1],[0.1, 0.3]])
+        x = np.array([1.0, 0.0])
+        E = x @ Q @ x
+        assert np.isfinite(E) and E >= 0
+
+    def test_tsp_3cities_has_valid_permutation(self):
+        """TSP de 3 ciudades: el ground state codifica una permutación válida."""
+        n = 3
+        D = np.array([[0,1,2],[1,0,3],[2,3,0]], dtype=float)
+        A, B = 5.0, 1.0
+        Q = np.zeros((n*n, n*n))
+        for i in range(n):
+            for t in range(n):
+                Q[i*n+t, i*n+t] -= A
+                for t2 in range(t+1,n): Q[i*n+t,i*n+t2] += 2*A
+        for t in range(n):
+            for i in range(n):
+                Q[i*n+t, i*n+t] -= A
+                for i2 in range(i+1,n): Q[i*n+t,i2*n+t] += 2*A
+        for i in range(n):
+            for j in range(n):
+                if i!=j:
+                    for t in range(n):
+                        Q[i*n+t, j*n+((t+1)%n)] += B*D[i,j]
+        x, _ = self._brute_force(Q)
+        routes = [[int(x[i*n+t]) for t in range(n)] for i in range(n)]
+        visited = [sum(row) for row in routes]
+        assert all(v == 1 for v in visited), "Cada ciudad debe visitarse exactamente una vez"
+
+    def test_qubo_energy_symmetric_matrix(self):
+        """E(x) = x^T Q x solo depende de Q+Q^T (parte simétrica)."""
+        Q = np.array([[1.0, 2.0],[3.0, 4.0]])
+        Q_sym = (Q + Q.T) / 2
+        x = np.array([1.0, 1.0])
+        E1 = x @ Q @ x
+        E2 = x @ Q_sym @ x
+        assert np.isclose(E1, E2), "Energía debe ser igual para Q y su simetrización"
+
+    def test_simulated_annealing_finds_minimum(self):
+        """Annealing simulado encuentra el mínimo de una función cuadrática simple."""
+        def sa(Q, steps=2000):
+            n = Q.shape[0]
+            x = np.random.randint(0,2,n).astype(float)
+            E = x @ Q @ x; best_x, best_E = x.copy(), E
+            for step in range(steps):
+                T = 2.0 * (0.001/2.0)**(step/steps)
+                i = np.random.randint(n)
+                x_n = x.copy(); x_n[i] = 1-x_n[i]
+                E_n = x_n @ Q @ x_n
+                if E_n < E or np.random.random() < np.exp(-(E_n-E)/(T+1e-10)):
+                    x, E = x_n, E_n
+                    if E < best_E: best_x, best_E = x.copy(), E
+            return best_x, best_E
+        Q = np.array([[1.,-2.],[-2.,1.]])  # mínimo en x=(1,1): E=1-2-2+1=-2
+        np.random.seed(42)
+        x, E = sa(Q)
+        assert E <= -1.9, f"SA debe encontrar E≈-2, obtuvo {E}"
+
+    def test_portfolio_qubo_penalty_forces_k(self):
+        """Con penalización grande, el QUBO fuerza exactamente k=2 activos seleccionados."""
+        n, k = 4, 2
+        P = 100.0  # penalización domina cualquier retorno/riesgo
+        Q = np.zeros((n, n))
+        for i in range(n): Q[i,i] += P*(1-2*k)
+        for i in range(n):
+            for j in range(n):
+                if i != j: Q[i,j] += P
+        x, _ = self._brute_force(Q)
+        assert int(x.sum()) == k, f"Con P={P}, debe seleccionar {k} activos, obtuvo {int(x.sum())}"

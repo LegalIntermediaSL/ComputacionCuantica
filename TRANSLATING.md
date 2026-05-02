@@ -6,7 +6,7 @@ This guide explains how to contribute translations of the course materials.
 
 | Language | Status | Modules translated | Contributor |
 |----------|--------|-------------------|-------------|
-| Spanish (ES) | ✅ Complete | 01–40 | @LegalIntermediaSL |
+| Spanish (ES) | ✅ Complete | 01–49 (all 49 modules) | @LegalIntermediaSL |
 | English (EN) | 🚧 In progress | 01–05 | — |
 | Portuguese (PT) | 📋 Planned | — | — |
 | French (FR) | 📋 Planned | — | — |

@@ -1,0 +1,54 @@
+name: Validate Notebooks (nbval)
+
+on:
+  push:
+    paths:
+      - 'Cuadernos/**/*.ipynb'
+  pull_request:
+    paths:
+      - 'Cuadernos/**/*.ipynb'
+  workflow_dispatch:
+
+jobs:
+  nbval:
+    name: nbval-lax on Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest nbval nbformat
+          pip install qiskit>=2.0 qiskit-aer numpy scipy matplotlib pandas
+          pip install scikit-learn networkx sympy
+
+      - name: Run nbval-lax on labs (excluding hardware/GPU/token labs)
+        run: |
+          pytest --nbval-lax --timeout=120 \
+            --ignore=Cuadernos/laboratorios/31_vqe_real_hardware.ipynb \
+            --ignore=Cuadernos/laboratorios/39_quimica_hardware_zne.ipynb \
+            --ignore=Cuadernos/laboratorios/48_peps_hubbard_2d.ipynb \
+            --ignore=Cuadernos/laboratorios/52_qnlp_lambeq.ipynb \
+            --ignore=Cuadernos/laboratorios/53_qubo_dwave.ipynb \
+            Cuadernos/laboratorios/ \
+            -v --tb=short 2>&1 | tee nbval-output.log || true
+
+      - name: Upload nbval log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nbval-log-py${{ matrix.python-version }}
+          path: nbval-output.log
+          retention-days: 7

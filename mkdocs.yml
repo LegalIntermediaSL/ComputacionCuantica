@@ -91,6 +91,9 @@ nav:
     - Módulo 40 — QSVT: Tutorial/40_qsvt/README.md
     - Módulo 45 — Computación Fotónica: Tutorial/45_computacion_fotonica/README.md
     - Módulo 46 — Átomos Neutros y Rydberg: Tutorial/46_atomos_neutros_rydberg/README.md
+    - Módulo 47 — qLDPC y Decodificadores: Tutorial/47_qldpc_decodificadores/README.md
+    - Módulo 48 — QNLP: Tutorial/48_qnlp/README.md
+    - Módulo 49 — D-Wave y Annealing: Tutorial/49_dwave_annealing/README.md
   - Laboratorios:
     - Lab 32 — Química UCCSD: Cuadernos/laboratorios/README.md
     - Lab 33 — Compilación t|ket⟩: Cuadernos/laboratorios/README.md
@@ -108,6 +111,9 @@ nav:
     - Lab 45 — Código Tórico: Cuadernos/laboratorios/README.md
     - Lab 49 — Fotónica Cuántica: Cuadernos/laboratorios/README.md
     - Lab 50 — Rydberg Chain: Cuadernos/laboratorios/README.md
+    - Lab 51 — qLDPC y Neural Decoder: Cuadernos/laboratorios/README.md
+    - Lab 52 — QNLP: Cuadernos/laboratorios/README.md
+    - Lab 53 — QUBO y D-Wave: Cuadernos/laboratorios/README.md
   - Topológica:
     - Módulo 41 — Topological QC: Tutorial/41_topological_qc
   - Práctica:
@@ -117,13 +123,27 @@ nav:
     - Ejercicios de investigación: Ejercicios/ejercicios_investigacion.md
     - Examen de certificación: Ejercicios/examen_certificacion.md
     - Autoevaluación modular: Ejercicios/autoevaluacion_modular.md
-    - Soluciones R1-R8: Soluciones/investigacion/README.md
+    - Soluciones R1-R12: Soluciones/investigacion/README.md
   - Hardware real:
     - Guía IBM Quantum: docs/guia_ibm_quantum.md
     - Error rates 2025: docs/error_rates_2025.md
     - Benchmark interactivo: visualizador/pages/16_Benchmark_Hardware.py
     - Computación Fotónica: visualizador/pages/17_Fotonica_Cuantica.py
     - Rydberg Arrays: visualizador/pages/18_Rydberg.py
+    - Decodificador QEC: visualizador/pages/19_Decodificador_QEC.py
+    - Compilador Cuántico: visualizador/pages/20_Compilador.py
+  - Resúmenes:
+    - Resúmenes 01-10: Resumenes/README.md
+    - Topológica y Redes Tensoriales: Resumenes/11_topological_y_tensor.md
+    - Gravedad Cuántica y DQC: Resumenes/12_quantum_gravity_dqc.md
+    - Fotónica y Rydberg: Resumenes/13_fotonico_y_rydberg.md
+    - qLDPC y Decodificadores: Resumenes/14_qldpc_y_decodificadores.md
+    - QNLP y Annealing: Resumenes/15_qnlp_y_annealing.md
+    - Infraestructura CI: Resumenes/16_infraestructura_y_ci.md
+    - Hardware Comparativo 2025: Resumenes/17_hardware_comparativo_2025.md
+    - Rutas y Carreras: Resumenes/18_rutas_y_carreras.md
+    - Glosario Extendido: Resumenes/19_glosario_extendido.md
+    - Matemáticas Esenciales: Resumenes/20_matematicas_esenciales.md
   - Contribuir:
     - Guía de contribución: CONTRIBUTING.md
     - Traducir el curso: TRANSLATING.md
