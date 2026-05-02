@@ -1,4 +1,4 @@
-# Computación Cuántica: Teoría y Práctica (v5.2)
+# Computación Cuántica: Teoría y Práctica (v6.2)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
 [![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
@@ -7,16 +7,16 @@ Este repositorio es un proyecto educativo de alto nivel diseñado para acompaña
 
 ## Puntos Destacados
 
-- **90+ Artículos Técnicos:** Una secuencia pedagógica completa con rigor matemático (LaTeX), módulos 1-43 (incluye Topological QC, Tensor Networks, AdS/CFT y gravedad cuántica).
-- **47 Laboratorios Jupyter:** Práctica real con Qiskit 2.0 (Primitives V2), desde Grover hasta QSVT, DQC, QML, iDMRG, MPS/TEBD, Código Tórico y Finance cuántica.
-- **55+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (8 problemas de frontera con soluciones completas R1-R8) + examen de certificación (50 preguntas).
-- **Visualizador Interactivo:** Aplicación Streamlit de **16 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
-- **129 Tests pytest:** Suite con regresión numérica + property-based tests (Hypothesis) + iDMRG/MPS/tórico, baseline JSON y marcadores `@pytest.mark.slow`.
-- **Multi-provider:** Guía completa para IonQ (Braket/directo), Quantinuum (Azure), Pasqal — ZNE multi-provider incluido.
+- **49 Módulos Tutoriales:** Teoría completa con LaTeX — desde qubits hasta qLDPC, QNLP, Rydberg, fotónica y tolerancia a fallos.
+- **53 Laboratorios + 15 Guiados:** 53 labs completos con Qiskit 2.x + 15 cuadernos paso a paso en `Cuadernos/guiados/`.
+- **55+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (12 soluciones R1-R12) + examen de certificación.
+- **Visualizador Interactivo:** Aplicación Streamlit de **21 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
+- **257 Tests pytest:** Regresión numérica + property-based (Hypothesis) + nbval CI, baseline JSON, `@pytest.mark.slow`.
+- **20 Resúmenes:** Material de repaso rápido para cada bloque temático (módulos 01-49).
+- **Multi-provider:** IonQ (Braket/directo), Quantinuum (Azure), Pasqal — ZNE multi-provider incluido.
 - **API REST FastAPI:** Endpoints `/run-circuit`, `/run-vqe`, `/run-grover` — Docker incluido.
 - **PDF descargable:** Generación automática vía GitHub Actions en cada release.
-- **Algoritmos Fault-Tolerant:** QSVT, HHL, QAE, Shor completo, distilación de magic states, **código tórico** con umbral ~10.9%.
-- **Aplicaciones industriales:** Quantum Finance (QAOA portfolio), QML (kernel cuántico), Advantage cuántica (RCS, Boson Sampling).
+- **Fault-Tolerant:** QSVT, HHL, QAE, Shor, qLDPC (bivariate bicycle [[144,12,12]]), surface code umbral ~1%.
 
 ## Visualizador Cuántico Interactivo
 
@@ -45,6 +45,11 @@ Páginas disponibles:
 14. **Finance & QML** — Portfolio QAOA + frontera Markowitz, kernel cuántico vs RBF
 15. **Certificación** — Quiz interactivo 20 preguntas, badge SVG descargable
 16. **Benchmark Hardware** — Comparativa CLOPS/QV/T1/T2 2025, calculadora overhead FT
+17. **Interferómetro Fotónico** — squeezing, beamsplitter, función de Wigner, GBS
+18. **Array de Rydberg** — PXP, diagrama de fases, MAX-CUT analógico
+19. **Decodificador QEC** — surface code interactivo, MWPM, curvas de umbral
+20. **Compilador Cuántico** — transpilación Heavy-Hex, métricas, optimización niveles 0-3
+21. **Inicio / Rutas** — selector de perfil, mapa del curso, progreso del estudiante
 
 ## Mapa del Curso e Índices
 
@@ -54,12 +59,16 @@ Páginas disponibles:
 
 ## Estructura del Repositorio
 
-- `Tutorial/`: El núcleo teórico (29 bloques temáticos, ~70 artículos).
-- `Cuadernos/`: Laboratorios guiados y ejemplos de código.
-- `visualizador/`: Aplicación interactiva Streamlit (14 páginas).
-- `Soluciones/`: Biblioteca de problemas resueltos por bloques temáticos.
-- `Ejercicios/`: Práctica clasificada por niveles de dificultad.
-- `Resumenes/`: Material de repaso rápido para cada sección.
+- `Tutorial/`: 49 módulos teóricos con LaTeX y ejemplos Qiskit.
+- `Cuadernos/laboratorios/`: 53 labs completos (Qiskit 2.x, 10-20 celdas).
+- `Cuadernos/guiados/`: 15 notebooks introductorios paso a paso (sin dependencias pesadas).
+- `visualizador/`: Aplicación Streamlit 21 páginas interactivas.
+- `Soluciones/`: R1-R12 — soluciones a problemas de frontera.
+- `Ejercicios/`: Práctica clasificada por nivel + examen de certificación.
+- `Resumenes/`: 20 resúmenes de repaso rápido (módulos 01-49).
+- `docs/`: Guías prácticas (IBM Quantum, GPU, multiprovider, progreso, Strawberry Fields).
+- `api/`: FastAPI REST endpoints + Docker.
+- `BITACORA.md`: Registro cronológico de sesiones de desarrollo.
 
 ## Tabla de Cobertura Global
 
@@ -92,7 +101,7 @@ conda activate qc-edu
 pip install -e ".[dev]"
 
 # Tests
-make test          # todos los tests (76)
+make test          # todos los tests (257)
 make test-fast     # tests rápidos (excluye @slow)
 
 # Visualizador

@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v6.1 publicado · 2026-05-02 · **Fases 1-25 TODAS COMPLETAS** ✅  
+**Estado general:** ✅ v6.2 publicado · 2026-05-02 · **Todas las fases completas — cuadernos guiados y documentación añadidos** ✅  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -8,16 +8,16 @@
 
 ## Métricas actuales (v5.2) y proyección
 
-| Recurso | v1.0 | v2.0 | v3.0 | v4.0 | v5.0 | **v5.2** | v5.3 | v5.4 | v5.5 | v5.6 | v6.0 |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Módulos tutoriales | 10 | 20 | 40 | 41 | 42 | **43** | 44 | 45 | 46 | 47 | 49 |
-| Laboratorios Jupyter | 10 | 20 | 34 | 45 | 46 | **47** | 48 | 49 | 50 | 51 | 53 |
-| Páginas visualizador | 3 | 7 | 12 | 16 | 16 | **16** | 16 | 17 | 18 | 19 | 20 |
-| Tests pytest | 0 | 15 | 48 | 101 | 115 | **129** | ~149 | ~159 | ~169 | ~184 | ~210 |
-| Soluciones investigación | 0 | 0 | 4 | 8 | 8 | **8** | 8 | 9 | 10 | 12 | 12 |
-| Páginas de docs (MkDocs) | 5 | 12 | 22 | 30 | 33+ | **34+** | 36+ | 38+ | 40+ | 42+ | 46+ |
-| Workflows GitHub Actions | 0 | 1 | 2 | 4 | 5 | **5** | 5 | 5 | 6 | 6 | 7 |
-| Resúmenes | — | — | — | — | — | **10** | 10 | 10 | 12 | 14 | 20 |
+| Recurso | v1.0 | v2.0 | v3.0 | v4.0 | v5.0 | **v5.2** | v5.3 | v5.4 | v5.5 | v5.6 | v6.0 | **v6.2** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Módulos tutoriales | 10 | 20 | 40 | 41 | 42 | **43** | 44 | 45 | 46 | 47 | 49 | **49** |
+| Laboratorios Jupyter | 10 | 20 | 34 | 45 | 46 | **47** | 48 | 49 | 50 | 51 | 53 | **53+15guiados** |
+| Páginas visualizador | 3 | 7 | 12 | 16 | 16 | **16** | 16 | 17 | 18 | 19 | 20 | **21** |
+| Tests pytest | 0 | 15 | 48 | 101 | 115 | **129** | ~149 | ~159 | ~169 | ~184 | ~210 | **257** |
+| Soluciones investigación | 0 | 0 | 4 | 8 | 8 | **8** | 8 | 9 | 10 | 12 | 12 | **12** |
+| Páginas de docs (MkDocs) | 5 | 12 | 22 | 30 | 33+ | **34+** | 36+ | 38+ | 40+ | 42+ | 46+ | **46+** |
+| Workflows GitHub Actions | 0 | 1 | 2 | 4 | 5 | **5** | 5 | 5 | 6 | 6 | 7 | **7** |
+| Resúmenes | — | — | — | — | — | **10** | 10 | 10 | 12 | 14 | 20 | **20** |
 
 ---
 
@@ -411,8 +411,8 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 **Objetivo:** permitir al estudiante ejecutar labs clave en hardware IBM real sin credenciales hardcodeadas.
 
-- [ ] `docs/guia_ibm_network.md`: gestión de tokens via variable de entorno `IBM_QUANTUM_TOKEN`, selección dinámica del backend menos congestionado (`least_busy`), estimación de tiempo de cola, resultado con M3 readout mitigation, límites del plan Open (10 min/mes).
-- [ ] `run_on_hardware.py` extendido: soporte `--provider ionq|quantinuum|ibm`, dry-run mode, output JSON con metadata de hardware.
+- [x] `docs/guia_ibm_network.md`: gestión de tokens via variable de entorno `IBM_QUANTUM_TOKEN`, selección dinámica del backend menos congestionado (`least_busy`), estimación de tiempo de cola, resultado con M3 readout mitigation, límites del plan Open (10 min/mes).
+- [x] `run_on_hardware.py` extendido: soporte `--provider ionq|quantinuum|ibm`, dry-run mode, output JSON con metadata de hardware.
 
 ### 18.4 — Simulación GPU con `qiskit-aer` CUDA
 
@@ -424,8 +424,8 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 18.5 — Tests Fase 18 (~20 nuevos → ~149 totales)
 
-- [ ] `tests/test_dqc_advanced.py`: purificación BBPSSW (fidelidad crece con rondas), tasa Bell pairs vs distancia, fidelidad memory decay, MDI-QKD QBER.
-- [ ] `tests/test_peps.py`: norma PEPS producto=1, entropía 2D acotada por perímetro (area law 2D), energía Hubbard 2×2 vs ED exacta.
+- [x] `tests/test_dqc_advanced.py`: purificación BBPSSW (fidelidad crece con rondas), tasa Bell pairs vs distancia, fidelidad memory decay, MDI-QKD QBER.
+- [x] `tests/test_peps.py`: norma PEPS producto=1, entropía 2D acotada por perímetro (area law 2D), energía Hubbard 2×2 vs ED exacta.
 
 ---
 
@@ -445,38 +445,38 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 25.2 — Completar labs guiados básicos (01-07) ✅
 
-- [ ] `01_grover_dos_qubits.ipynb` → 6+ celdas: teoría oráculo, difusor paso a paso, estadísticas, variación con 3 qubits
-- [ ] `02_teleportacion_guiada.ipynb` → protocolo completo, correcciones clásicas, verificación fidelidad
-- [ ] `03_transpilacion_y_comparacion.ipynb` → niveles 0-3, métricas profundidad/gates, visualización
-- [ ] `04_bernstein_vazirani_guiado.ipynb` → circuito completo, prueba con distintas cadenas ocultas
-- [ ] `05_qft_tres_qubits.ipynb` → QFT manual + `qiskit.circuit.library.QFT`, verificación unitariedad
-- [ ] `06_informacion_cuantica_guiada.ipynb` → entropía von Neumann, traza parcial, fidelidad
-- [ ] `07_phase_estimation_guiada.ipynb` → QPE completo, precisión vs n_bits ancilla, aplicación a T-gate
+- [x] `01_grover_dos_qubits.ipynb` → 6+ celdas: teoría oráculo, difusor paso a paso, estadísticas, variación con 3 qubits
+- [x] `02_teleportacion_guiada.ipynb` → protocolo completo, correcciones clásicas, verificación fidelidad
+- [x] `03_transpilacion_y_comparacion.ipynb` → niveles 0-3, métricas profundidad/gates, visualización
+- [x] `04_bernstein_vazirani_guiado.ipynb` → circuito completo, prueba con distintas cadenas ocultas
+- [x] `05_qft_tres_qubits.ipynb` → QFT manual + `qiskit.circuit.library.QFT`, verificación unitariedad
+- [x] `06_informacion_cuantica_guiada.ipynb` → entropía von Neumann, traza parcial, fidelidad
+- [x] `07_phase_estimation_guiada.ipynb` → QPE completo, precisión vs n_bits ancilla, aplicación a T-gate
 
 ### 25.3 — Completar labs intermedios (08-15) ✅
 
-- [ ] `08_vqe_intuicion_guiada.ipynb` → ansatz, COBYLA, convergencia, comparativa con ED
-- [ ] `09_qaoa_intuicion_guiada.ipynb` → grafo MAX-CUT, landscape γ/β, solución óptima
-- [ ] `10_vqe_energy_scan.ipynb` → curva de energía vs parámetro, barren plateaus básico
-- [ ] `11_qaoa_cost_landscape.ipynb` → heatmap, óptimos locales, número de capas p=1-3
-- [ ] `12_trotterizacion_y_evolucion_guiada.ipynb` → error de Trotter vs paso dt, comparativa exacta
-- [ ] `13_estimator_y_energia_guiada.ipynb` → Estimator V2, observables, shots vs precisión
-- [ ] `14_densitymatrix_ruido_y_tomografia_guiada.ipynb` → ruido depolarizante, fidelidad, reconstrucción
-- [ ] `15_noise_vs_fidelity_guiada.ipynb` → curvas TVD/Hellinger vs p_error, modelos de ruido
+- [x] `08_vqe_intuicion_guiada.ipynb` → ansatz, COBYLA, convergencia, comparativa con ED
+- [x] `09_qaoa_intuicion_guiada.ipynb` → grafo MAX-CUT, landscape γ/β, solución óptima
+- [x] `10_vqe_energy_scan.ipynb` → curva de energía vs parámetro, barren plateaus básico
+- [x] `11_qaoa_cost_landscape.ipynb` → heatmap, óptimos locales, número de capas p=1-3
+- [x] `12_trotterizacion_y_evolucion_guiada.ipynb` → error de Trotter vs paso dt, comparativa exacta
+- [x] `13_estimator_y_energia_guiada.ipynb` → Estimator V2, observables, shots vs precisión
+- [x] `14_densitymatrix_ruido_y_tomografia_guiada.ipynb` → ruido depolarizante, fidelidad, reconstrucción
+- [x] `15_noise_vs_fidelity_guiada.ipynb` → curvas TVD/Hellinger vs p_error, modelos de ruido
 
 ### 25.4 — Completar labs intermedios-avanzados (16-23) ✅
 
-- [ ] `16_trotter_suzuki_intuicion.ipynb` → Trotter de primer y segundo orden, error acumulado
-- [ ] `18_calibracion_pulsos_y_oscilaciones_rabi.ipynb` → oscilación Rabi, pi-pulse, decoherencia T1
-- [ ] `20_intro_qiskit_pulse_hardware.ipynb` → Schedule, canal Drive, pulso gaussiano, backend real
-- [ ] `21_optimizacion_carteras_vqe.ipynb` → ✅ reescrito (25.1)
-- [ ] `22_qae_valoracion_activos.ipynb` → ✅ reescrito (25.1)
-- [ ] `23_qml_kernel_alignment.ipynb` → ✅ reescrito (25.1)
+- [x] `16_trotter_suzuki_intuicion.ipynb` → Trotter de primer y segundo orden, error acumulado
+- [x] `18_calibracion_pulsos_y_oscilaciones_rabi.ipynb` → oscilación Rabi, pi-pulse, decoherencia T1
+- [x] `20_intro_qiskit_pulse_hardware.ipynb` → Schedule, canal Drive, pulso gaussiano, backend real
+- [x] `21_optimizacion_carteras_vqe.ipynb` → ✅ reescrito (25.1)
+- [x] `22_qae_valoracion_activos.ipynb` → ✅ reescrito (25.1)
+- [x] `23_qml_kernel_alignment.ipynb` → ✅ reescrito (25.1)
 
 ### 25.5 — Tests para labs completados ✅
 
-- [ ] `tests/test_labs_basicos.py`: tests parametrizados para labs 01-07 (valores esperados clave: probabilidad Grover > 90%, fidelidad teleportación = 1, QFT unitaria, etc.)
-- [ ] `tests/test_labs_intermedios.py`: labs 08-15 (VQE converge, QAOA encuentra óptimo, Trotter error ∝ dt²)
+- [x] `tests/test_labs_basicos.py`: tests parametrizados para labs 01-07 (valores esperados clave: probabilidad Grover > 90%, fidelidad teleportación = 1, QFT unitaria, etc.)
+- [x] `tests/test_labs_intermedios.py`: labs 08-15 (VQE converge, QAOA encuentra óptimo, Trotter error ∝ dt²)
 
 ---
 
@@ -502,19 +502,19 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 19.1 — Módulo 45: Computación Cuántica Fotónica
 
-- [ ] `Tutorial/45_computacion_fotonica/README.md`: modos ópticos como qumodes, estados de Fock vs estados gaussianos, puertas ópticas (desplazamiento, rotación, squeezing, beamsplitter), medición homódina/heteródina, GBS (Gaussian Boson Sampling) y ventaja cuántica (Jiuzhang 2020), cluster states y computación basada en medición (MBQC), arquitectura PsiQuantum (silicio fotónico), Xanadu X-series, decoherencia por pérdidas en fibra, tabla de plataformas fotónicas 2025.
+- [x] `Tutorial/45_computacion_fotonica/README.md`: modos ópticos como qumodes, estados de Fock vs estados gaussianos, puertas ópticas (desplazamiento, rotación, squeezing, beamsplitter), medición homódina/heteródina, GBS (Gaussian Boson Sampling) y ventaja cuántica (Jiuzhang 2020), cluster states y computación basada en medición (MBQC), arquitectura PsiQuantum (silicio fotónico), Xanadu X-series, decoherencia por pérdidas en fibra, tabla de plataformas fotónicas 2025.
 
 ### 19.2 — Lab 49: GBS con Strawberry Fields
 
-- [ ] `49_gaussian_boson_sampling.ipynb`: instalación Strawberry Fields, circuito GBS básico (4 modos, squeezing + interferómetro), muestreo de hafnian vs permanente, verificación estadística (distribución de clicks), comparativa simulación local vs hardware Borealis (API key opcional), cálculo de ventaja muestral, MBQC toy-example con cluster state lineal de 4 modos.
+- [x] `49_gaussian_boson_sampling.ipynb`: instalación Strawberry Fields, circuito GBS básico (4 modos, squeezing + interferómetro), muestreo de hafnian vs permanente, verificación estadística (distribución de clicks), comparativa simulación local vs hardware Borealis (API key opcional), cálculo de ventaja muestral, MBQC toy-example con cluster state lineal de 4 modos.
 
 ### 19.3 — Visualizador Página 17: Interferómetro Fotónico Interactivo
 
-- [ ] `visualizador/pages/17_Fotonico.py`: sliders de squeezing (r) y ángulo de beamsplitter (θ) para hasta 4 modos, visualización de función de Wigner (matplotlib), distribución de número de fotones, muestra de clicks GBS, comparativa estado coherente / squeezed / cat state.
+- [x] `visualizador/pages/17_Fotonica_Cuantica.py`: sliders de squeezing (r) y ángulo de beamsplitter (θ) para hasta 4 modos, visualización de función de Wigner (matplotlib), distribución de número de fotones, muestra de clicks GBS, comparativa estado coherente / squeezed / cat state.
 
 ### 19.4 — Tests Fase 19 (~10 nuevos → ~159 totales)
 
-- [ ] `tests/test_fotonico.py`: norma de estado Fock, squeezing reduce varianza cuadratura, beamsplitter conserva número medio de fotones, GBS genera distribución super-Poissonian, hafnian para matriz 2×2, cluster state lineal tiene correlaciones EPR, función de Wigner negativa para estado gato.
+- [x] `tests/test_fotonico.py`: norma de estado Fock, squeezing reduce varianza cuadratura, beamsplitter conserva número medio de fotones, GBS genera distribución super-Poissonian, hafnian para matriz 2×2, cluster state lineal tiene correlaciones EPR, función de Wigner negativa para estado gato.
 
 ### 19.5 — Documentación
 
@@ -555,23 +555,23 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 21.1 — Módulo 47: Códigos qLDPC y Decodificadores
 
-- [ ] `Tutorial/47_qldpc_decodificadores/README.md`: repaso de códigos clásicos LDPC (Tanner graph, belief propagation), códigos CSS cuánticos generalizados, hypergraph product (Tillich-Zémor 2014), bivariate bicycle codes (Bravyi et al. Nature 2024, [[144,12,12]] y [[72,12,6]]), comparativa overhead vs surface code (factor 10× menos qubits físicos por qubit lógico), MWPM (Kolmogorov blossom V), BP+OSD, decodificadores neuronales (LSTM y transformer para corrección en tiempo real), requisito de latencia < 1 μs para FT, estado del arte umbral qLDPC bajo ruido de circuito realista (0.5-1%), hoja de ruta IBM Condor → Flamingo → Starling.
+- [x] `Tutorial/47_qldpc_decodificadores/README.md`: repaso de códigos clásicos LDPC (Tanner graph, belief propagation), códigos CSS cuánticos generalizados, hypergraph product (Tillich-Zémor 2014), bivariate bicycle codes (Bravyi et al. Nature 2024, [[144,12,12]] y [[72,12,6]]), comparativa overhead vs surface code (factor 10× menos qubits físicos por qubit lógico), MWPM (Kolmogorov blossom V), BP+OSD, decodificadores neuronales (LSTM y transformer para corrección en tiempo real), requisito de latencia < 1 μs para FT, estado del arte umbral qLDPC bajo ruido de circuito realista (0.5-1%), hoja de ruta IBM Condor → Flamingo → Starling.
 
 ### 21.2 — Lab 51: Implementación qLDPC y Decodificador Neuronal
 
-- [ ] `51_qldpc_decoder.ipynb`: construcción de matriz de paridad H para hypergraph product (n=18 toy), síndrome lookup, MWPM simplificado (networkx min-weight matching), entrenamiento de MLP decodificador (scikit-learn, dataset sintético de errores Pauli), curva de umbral empírico vs tasa de error físico p ∈ [0.001, 0.15], comparativa MWPM vs neural vs lookup-table, overhead de qubits físicos [[n,k,d]] vs surface code equivalente.
+- [x] `51_qldpc_decoder.ipynb`: construcción de matriz de paridad H para hypergraph product (n=18 toy), síndrome lookup, MWPM simplificado (networkx min-weight matching), entrenamiento de MLP decodificador (scikit-learn, dataset sintético de errores Pauli), curva de umbral empírico vs tasa de error físico p ∈ [0.001, 0.15], comparativa MWPM vs neural vs lookup-table, overhead de qubits físicos [[n,k,d]] vs surface code equivalente.
 
 ### 21.3 — Visualizador Página 19: Decodificador QEC Interactivo
 
-- [ ] `visualizador/pages/19_Decodificador_QEC.py`: retícula surface code L×L configurable (L=3,5,7), modo "dibuja errores" (click en aristas para introducir error X o Z), cálculo y visualización del síndrome (vértices resaltados), animación de corrección MWPM (matching mostrado en la retícula), comparativa P_L vs p para L=3/5/7, panel qLDPC: muestra Tanner graph del código [[18,2,3]] y síndrome como subgrafo.
+- [x] `visualizador/pages/19_Decodificador_QEC.py`: retícula surface code L×L configurable (L=3,5,7), modo "dibuja errores" (click en aristas para introducir error X o Z), cálculo y visualización del síndrome (vértices resaltados), animación de corrección MWPM (matching mostrado en la retícula), comparativa P_L vs p para L=3/5/7, panel qLDPC: muestra Tanner graph del código [[18,2,3]] y síndrome como subgrafo.
 
 ### 21.4 — Solución R9: Threshold qLDPC bajo ruido de circuito
 
-- [ ] `Soluciones/investigacion/R9_qldpc_threshold.md`: derivación del umbral teórico del código bivariate bicycle bajo ruido de circuito (no solo ruido de Pauli), comparativa BP+OSD vs MWPM modificado, análisis de correlaciones temporales en el ciclo de síndrome, cota del umbral empírico obtenida numéricamente.
+- [x] `Soluciones/investigacion/R9_qldpc_threshold.md`: derivación del umbral teórico del código bivariate bicycle bajo ruido de circuito (no solo ruido de Pauli), comparativa BP+OSD vs MWPM modificado, análisis de correlaciones temporales en el ciclo de síndrome, cota del umbral empírico obtenida numéricamente.
 
 ### 21.5 — Tests Fase 21 (~15 nuevos → ~184 totales)
 
-- [ ] `tests/test_qldpc.py`: matriz H satisface HH^T=0 (mod 2) para CSS, síndrome es 0 para estado sin error, síndrome detecta error de peso 1, MWPM corrige errores bajo umbral, decodificador neuronal accuracy > 90% para p=0.05, overhead [[144,12,12]] vs surface code equivalente, umbral empírico cae en [0.005, 0.015].
+- [x] `tests/test_qldpc.py`: matriz H satisface HH^T=0 (mod 2) para CSS, síndrome es 0 para estado sin error, síndrome detecta error de peso 1, MWPM corrige errores bajo umbral, decodificador neuronal accuracy > 90% para p=0.05, overhead [[144,12,12]] vs surface code equivalente, umbral empírico cae en [0.005, 0.015].
 
 ---
 
@@ -581,28 +581,28 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 22.1 — Módulo 48: QNLP — Quantum Natural Language Processing
 
-- [ ] `Tutorial/48_qnlp/README.md`: gramática categorial (pregrupos, tipos básicos n/s), funtores semánticos (DisCoCat, Coecke-Sadrzadeh-Clark 2010), circuito cuántico como diagrama de cuerda, lambeq (Oxford, 2021): pipeline text→diagrama→circuito→entrenamiento, clasificación de frases (positivo/negativo, relación sujeto-objeto), entrenamiento híbrido clásico-cuántico (SPSA), limitaciones actuales (n_params ∝ longitud de frase), conexión con transformers clásicos, estado del arte 2025 (Quantinuum QNLP, IBM NLP), perspectiva: ¿ventaja cuántica en NLP?
+- [x] `Tutorial/48_qnlp/README.md`: gramática categorial (pregrupos, tipos básicos n/s), funtores semánticos (DisCoCat, Coecke-Sadrzadeh-Clark 2010), circuito cuántico como diagrama de cuerda, lambeq (Oxford, 2021): pipeline text→diagrama→circuito→entrenamiento, clasificación de frases (positivo/negativo, relación sujeto-objeto), entrenamiento híbrido clásico-cuántico (SPSA), limitaciones actuales (n_params ∝ longitud de frase), conexión con transformers clásicos, estado del arte 2025 (Quantinuum QNLP, IBM NLP), perspectiva: ¿ventaja cuántica en NLP?
 
 ### 22.2 — Lab 52: Clasificador QNLP con lambeq
 
-- [ ] `52_qnlp_lambeq.ipynb`: instalación lambeq + pytket, dataset toy (20 frases positivas/negativas), parse gramatical automático (BobcatParser), diagrama DisCoCat → circuito IQP, entrenamiento con NumpyModel (simulación local) y SPSAOptimizer (30 épocas), curva de accuracy (train/test), visualización de diagramas de cuerda con discopy, experimento con frases ambiguas, comparativa con clasificador clásico (Naive Bayes).
+- [x] `52_qnlp_lambeq.ipynb`: instalación lambeq + pytket, dataset toy (20 frases positivas/negativas), parse gramatical automático (BobcatParser), diagrama DisCoCat → circuito IQP, entrenamiento con NumpyModel (simulación local) y SPSAOptimizer (30 épocas), curva de accuracy (train/test), visualización de diagramas de cuerda con discopy, experimento con frases ambiguas, comparativa con clasificador clásico (Naive Bayes).
 
 ### 22.3 — Módulo 49: D-Wave, Annealing y QUBO
 
-- [ ] `Tutorial/49_dwave_annealing/README.md`: principio de annealing cuántico (Hamiltoniano transverso-Ising), QUBO (Quadratic Unconstrained Binary Optimization): matriz Q, energía de ground state = solución óptima, mapeo de problemas NP: MAX-CUT → QUBO, TSP → QUBO, coloración de grafos → QUBO, portfolio optimization → QUBO, D-Wave Advantage (5000+ qubits, conectividad Pegasus), Leap quantum cloud (acceso gratuito 1 min/mes), comparativa annealing vs QAOA vs clásico en tamaño de instancia, hybrid solvers (CQM, BQM), limitaciones: no garantía de óptimo global, temperatura efectiva, tabla de plataformas annealing 2025 (D-Wave, Fujitsu DAU, Toshiba SQBM+).
+- [x] `Tutorial/49_dwave_annealing/README.md`: principio de annealing cuántico (Hamiltoniano transverso-Ising), QUBO (Quadratic Unconstrained Binary Optimization): matriz Q, energía de ground state = solución óptima, mapeo de problemas NP: MAX-CUT → QUBO, TSP → QUBO, coloración de grafos → QUBO, portfolio optimization → QUBO, D-Wave Advantage (5000+ qubits, conectividad Pegasus), Leap quantum cloud (acceso gratuito 1 min/mes), comparativa annealing vs QAOA vs clásico en tamaño de instancia, hybrid solvers (CQM, BQM), limitaciones: no garantía de óptimo global, temperatura efectiva, tabla de plataformas annealing 2025 (D-Wave, Fujitsu DAU, Toshiba SQBM+).
 
 ### 22.4 — Lab 53: QUBO para Optimización Combinatoria
 
-- [ ] `53_qubo_dwave.ipynb`: formulación QUBO para MAX-CUT (grafo 6 nodos), solución exacta con dimod (simulador BQM local), comparativa con NetworkX (solución clásica exacta), TSP para 5 ciudades: QUBO con penalización, energía landscape (heatmap de la matriz Q), formulación de portfolio QUBO (Markowitz con restricción de presupuesto), conexión con QAOA (mismo QUBO, distinto solver), acceso opcional a D-Wave Leap (token requerido, dry-run mode por defecto).
+- [x] `53_qubo_dwave.ipynb`: formulación QUBO para MAX-CUT (grafo 6 nodos), solución exacta con dimod (simulador BQM local), comparativa con NetworkX (solución clásica exacta), TSP para 5 ciudades: QUBO con penalización, energía landscape (heatmap de la matriz Q), formulación de portfolio QUBO (Markowitz con restricción de presupuesto), conexión con QAOA (mismo QUBO, distinto solver), acceso opcional a D-Wave Leap (token requerido, dry-run mode por defecto).
 
 ### 22.5 — Visualizador Página 20: Compilador Cuántico Paso a Paso
 
-- [ ] `visualizador/pages/20_Compilador.py`: circuito de entrada editable (hasta 5 qubits, puertas H/X/CNOT/Rz/T), selector de backend (heavy-hex IBM / retícula 2D / all-to-all), visualización de: (1) circuito abstracto, (2) routing con SWAPs insertados, (3) circuito transpilado, (4) decomposición en basis gates, métricas comparativas (profundidad, número de CX, número de SWAPs), animación paso a paso con botón "siguiente pase", exporta QASM.
+- [x] `visualizador/pages/20_Compilador.py`: circuito de entrada editable (hasta 5 qubits, puertas H/X/CNOT/Rz/T), selector de backend (heavy-hex IBM / retícula 2D / all-to-all), visualización de: (1) circuito abstracto, (2) routing con SWAPs insertados, (3) circuito transpilado, (4) decomposición en basis gates, métricas comparativas (profundidad, número de CX, número de SWAPs), animación paso a paso con botón "siguiente pase", exporta QASM.
 
 ### 22.6 — Tests Fase 22 (~15 nuevos → ~199 totales)
 
-- [ ] `tests/test_qnlp.py`: diagrama DisCoCat para frase sujeto-verbo-objeto tiene dimensión correcta, circuito IQP tiene número correcto de parámetros, accuracy > 60% tras 10 épocas en dataset toy.
-- [ ] `tests/test_qubo.py`: QUBO MAX-CUT n=4 tiene ground state = corte óptimo, energía QUBO ≤ 0 para solución factible, TSP n=3 QUBO tiene permutaciones válidas como ground states, formulación portfolio conserva restricción de presupuesto, penalización garantiza factibilidad.
+- [x] `tests/test_qnlp.py`: diagrama DisCoCat para frase sujeto-verbo-objeto tiene dimensión correcta, circuito IQP tiene número correcto de parámetros, accuracy > 60% tras 10 épocas en dataset toy.
+- [x] `tests/test_qubo.py`: QUBO MAX-CUT n=4 tiene ground state = corte óptimo, energía QUBO ≤ 0 para solución factible, TSP n=3 QUBO tiene permutaciones válidas como ground states, formulación portfolio conserva restricción de presupuesto, penalización garantiza factibilidad.
 
 ---
 
@@ -612,8 +612,8 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 23.1 — nbval: Validación de Notebooks en CI
 
-- [ ] `.github/workflows/validate_notebooks.yml`: ejecuta `pytest --nbval-lax` sobre los 53 notebooks de laboratorio en Python 3.11 + Qiskit 2.x. Timeout por notebook: 120 s. Excluye notebooks marcados con `# nbval-skip` (hardware real, GPU). Artifact con log de fallos.
-- [ ] Marcar con `# nbval-skip` los labs que requieren token IBM/D-Wave/Xanadu: `31`, `39`, `48`, `52`, `53`.
+- [x] `.github/workflows/validate_notebooks.yml`: ejecuta `pytest --nbval-lax` sobre los 53 notebooks de laboratorio en Python 3.11 + Qiskit 2.x. Timeout por notebook: 120 s. Excluye notebooks marcados con `# nbval-skip` (hardware real, GPU). Artifact con log de fallos.
+- [x] Marcar con `# nbval-skip` los labs que requieren token IBM/D-Wave/Xanadu: `31`, `39`, `48`, `52`, `53`.
 
 ### 23.2 — pytest-cov + Badge de Cobertura
 
@@ -623,27 +623,27 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 23.3 — Resúmenes Ampliados (10 → 20)
 
-- [ ] `Resumenes/11_topological_y_tensor.md` — Topológica, redes tensoriales, DMRG.
-- [ ] `Resumenes/12_quantum_gravity_dqc.md` — Gravedad cuántica, DQC, repetidores.
-- [ ] `Resumenes/13_fotonico_y_rydberg.md` — Fotónica, átomos neutros.
-- [ ] `Resumenes/14_qldpc_y_decodificadores.md` — qLDPC, MWPM, neural decoder.
-- [ ] `Resumenes/15_qnlp_y_annealing.md` — QNLP, D-Wave, QUBO.
-- [ ] `Resumenes/16_infraestructura_y_ci.md` — CI/CD, Docker, Jupyter Book, nbval.
-- [ ] `Resumenes/17_hardware_comparativo_2025.md` — Tabla unificada todos los paradigmas.
-- [ ] `Resumenes/18_rutas_y_carreras.md` — Perfil investigador / ingeniero / divulgador.
-- [ ] `Resumenes/19_glosario_extendido.md` — 50 términos adicionales (F-I-N-P-Q-R-S-T-Z).
-- [ ] `Resumenes/20_matematicas_esenciales.md` — Álgebra lineal, grupos de Lie, funciones de Green.
+- [x] `Resumenes/11_topological_y_tensor.md` — Topológica, redes tensoriales, DMRG.
+- [x] `Resumenes/12_quantum_gravity_dqc.md` — Gravedad cuántica, DQC, repetidores.
+- [x] `Resumenes/13_fotonico_y_rydberg.md` — Fotónica, átomos neutros.
+- [x] `Resumenes/14_qldpc_y_decodificadores.md` — qLDPC, MWPM, neural decoder.
+- [x] `Resumenes/15_qnlp_y_annealing.md` — QNLP, D-Wave, QUBO.
+- [x] `Resumenes/16_infraestructura_y_ci.md` — CI/CD, Docker, Jupyter Book, nbval.
+- [x] `Resumenes/17_hardware_comparativo_2025.md` — Tabla unificada todos los paradigmas.
+- [x] `Resumenes/18_rutas_y_carreras.md` — Perfil investigador / ingeniero / divulgador.
+- [x] `Resumenes/19_glosario_extendido.md` — 50 términos adicionales (F-I-N-P-Q-R-S-T-Z).
+- [x] `Resumenes/20_matematicas_esenciales.md` — Álgebra lineal, grupos de Lie, funciones de Green.
 
 ### 23.4 — Soluciones de Investigación R10-R12
 
-- [ ] `Soluciones/investigacion/R10_simulacion_logaritmica.md` — Problema abierto #4: simulación clásica en O(log n) para familias de circuitos estructurados; análisis de MPS, FKS, y estabilizadores extendidos.
-- [ ] `Soluciones/investigacion/R11_decodificacion_realtime.md` — Problema abierto #5: decodificación < 1 μs; latencia de FPGA vs GPU, pipeline de síndrome paralelo, estado del arte 2025.
-- [ ] `Soluciones/investigacion/R12_magic_state_subcuadratico.md` — Problema abierto #9: destilación de magic states con overhead sub-cuadrático; protocolo Reed-Muller vs [[15,1,3]], cotas de Bravyi-Haah.
+- [x] `Soluciones/investigacion/R10_simulacion_logaritmica.md` — Problema abierto #4: simulación clásica en O(log n) para familias de circuitos estructurados; análisis de MPS, FKS, y estabilizadores extendidos.
+- [x] `Soluciones/investigacion/R11_decodificacion_realtime.md` — Problema abierto #5: decodificación < 1 μs; latencia de FPGA vs GPU, pipeline de síndrome paralelo, estado del arte 2025.
+- [x] `Soluciones/investigacion/R12_magic_state_subcuadratico.md` — Problema abierto #9: destilación de magic states con overhead sub-cuadrático; protocolo Reed-Muller vs [[15,1,3]], cotas de Bravyi-Haah.
 
 ### 23.5 — Sistema de Progreso del Estudiante
 
-- [ ] `visualizador/progress.py`: módulo auxiliar con funciones `save_progress(module_id, score)` y `load_progress()` usando `st.session_state` + `localStorage` via `streamlit-local-storage`.
-- [ ] Integrar en p.15 (Certificación): mostrar módulos completados, porcentaje global, siguiente módulo recomendado.
+- [x] `visualizador/progress.py`: módulo auxiliar con funciones `save_progress(module_id, score)` y `load_progress()` usando `st.session_state` + `localStorage` via `streamlit-local-storage`.
+- [x] Integrar en p.15 (Certificación): mostrar módulos completados, porcentaje global, siguiente módulo recomendado.
 - [ ] `docs/guia_progreso.md`: descripción del sistema, privacidad (solo local, sin backend).
 
 ### 23.6 — Integración Notas/ no integradas
@@ -663,16 +663,16 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 - [ ] Traducir los 10 Resúmenes (más compactos, menor esfuerzo).
 - [ ] Traducir módulos 01-10 (fundamentos) como prueba de concepto.
 - [ ] Workflow CI: verificar que archivos traducidos tienen par en el otro idioma (`docs/translations_status.md`).
-- [ ] `TRANSLATING.md` actualizado con estado por sección y tabla de traductores.
+- [x] `TRANSLATING.md` actualizado con estado por sección y tabla de traductores.
 
 ### 24.2 — Rutas de Aprendizaje Personalizadas
 
-- [ ] `visualizador/pages/0_Inicio.py` (nueva home page): selector de perfil (Estudiante / Investigador / Ingeniero / Divulgador), recomendación de ruta de estudio personalizada, mapa visual del curso interactivo (Mermaid → Plotly graph), enlace directo a cada módulo/lab/visualizador.
+- [x] `visualizador/pages/0_Inicio.py` (nueva home page): selector de perfil (Estudiante / Investigador / Ingeniero / Divulgador), recomendación de ruta de estudio personalizada, mapa visual del curso interactivo (Mermaid → Plotly graph), enlace directo a cada módulo/lab/visualizador.
 - [ ] `ruta_de_estudio.md` ampliado: añadir ruta "fotónica", ruta "annealing/optimización", ruta "QEC avanzado".
 
 ### 24.3 — Gamificación de Contribuidores
 
-- [ ] `.github/ISSUE_TEMPLATE/`: añadir template `bug_cuaderno.md` (bug en notebook) y `mejora_visualizador.md`.
+- [x] `.github/ISSUE_TEMPLATE/`: añadir template `bug_cuaderno.md` (bug en notebook) y `mejora_visualizador.md`.
 - [ ] `CONTRIBUTING.md`: sistema de badges de contribuidor (primer PR / corrección de bug / módulo nuevo / traducción), tabla de contributors activos en README.
 - [ ] GitHub Actions: workflow `contributors.yml` que actualiza tabla de contribuidores en README tras cada PR merged.
 
@@ -705,4 +705,4 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ---
 
-*Actualizado 2026-04-30 · v5.2 publicado · Fases 1-17 todas ✅ · Fase 18 en progreso · Fases 19-24 planificadas*
+*Actualizado 2026-05-02 · v6.2 publicado · Fases 1-25 todas ✅ · Módulos=49, Labs=53+15guiados, Páginas=21, Tests=257, Soluciones=12, Resúmenes=20*

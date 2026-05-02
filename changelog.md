@@ -4,6 +4,20 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [3.0.0] - 2026-05-02
+
+### Added (v6.2 — Cierre del plan de expansión · cuadernos guiados y documentación)
+
+- **15 Cuadernos Guiados** `Cuadernos/guiados/`: notebooks pedagógicos paso a paso que cubren los conceptos fundamentales — qubit, puertas, Grover, teleportación, QFT, QPE, entrelazamiento, VQE, QAOA, ruido, QEC, Shor, QML, QUBO, fault-tolerant. Diseñados como punto de entrada antes de los labs completos.
+- **`docs/guia_progreso.md`**: documenta el sistema `visualizador/progress.py` — API de funciones, formato de datos, privacidad (solo `st.session_state`), integración en p.15 Certificación, alternativa localStorage avanzada.
+- **`docs/guia_strawberry_fields.md`**: guía práctica de Strawberry Fields — instalación, backends (`gaussian`, `fock`), estado de Borealis (suspendido oct 2023), GBS básico 4 modos, relación con PennyLane.
+- **`BITACORA.md`**: registro cronológico completo del proyecto — todas las sesiones de desarrollo desde v1.0 hasta v6.2, decisiones técnicas, problemas resueltos y métricas por versión.
+
+### Changed
+
+- **`PLAN_EXPANSION.md`**: actualizado a v6.2 — 68 checkboxes marcados `[x]` (ítems cuyo archivo existe), header y métricas finales actualizadas (49 módulos, 53+15 labs, 21 páginas, 257 tests).
+- **`README.md`**: versión → v6.2, métricas actualizadas (257 tests, 21 páginas, 53+15 labs), sección de estructura ampliada con `guiados/`, `Resumenes/`, `BITACORA.md`, lista de visualizador completa (21 páginas).
+
 ## [2.2.0] - 2026-04-27
 
 ### Added (Fase 17 — Quantum Gravity, iDMRG y Multi-provider · v5.2)
