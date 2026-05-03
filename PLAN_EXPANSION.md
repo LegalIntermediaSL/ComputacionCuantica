@@ -518,8 +518,8 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 19.5 — Documentación
 
-- [ ] `docs/guia_strawberry_fields.md`: instalación, API key Xanadu Cloud, backends disponibles (Borealis, simulador), límites del plan gratuito.
-- [ ] `mkdocs.yml`: módulo 45, lab 49, p.17 añadidos a nav.
+- [x] `docs/guia_strawberry_fields.md`: instalación, API key Xanadu Cloud, backends disponibles (Borealis, simulador), límites del plan gratuito.
+- [x] `mkdocs.yml`: módulo 45, lab 49, p.17 añadidos a nav.
 
 ---
 
@@ -644,7 +644,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 - [x] `visualizador/progress.py`: módulo auxiliar con funciones `save_progress(module_id, score)` y `load_progress()` usando `st.session_state` + `localStorage` via `streamlit-local-storage`.
 - [x] Integrar en p.15 (Certificación): mostrar módulos completados, porcentaje global, siguiente módulo recomendado.
-- [ ] `docs/guia_progreso.md`: descripción del sistema, privacidad (solo local, sin backend).
+- [x] `docs/guia_progreso.md`: descripción del sistema, privacidad (solo local, sin backend).
 
 ### 23.6 — Integración Notas/ no integradas
 
