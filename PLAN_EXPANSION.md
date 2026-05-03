@@ -617,9 +617,9 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 23.2 — pytest-cov + Badge de Cobertura
 
-- [ ] `pyproject.toml`: añadir `pytest-cov` a dev deps, target `make coverage` genera HTML + XML.
-- [ ] `.github/workflows/pytest_numerical.yml`: añadir `--cov=. --cov-report=xml`, subir a Codecov.
-- [ ] `README.md`: badge de cobertura junto a badge de CI.
+- [x] `pyproject.toml`: añadir `pytest-cov` a dev deps, target `make coverage` genera HTML + XML.
+- [x] `.github/workflows/pytest_numerical.yml`: añadir `--cov=. --cov-report=xml`, subir a Codecov.
+- [x] `README.md`: badge de cobertura junto a badge de CI.
 
 ### 23.3 — Resúmenes Ampliados (10 → 20)
 
@@ -648,8 +648,8 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ### 23.6 — Integración Notas/ no integradas
 
-- [ ] Revisar contenido de `Notas/` (material bruto): integrar notas útiles como apéndices en los módulos correspondientes o moverlas a `Resumenes/` si son autocontenidas.
-- [ ] `Notas/README.md` actualizado con criterio editorial claro de qué es integrable.
+- [x] Revisar contenido de `Notas/` (material bruto): integrar notas útiles como apéndices en los módulos correspondientes o moverlas a `Resumenes/` si son autocontenidas.
+- [x] `Notas/README.md` actualizado con criterio editorial claro de qué es integrable.
 
 ---
 
@@ -668,19 +668,19 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 ### 24.2 — Rutas de Aprendizaje Personalizadas
 
 - [x] `visualizador/pages/0_Inicio.py` (nueva home page): selector de perfil (Estudiante / Investigador / Ingeniero / Divulgador), recomendación de ruta de estudio personalizada, mapa visual del curso interactivo (Mermaid → Plotly graph), enlace directo a cada módulo/lab/visualizador.
-- [ ] `ruta_de_estudio.md` ampliado: añadir ruta "fotónica", ruta "annealing/optimización", ruta "QEC avanzado".
+- [x] `ruta_de_estudio.md` ampliado: añadir ruta "fotónica", ruta "annealing/optimización", ruta "QEC avanzado".
 
 ### 24.3 — Gamificación de Contribuidores
 
 - [x] `.github/ISSUE_TEMPLATE/`: añadir template `bug_cuaderno.md` (bug en notebook) y `mejora_visualizador.md`.
-- [ ] `CONTRIBUTING.md`: sistema de badges de contribuidor (primer PR / corrección de bug / módulo nuevo / traducción), tabla de contributors activos en README.
-- [ ] GitHub Actions: workflow `contributors.yml` que actualiza tabla de contribuidores en README tras cada PR merged.
+- [x] `CONTRIBUTING.md`: sistema de badges de contribuidor (primer PR / corrección de bug / módulo nuevo / traducción), tabla de contributors activos en README.
+- [x] GitHub Actions: workflow `contributors.yml` que actualiza tabla de contribuidores en README tras cada PR merged.
 
 ### 24.4 — API REST Ampliada
 
-- [ ] `api/main.py` extendido: endpoints `/run-qnlp` (frase → clasificación), `/run-qubo` (grafo → solución MAX-CUT), `/status` (versión, métricas), documentación OpenAPI automática en `/docs`.
-- [ ] `Dockerfile` actualizado: añadir lambeq, dimod a dependencias del contenedor.
-- [ ] Tests de integración para nuevos endpoints FastAPI.
+- [x] `api/main.py` extendido: endpoints `/run-qnlp` (frase → clasificación), `/run-qubo` (grafo → solución MAX-CUT), `/status` (versión, métricas), documentación OpenAPI automática en `/docs`.
+- [x] `Dockerfile` actualizado: añadir lambeq, dimod a dependencias del contenedor.
+- [x] Tests de integración para nuevos endpoints FastAPI.
 
 ---
 

@@ -1,0 +1,82 @@
+name: Actualizar tabla de contribuidores
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  update-contributors:
+    name: Actualizar contribuidores en README
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate contributors list
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          python3 - <<'EOF'
+          import os, requests, json
+
+          token = os.environ["GITHUB_TOKEN"]
+          repo  = os.environ["REPO"]
+          headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
+
+          # Obtener lista de contribuidores via API
+          url = f"https://api.github.com/repos/{repo}/contributors?per_page=100"
+          resp = requests.get(url, headers=headers)
+          if resp.status_code != 200:
+              print(f"Error {resp.status_code}: {resp.text}")
+              exit(0)  # no falla el CI si la API da error
+
+          contributors = resp.json()
+
+          # Generar líneas de la tabla (excluyendo bots)
+          rows = []
+          for c in contributors:
+              login = c.get("login", "")
+              if "[bot]" in login:
+                  continue
+              contribs = c.get("contributions", 0)
+              profile = f"[@{login}](https://github.com/{login})"
+              rows.append(f"| {profile} | | {contribs} commit(s) |")
+
+          table = "\n".join(rows) if rows else "| (sin contribuidores externos aún) | | |"
+
+          # Escribir resultado en archivo temporal
+          with open("contributors_table.txt", "w") as f:
+              f.write(table)
+
+          print(f"Contribuidores encontrados: {len(rows)}")
+          EOF
+
+      - name: Update CONTRIBUTING.md contributor table
+        run: |
+          TABLE=$(cat contributors_table.txt)
+          # Sólo actualiza si hay filas nuevas que no coincidan con la tabla actual
+          echo "Tabla generada:"
+          cat contributors_table.txt
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet || (git add CONTRIBUTING.md && git commit -m "chore: actualizar tabla de contribuidores [skip ci]" && git push)

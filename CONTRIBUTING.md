@@ -145,4 +145,35 @@ score, feedback = evaluar("basicos", 1, mi_solucion)
 
 ---
 
+---
+
+## Sistema de reconocimiento de contribuidores
+
+Reconocemos las contribuciones con badges en el perfil de la tabla de contribuidores del README.
+
+### Niveles
+
+| Badge | Criterio |
+|---|---|
+| 🔬 **Primer PR** | Cualquier PR mergeado (corrección de typo, mejora menor) |
+| 🐛 **Bug Hunter** | Corregir un error en notebook, módulo o tests |
+| 📓 **Lab Author** | Crear o reescribir completamente un notebook de laboratorio |
+| 📚 **Module Author** | Crear o reescribir completamente un módulo tutorial |
+| 🌍 **Translator** | Traducir un módulo o resumen a otro idioma |
+| ⭐ **Core Contributor** | 5+ PRs mergeados de cualquier tipo |
+
+### Cómo funciona
+
+1. Abre tu PR siguiendo el checklist de arriba.
+2. Tras el merge, el workflow `contributors.yml` actualiza automáticamente la tabla de contribuidores en `README.md`.
+3. Los badges se asignan manualmente por los maintainers en la tabla.
+
+### Tabla de contribuidores activos
+
+| Contribuidor | Badges | Contribuciones |
+|---|---|---|
+| [@LegalIntermediaSL](https://github.com/LegalIntermediaSL) | 📚 📓 ⭐ | Autor principal — módulos 01-49, labs 01-53, visualizador |
+
+---
+
 *Este proyecto es un recurso abierto para la comunidad hispana de computación cuántica.*

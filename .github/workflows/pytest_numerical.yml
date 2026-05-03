@@ -37,7 +37,10 @@ jobs:
             scipy \
             matplotlib \
             pytest \
-            pytest-timeout
+            pytest-timeout \
+            pytest-cov \
+            scikit-learn \
+            networkx
 
       - name: Run numerical validation tests
         run: |
@@ -46,7 +49,18 @@ jobs:
             --timeout=60 \
             --tb=short \
             --color=yes \
+            --cov=. \
+            --cov-report=xml \
+            --cov-report=term-missing \
             -x
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        if: always()
+        with:
+          files: ./coverage.xml
+          flags: unittests
+          fail_ci_if_error: false
 
       - name: Upload test results on failure
         if: failure()
@@ -55,4 +69,5 @@ jobs:
           name: pytest-results
           path: |
             .pytest_cache/
+            coverage.xml
           retention-days: 7

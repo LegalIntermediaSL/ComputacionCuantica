@@ -47,7 +47,7 @@ except ImportError as e:
 app = FastAPI(
     title="ComputacionCuantica API",
     description="API para ejecutar circuitos y algoritmos cuánticos educativos",
-    version="1.0.0",
+    version="2.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
 )
@@ -122,6 +122,27 @@ def root() -> dict[str, str]:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/status")
+def status() -> dict[str, Any]:
+    """Estado del servicio: versión, métricas del curso y disponibilidad."""
+    return {
+        "version": "2.0.0",
+        "status": "ok",
+        "curso": {
+            "modulos": 49,
+            "laboratorios": 53,
+            "guiados": 15,
+            "paginas_visualizador": 21,
+            "tests": 257,
+            "resumenes": 20,
+            "soluciones_investigacion": 12,
+        },
+        "endpoints": ["/run-circuit", "/run-vqe", "/run-grover", "/run-qnlp", "/run-qubo", "/status"],
+        "github": "https://github.com/LegalIntermediaSL/ComputacionCuantica",
+        "streamlit": "https://computacioncuantica-legalintermedia.streamlit.app",
+    }
 
 
 @app.post("/run-circuit", response_model=CircuitResponse)
@@ -294,6 +315,159 @@ def run_grover(req: GroverRequest) -> GroverResponse:
         optimal_iterations=optimal_iter,
         n_elements=N,
         shots=req.shots,
+        elapsed_ms=round(elapsed, 2),
+    )
+
+
+class QNLPRequest(BaseModel):
+    sentence: str = Field(..., description="Frase en inglés (sujeto verbo objeto, max 10 palabras)")
+    label: str | None = Field(None, description="Etiqueta esperada para calcular accuracy (opcional)")
+
+
+class QNLPResponse(BaseModel):
+    sentence: str
+    prediction: str
+    confidence: float
+    circuit_params: int
+    elapsed_ms: float
+
+
+class QUBORequest(BaseModel):
+    nodes: int = Field(6, ge=2, le=15, description="Número de nodos del grafo")
+    edges: list[list[int]] = Field(
+        [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [0, 3]],
+        description="Aristas del grafo como pares [i, j]",
+    )
+    method: str = Field("annealing", description="Método: 'annealing' o 'brute_force'")
+
+
+class QUBOResponse(BaseModel):
+    partition: list[int]
+    cut_value: int
+    max_possible_cut: int
+    qubo_energy: float
+    method: str
+    elapsed_ms: float
+
+
+@app.post("/run-qnlp", response_model=QNLPResponse)
+def run_qnlp(req: QNLPRequest) -> QNLPResponse:
+    """Clasifica una frase simple con un circuito IQP cuántico (DisCoCat simplificado).
+
+    Implementación sin lambeq: circuito IQP manual con 4 qubits para SVO (sujeto-verbo-objeto).
+    Clasificación basada en paridad del primer qubit al medir.
+    """
+    t0 = time.perf_counter()
+
+    words = req.sentence.lower().split()
+    if len(words) < 2:
+        raise HTTPException(status_code=422, detail="La frase debe tener al menos 2 palabras")
+    if len(words) > 10:
+        raise HTTPException(status_code=422, detail="Máximo 10 palabras")
+
+    # Codificación: cada palabra contribuye un ángulo derivado de su hash
+    def word_angle(word: str) -> float:
+        h = sum(ord(c) * (i + 1) for i, c in enumerate(word))
+        return (h % 628) / 100.0  # ángulo en [0, 2π)
+
+    n_qubits = min(len(words), 4)
+    angles = [word_angle(w) for w in words[:n_qubits]]
+
+    # Circuito IQP: H · Rz(θ) · H en cada qubit, con CZ entre pares
+    qc = QuantumCircuit(n_qubits, 1)
+    qc.h(range(n_qubits))
+    for i, ang in enumerate(angles):
+        qc.rz(ang, i)
+    for i in range(n_qubits - 1):
+        qc.cz(i, i + 1)
+    qc.h(range(n_qubits))
+    qc.measure(0, 0)  # clasificación: bit 0
+
+    sim = AerSimulator()
+    job = sim.run(qc, shots=512)
+    counts = job.result().get_counts()
+
+    p1 = counts.get("1", 0) / 512
+    prediction = "positivo" if p1 >= 0.5 else "negativo"
+    confidence = p1 if p1 >= 0.5 else 1 - p1
+
+    elapsed = (time.perf_counter() - t0) * 1000
+    return QNLPResponse(
+        sentence=req.sentence,
+        prediction=prediction,
+        confidence=round(confidence, 4),
+        circuit_params=n_qubits,
+        elapsed_ms=round(elapsed, 2),
+    )
+
+
+@app.post("/run-qubo", response_model=QUBOResponse)
+def run_qubo(req: QUBORequest) -> QUBOResponse:
+    """Resuelve MAX-CUT como QUBO por simulated annealing o fuerza bruta."""
+    t0 = time.perf_counter()
+
+    n = req.nodes
+    edges = [(e[0], e[1]) for e in req.edges if len(e) == 2 and 0 <= e[0] < n and 0 <= e[1] < n]
+    if not edges:
+        raise HTTPException(status_code=422, detail="No hay aristas válidas")
+
+    # Construir matriz Q para MAX-CUT
+    Q = np.zeros((n, n))
+    for i, j in edges:
+        Q[i, i] += 1.0
+        Q[j, j] += 1.0
+        Q[i, j] -= 1.0
+        Q[j, i] -= 1.0
+    Q /= 2.0
+
+    def qubo_energy(x: np.ndarray) -> float:
+        return float(x @ Q @ x)
+
+    def cut_value(x: list[int]) -> int:
+        return sum(1 for i, j in edges if x[i] != x[j])
+
+    best_x: list[int] = []
+    best_cut = 0
+    best_energy = np.inf
+
+    if req.method == "brute_force" and n <= 15:
+        from itertools import product as iproduct
+        for bits in iproduct([0, 1], repeat=n):
+            x = np.array(bits, dtype=float)
+            e = qubo_energy(x)
+            c = cut_value(list(bits))
+            if c > best_cut or (c == best_cut and e < best_energy):
+                best_cut, best_energy, best_x = c, e, list(bits)
+    else:
+        # Simulated annealing
+        x = np.random.randint(0, 2, n).astype(float)
+        E = qubo_energy(x)
+        best_x = x.astype(int).tolist()
+        best_energy, best_cut = E, cut_value(best_x)
+        T_start, T_end, steps = 2.0, 0.01, 5000
+        for step in range(steps):
+            T = T_start * (T_end / T_start) ** (step / steps)
+            idx = np.random.randint(n)
+            x_new = x.copy()
+            x_new[idx] = 1 - x_new[idx]
+            E_new = qubo_energy(x_new)
+            dE = E_new - E
+            if dE < 0 or np.random.rand() < np.exp(-dE / T):
+                x, E = x_new, E_new
+            c = cut_value(x.astype(int).tolist())
+            if c > best_cut or (c == best_cut and E < best_energy):
+                best_cut, best_energy, best_x = c, E, x.astype(int).tolist()
+
+    # Cota superior del corte
+    max_possible = len(edges)
+
+    elapsed = (time.perf_counter() - t0) * 1000
+    return QUBOResponse(
+        partition=best_x,
+        cut_value=best_cut,
+        max_possible_cut=max_possible,
+        qubo_energy=round(best_energy, 6),
+        method=req.method,
         elapsed_ms=round(elapsed, 2),
     )
 

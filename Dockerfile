@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Dependencias Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir fastapi uvicorn[standard]
+    pip install --no-cache-dir fastapi uvicorn[standard] dimod networkx
 
 COPY . .
 
