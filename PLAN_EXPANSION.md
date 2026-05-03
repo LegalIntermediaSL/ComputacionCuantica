@@ -1,6 +1,6 @@
 # Plan de Expansión — Computación Cuántica: Teoría y Práctica
 
-**Estado general:** ✅ v6.2 publicado · 2026-05-02 · **Todas las fases completas — cuadernos guiados y documentación añadidos** ✅  
+**Estado general:** ✅ v6.3 · 2026-05-03 · **Todas las fases completas + auditoría estructural aplicada** ✅  
 **Repositorio:** [LegalIntermediaSL/ComputacionCuantica](https://github.com/LegalIntermediaSL/ComputacionCuantica)  
 **Streamlit:** [computacioncuantica-legalintermedia.streamlit.app](https://computacioncuantica-legalintermedia.streamlit.app)
 
@@ -11,9 +11,9 @@
 | Recurso | v1.0 | v2.0 | v3.0 | v4.0 | v5.0 | **v5.2** | v5.3 | v5.4 | v5.5 | v5.6 | v6.0 | **v6.2** |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Módulos tutoriales | 10 | 20 | 40 | 41 | 42 | **43** | 44 | 45 | 46 | 47 | 49 | **49** |
-| Laboratorios Jupyter | 10 | 20 | 34 | 45 | 46 | **47** | 48 | 49 | 50 | 51 | 53 | **53+15guiados** |
+| Laboratorios Jupyter | 10 | 20 | 34 | 45 | 46 | **47** | 48 | 49 | 50 | 51 | 53 | **53+22guiados** |
 | Páginas visualizador | 3 | 7 | 12 | 16 | 16 | **16** | 16 | 17 | 18 | 19 | 20 | **21** |
-| Tests pytest | 0 | 15 | 48 | 101 | 115 | **129** | ~149 | ~159 | ~169 | ~184 | ~210 | **257** |
+| Tests pytest | 0 | 15 | 48 | 101 | 115 | **129** | ~149 | ~159 | ~169 | ~184 | ~210 | **314** |
 | Soluciones investigación | 0 | 0 | 4 | 8 | 8 | **8** | 8 | 9 | 10 | 12 | 12 | **12** |
 | Páginas de docs (MkDocs) | 5 | 12 | 22 | 30 | 33+ | **34+** | 36+ | 38+ | 40+ | 42+ | 46+ | **46+** |
 | Workflows GitHub Actions | 0 | 1 | 2 | 4 | 5 | **5** | 5 | 5 | 6 | 6 | 7 | **7** |
@@ -37,7 +37,7 @@ v3.0        v3.1        v3.5        v4.0-pre     v4.0        v5.0        v5.1   
 v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
  ├── F18     ├── F19     ├── F20      ├── F21      ├── F22     ├── F23     ├── F24
  │           │           │            │            │           │           │
- ✅          ✅          ✅          ✅           ✅          ✅          ✅
+ ✅          ✅          ✅          ✅           ✅          ✅          ⚠️ parcial
 ```
 
 ---
@@ -65,7 +65,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 | 21 | qLDPC + Decodificadores Neuronales | ✅ | v5.6 | 2026-05-02 | Módulo 47, Lab 51, visualizador p.19, R9, 10 tests → 193 total |
 | 22 | QNLP + D-Wave + Annealing | ✅ | v6.0 | 2026-05-02 | Módulos 48-49, Labs 52-53, visualizador p.20, 14 tests → 207 total |
 | 23 | Calidad e Infraestructura QA | ✅ | v6.0 | 2026-05-02 | nbval CI, resúmenes ×20, R10-R12, progress.py, issue templates |
-| 24 | Traducción y Comunidad | ✅ | v6.1 | 2026-05-02 | TRANSLATING.md actualizado, 0_Inicio.py, issue templates |
+| 24 | Traducción y Comunidad | ⚠️ parcial | v6.1 | 2026-05-02 | TRANSLATING.md ✅, 0_Inicio.py ✅, issue templates ✅ — traducción al inglés (24.1) pendiente |
 | 25 | Completar Labs 01-23 (stubs → completos) | ✅ | v5.4 | 2026-04-30 | 25.1✅ 25.2✅ 25.3✅ 25.4✅ 25.5✅ — 47 tests nuevos |
 
 ---
@@ -653,7 +653,7 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ---
 
-## 📋 Fase 24 — Traducción al Inglés y Comunidad (v6.1) — PLANIFICADA
+## ⚠️ Fase 24 — Traducción al Inglés y Comunidad (v6.1) — PARCIALMENTE COMPLETA
 
 **Motivación:** El repositorio está en español, lo que limita la audiencia global. `TRANSLATING.md` ya prevé la traducción. Una versión inglesa abre el proyecto a revisión por pares de la comunidad Qiskit/Xanadu y aumenta el impacto pedagógico exponencialmente. La gamificación de contribuciones reduce la fricción para nuevos colaboradores.
 
@@ -705,4 +705,28 @@ v5.3        v5.4        v5.5        v5.6        v6.0        v6.0        v6.1
 
 ---
 
-*Actualizado 2026-05-02 · v6.2 publicado · Fases 1-25 todas ✅ · Módulos=49, Labs=53+15guiados, Páginas=21, Tests=257, Soluciones=12, Resúmenes=20*
+---
+
+## Auditoría estructural v6.3 — 2026-05-03
+
+Correcciones aplicadas tras verificación del estado real del repositorio:
+
+| Gap detectado | Corrección aplicada |
+|---|---|
+| `Tutorial/03` no existía (48 módulos en lugar de 49) | Creado `Tutorial/03_circuitos_y_medicion/` con README, `01_composicion_de_circuitos.md` y `02_medicion_y_estadisticas.md` |
+| 9 labs de Fase 25 con numeración duplicada en `Cuadernos/laboratorios/` (08,09,10,11,12,15,16) | Movidos a `Cuadernos/guiados/16–22` · `13_estimator_y_energia` y `14_densitymatrix_ruido_y_tomografia` restaurados como canónicos en `laboratorios/` · `14_topologia_surface_codes` renombrado a `extra_topologia_surface_codes` |
+| 4 ficheros de test ausentes: `test_fotonico.py`, `test_qldpc.py`, `test_qnlp.py`, `test_qubo.py` | Creados con 54 tests nuevos (standalone, sin dependencias externas opcionales) |
+| Salto de numeración en `Cuadernos/guiados/` (20→23) | Renumerados: 23→21, 24→22. Secuencia continua 01–22 |
+| README.md con versión v6.2 y 257 tests | Actualizado a v6.3 y 314 tests |
+| Fase 24 marcada ✅ completa pero items de traducción (24.1) eran `[ ]` | Fase 24 corregida a ⚠️ parcial; items de traducción permanecen pendientes |
+
+### Pendiente real (Fase 24.1 — traducción al inglés)
+
+- [ ] Traducir `README.md`, `CONTRIBUTING.md`, `FAQ.md` al inglés
+- [ ] Traducir los 10 Resúmenes
+- [ ] Traducir módulos 01-10 (fundamentos)
+- [ ] Workflow CI para verificar pares de traducción (`docs/translations_status.md`)
+
+Estado post-auditoría: **49 módulos · 53 labs + 22 guiados · 21 páginas · 314 tests · 12 soluciones · 20 resúmenes**
+
+*Actualizado 2026-05-03 · v6.3 · Fases 1-23 + 25 ✅ · Fase 24 ⚠️ parcial (traducción pendiente) · Módulos=49, Labs=53+22guiados, Páginas=21, Tests=314, Soluciones=12, Resúmenes=20*

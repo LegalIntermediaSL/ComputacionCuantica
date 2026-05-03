@@ -4,6 +4,29 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo.
 
 El formato sigue una adaptacion simple de Keep a Changelog y usa versionado semantico solo como referencia organizativa mientras el repositorio madura.
 
+## [3.1.0] - 2026-05-03
+
+### Auditoría estructural — lanzamiento v6.3
+
+Correcciones de integridad aplicadas antes del primer lanzamiento público del proyecto.
+
+#### Added
+
+- **Módulo 03** `Tutorial/03_circuitos_y_medicion/`: nuevo módulo que cubre composición de circuitos, Bell states, medición en distintas bases y estadísticas de shots. Cierra el gap entre módulo 02 (Qiskit básico) y módulo 04 (Primitivas V2).
+- **4 archivos de test** `tests/test_fotonico.py`, `tests/test_qldpc.py`, `tests/test_qnlp.py`, `tests/test_qubo.py`: 54 tests nuevos (standalone, sin dependencias externas opcionales) para Fases 19, 21 y 22. Total: **314 tests**.
+
+#### Changed
+
+- **`Cuadernos/guiados/`**: 9 labs de Fase 25 con numeración duplicada movidos desde `laboratorios/` a `guiados/16–22`. Labs canónicos `13_estimator_y_energia` y `14_densitymatrix_ruido_y_tomografia` restaurados en `laboratorios/`. `14_topologia_surface_codes` renombrado a `extra_topologia_surface_codes`. Guiados pasan de 15 a **22**.
+- **`README.md`**: versión → v6.3, tests → 314, labs guiados → 22.
+- **`PLAN_EXPANSION.md`**: versión → v6.3, métricas actualizadas, Fase 24 corregida a ⚠️ parcial (traducción al inglés pendiente), sección de auditoría añadida.
+
+#### Pending (Fase 24.1 — próxima fase)
+
+- Traducción al inglés: README, CONTRIBUTING, FAQ, 10 resúmenes, módulos 01-10, workflow CI de verificación.
+
+---
+
 ## [3.0.0] - 2026-05-02
 
 ### Added (v6.2 — Cierre del plan de expansión · cuadernos guiados y documentación)

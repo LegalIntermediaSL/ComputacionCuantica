@@ -1,4 +1,4 @@
-# Computación Cuántica: Teoría y Práctica (v6.2)
+# Computación Cuántica: Teoría y Práctica (v6.3)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://computacioncuantica-legalintermedia.streamlit.app/)
 [![Tests](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions/workflows/pytest_numerical.yml/badge.svg)](https://github.com/LegalIntermediaSL/ComputacionCuantica/actions)
@@ -9,10 +9,10 @@ Este repositorio es un proyecto educativo de alto nivel diseñado para acompaña
 ## Puntos Destacados
 
 - **49 Módulos Tutoriales:** Teoría completa con LaTeX — desde qubits hasta qLDPC, QNLP, Rydberg, fotónica y tolerancia a fallos.
-- **53 Laboratorios + 15 Guiados:** 53 labs completos con Qiskit 2.x + 15 cuadernos paso a paso en `Cuadernos/guiados/`.
+- **53 Laboratorios + 22 Guiados:** 53 labs completos con Qiskit 2.x + 22 cuadernos paso a paso en `Cuadernos/guiados/`.
 - **55+ Ejercicios progresivos:** Básicos, intermedios, avanzados e **investigación** (12 soluciones R1-R12) + examen de certificación.
 - **Visualizador Interactivo:** Aplicación Streamlit de **21 páginas** — [ver online](https://computacioncuantica-legalintermedia.streamlit.app/).
-- **257 Tests pytest:** Regresión numérica + property-based (Hypothesis) + nbval CI, baseline JSON, `@pytest.mark.slow`.
+- **314 Tests pytest:** Regresión numérica + property-based (Hypothesis) + nbval CI + fotónica, qLDPC, QNLP, QUBO, baseline JSON, `@pytest.mark.slow`.
 - **20 Resúmenes:** Material de repaso rápido para cada bloque temático (módulos 01-49).
 - **Multi-provider:** IonQ (Braket/directo), Quantinuum (Azure), Pasqal — ZNE multi-provider incluido.
 - **API REST FastAPI:** Endpoints `/run-circuit`, `/run-vqe`, `/run-grover` — Docker incluido.
@@ -102,7 +102,7 @@ conda activate qc-edu
 pip install -e ".[dev]"
 
 # Tests
-make test          # todos los tests (257)
+make test          # todos los tests (314)
 make test-fast     # tests rápidos (excluye @slow)
 
 # Visualizador
