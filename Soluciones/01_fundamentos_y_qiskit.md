@@ -4,9 +4,7 @@
 **Pregunta:** ¿Está el estado $|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$ normalizado?
 **Solución:**
 Calculamos la norma al cuadrado sumando los módulos de las amplitudes al cuadrado:
-$$
-\langle \Phi^+ | \Phi^+ \rangle = \left| \frac{1}{\sqrt{2}} \right|^2 + \left| \frac{1}{\sqrt{2}} \right|^2 = \frac{1}{2} + \frac{1}{2} = 1 
-$$
+$$\langle \Phi^+ | \Phi^+ \rangle = \left| \frac{1}{\sqrt{2}} \right|^2 + \left| \frac{1}{\sqrt{2}} \right|^2 = \frac{1}{2} + \frac{1}{2} = 1$$
 El estado está correctamente normalizado.
 
 ## P2: Acción de la Puerta Hadamard
