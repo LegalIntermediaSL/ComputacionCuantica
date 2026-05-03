@@ -11,7 +11,9 @@ muchos algoritmos necesitan aplicar matrices arbitrarias (Hamiltonianos, solvers
 lineales). La **block encoding** resuelve esto incrustando la matriz en la
 esquina superior izquierda de una unitaria mayor:
 
-$$U_A = \begin{pmatrix} A/\alpha & \cdot \\ \cdot & \cdot \end{pmatrix}$$
+$$
+U_A = \begin{pmatrix} A/\alpha & \cdot \\ \cdot & \cdot \end{pmatrix}
+$$
 
 donde $\alpha \geq \|A\|$ es un factor de normalización. Aplicar $U_A$ al estado
 $|0\rangle_a \otimes |\psi\rangle$ y proyectar el ancilla en $|0\rangle_a$
@@ -85,7 +87,9 @@ print(f'(Debe ser σ_x/2 = [[0, 0.5], [0.5, 0]])')
 
 LCU (Childs et al. 2012) expresa una matriz como combinación lineal de unitarias:
 
-$$A = \sum_k \alpha_k U_k$$
+$$
+A = \sum_k \alpha_k U_k
+$$
 
 El circuito LCU usa dos registros: **select** (elige $U_k$) y **system**:
 
@@ -179,7 +183,9 @@ plt.show()
 La **qubitización** (Low & Chuang 2016) convierte la block encoding de $H$
 en un operador de walk $W$ cuyo espectro está relacionado con el de $H$:
 
-$$\text{Eigenvalores de } W = e^{\pm i \arccos(E_k/\alpha)}$$
+$$
+\text{Eigenvalores de } W = e^{\pm i \arccos(E_k/\alpha)}
+$$
 
 donde $E_k$ son los eigenvalores de $H$. Esto permite extraer eigenvalores
 de $H$ mediante QPE aplicada a $W$ en lugar de a $e^{-iHt}$.

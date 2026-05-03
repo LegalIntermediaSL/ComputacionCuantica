@@ -4,7 +4,9 @@
 
 El **principio holográfico** (Bekenstein-Hawking, 't Hooft, Susskind) establece que la entropía máxima en una región de volumen $V$ con superficie frontera $A$ es:
 
-$$S \leq \frac{A}{4 l_P^2}$$
+$$
+S \leq \frac{A}{4 l_P^2}
+$$
 
 donde $l_P = \sqrt{\hbar G / c^3} \approx 1.6 \times 10^{-35}$ m es la longitud de Planck. Implica que la información del volumen está codificada en la superficie.
 
@@ -23,7 +25,9 @@ La correspondencia **AdS/CFT** (Maldacena 1997) establece una dualidad entre:
 
 **Fórmula de Ryu-Takayanagi** (entropía holográfica):
 
-$$S(A) = \frac{\text{Area}(\gamma_A)}{4 G_N}$$
+$$
+S(A) = \frac{\text{Area}(\gamma_A)}{4 G_N}
+$$
 
 donde $\gamma_A$ es la superficie mínima en el bulk homóloga a la región frontera $A$.
 
@@ -37,7 +41,9 @@ El experimento de Hayden-Preskill (2007) analiza cuánta información se puede r
 - **Resultado**: la información emerge después de lanzar solo $k + O(1)$ qubits de radiación
 - **Implicación**: los agujeros negros son **scrambladores rápidos** — mezclan información en tiempo $O(n \log n)$ (tiempo de scrambling)
 
-$$t_{\text{scramble}} \sim \frac{\beta}{2\pi} \log S$$
+$$
+t_{\text{scramble}} \sim \frac{\beta}{2\pi} \log S
+$$
 
 donde $\beta = 1/T$ y $S$ es la entropía del agujero negro.
 
@@ -49,7 +55,9 @@ La comunicación cuántica de largo alcance requiere **repetidores cuánticos** 
 
 **Par Bell** (estado maximalmente entrelazado):
 
-$$|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$$
+$$
+|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+$$
 
 ### Entanglement Swapping
 
@@ -89,8 +97,14 @@ El **Quantum Internet Alliance** define 6 etapas de madurez:
 
 ## Fórmulas Clave
 
-$$S_{\text{BH}} = \frac{k_B A}{4 l_P^2}, \quad \text{Temperatura Hawking: } T_H = \frac{\hbar c^3}{8\pi G M k_B}$$
+$$
+S_{\text{BH}} = \frac{k_B A}{4 l_P^2}, \quad \text{Temperatura Hawking: } T_H = \frac{\hbar c^3}{8\pi G M k_B}
+$$
 
-$$F_{\text{swap}} = F_1 \cdot F_2 \quad \text{(fidelidad de swapping)}$$
+$$
+F_{\text{swap}} = F_1 \cdot F_2 \quad \text{(fidelidad de swapping)}
+$$
 
-$$\text{Capacidad QKD} \sim -\log(1-\eta) \quad \eta = \text{transmisividad}$$
+$$
+\text{Capacidad QKD} \sim -\log(1-\eta) \quad \eta = \text{transmisividad}
+$$

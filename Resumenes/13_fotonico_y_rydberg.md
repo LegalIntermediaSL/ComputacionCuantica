@@ -9,7 +9,9 @@ El **teorema Knill-Laflamme-Milburn (2001)** demuestra que la computación cuán
 
 Sin embargo, la compuerta CNOT fotónica lineal es **probabilística**: éxito con probabilidad $1/16$ de forma nativa, mejorable con recursos auxiliares.
 
-$$U_{\text{BS}}(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
+$$
+U_{\text{BS}}(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+$$
 
 ---
 
@@ -17,7 +19,9 @@ $$U_{\text{BS}}(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta
 
 **Boson sampling** (Aaronson-Arkhipov 2011): computación de distribución de salida de $n$ fotones en $m$ modos tras interferómetro unitario $U$.
 
-$$p(s_1, \ldots, s_m) = \frac{|\text{Perm}(U_{S})|^2}{\prod_i s_i!}$$
+$$
+p(s_1, \ldots, s_m) = \frac{|\text{Perm}(U_{S})|^2}{\prod_i s_i!}
+$$
 
 donde $\text{Perm}(M)$ es el **permanente** de la submatriz — \#P-difícil de calcular clásicamente.
 
@@ -31,7 +35,9 @@ donde $\text{Perm}(M)$ es el **permanente** de la submatriz — \#P-difícil de 
 
 Los **códigos GKP** codifican un qubit lógico en el espacio de fase de un oscilador armónico:
 
-$$|0_L\rangle \propto \sum_{n \in \mathbb{Z}} |q = 2n\sqrt{\pi}\rangle, \quad |1_L\rangle \propto \sum_{n \in \mathbb{Z}} |q = (2n+1)\sqrt{\pi}\rangle$$
+$$
+|0_L\rangle \propto \sum_{n \in \mathbb{Z}} |q = 2n\sqrt{\pi}\rangle, \quad |1_L\rangle \propto \sum_{n \in \mathbb{Z}} |q = (2n+1)\sqrt{\pi}\rangle
+$$
 
 **Umbral de error**: los errores de desplazamiento son corregibles si $|\Delta q|, |\Delta p| < \sqrt{\pi}/2$.
 
@@ -48,11 +54,15 @@ $$|0_L\rangle \propto \sum_{n \in \mathbb{Z}} |q = 2n\sqrt{\pi}\rangle, \quad |1
 
 Los **átomos de Rydberg** son átomos excitados con $n \gg 1$ (número cuántico principal grande):
 
-$$r_{n} \sim n^2 a_0, \quad U_{vdW} \sim C_6 / r^6, \quad C_6 \propto n^{11}$$
+$$
+r_{n} \sim n^2 a_0, \quad U_{vdW} \sim C_6 / r^6, \quad C_6 \propto n^{11}
+$$
 
 **Bloqueo de Rydberg**: si dos átomos están dentro del radio de bloqueo $r_b$, solo uno puede ser excitado simultáneamente:
 
-$$r_b = \left(\frac{C_6}{\hbar \Omega}\right)^{1/6}$$
+$$
+r_b = \left(\frac{C_6}{\hbar \Omega}\right)^{1/6}
+$$
 
 Esto implementa una compuerta CZ nativa de alta fidelidad ($>99.5\%$ demostrada en 2023).
 
@@ -62,7 +72,9 @@ Esto implementa una compuerta CZ nativa de alta fidelidad ($>99.5\%$ demostrada 
 
 El **Hamiltoniano PXP** modela átomos Rydberg en cadena 1D:
 
-$$H_{PXP} = \Omega \sum_i P_{i-1} X_i P_{i+1}$$
+$$
+H_{PXP} = \Omega \sum_i P_{i-1} X_i P_{i+1}
+$$
 
 donde $P_i = |g\rangle\langle g|_i$ proyecta al estado base (restricción de bloqueo).
 
@@ -88,8 +100,14 @@ donde $P_i = |g\rangle\langle g|_i$ proyecta al estado base (restricción de blo
 
 ## Fórmulas Clave
 
-$$\text{KLM CNOT prob} = \frac{1}{16} \text{ (lineal pura)}$$
+$$
+\text{KLM CNOT prob} = \frac{1}{16} \text{ (lineal pura)}
+$$
 
-$$H_{PXP} = \Omega \sum_i P_{i-1} X_i P_{i+1}, \quad \text{fase Z}_2: \langle Z_i Z_{i+1} \rangle < 0$$
+$$
+H_{PXP} = \Omega \sum_i P_{i-1} X_i P_{i+1}, \quad \text{fase Z}_2: \langle Z_i Z_{i+1} \rangle < 0
+$$
 
-$$\text{Fidelidad GBS} \sim |\text{Haf}(A_S)|^2$$
+$$
+\text{Fidelidad GBS} \sim |\text{Haf}(A_S)|^2
+$$

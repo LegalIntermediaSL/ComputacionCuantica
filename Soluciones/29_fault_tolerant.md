@@ -12,7 +12,9 @@ Problemas de práctica para los artículos `01_threshold_theorem.md`, `02_magic_
 
 El error lógico del código de superficie se modela como:
 
-$$p_L \approx A \left(\frac{\varepsilon}{\varepsilon_{th}}\right)^{\lceil d/2 \rceil}$$
+$$
+p_L \approx A \left(\frac{\varepsilon}{\varepsilon_{th}}\right)^{\lceil d/2 \rceil}
+$$
 
 Con A ≈ 0.1 (constante empírica), ε = 0,003, ε_th = 0,01, d = 5:
 

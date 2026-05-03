@@ -25,18 +25,24 @@ La fotónica cuántica explota los **fotones** como portadores de información c
 
 Los estados de Fock $|n\rangle$ son autoestados del operador número $\hat{n} = \hat{a}^\dagger \hat{a}$:
 
-$$\hat{n}|n\rangle = n|n\rangle, \quad n = 0, 1, 2, \ldots$$
+$$
+\hat{n}|n\rangle = n|n\rangle, \quad n = 0, 1, 2, \ldots
+$$
 
 El estado de vacío $|0\rangle$ es el más puro: sin fotones, sin energía más allá de la energía de punto cero $\hbar\omega/2$.
 
 El operador de creación $\hat{a}^\dagger$ y el de aniquilación $\hat{a}$ satisfacen:
-$$\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle, \quad \hat{a}|n\rangle = \sqrt{n}|n-1\rangle$$
+$$
+\hat{a}^\dagger|n\rangle = \sqrt{n+1}|n+1\rangle, \quad \hat{a}|n\rangle = \sqrt{n}|n-1\rangle
+$$
 
 ### 1.2 Estados Coherentes
 
 Los estados coherentes $|\alpha\rangle$ (con $\alpha \in \mathbb{C}$) son los más "clásicos" entre los estados cuánticos de la luz — los producen los láseres:
 
-$$|\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}}|n\rangle$$
+$$
+|\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}}|n\rangle
+$$
 
 Son eigenestados del operador de aniquilación: $\hat{a}|\alpha\rangle = \alpha|\alpha\rangle$.
 
@@ -46,7 +52,9 @@ La distribución de fotones es Poisson: $P(n) = e^{-\bar{n}}\bar{n}^n/n!$ con $\
 
 Los estados comprimidos reducen la fluctuación en una cuadratura a expensas de la otra, respetando la desigualdad de Heisenberg:
 
-$$\Delta\hat{X}\,\Delta\hat{P} \geq \frac{1}{2}$$
+$$
+\Delta\hat{X}\,\Delta\hat{P} \geq \frac{1}{2}
+$$
 
 El operador de compresión (squeezing): $\hat{S}(r) = \exp\!\left[\frac{r}{2}(\hat{a}^2 - \hat{a}^{\dagger 2})\right]$
 
@@ -62,7 +70,9 @@ Los mejores laboratorios han alcanzado **15 dB** de squeezing (2021, PTB Braunsc
 
 La función de Wigner es la representación fase-espacio de un estado cuántico $\rho$:
 
-$$W(x, p) = \frac{1}{\pi\hbar}\int_{-\infty}^\infty \langle x+y|\rho|x-y\rangle e^{2ipy/\hbar}\, dy$$
+$$
+W(x, p) = \frac{1}{\pi\hbar}\int_{-\infty}^\infty \langle x+y|\rho|x-y\rangle e^{2ipy/\hbar}\, dy
+$$
 
 - **Estado coherente**: gaussiana centrada en $(\text{Re}\,\alpha, \text{Im}\,\alpha)$.
 - **Estado Fock** $|1\rangle$: gaussiana con una "depresión" negativa en el origen — **no clásico**.
@@ -78,7 +88,9 @@ Los valores negativos de $W$ son **indicadores de no-clasicidad** — sólo los 
 
 Una red de óptica lineal (divisores de haz, desfasadores) implementa una transformación unitaria $U \in U(m)$ sobre los modos fotónicos:
 
-$$\hat{a}_i^\dagger \to \sum_j U_{ij} \hat{a}_j^\dagger$$
+$$
+\hat{a}_i^\dagger \to \sum_j U_{ij} \hat{a}_j^\dagger
+$$
 
 Los elementos básicos son:
 - **Divisor de haz** (beamsplitter): $\text{BS}(\theta) = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$
@@ -108,7 +120,9 @@ Dado $m$ modos y $n$ fotones, el Boson Sampling consiste en muestrear de la dist
 
 La probabilidad de una configuración de salida $(s_1, \ldots, s_m)$ es:
 
-$$p(s_1,\ldots,s_m) = \frac{|\text{Perm}(U_{S,T})|^2}{s_1!\cdots s_m!\, t_1!\cdots t_m!}$$
+$$
+p(s_1,\ldots,s_m) = \frac{|\text{Perm}(U_{S,T})|^2}{s_1!\cdots s_m!\, t_1!\cdots t_m!}
+$$
 
 donde $U_{S,T}$ es la submatriz de $U$ y $\text{Perm}$ es el **permanente de la matriz** — computacionalmente $\#P$-duro en el caso general.
 
@@ -116,7 +130,9 @@ donde $U_{S,T}$ es la submatriz de $U$ y $\text{Perm}$ es el **permanente de la 
 
 El permanente de una matriz $n\times n$ se calcula en $O(2^n n)$ con el algoritmo de Ryser:
 
-$$\text{Perm}(A) = (-1)^n \sum_{S \subseteq [n]} (-1)^{|S|} \prod_{i=1}^n \sum_{j \in S} a_{ij}$$
+$$
+\text{Perm}(A) = (-1)^n \sum_{S \subseteq [n]} (-1)^{|S|} \prod_{i=1}^n \sum_{j \in S} a_{ij}
+$$
 
 Para $n=50$, esto requiere $\sim 10^{15}$ operaciones — intractable clásicamente.
 
@@ -138,7 +154,9 @@ Para $n=50$, esto requiere $\sim 10^{15}$ operaciones — intractable clásicame
 
 En computación de variables continuas, los qubits discretos se reemplazan por **cuadraturas** del campo:
 
-$$\hat{X} = \frac{\hat{a} + \hat{a}^\dagger}{2}, \quad \hat{P} = \frac{\hat{a} - \hat{a}^\dagger}{2i}$$
+$$
+\hat{X} = \frac{\hat{a} + \hat{a}^\dagger}{2}, \quad \hat{P} = \frac{\hat{a} - \hat{a}^\dagger}{2i}
+$$
 
 con $[\hat{X}, \hat{P}] = i/2$.
 
@@ -171,7 +189,9 @@ En arquitecturas de medida-basada (MBQC), los estados squeezed son la materia pr
 ### 5.2 El problema del umbral de squeezing
 
 Para el esquema GKP de corrección de errores, el squeezing mínimo es:
-$$r_\text{umbral} \approx 10\text{ dB} \quad (r \approx 1.15)$$
+$$
+r_\text{umbral} \approx 10\text{ dB} \quad (r \approx 1.15)
+$$
 
 Debajo de este umbral, los errores no pueden corregirse. El estado del arte (15 dB, 2021) supera el umbral teórico pero los efectos prácticos de imperfecciones bajan el umbral efectivo.
 
@@ -183,15 +203,21 @@ Debajo de este umbral, los errores no pueden corregirse. El estado del arte (15 
 
 Los códigos GKP codifican un qubit lógico en los estados de fase-espacio del oscilador armónico. Los estados lógicos son superposiciones de estados squeezed:
 
-$$|0\rangle_L = \sum_{n=-\infty}^\infty |x = 2n\sqrt{\pi}\rangle_X$$
-$$|1\rangle_L = \sum_{n=-\infty}^\infty |x = (2n+1)\sqrt{\pi}\rangle_X$$
+$$
+|0\rangle_L = \sum_{n=-\infty}^\infty |x = 2n\sqrt{\pi}\rangle_X
+$$
+$$
+|1\rangle_L = \sum_{n=-\infty}^\infty |x = (2n+1)\sqrt{\pi}\rangle_X
+$$
 
 Son periódicas en el espacio-X con periodo $2\sqrt{\pi}$.
 
 ### 6.2 Corrección de errores GKP
 
 Los errores de desplazamiento pequeños $\delta x, \delta p < \sqrt{\pi}/2$ son corregibles midiendo los estabilizadores:
-$$S_X = e^{i 2\sqrt{\pi}\hat{P}}, \quad S_Z = e^{-i 2\sqrt{\pi}\hat{X}}$$
+$$
+S_X = e^{i 2\sqrt{\pi}\hat{P}}, \quad S_Z = e^{-i 2\sqrt{\pi}\hat{X}}
+$$
 
 El código GKP protege contra el ruido gaussiano si $\sigma < \sqrt{\pi}/4 \approx 0.44$.
 

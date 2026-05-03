@@ -58,7 +58,9 @@ print(result[0].data.c0.get_counts())
 **Solución:**
 
 El estado $|\Phi^+\rangle$ es un **estado estabilizador**: es el único estado $+1$-autovector de $\{XX, ZZ\}$. El estabilizador es:
-$$\mathcal{S} = \langle XX, ZZ \rangle$$
+$$
+\mathcal{S} = \langle XX, ZZ \rangle
+$$
 
 La descripción estabilizadora tiene $O(n)$ bits, no $O(2^n)$, confirmando la eficiencia clásica.
 
@@ -85,7 +87,9 @@ print(f"⟨Φ+|ZZ|Φ+⟩ = {eigenval_ZZ:.6f}")   # +1
 **Enunciado:** Demostrar que un qubit puede transmitir como máximo 1 bit clásico.
 
 **Solución:** La cota de Holevo establece que la información accesible está acotada por:
-$$\chi \leq S(\rho) \leq \log_2 d = 1 \text{ bit (para un qubit)}$$
+$$
+\chi \leq S(\rho) \leq \log_2 d = 1 \text{ bit (para un qubit)}
+$$
 
 ```python
 from qiskit.quantum_info import DensityMatrix, entropy
@@ -117,7 +121,9 @@ print(f"χ (Holevo) = {chi:.4f} bits   (≤ 1)")
 **Solución:**
 
 La fidelidad media por puerta Clifford es $r = 1 - p = 0.95$ y la curva de decaimiento RB:
-$$P(m) = A \cdot (1-p)^m + B$$
+$$
+P(m) = A \cdot (1-p)^m + B
+$$
 
 ```python
 import numpy as np
@@ -150,7 +156,9 @@ print(f"P(m=20) = {A*(r_clifford)**20 + B:.4f}")
 
 El Hamiltoniano de Heisenberg de 4 sitios tiene $3 \times 3 = 9$ términos (XX, YY, ZZ para cada enlace). Cada término de 2 qubits requiere 2 CNOTs.
 
-$$N_\text{CNOT} = n \times (\text{términos}) \times 2 = 10 \times 9 \times 2 = 180 \text{ CNOTs}$$
+$$
+N_\text{CNOT} = n \times (\text{términos}) \times 2 = 10 \times 9 \times 2 = 180 \text{ CNOTs}
+$$
 
 ```python
 n_qubits = 4
@@ -179,7 +187,9 @@ print(f"  CNOTs total: {total_cnots}")
 
 **Solución:**
 
-$$\text{CNOT}|+\rangle|0\rangle = \text{CNOT}\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)|0\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle) = |\Phi^+\rangle$$
+$$
+\text{CNOT}|+\rangle|0\rangle = \text{CNOT}\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)|0\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle) = |\Phi^+\rangle
+$$
 
 ```python
 from qiskit import QuantumCircuit

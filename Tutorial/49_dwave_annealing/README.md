@@ -26,7 +26,9 @@ La idea es simple y poderosa: cualquier problema de optimización combinatoria q
 
 El Hamiltoniano de un sistema de annealing cuántico con $N$ espines tiene la forma:
 
-$$H(s) = -A(s)\sum_{i=1}^{N} \hat{\sigma}_i^x - B(s) H_P$$
+$$
+H(s) = -A(s)\sum_{i=1}^{N} \hat{\sigma}_i^x - B(s) H_P
+$$
 
 donde:
 - $s \in [0, 1]$ es el parámetro de annealing que varía en el tiempo ($s = t/T_{\text{anneal}}$)
@@ -48,13 +50,17 @@ El schedule define cómo evoluciona el sistema:
 
 El estado inicial es el estado fundamental del campo transverso, que es la superposición uniforme:
 
-$$|\psi(0)\rangle = \frac{1}{2^{N/2}} \sum_{z \in \{0,1\}^N} |z\rangle = |+\rangle^{\otimes N}$$
+$$
+|\psi(0)\rangle = \frac{1}{2^{N/2}} \sum_{z \in \{0,1\}^N} |z\rangle = |+\rangle^{\otimes N}
+$$
 
 ### 1.3 Teorema adiabático
 
 El **teorema adiabático de la mecánica cuántica** (Born-Fock, 1928) garantiza que si el Hamiltoniano varía suficientemente despacio, el sistema permanece en el estado fundamental a lo largo de toda la evolución. La condición es:
 
-$$T_{\text{anneal}} \gg \frac{\max_{s} |\langle 1(s)| \dot{H}(s) |0(s)\rangle|}{g_{\min}^2}$$
+$$
+T_{\text{anneal}} \gg \frac{\max_{s} |\langle 1(s)| \dot{H}(s) |0(s)\rangle|}{g_{\min}^2}
+$$
 
 donde $g_{\min}$ es el **gap espectral mínimo** (diferencia de energía entre el estado fundamental y el primer estado excitado a lo largo del schedule), y $|0(s)\rangle$, $|1(s)\rangle$ son el estado fundamental e inmediatamente superior.
 
@@ -82,7 +88,9 @@ D-Wave no compite directamente con IBM o Quantinuum — resuelve una clase difer
 
 Un problema **QUBO** (Quadratic Unconstrained Binary Optimization) consiste en minimizar:
 
-$$E(\mathbf{x}) = \mathbf{x}^T Q \mathbf{x} = \sum_{i} Q_{ii} x_i + \sum_{i<j} Q_{ij} x_i x_j$$
+$$
+E(\mathbf{x}) = \mathbf{x}^T Q \mathbf{x} = \sum_{i} Q_{ii} x_i + \sum_{i<j} Q_{ij} x_i x_j
+$$
 
 donde:
 - $\mathbf{x} \in \{0, 1\}^n$ es el vector de variables binarias de decisión
@@ -94,11 +102,15 @@ donde:
 
 QUBO y el modelo de Ising son equivalentes mediante la sustitución $x_i = (1 - s_i)/2$ donde $s_i \in \{-1, +1\}$:
 
-$$E_{\text{Ising}}(\mathbf{s}) = -\sum_{i<j} J_{ij} s_i s_j - \sum_i h_i s_i$$
+$$
+E_{\text{Ising}}(\mathbf{s}) = -\sum_{i<j} J_{ij} s_i s_j - \sum_i h_i s_i
+$$
 
 Los coeficientes se relacionan como:
 
-$$J_{ij} = -\frac{Q_{ij}}{4}, \qquad h_i = \frac{Q_{ii}}{2} + \frac{1}{4}\sum_{j \neq i} Q_{ij}$$
+$$
+J_{ij} = -\frac{Q_{ij}}{4}, \qquad h_i = \frac{Q_{ii}}{2} + \frac{1}{4}\sum_{j \neq i} Q_{ij}
+$$
 
 ### 2.3 El estado fundamental como solución óptima
 
@@ -124,7 +136,9 @@ La variable binaria $x_i \in \{0, 1\}$ indica en qué partición está el nodo $
 
 Maximizar el peso del corte equivale a **minimizar** (cambiando signo):
 
-$$E_{\text{MAX-CUT}}(\mathbf{x}) = -\sum_{(i,j)\in E} w_{ij}(x_i + x_j - 2x_ix_j)$$
+$$
+E_{\text{MAX-CUT}}(\mathbf{x}) = -\sum_{(i,j)\in E} w_{ij}(x_i + x_j - 2x_ix_j)
+$$
 
 La matriz QUBO tiene:
 - Diagonal: $Q_{ii} = -\sum_{j:(i,j)\in E} w_{ij}$ (sumando sobre los vecinos de $i$)
@@ -138,7 +152,9 @@ Se necesitan variables binarias $x_{i,t} \in \{0, 1\}$ donde $x_{i,t} = 1$ signi
 
 El QUBO del TSP combina el objetivo con las restricciones de permutación como penalizaciones:
 
-$$E_{\text{TSP}} = A \cdot C_1 + A \cdot C_2 + B \cdot C_3$$
+$$
+E_{\text{TSP}} = A \cdot C_1 + A \cdot C_2 + B \cdot C_3
+$$
 
 donde:
 - $C_1 = \sum_{t}\left(1 - \sum_i x_{i,t}\right)^2$ — cada tiempo tiene exactamente una ciudad
@@ -155,7 +171,9 @@ Para colorear un grafo $G = (V, E)$ con $k$ colores sin que dos nodos adyacentes
 
 Variables $x_{i,c} = 1$ si el nodo $i$ tiene color $c$. El QUBO es:
 
-$$E_{\text{color}} = A\sum_i \left(1 - \sum_c x_{i,c}\right)^2 + A\sum_{(i,j)\in E}\sum_c x_{i,c} x_{j,c}$$
+$$
+E_{\text{color}} = A\sum_i \left(1 - \sum_c x_{i,c}\right)^2 + A\sum_{(i,j)\in E}\sum_c x_{i,c} x_{j,c}
+$$
 
 - Primer término: cada nodo tiene exactamente un color
 - Segundo término: nodos adyacentes no tienen el mismo color
@@ -164,7 +182,9 @@ $$E_{\text{color}} = A\sum_i \left(1 - \sum_c x_{i,c}\right)^2 + A\sum_{(i,j)\in
 
 El modelo de Markowitz selecciona activos para maximizar retorno y minimizar riesgo. Con variables binarias $x_i \in \{0,1\}$ indicando si el activo $i$ está en el portfolio:
 
-$$E_{\text{portfolio}} = q \mathbf{x}^T \Sigma \mathbf{x} - (1-q) \boldsymbol{\mu}^T \mathbf{x} + \lambda \left(\sum_i x_i - B\right)^2$$
+$$
+E_{\text{portfolio}} = q \mathbf{x}^T \Sigma \mathbf{x} - (1-q) \boldsymbol{\mu}^T \mathbf{x} + \lambda \left(\sum_i x_i - B\right)^2
+$$
 
 donde:
 - $\Sigma$ es la matriz de covarianza de retornos (riesgo)

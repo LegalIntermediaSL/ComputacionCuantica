@@ -9,11 +9,15 @@
 La mecánica cuántica impone límites fundamentales a la precisión de cualquier medición.
 Para N partículas independientes con estrategia clásica:
 
-$$\Delta\phi_{\text{SQL}} = \frac{1}{\sqrt{N}}$$
+$$
+\Delta\phi_{\text{SQL}} = \frac{1}{\sqrt{N}}
+$$
 
 Con entrelazamiento máximo (estados GHZ), se alcanza el **límite de Heisenberg**:
 
-$$\Delta\phi_{\text{HL}} = \frac{1}{N}$$
+$$
+\Delta\phi_{\text{HL}} = \frac{1}{N}
+$$
 
 La ventaja cuántica en metrología es una mejora **cuadrática** en precisión.
 
@@ -62,10 +66,14 @@ plt.show()
 El Cramér-Rao cuántico establece que la varianza de cualquier estimador
 está acotada por la información de Fisher cuántica $F_Q$:
 
-$$\text{Var}(\hat{\phi}) \geq \frac{1}{N \cdot F_Q[\rho, A]}$$
+$$
+\text{Var}(\hat{\phi}) \geq \frac{1}{N \cdot F_Q[\rho, A]}
+$$
 
 Para estado puro $|\psi\rangle$:
-$$F_Q = 4 \left(\langle\psi|\hat{A}^2|\psi\rangle - \langle\psi|\hat{A}|\psi\rangle^2\right) = 4\,\text{Var}(\hat{A})$$
+$$
+F_Q = 4 \left(\langle\psi|\hat{A}^2|\psi\rangle - \langle\psi|\hat{A}|\psi\rangle^2\right) = 4\,\text{Var}(\hat{A})
+$$
 
 ```python
 import numpy as np

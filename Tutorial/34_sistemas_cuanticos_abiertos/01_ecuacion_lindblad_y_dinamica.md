@@ -8,12 +8,16 @@
 
 Un sistema cuántico S en contacto con un entorno E evoluciona según:
 
-$$i\hbar \frac{d}{dt}|\Psi_{SE}\rangle = H_{SE}|\Psi_{SE}\rangle$$
+$$
+i\hbar \frac{d}{dt}|\Psi_{SE}\rangle = H_{SE}|\Psi_{SE}\rangle
+$$
 
 Al trazar sobre E, obtenemos la **ecuación maestra de Lindblad** para la
 matriz densidad reducida ρ_S:
 
-$$\frac{d\rho}{dt} = -\frac{i}{\hbar}[H, \rho] + \sum_k \gamma_k \left(L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\}\right)$$
+$$
+\frac{d\rho}{dt} = -\frac{i}{\hbar}[H, \rho] + \sum_k \gamma_k \left(L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\}\right)
+$$
 
 donde:
 - $L_k$ son los **operadores de salto** (jump operators) que describen los canales de error
@@ -172,7 +176,9 @@ plt.show()
 
 A temperatura T, el sistema converge al estado de Gibbs:
 
-$$\rho_{eq} = \frac{e^{-H/k_BT}}{\text{tr}(e^{-H/k_BT})}$$
+$$
+\rho_{eq} = \frac{e^{-H/k_BT}}{\text{tr}(e^{-H/k_BT})}
+$$
 
 ```python
 def estado_gibbs(H: np.ndarray, T_K: float) -> np.ndarray:
@@ -233,7 +239,9 @@ print(f'Estado de Gibbs esperado:      {rho_gibbs[1,1].real:.6f}')
 Para circuitos cuánticos, la ecuación de Lindblad se puede vectorizar
 usando el **superoperador** (Liouvilliano):
 
-$$\frac{d|\rho\rangle\rangle}{dt} = \mathcal{L}|\rho\rangle\rangle$$
+$$
+\frac{d|\rho\rangle\rangle}{dt} = \mathcal{L}|\rho\rangle\rangle
+$$
 
 donde $|\rho\rangle\rangle$ es el vector densidad en la representación de espacio de Liouville.
 
@@ -300,7 +308,9 @@ for ev in eigenvals_sorted[1:]:
 
 El Hamiltoniano de Jaynes-Cummings describe un qubit acoplado a un modo de cavidad:
 
-$$H_{JC} = \omega_c a^\dagger a + \frac{\omega_q}{2}\sigma_z + g(a\sigma_+ + a^\dagger\sigma_-)$$
+$$
+H_{JC} = \omega_c a^\dagger a + \frac{\omega_q}{2}\sigma_z + g(a\sigma_+ + a^\dagger\sigma_-)
+$$
 
 ```python
 def hamiltonian_jaynes_cummings(omega_c: float, omega_q: float,

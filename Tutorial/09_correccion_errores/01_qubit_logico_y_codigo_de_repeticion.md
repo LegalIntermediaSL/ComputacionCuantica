@@ -20,7 +20,9 @@ Sin embargo, el **Teorema de No-Clonación** cuántica estipula la imposibilidad
 ¿Cómo hacemos redundancia sin poder fotocopiar? **Entrelazando**. En vez de copiar el estado, clonamos indirectamente el conocimiento subyacente usando compuertas $CNOT$. 
 
 Así, mapamos el estado puramente cuántico en el espacio protegido de 3 qubits, creando así un Código Repetidor:
-$$|\psi\rangle = \alpha|0\rangle + \beta|1\rangle \quad \xrightarrow{\text{Codificación}} \quad |\psi_{log}\rangle = \alpha|000\rangle + \beta|111\rangle$$
+$$
+|\psi\rangle = \alpha|0\rangle + \beta|1\rangle \quad \xrightarrow{\text{Codificación}} \quad |\psi_{log}\rangle = \alpha|000\rangle + \beta|111\rangle
+$$
 *(Nótese que el estado **no es** $(\alpha|0\rangle + \beta|1\rangle) \otimes (\alpha|0\rangle + \beta|1\rangle) \otimes (\dots)$, lo cual violaría el teorema de no clonación, sino un único estado de base de múltiples partículas).*
 
 ## 4. Medición Diferencial o Medición de "Síndrome"

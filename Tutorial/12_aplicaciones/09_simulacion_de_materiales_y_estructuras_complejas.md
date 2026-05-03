@@ -4,7 +4,9 @@ Más allá de las moléculas pequeñas, el gran objetivo es simular materiales c
 
 ## 1. El Modelo de Hubbard
 Es el modelo estándar para electrones en un sólido. Describe la competencia entre el movimiento de electrones (salto) y su repulsión en el mismo sitio.
-$$ H = -t \sum_{\langle i,j \rangle, \sigma} (c_{i\sigma}^\dagger c_{j\sigma} + h.c.) + U \sum_i n_{i\uparrow} n_{i\downarrow} $$
+$$
+H = -t \sum_{\langle i,j \rangle, \sigma} (c_{i\sigma}^\dagger c_{j\sigma} + h.c.) + U \sum_i n_{i\uparrow} n_{i\downarrow}
+$$
 
 ## 2. Hacia la Ciencia de Materiales NISQ
 - **Superconductores de alta temperatura:** Entender su mecanismo físico.

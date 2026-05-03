@@ -5,7 +5,9 @@ La optimización de carteras es uno de los problemas más icónicos del sector f
 ## 1. El Modelo de Markowitz
 En su forma clásica, queremos minimizar la varianza de la cartera $\sigma_p^2$ sujeta a un retorno objetivo. En computación cuántica, mapeamos esto a un problema binario donde seleccionamos o no un activo $x_i \in \{0, 1\}$.
 La función de coste (Hamiltoniano) se escribe como:
-$$ H = - \sum_i \mu_i x_i + q \sum_i \sum_j \sigma_{ij} x_i x_j $$
+$$
+H = - \sum_i \mu_i x_i + q \sum_i \sum_j \sigma_{ij} x_i x_j
+$$
 Donde:
 - $\mu_i$: Retorno esperado del activo $i$.
 - $\sigma_{ij}$: Covarianza entre los activos $i$ y $j$.

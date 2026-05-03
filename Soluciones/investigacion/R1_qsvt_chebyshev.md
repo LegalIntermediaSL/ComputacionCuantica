@@ -84,7 +84,9 @@ confirmando la cota teórica. Para $\delta=0.1$ y $d=39$: $\varepsilon \approx 1
 
 El grado necesario para error $\varepsilon$ en $|x| > \delta$:
 
-$$d \approx \frac{4\ln(1/\delta)}{\pi^2} \cdot \ln\left(\frac{1}{\varepsilon}\right)$$
+$$
+d \approx \frac{4\ln(1/\delta)}{\pi^2} \cdot \ln\left(\frac{1}{\varepsilon}\right)
+$$
 
 ```python
 import numpy as np

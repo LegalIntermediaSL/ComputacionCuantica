@@ -10,7 +10,9 @@ En computación tolerante a fallos, el grupo de Clifford (H, S, CNOT) es impleme
 
 La solución estándar es la **destilación de magic states**: usar muchos estados $|T\rangle$ ruidosos para producir pocos estados $|T\rangle$ limpios, usando solo operaciones Clifford (que ya son tolerantes a fallos).
 
-$$|T\rangle = \frac{1}{\sqrt{2}}(|0\rangle + e^{i\pi/4}|1\rangle) = T|+\rangle$$
+$$
+|T\rangle = \frac{1}{\sqrt{2}}(|0\rangle + e^{i\pi/4}|1\rangle) = T|+\rangle
+$$
 
 ---
 
@@ -28,7 +30,9 @@ El protocolo más conocido (Bravyi-Kitaev 2005) usa el código $[[15,1,3]]$:
 
 Para obtener un estado con error $\varepsilon_\text{target}$ partiendo de $\varepsilon_0$, se necesitan $k$ rondas de destilación:
 
-$$k = \left\lceil \frac{\log(\varepsilon_\text{target}/\varepsilon_0)}{\log(35\varepsilon_0^2)} \right\rceil$$
+$$
+k = \left\lceil \frac{\log(\varepsilon_\text{target}/\varepsilon_0)}{\log(35\varepsilon_0^2)} \right\rceil
+$$
 
 **Costo total:** $15^k$ estados iniciales → overhead **exponencial** en el número de rondas.
 
@@ -58,7 +62,9 @@ Bravyi y Haah demostraron que el código $[[10,2,2]]$ permite un protocolo más 
 
 Para el protocolo [[15,1,3]] con $k$ niveles, el overhead de qubits es:
 
-$$n_\text{físicos}(n_\text{lógicos}) = O(n_\text{lógicos} \cdot 15^k \cdot d^2)$$
+$$
+n_\text{físicos}(n_\text{lógicos}) = O(n_\text{lógicos} \cdot 15^k \cdot d^2)
+$$
 
 donde $d^2$ son los qubits del código surface. Para $k=2$ (suficiente para $\varepsilon_\text{target}\sim 10^{-10}$) y $d=7$: **$\sim 1500$ qubits físicos por estado T**. Esto es **cuadrático** en $d$.
 
@@ -68,7 +74,9 @@ donde $d^2$ son los qubits del código surface. Para $k=2$ (suficiente para $\va
 
 **Construcción:** Usar el código de color 3D $[[O(d^3), 1, d]]$ como código destilador. La clave es que los operadores de corrección del código tienen peso $O(d)$ en 3D vs $O(d^2)$ en 2D.
 
-$$n_\text{físicos} = O(d^3) \cdot k \text{ vs } O(d^2 \cdot 15^k) \text{ (cuadrático)}$$
+$$
+n_\text{físicos} = O(d^3) \cdot k \text{ vs } O(d^2 \cdot 15^k) \text{ (cuadrático)}
+$$
 
 Para $d$ grande y muchas rondas $k$, el protocolo 3D domina.
 
@@ -76,7 +84,9 @@ Para $d$ grande y muchas rondas $k$, el protocolo 3D domina.
 
 El protocolo de Litinski construye una **fábrica de magic states** integrada en el surface code que realiza la destilación sin overhead de espacio-tiempo adicional. El overhead es:
 
-$$V \sim O(d^3) \text{ unidades de espacio-tiempo}$$
+$$
+V \sim O(d^3) \text{ unidades de espacio-tiempo}
+$$
 
 que puede implementarse en el "bulk" del computador tolerante a fallos sin requerir qubits físicos adicionales separados.
 

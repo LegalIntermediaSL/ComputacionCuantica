@@ -4,7 +4,9 @@
 
 La computación topológica usa **anyones** — cuasipartículas en 2D cuya estadística de intercambio ni es bosónica ni fermiónica. Al intercambiar dos anyones, el estado adquiere una fase arbitraria:
 
-$$|\psi\rangle \xrightarrow{\text{intercambio}} e^{i\theta}|\psi\rangle \quad (\theta \neq 0, \pi)$$
+$$
+|\psi\rangle \xrightarrow{\text{intercambio}} e^{i\theta}|\psi\rangle \quad (\theta \neq 0, \pi)
+$$
 
 Para anyones **no abelianos**, el intercambio aplica una matriz unitaria no trivial — la clave de la computación topológica.
 
@@ -12,7 +14,9 @@ Para anyones **no abelianos**, el intercambio aplica una matriz unitaria no triv
 
 Los anyones de Fibonacci tienen reglas de fusión:
 
-$$\tau \times \tau = \mathbf{1} + \tau$$
+$$
+\tau \times \tau = \mathbf{1} + \tau
+$$
 
 - Espacio de Hilbert crece como números de Fibonacci: dimensión $\sim \phi^n$ donde $\phi = (1+\sqrt{5})/2$
 - Son **universales para computación cuántica** mediante trenzado (braiding)
@@ -24,7 +28,9 @@ $$\tau \times \tau = \mathbf{1} + \tau$$
 
 El código tórico define qubits en aristas de un retículo toroidal. Los operadores estabilizadores son:
 
-$$A_v = \prod_{e \in \text{vértice}} X_e, \qquad B_p = \prod_{e \in \text{plaqueta}} Z_e$$
+$$
+A_v = \prod_{e \in \text{vértice}} X_e, \qquad B_p = \prod_{e \in \text{plaqueta}} Z_e
+$$
 
 | Propiedad | Valor |
 |---|---|
@@ -42,7 +48,9 @@ Los errores crean pares de anyones; la corrección consiste en reunirlos (MWPM).
 
 Un **Matrix Product State (MPS)** factoriza el estado de $n$ qubits como:
 
-$$|\psi\rangle = \sum_{s_1,\ldots,s_n} A^{s_1}[1] A^{s_2}[2] \cdots A^{s_n}[n] |s_1 \cdots s_n\rangle$$
+$$
+|\psi\rangle = \sum_{s_1,\ldots,s_n} A^{s_1}[1] A^{s_2}[2] \cdots A^{s_n}[n] |s_1 \cdots s_n\rangle
+$$
 
 donde cada $A^s[k]$ es una matriz de dimensión $\chi \times \chi$ (**bond dimension** $\chi$).
 
@@ -51,7 +59,9 @@ donde cada $A^s[k]$ es una matriz de dimensión $\chi \times \chi$ (**bond dimen
 - Estado GHZ: $\chi = 2$
 - Estado genérico: $\chi \sim 2^{n/2}$ (intractable)
 
-$$S(\rho_A) \leq \chi \log \chi$$
+$$
+S(\rho_A) \leq \chi \log \chi
+$$
 
 ---
 
@@ -78,7 +88,9 @@ El **Density Matrix Renormalization Group (DMRG)** optimiza MPS variacionalmente
 
 **Teorema (Hastings 2007)**: en sistemas gapped en 1D con Hamiltoniano local, el estado base satisface:
 
-$$S(A) \leq c \cdot \xi \cdot \log(\xi)$$
+$$
+S(A) \leq c \cdot \xi \cdot \log(\xi)
+$$
 
 donde $\xi$ es la longitud de correlación. Esto justifica que DMRG funcione para sistemas 1D gapped.
 
@@ -94,8 +106,14 @@ donde $\xi$ es la longitud de correlación. Esto justifica que DMRG funcione par
 
 ## Fórmulas Clave
 
-$$\chi_{\max} = 2^{n/2}, \quad S \leq \log_2 \chi$$
+$$
+\chi_{\max} = 2^{n/2}, \quad S \leq \log_2 \chi
+$$
 
-$$\text{DMRG gap energético} \sim e^{-L/\xi}$$
+$$
+\text{DMRG gap energético} \sim e^{-L/\xi}
+$$
 
-$$\text{Dimensión espacio de Fibonacci} = F_n \approx \phi^n/\sqrt{5}$$
+$$
+\text{Dimensión espacio de Fibonacci} = F_n \approx \phi^n/\sqrt{5}
+$$

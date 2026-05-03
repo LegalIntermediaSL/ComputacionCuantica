@@ -26,7 +26,9 @@ intractable para este sistema.
 La simulación exacta de FeMoco requiere representar el espacio de Hilbert del
 sistema electrónico activo. Con la representación de segunda cuantización:
 
-$$N_{\text{qubits}} = 2 \times N_{\text{orbitales}}$$
+$$
+N_{\text{qubits}} = 2 \times N_{\text{orbitales}}
+$$
 
 Para FeMoco con espacio activo (54e, 54 orbitales):
 
@@ -89,7 +91,9 @@ cuánticos no padecen este problema.
 
 La ventaja cuántica se alcanza cuando:
 
-$$T_{\text{cuántico}} < T_{\text{clásico}} \times C_{\text{relativo}}$$
+$$
+T_{\text{cuántico}} < T_{\text{clásico}} \times C_{\text{relativo}}
+$$
 
 Para FeMoco con QPE vs. mejor QMC clásico:
 

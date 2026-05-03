@@ -11,7 +11,9 @@
 **Solución:**
 
 En el régimen de transmón ($E_J \gg E_C$), la anharmonicidad es aproximadamente:
-$$\alpha \approx -E_C/\hbar \approx -E_C/h \text{ (en unidades de frecuencia)}$$
+$$
+\alpha \approx -E_C/\hbar \approx -E_C/h \text{ (en unidades de frecuencia)}
+$$
 
 ```python
 E_C_MHz = 300  # MHz
@@ -42,7 +44,9 @@ print(f"ω_q ≈ {omega_q:.1f} MHz = {omega_q/1000:.3f} GHz")
 **Solución:**
 
 En el régimen dispersivo ($\Delta \gg g$):
-$$\chi = \frac{g^2}{\Delta}$$
+$$
+\chi = \frac{g^2}{\Delta}
+$$
 
 ```python
 g = 100e6     # 100 MHz en Hz
@@ -159,11 +163,19 @@ for name, data in algos.items():
 
 La puerta CZ aplica $|11\rangle \to -|11\rangle$ y deja el resto invariante. Aplicando $H$ al qubit 1 antes y después:
 
-$$H|0\rangle = |+\rangle, \quad H|1\rangle = |-\rangle$$
+$$
+H|0\rangle = |+\rangle, \quad H|1\rangle = |-\rangle
+$$
 
-$$(I \otimes H) \text{CZ} (I \otimes H)|00\rangle = (I \otimes H)\text{CZ}|0+\rangle = (I \otimes H)|0+\rangle = |00\rangle$$
-$$(I \otimes H) \text{CZ} (I \otimes H)|01\rangle = (I \otimes H)|0-\rangle = |01\rangle$$
-$$(I \otimes H) \text{CZ} (I \otimes H)|10\rangle = (I \otimes H)\text{CZ}|1+\rangle = (I \otimes H)(-|1-\rangle + ... ) = |11\rangle$$
+$$
+(I \otimes H) \text{CZ} (I \otimes H)|00\rangle = (I \otimes H)\text{CZ}|0+\rangle = (I \otimes H)|0+\rangle = |00\rangle
+$$
+$$
+(I \otimes H) \text{CZ} (I \otimes H)|01\rangle = (I \otimes H)|0-\rangle = |01\rangle
+$$
+$$
+(I \otimes H) \text{CZ} (I \otimes H)|10\rangle = (I \otimes H)\text{CZ}|1+\rangle = (I \otimes H)(-|1-\rangle + ... ) = |11\rangle
+$$
 
 Esto coincide con la tabla de verdad de CNOT. Verificación numérica:
 

@@ -10,7 +10,9 @@ El **NLP cuántico (QNLP)** (Coecke, Sadrzadeh, Clark 2010) usa **gramática de 
 
 Los **funtores DisCoCat** mapean diagramas gramaticales a circuitos cuánticos:
 
-$$F: \mathbf{Gram} \to \mathbf{FHilb}$$
+$$
+F: \mathbf{Gram} \to \mathbf{FHilb}
+$$
 
 Cada palabra mapea a un tensor en un espacio de Hilbert; la composición gramatical es contracción tensorial.
 
@@ -20,7 +22,9 @@ Cada palabra mapea a un tensor en un espacio de Hilbert; la composición gramati
 
 Los circuitos **IQP** (Instantaneous Quantum Polynomial) son el ansatz natural para QNLP:
 
-$$U = H^{\otimes n} D(\theta) H^{\otimes n}$$
+$$
+U = H^{\otimes n} D(\theta) H^{\otimes n}
+$$
 
 donde $D(\theta)$ es diagonal en la base computacional. Son difíciles de simular clásicamente bajo conjeturas estándar.
 
@@ -42,15 +46,21 @@ texto → lambeq.BobcatParser → CircuitAnsatz → PennyLane → optimización
 
 El **Quadratic Unconstrained Binary Optimization (QUBO)** es el lenguaje nativo del annealing:
 
-$$\min_{x \in \{0,1\}^n} x^T Q x = \min_{x} \sum_{i \leq j} Q_{ij} x_i x_j$$
+$$
+\min_{x \in \{0,1\}^n} x^T Q x = \min_{x} \sum_{i \leq j} Q_{ij} x_i x_j
+$$
 
 **MAX-CUT → QUBO**: dado grafo $G=(V,E)$, maximizar corte equivale a:
 
-$$\text{MAX-CUT} = \max_{x \in \{0,1\}^n} \sum_{(i,j)\in E} (x_i + x_j - 2x_i x_j)$$
+$$
+\text{MAX-CUT} = \max_{x \in \{0,1\}^n} \sum_{(i,j)\in E} (x_i + x_j - 2x_i x_j)
+$$
 
 En variables de espín $z_i = 2x_i - 1$:
 
-$$\text{MAX-CUT} \Leftrightarrow \min_z \sum_{(i,j)\in E} z_i z_j = \min_z \frac{1}{2} \sum_{ij} J_{ij} z_i z_j$$
+$$
+\text{MAX-CUT} \Leftrightarrow \min_z \sum_{(i,j)\in E} z_i z_j = \min_z \frac{1}{2} \sum_{ij} J_{ij} z_i z_j
+$$
 
 Este Hamiltoniano de Ising es directamente programable en D-Wave.
 
@@ -84,14 +94,22 @@ La topología **Pegasus** supera a Chimera (anterior) con mayor conectividad: em
 
 **Hamiltoniano adiabático de D-Wave**:
 
-$$H(t) = -\frac{A(t)}{2} \sum_i \sigma_i^x + \frac{B(t)}{2} \left( \sum_i h_i \sigma_i^z + \sum_{ij} J_{ij} \sigma_i^z \sigma_j^z \right)$$
+$$
+H(t) = -\frac{A(t)}{2} \sum_i \sigma_i^x + \frac{B(t)}{2} \left( \sum_i h_i \sigma_i^z + \sum_{ij} J_{ij} \sigma_i^z \sigma_j^z \right)
+$$
 
 ---
 
 ## Fórmulas Clave
 
-$$F(\text{DisCoCat}) : n \otimes (n^r \cdot s \cdot n^l) \otimes n \to s$$
+$$
+F(\text{DisCoCat}) : n \otimes (n^r \cdot s \cdot n^l) \otimes n \to s
+$$
 
-$$E_{\text{QAOA}}(\gamma,\beta) = \langle \gamma,\beta | H_P | \gamma,\beta \rangle, \quad \text{optimizar sobre } \gamma,\beta \in \mathbb{R}^p$$
+$$
+E_{\text{QAOA}}(\gamma,\beta) = \langle \gamma,\beta | H_P | \gamma,\beta \rangle, \quad \text{optimizar sobre } \gamma,\beta \in \mathbb{R}^p
+$$
 
-$$\text{Approx. ratio QAOA-1 en MAX-CUT} \geq 0.6924$$
+$$
+\text{Approx. ratio QAOA-1 en MAX-CUT} \geq 0.6924
+$$

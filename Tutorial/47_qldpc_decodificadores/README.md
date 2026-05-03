@@ -12,7 +12,9 @@ Un **código LDPC** $[n, k, d]$ es un código lineal binario definido por una ma
 
 El espacio de codewords es el núcleo de $H$:
 
-$$\mathcal{C} = \{ \mathbf{c} \in \mathbb{F}_2^n \mid H\mathbf{c} = \mathbf{0} \}$$
+$$
+\mathcal{C} = \{ \mathbf{c} \in \mathbb{F}_2^n \mid H\mathbf{c} = \mathbf{0} \}
+$$
 
 La **tasa del código** es $R = k/n$ y la **distancia mínima** $d$ es el peso mínimo de un codeword no nulo.
 
@@ -34,7 +36,9 @@ El algoritmo **BP** (también llamado *sum-product*) opera sobre el grafo de Tan
 
 En la iteración $t$, el mensaje del nodo de comprobación $c_i$ al nodo variable $v_j$ es:
 
-$$\mu_{c_i \to v_j}^{(t)} = 2\,\tanh^{-1}\!\left(\prod_{j' \in \partial(c_i) \setminus \{j\}} \tanh\!\left(\frac{\mu_{v_{j'} \to c_i}^{(t-1)}}{2}\right)\right)$$
+$$
+\mu_{c_i \to v_j}^{(t)} = 2\,\tanh^{-1}\!\left(\prod_{j' \in \partial(c_i) \setminus \{j\}} \tanh\!\left(\frac{\mu_{v_{j'} \to c_i}^{(t-1)}}{2}\right)\right)
+$$
 
 La complejidad es $O(n \cdot t_{\max})$ con $t_{\max}$ iteraciones, típicamente 50–100 en la práctica. Esta eficiencia contrasta con la decodificación óptima de máxima verosimilitud, que es NP-difícil en general.
 
@@ -57,7 +61,9 @@ Los códigos LDPC modernos (turbo-códigos, polar codes, LDPC de 5G) se acercan 
 
 Los **códigos CSS** (Calderbank-Shor-Steane) son el andamiaje sobre el que se construyen la mayoría de los códigos qLDPC. Un código CSS $[[n, k, d]]$ se especifica mediante dos matrices binarias $H_X \in \mathbb{F}_2^{r_X \times n}$ y $H_Z \in \mathbb{F}_2^{r_Z \times n}$ que satisfacen la condición de ortogonalidad:
 
-$$\boxed{H_X H_Z^T = 0 \pmod{2}}$$
+$$
+\boxed{H_X H_Z^T = 0 \pmod{2}}
+$$
 
 Esta condición garantiza que los estabilizadores $X$ y $Z$ conmuten entre sí, como exige la mecánica cuántica.
 
@@ -67,17 +73,23 @@ Los $n$ qubits físicos soportan:
 
 El número de qubits lógicos codificados es:
 
-$$k = n - \text{rank}(H_X) - \text{rank}(H_Z)$$
+$$
+k = n - \text{rank}(H_X) - \text{rank}(H_Z)
+$$
 
 La **distancia del código** es:
 
-$$d = \min\!\left(d_X,\, d_Z\right), \quad d_X = \min_{\mathbf{e} \in \ker H_Z \setminus \text{im}\,H_X^T} |\mathbf{e}|, \quad d_Z = \min_{\mathbf{e} \in \ker H_X \setminus \text{im}\,H_Z^T} |\mathbf{e}|$$
+$$
+d = \min\!\left(d_X,\, d_Z\right), \quad d_X = \min_{\mathbf{e} \in \ker H_Z \setminus \text{im}\,H_X^T} |\mathbf{e}|, \quad d_Z = \min_{\mathbf{e} \in \ker H_X \setminus \text{im}\,H_Z^T} |\mathbf{e}|
+$$
 
 ### 2.2 Ejemplo: Código de Steane [[7, 1, 3]]
 
 El código de Steane está basado en el código de Hamming $[7, 4, 3]$ clásico, con $H_X = H_Z = H_{\text{Hamming}}$:
 
-$$H = \begin{pmatrix} 1&0&1&0&1&0&1 \\ 0&1&1&0&0&1&1 \\ 0&0&0&1&1&1&1 \end{pmatrix}$$
+$$
+H = \begin{pmatrix} 1&0&1&0&1&0&1 \\ 0&1&1&0&0&1&1 \\ 0&0&0&1&1&1&1 \end{pmatrix}
+$$
 
 Se puede verificar que $H H^T = 0 \pmod{2}$ gracias a la estructura del código de Hamming. El resultado es:
 - $n = 7$ qubits físicos
@@ -111,9 +123,13 @@ print(f"Qubits logicos k = {k}")
 
 La construcción de **producto de hipergrafo** (Tillich & Zémor, 2014) es el primer método sistemático para producir códigos qLDPC con distancia $d = \Theta(\sqrt{n})$ y tasa finita $k = \Theta(1)$. Dados dos códigos LDPC clásicos con matrices $H_1 \in \mathbb{F}_2^{r_1 \times n_1}$ y $H_2 \in \mathbb{F}_2^{r_2 \times n_2}$, el código HP cuántico tiene:
 
-$$H_X = \bigl(H_1 \otimes I_{n_2},\; I_{r_1} \otimes H_2^T\bigr)$$
+$$
+H_X = \bigl(H_1 \otimes I_{n_2},\; I_{r_1} \otimes H_2^T\bigr)
+$$
 
-$$H_Z = \bigl(I_{n_1} \otimes H_2,\; H_1^T \otimes I_{r_2}\bigr)$$
+$$
+H_Z = \bigl(I_{n_1} \otimes H_2,\; H_1^T \otimes I_{r_2}\bigr)
+$$
 
 > **Note:** El producto tensorial $\otimes$ aquí es el producto tensorial de matrices binarias (producto de Kronecker sobre $\mathbb{F}_2$). La condición $H_X H_Z^T = 0$ se verifica directamente usando $H_1 H_1^T = 0$ y $H_2 H_2^T = 0$ (que se satisfacen si $H_1, H_2$ son matrices de códigos duales).
 
@@ -130,7 +146,9 @@ El código resultante tiene:
 
 La relación fundamental de los códigos HP es:
 
-$$n \sim d^2 / R$$
+$$
+n \sim d^2 / R
+$$
 
 donde $R = k/n$ es la tasa del código. Para una distancia $d$ fija, el overhead en qubits físicos escala como $O(d^2)$. En comparación, el surface code requiere $n = d^2$ qubits para $k = 1$ qubit lógico (tasa $R \to 0$ para $d \to \infty$). Los códigos HP con tasa $R > 0$ son asintóticamente mucho más eficientes.
 
@@ -146,13 +164,17 @@ El artículo de Bravyi, Cross, Gambetta, Nazario, Rall y Wood publicado en *Natu
 
 La construcción parte de un grupo abeliano $\mathbb{Z}_{l} \times \mathbb{Z}_{m}$ con elementos denotados como potencias del par de generadores $(x, y)$ con $x^l = y^m = 1$. Las matrices $H_X$ y $H_Z$ se definen como:
 
-$$H_X = [A \mid B], \quad H_Z = [B^T \mid A^T]$$
+$$
+H_X = [A \mid B], \quad H_Z = [B^T \mid A^T]
+$$
 
 donde $A$ y $B$ son matrices de circulante derivadas de polinomios $a(x, y)$ y $b(x, y)$ en el anillo $\mathbb{F}_2[x, y] / (x^l - 1, y^m - 1)$.
 
 Por ejemplo, para el código **[[144, 12, 12]]**:
 
-$$l = 12,\; m = 6,\; a(x,y) = x^3 + y + y^2,\; b(x,y) = y^3 + x + x^2$$
+$$
+l = 12,\; m = 6,\; a(x,y) = x^3 + y + y^2,\; b(x,y) = y^3 + x + x^2
+$$
 
 La condición CSS $H_X H_Z^T = 0$ se verifica algebraicamente gracias a la conmutatividad del anillo: $AB^T = BA^T$ cuando $A$ y $B$ son circulantes que conmutan.
 
@@ -168,11 +190,15 @@ La condición CSS $H_X H_Z^T = 0$ se verifica algebraicamente gracias a la conmu
 
 Para codificar 12 qubits lógicos con distancia 12 usando surface codes:
 
-$$n_{\text{surface}} = 12 \times d^2 = 12 \times 144 = 1728 \text{ qubits físicos}$$
+$$
+n_{\text{surface}} = 12 \times d^2 = 12 \times 144 = 1728 \text{ qubits físicos}
+$$
 
 El código BB [[144, 12, 12]] logra lo mismo con solo 144 qubits físicos:
 
-$$\text{Factor de mejora} = \frac{1728}{144} = 12\times$$
+$$
+\text{Factor de mejora} = \frac{1728}{144} = 12\times
+$$
 
 Este factor surge de la tasa $k/n = 1/12$ frente a la tasa $1/d^2 \to 0$ del surface code.
 
@@ -261,7 +287,9 @@ Los decodificadores basados en redes neuronales ofrecen la promesa de latencia $
 
 El síndrome a lo largo del tiempo (múltiples rondas de medición) se modela como una secuencia temporal. Una red LSTM aprende a mapear $\{s_t\}_{t=1}^T \to \hat{\mathbf{e}}$:
 
-$$h_t = \text{LSTM}(s_t, h_{t-1}), \quad \hat{\mathbf{e}} = \sigma(W h_T + b)$$
+$$
+h_t = \text{LSTM}(s_t, h_{t-1}), \quad \hat{\mathbf{e}} = \sigma(W h_T + b)
+$$
 
 donde $s_t \in \{0,1\}^{r_X + r_Z}$ es el síndrome en la ronda $t$ y $\hat{\mathbf{e}} \in [0,1]^n$ es la probabilidad de error en cada qubit.
 
@@ -269,7 +297,9 @@ donde $s_t \in \{0,1\}^{r_X + r_Z}$ es el síndrome en la ronda $t$ y $\hat{\mat
 
 Los transformers codifican la correlación espacial del síndrome mediante atención:
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+$$
 
 Ventaja: capturan correlaciones de largo alcance que BP pierde en grafos con ciclos cortos.
 
@@ -277,7 +307,9 @@ Ventaja: capturan correlaciones de largo alcance que BP pierde en grafos con cic
 
 Para QEC a 1 GHz (ciclo de síndrome $\sim 1\,\mu\text{s}$), el decodificador debe completarse en:
 
-$$t_{\text{decode}} < 1\,\mu\text{s}$$
+$$
+t_{\text{decode}} < 1\,\mu\text{s}
+$$
 
 Con hardware GPU/FPGA de alto rendimiento, redes pequeñas ($\sim 10^5$ parámetros) pueden inferir en $\sim 200\,\text{ns}$ para códigos de tamaño moderado ($n \leq 200$). Para códigos más grandes, la latencia es el cuello de botella principal.
 
@@ -307,7 +339,9 @@ Bajo el modelo de **ruido de Pauli independiente**, los códigos BB alcanzan umb
 
 El resultado teórico fundamental es el **good quantum LDPC codes** (Panteleev & Kalachev 2022; Leverrier & Zémor 2022), que demuestra la existencia de familias de códigos qLDPC con:
 
-$$k = \Theta(n), \quad d = \Theta(n)$$
+$$
+k = \Theta(n), \quad d = \Theta(n)
+$$
 
 Esto implica que asintóticamente, el overhead en qubits es $O(1)$ por qubit lógico, frente al $O(d^2)$ del surface code. En el límite de muchos qubits lógicos, los códigos qLDPC son incomparablemente mejores.
 
@@ -336,7 +370,9 @@ Esto implica que asintóticamente, el overhead en qubits es $O(1)$ por qubit ló
 
 **Ejercicio 1 (básico).** Para el código CSS con:
 
-$$H_X = H_Z = \begin{pmatrix} 1&1&0&1&1&0&0 \\ 0&1&1&0&1&1&0 \\ 0&0&1&1&0&1&1 \\ 1&0&0&1&0&0&1 \end{pmatrix}$$
+$$
+H_X = H_Z = \begin{pmatrix} 1&1&0&1&1&0&0 \\ 0&1&1&0&1&1&0 \\ 0&0&1&1&0&1&1 \\ 1&0&0&1&0&0&1 \end{pmatrix}
+$$
 
 (a) Verificar que $H_X H_Z^T = 0 \pmod{2}$.
 (b) Calcular el número de qubits lógicos $k$.

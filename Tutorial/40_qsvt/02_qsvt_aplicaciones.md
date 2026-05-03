@@ -11,7 +11,9 @@ block encoding $U_A$ de la matriz $A$ con valores singulares $\sigma_k$,
 es posible implementar una block encoding de $P(\sigma_k)$ para cualquier
 polinomio par o impar de grado $d$ usando **$d$ aplicaciones de $U_A$**:
 
-$$U_A \xrightarrow{\text{QSVT con polinomio }P} U_{P(A)}$$
+$$
+U_A \xrightarrow{\text{QSVT con polinomio }P} U_{P(A)}
+$$
 
 Los ángulos de QSVT $\{\phi_0, \phi_1, \ldots, \phi_d\}$ codifican el polinomio,
 y el circuito alterna rotaciones de fase con $U_A$ y $U_A^\dagger$.

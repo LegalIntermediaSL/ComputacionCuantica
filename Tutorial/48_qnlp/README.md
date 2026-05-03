@@ -35,7 +35,9 @@ A partir de ellos se construyen tipos compuestos con dos operaciones de divisió
 
 En notación de pregrupo, $l$ y $r$ son los **adjoints** izquierdo y derecho de un tipo. Las reducciones que permiten simplificar son:
 
-$$l \cdot l^r \leq 1 \qquad l^l \cdot l \leq 1$$
+$$
+l \cdot l^r \leq 1 \qquad l^l \cdot l \leq 1
+$$
 
 ### 1.2 Ejemplo: frase simple
 
@@ -49,11 +51,15 @@ Consideremos la frase "Alice ama a Bob". Los tipos asignados son:
 
 La reducción se produce concatenando:
 
-$$n \cdot (n^r \cdot s \cdot n^l) \cdot n$$
+$$
+n \cdot (n^r \cdot s \cdot n^l) \cdot n
+$$
 
 Aplicando $n \cdot n^r \leq 1$ por la izquierda y $n^l \cdot n \leq 1$ por la derecha:
 
-$$1 \cdot s \cdot 1 = s \checkmark$$
+$$
+1 \cdot s \cdot 1 = s \checkmark
+$$
 
 La frase es gramaticalmente válida y su tipo final es $s$.
 
@@ -94,11 +100,15 @@ El mapeo es:
 
 Para el verbo transitivo "ama" con tipo $n^r \cdot s \cdot n^l$, su significado es un tensor:
 
-$$\overrightarrow{\text{ama}} \in N \otimes S \otimes N$$
+$$
+\overrightarrow{\text{ama}} \in N \otimes S \otimes N
+$$
 
 El significado de la frase completa se calcula como contracción tensorial:
 
-$$\overrightarrow{\text{frase}} = \overrightarrow{\text{Alice}} \otimes \overrightarrow{\text{ama}} \otimes \overrightarrow{\text{Bob}}$$
+$$
+\overrightarrow{\text{frase}} = \overrightarrow{\text{Alice}} \otimes \overrightarrow{\text{ama}} \otimes \overrightarrow{\text{Bob}}
+$$
 
 con contracciones según las cups del diagrama gramatical.
 
@@ -158,7 +168,9 @@ Cada qubit comienza en $|0\rangle$, recibe una puerta Hadamard, luego rotaciones
 
 Para una frase de longitud $L$ palabras con tipos pregrupo asignados, el número total de qubits es:
 
-$$n_{\text{qubits}} = n_s + \sum_{w=1}^{L} n_w$$
+$$
+n_{\text{qubits}} = n_s + \sum_{w=1}^{L} n_w
+$$
 
 donde $n_s = \log_2 d_s$ (qubits para el tipo frase) y $n_w$ depende del tipo de cada palabra. En la implementación estándar con $d_n = 2$ (1 qubit por nombre) y $d_s = 2$ (1 qubit para frase):
 
@@ -172,7 +184,9 @@ Para "Alice ama a Bob" ($n + n^r s n^l + n$): $1 + 3 + 1 = 5$ qubits antes de co
 
 El número de parámetros es proporcional a la longitud de la frase. Para un circuito IQP con $p$ capas de rotación por qubit:
 
-$$n_{\text{params}} = p \cdot n_{\text{qubits}}$$
+$$
+n_{\text{params}} = p \cdot n_{\text{qubits}}
+$$
 
 Frases cortas (~5 palabras) tienen ~10–20 parámetros. Frases largas (~20 palabras) tienen ~40–80 parámetros. Esto es mínimo comparado con redes neuronales clásicas, pero es viable en hardware cuántico actual.
 
@@ -290,13 +304,17 @@ for epoch in range(EPOCHS):
 
 El optimizador **SPSA** (Simultaneous Perturbation Stochastic Approximation, Spall 1992) es especialmente adecuado para circuitos cuánticos porque no requiere gradientes exactos. En lugar de evaluar $\partial L / \partial \theta_i$ para cada parámetro, SPSA estima el gradiente perturbando todos los parámetros simultáneamente:
 
-$$\hat{g}_k(\theta) = \frac{L(\theta_k + c_k \Delta_k) - L(\theta_k - c_k \Delta_k)}{2 c_k} \Delta_k^{-1}$$
+$$
+\hat{g}_k(\theta) = \frac{L(\theta_k + c_k \Delta_k) - L(\theta_k - c_k \Delta_k)}{2 c_k} \Delta_k^{-1}
+$$
 
 donde $\Delta_k$ es un vector de perturbaciones aleatorias $\pm 1$ (Bernoulli). Esto requiere solo **2 evaluaciones del circuito** por paso, independientemente del número de parámetros.
 
 La actualización de parámetros es:
 
-$$\theta_{k+1} = \theta_k - a_k \hat{g}_k(\theta_k)$$
+$$
+\theta_{k+1} = \theta_k - a_k \hat{g}_k(\theta_k)
+$$
 
 con schedules $a_k = a/(A+k+1)^\alpha$ y $c_k = c/k^\gamma$. Los valores estándar son $\alpha=0.602$, $\gamma=0.101$.
 
@@ -304,7 +322,9 @@ con schedules $a_k = a/(A+k+1)^\alpha$ y $c_k = c/k^\gamma$. Los valores estánd
 
 Para clasificación binaria (food vs IT), la función de pérdida es:
 
-$$\mathcal{L} = -\frac{1}{N}\sum_{i=1}^{N}\left[y_i \log \hat{y}_i + (1-y_i)\log(1-\hat{y}_i)\right]$$
+$$
+\mathcal{L} = -\frac{1}{N}\sum_{i=1}^{N}\left[y_i \log \hat{y}_i + (1-y_i)\log(1-\hat{y}_i)\right]
+$$
 
 donde $\hat{y}_i$ es la probabilidad de medir $|1\rangle$ en el qubit de salida del circuito para la frase $i$.
 
@@ -312,7 +332,9 @@ donde $\hat{y}_i$ es la probabilidad de medir $|1\rangle$ en el qubit de salida 
 
 Cuando se usa un backend diferenciable (como PennyLane o PyTorch con lambeq), los gradientes se calculan mediante la regla del cambio de parámetro:
 
-$$\frac{\partial \langle O \rangle}{\partial \theta} = \frac{1}{2}\left[\langle O \rangle_{\theta + \pi/2} - \langle O \rangle_{\theta - \pi/2}\right]$$
+$$
+\frac{\partial \langle O \rangle}{\partial \theta} = \frac{1}{2}\left[\langle O \rangle_{\theta + \pi/2} - \langle O \rangle_{\theta - \pi/2}\right]
+$$
 
 Esta regla es exacta para puertas de rotación $R(\theta) = e^{-i\theta P/2}$ con $P^2 = I$.
 

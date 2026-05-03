@@ -174,7 +174,9 @@ consume múltiples pares imperfectos para producir uno con mayor fidelidad.
 
 El protocolo BBPSSW convierte dos pares con fidelidad F en un par con:
 
-$$F' = \frac{F^2 + \frac{(1-F)^2}{9}}{F^2 + \frac{2F(1-F)}{3} + \frac{5(1-F)^2}{9}}$$
+$$
+F' = \frac{F^2 + \frac{(1-F)^2}{9}}{F^2 + \frac{2F(1-F)}{3} + \frac{5(1-F)^2}{9}}
+$$
 
 ```python
 def purificacion_bbpssw(F: float) -> float:

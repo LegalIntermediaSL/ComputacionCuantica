@@ -8,14 +8,18 @@
 
 El problema de Markowitz busca el portafolio de mínima varianza para una rentabilidad objetivo:
 
-$$\min_{\mathbf{w}} \mathbf{w}^T \Sigma \mathbf{w} - \mu \mathbf{w}^T \mathbf{r}$$
+$$
+\min_{\mathbf{w}} \mathbf{w}^T \Sigma \mathbf{w} - \mu \mathbf{w}^T \mathbf{r}
+$$
 
 sujeto a: $\sum_i w_i = 1$, $w_i \geq 0$
 
 Con variables binarias (comprar o no comprar n activos), se convierte en un **QUBO**
 (Quadratic Unconstrained Binary Optimization):
 
-$$\min_{\mathbf{x} \in \{0,1\}^n} \mathbf{x}^T Q \mathbf{x}$$
+$$
+\min_{\mathbf{x} \in \{0,1\}^n} \mathbf{x}^T Q \mathbf{x}
+$$
 
 donde Q es la matriz de covarianzas penalizada con la restricción presupuestaria.
 
@@ -157,7 +161,9 @@ print(f"Riesgo (varianza): {mejor_solucion @ sigma @ mejor_solucion:.4f}")
 
 QAOA con p capas tiene garantía de aproximación ratio:
 
-$$\text{ApproxRatio}(p) \geq 1 - \left(\frac{\pi}{4p+4}\right)^2$$
+$$
+\text{ApproxRatio}(p) \geq 1 - \left(\frac{\pi}{4p+4}\right)^2
+$$
 
 Para p → ∞, QAOA converge a la solución exacta. Para p finito:
 

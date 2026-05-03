@@ -9,7 +9,9 @@
 D-Wave Advantage (2020) tiene **5000+ qubits** físicos en topología Pegasus P16.
 A diferencia de los gate-based, opera directamente sobre el Hamiltoniano de Ising:
 
-$$H_{D\text{-}Wave} = \frac{A(t)}{2}\left(-\sum_i \sigma_i^x\right) + \frac{B(t)}{2}\left(\sum_i h_i \sigma_i^z + \sum_{i<j} J_{ij} \sigma_i^z \sigma_j^z\right)$$
+$$
+H_{D\text{-}Wave} = \frac{A(t)}{2}\left(-\sum_i \sigma_i^x\right) + \frac{B(t)}{2}\left(\sum_i h_i \sigma_i^z + \sum_{i<j} J_{ij} \sigma_i^z \sigma_j^z\right)
+$$
 
 El annealing schedule $A(t)/B(t)$ determina la velocidad de transición del
 Hamiltoniano transverso al Hamiltoniano de problema.

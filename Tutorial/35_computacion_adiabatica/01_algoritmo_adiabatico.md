@@ -9,11 +9,15 @@
 Si un sistema cuántico comienza en el estado base de H(0) y H(t) varía
 **suficientemente despacio**, el sistema permanece en el estado base instantáneo:
 
-$$H(s) = (1-s)\,H_i + s\,H_f, \quad s = t/T \in [0,1]$$
+$$
+H(s) = (1-s)\,H_i + s\,H_f, \quad s = t/T \in [0,1]
+$$
 
 **Condición adiabática:** el tiempo total T debe satisfacer:
 
-$$T \gg \frac{\max_s \left|\langle E_1(s) | \dot{H}(s) | E_0(s) \rangle\right|}{\min_s \Delta(s)^2}$$
+$$
+T \gg \frac{\max_s \left|\langle E_1(s) | \dot{H}(s) | E_0(s) \rangle\right|}{\min_s \Delta(s)^2}
+$$
 
 donde $\Delta(s) = E_1(s) - E_0(s)$ es el **gap espectral** (diferencia entre los
 dos eigenvalores más bajos).
@@ -148,11 +152,15 @@ for T in [0.1, 1.0, 5.0, 20.0, 50.0]:
 
 Un problema de **Optimización Combinatoria QUBO** se formula como:
 
-$$\min_{x \in \{0,1\}^n} x^T Q x$$
+$$
+\min_{x \in \{0,1\}^n} x^T Q x
+$$
 
 que se mapea a un Hamiltoniano de Ising:
 
-$$H_f = \sum_{ij} J_{ij} Z_i Z_j + \sum_i h_i Z_i$$
+$$
+H_f = \sum_{ij} J_{ij} Z_i Z_j + \sum_i h_i Z_i
+$$
 
 con la correspondencia $x_i = (1 - Z_i)/2$.
 

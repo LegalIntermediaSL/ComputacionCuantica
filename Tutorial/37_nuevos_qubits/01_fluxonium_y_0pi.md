@@ -9,7 +9,9 @@
 El transmon estándar sacrifica anarmonicidad por protección frente al ruido de
 carga. Su espectro de energía:
 
-$$E_n = \sqrt{8 E_J E_C} \left(n + \tfrac{1}{2}\right) - \frac{E_C}{12} + O(e^{-\sqrt{8E_J/E_C}})$$
+$$
+E_n = \sqrt{8 E_J E_C} \left(n + \tfrac{1}{2}\right) - \frac{E_C}{12} + O(e^{-\sqrt{8E_J/E_C}})
+$$
 
 Con $E_J / E_C \approx 50$, la anarmonicidad es solo $\alpha \approx -E_C \approx -200$ MHz.
 Esto limita la velocidad de puerta ($T_{\text{gate}} \gtrsim 1/|\alpha|$) y complica
@@ -81,7 +83,9 @@ plt.show()
 El fluxonium reemplaza la conexión DC del transmon por un array de N junctions
 que actúa como inductancia lineal grande $E_L$. El Hamiltoniano es:
 
-$$\hat{H}_{\text{flux}} = 4E_C \hat{n}^2 - E_J \cos(\hat{\varphi} - \varphi_{\text{ext}}) + \frac{E_L}{2} \hat{\varphi}^2$$
+$$
+\hat{H}_{\text{flux}} = 4E_C \hat{n}^2 - E_J \cos(\hat{\varphi} - \varphi_{\text{ext}}) + \frac{E_L}{2} \hat{\varphi}^2
+$$
 
 Con $E_L \ll E_J \ll E_C^{-1}$ (régimen heavy fluxonium), se obtiene:
 
@@ -247,7 +251,9 @@ El qubit 0-π fue propuesto por Kitaev (2006) y Dempster et al. (2014).
 Su Hamiltoniano tiene una simetría discreta que protege tanto frente a ruido
 de carga como de flujo de forma **exponencial** en el parámetro del circuito:
 
-$$\hat{H}_{0\pi} = \frac{(2e)^2}{2C_J} \hat{n}_\theta^2 + \frac{(2e)^2}{2C_\phi} \hat{n}_\phi^2 - 2E_J \cos\theta \cos\phi + E_L \phi^2$$
+$$
+\hat{H}_{0\pi} = \frac{(2e)^2}{2C_J} \hat{n}_\theta^2 + \frac{(2e)^2}{2C_\phi} \hat{n}_\phi^2 - 2E_J \cos\theta \cos\phi + E_L \phi^2
+$$
 
 Las dos variables $\theta$ y $\phi$ se desacoplan en el límite de protección:
 - $\theta$: oscilador de plasma (ruido de carga)

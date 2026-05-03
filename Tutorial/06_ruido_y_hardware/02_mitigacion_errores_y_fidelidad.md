@@ -15,7 +15,9 @@ Existen varios métodos integrados en herramientas como Qiskit Runtime:
 
 ## 3. Midiendo el Éxito: Fidelidad ($\mathcal{F}$)
 Para evaluar cuánto se parece nuestro estado ruidoso $\rho$ al ideal $|\psi\rangle$, usamos la **Fidelidad**:
-$$ \mathcal{F}(\rho, |\psi\rangle) = \langle \psi | \rho | \psi \rangle $$
+$$
+\mathcal{F}(\rho, |\psi\rangle) = \langle \psi | \rho | \psi \rangle
+$$
 Una fidelidad de 1.0 indica perfección; valores cercanos a 0.5 sugieren que la señal se ha perdido en el ruido o la despolarización total. En la era NISQ, el objetivo es maximizar esta fidelidad mediante el diseño de pulsos y la optimización de la transpilación.
 
 ## Navegacion

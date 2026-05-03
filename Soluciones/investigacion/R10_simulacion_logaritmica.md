@@ -21,17 +21,23 @@ La supremacía cuántica implica que ciertos circuitos cuánticos *genéricos* n
 
 Para circuitos de **profundidad logarítmica** $d = O(\log n)$ con puertas locales, la entropía de entrelazamiento satisface la **ley de área**:
 
-$$S(A) \leq c \cdot d \leq c' \log n$$
+$$
+S(A) \leq c \cdot d \leq c' \log n
+$$
 
 Esto implica que el estado puede aproximarse eficientemente por un MPS de dimensión de enlace:
 
-$$\chi \sim e^{S} \leq n^{c'}$$
+$$
+\chi \sim e^{S} \leq n^{c'}
+$$
 
 La contracción de un MPS de longitud $n$ y dimensión $\chi$ requiere $O(n\chi^3) = O(n^{1+3c'})$ operaciones, que es **polinomial** pero no logarítmico.
 
 **¿Puede ser $O(\log n)$?** Para $d = O(1)$ (profundidad constante), la entropía es $O(1)$, $\chi = O(1)$, y la simulación es $O(n)$. Para $d = O(\log n)$, con algoritmos de renormalización por bloques:
 
-$$T_\text{sim} = O(n \cdot \chi^3) = O(n \cdot e^{O(\log n)}) = O(n^{1+O(1)})$$
+$$
+T_\text{sim} = O(n \cdot \chi^3) = O(n \cdot e^{O(\log n)}) = O(n^{1+O(1)})
+$$
 
 No es $O(\log n)$, pero puede ser sub-cuadrático.
 
@@ -41,11 +47,15 @@ No es $O(\log n)$, pero puede ser sub-cuadrático.
 
 Para Hamiltonianos con **interacciones de corto alcance** $H = \sum_{\langle i,j\rangle} h_{ij}$, el algoritmo de Feynman-Kitaev-Svore (FKS) aprovecha la **localidad**:
 
-$$e^{-iHt} \approx \prod_{\langle i,j\rangle} e^{-ih_{ij}t/n}$$
+$$
+e^{-iHt} \approx \prod_{\langle i,j\rangle} e^{-ih_{ij}t/n}
+$$
 
 La clave para eficiencia logarítmica es la **commutatividad por bloques**: si se puede particionar $H = H_\text{even} + H_\text{odd}$ donde todos los términos en $H_\text{even}$ conmutan entre sí (y análogo para $H_\text{odd}$), entonces:
 
-$$e^{-iH_\text{even}t} = \bigotimes_{\langle i,j\rangle \in \text{even}} e^{-ih_{ij}t}$$
+$$
+e^{-iH_\text{even}t} = \bigotimes_{\langle i,j\rangle \in \text{even}} e^{-ih_{ij}t}
+$$
 
 es un producto tensorial, simulable en $O(\log n)$ con paralelización.
 
@@ -59,7 +69,9 @@ Para circuitos con $t$ puertas T y el resto Clifford, la simulación exacta requ
 
 Los **estabilizadores extendidos** (Bravyi-Gosset 2016) representan el estado como mezcla de $2^t$ estados estabilizadores:
 
-$$|\psi\rangle = \frac{1}{\sqrt{2^t}}\sum_{s\in\{0,1\}^t} \omega^{f(s)} |C_s\rangle$$
+$$
+|\psi\rangle = \frac{1}{\sqrt{2^t}}\sum_{s\in\{0,1\}^t} \omega^{f(s)} |C_s\rangle
+$$
 
 donde $|C_s\rangle$ son estados estabilizadores y $\omega = e^{i\pi/4}$. Este método es exacto y requiere $O(2^t n^2)$ tiempo y memoria.
 

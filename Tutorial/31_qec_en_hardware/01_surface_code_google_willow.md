@@ -125,7 +125,9 @@ El paper de Google (Acharya et al., *Nature* 2024) reporta:
 Cada incremento de distancia en 2 reduce el error por un factor ~2.
 Esto es consistente con la predicción teórica:
 
-$$p_L(d) \approx A \left(\frac{p_{\text{fís}}}{p_{th}}\right)^{\lceil d/2 \rceil}$$
+$$
+p_L(d) \approx A \left(\frac{p_{\text{fís}}}{p_{th}}\right)^{\lceil d/2 \rceil}
+$$
 
 Con p_fís ≈ 0,3-0,5% y p_th ≈ 1%, el ratio p_fís/p_th ≈ 0,4 → factor de mejora ≈ 0,4 por nivel.
 

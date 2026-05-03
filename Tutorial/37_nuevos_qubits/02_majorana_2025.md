@@ -12,12 +12,16 @@ en superconductores topológicos.
 
 El modelo más simple (Kitaev 1D, 2001):
 
-$$\hat{H} = -\mu \sum_j c_j^\dagger c_j - t \sum_j (c_j^\dagger c_{j+1} + \text{h.c.}) - \Delta \sum_j (c_j c_{j+1} + \text{h.c.})$$
+$$
+\hat{H} = -\mu \sum_j c_j^\dagger c_j - t \sum_j (c_j^\dagger c_{j+1} + \text{h.c.}) - \Delta \sum_j (c_j c_{j+1} + \text{h.c.})
+$$
 
 En la fase topológica ($|\mu| < 2t$), los modos de Majorana $\gamma_L, \gamma_R$
 se localizan en los extremos y forman un qubit no-local:
 
-$$\hat{f} = \frac{1}{2}(\gamma_L + i \gamma_R), \qquad \hat{n}_f = \hat{f}^\dagger \hat{f} \in \{0, 1\}$$
+$$
+\hat{f} = \frac{1}{2}(\gamma_L + i \gamma_R), \qquad \hat{n}_f = \hat{f}^\dagger \hat{f} \in \{0, 1\}
+$$
 
 ```python
 import numpy as np

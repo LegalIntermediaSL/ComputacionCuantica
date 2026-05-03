@@ -12,7 +12,9 @@ La **tomografía de procesos cuánticos (QPT)** reconstruye el canal cuántico c
 
 Un canal cuántico actúa sobre una matriz densidad como:
 
-$$\mathcal{E}(\rho) = \sum_{mn} \chi_{mn} E_m \rho E_n^\dagger$$
+$$
+\mathcal{E}(\rho) = \sum_{mn} \chi_{mn} E_m \rho E_n^\dagger
+$$
 
 donde $\{E_m\}$ es una base de operadores (e.g., Pauli) y **χ** es la
 **χ-matrix** (process matrix), que contiene toda la información del proceso.
@@ -109,7 +111,9 @@ for nombre in ['I', 'X', 'H', 'S', 'T']:
 ## χ-matrix para canal ruidoso
 
 Un canal depolarizante con parámetro p tiene:
-$$\mathcal{E}(\rho) = (1-p)\rho + p \cdot \frac{I}{2}$$
+$$
+\mathcal{E}(\rho) = (1-p)\rho + p \cdot \frac{I}{2}
+$$
 
 ```python
 def chi_depolarizante(p: float) -> np.ndarray:
@@ -147,7 +151,9 @@ for p in [0.0, 0.01, 0.05, 0.10, 0.25, 0.5]:
 La **PTM** representa el canal como una matriz 4×4 (para 1 qubit) que actúa
 sobre el vector de coeficientes de Pauli de ρ:
 
-$$\vec{r}_{out} = \text{PTM} \cdot \vec{r}_{in}$$
+$$
+\vec{r}_{out} = \text{PTM} \cdot \vec{r}_{in}
+$$
 
 donde $\vec{r} = (\text{tr}(I\rho), \text{tr}(X\rho), \text{tr}(Y\rho), \text{tr}(Z\rho))$.
 

@@ -25,11 +25,15 @@ Los **átomos neutros atrapados** son hoy el paradigma cuántico con mayor núme
 
 Un átomo neutro con polarizabilidad $\alpha$ en un campo eléctrico oscilante $\mathbf{E}$ experimenta una fuerza de dipolo:
 
-$$\mathbf{F} = \frac{\alpha}{2} \nabla |\mathbf{E}|^2$$
+$$
+\mathbf{F} = \frac{\alpha}{2} \nabla |\mathbf{E}|^2
+$$
 
 Un haz láser focalizado crea un pozo de potencial en el foco donde el átomo queda atrapado. Para un haz gaussiano de potencia $P$ y cintura $w_0$:
 
-$$U(r, z) = -\frac{\alpha P}{\pi w^2(z)\epsilon_0 c} \exp\!\left(-\frac{2r^2}{w^2(z)}\right)$$
+$$
+U(r, z) = -\frac{\alpha P}{\pi w^2(z)\epsilon_0 c} \exp\!\left(-\frac{2r^2}{w^2(z)}\right)
+$$
 
 ### 1.2 Tweezer arrays
 
@@ -64,7 +68,9 @@ Los estados de Rydberg ($n \sim 50\text{--}100$) son estados atómicos con núme
 
 Entre dos átomos de Rydberg separados una distancia $r$, la interacción dipolo-dipolo en el régimen de van der Waals da:
 
-$$U(r) = \frac{C_6}{r^6}$$
+$$
+U(r) = \frac{C_6}{r^6}
+$$
 
 Para $^{87}$Rb con $n=70$: $C_6 \approx 862\,000$ GHz·µm$^6$. A $r = 5$ µm: $U \approx 10$ MHz $\gg \Omega$ (frecuencia de Rabi típica $\sim 1$ MHz).
 
@@ -72,7 +78,9 @@ Para $^{87}$Rb con $n=70$: $C_6 \approx 862\,000$ GHz·µm$^6$. A $r = 5$ µm: $
 
 Para un array de $N$ átomos con separaciones $r_{ij}$:
 
-$$H = \frac{\hbar\Omega}{2}\sum_i \sigma_i^x - \hbar\Delta\sum_i n_i + \sum_{i<j} \frac{C_6}{r_{ij}^6} n_i n_j$$
+$$
+H = \frac{\hbar\Omega}{2}\sum_i \sigma_i^x - \hbar\Delta\sum_i n_i + \sum_{i<j} \frac{C_6}{r_{ij}^6} n_i n_j
+$$
 
 donde:
 - $\Omega$ = frecuencia de Rabi (amplitud del láser de excitación Rydberg)
@@ -88,7 +96,9 @@ donde:
 
 Cuando dos átomos están dentro del **radio de bloqueo**:
 
-$$r_b = \left(\frac{C_6}{\hbar\Omega}\right)^{1/6}$$
+$$
+r_b = \left(\frac{C_6}{\hbar\Omega}\right)^{1/6}
+$$
 
 la energía de interacción $U(r_b) = \hbar\Omega$ desplaza el estado doblemente excitado $|rr\rangle$ fuera de resonancia. El sistema solo puede tener **un átomo en Rydberg a la vez** dentro del bloque.
 
@@ -120,7 +130,9 @@ Esto es una puerta CZ (hasta fase global). Fidelidad experimental: $F \geq 99.5\
 
 En el límite de bloqueo fuerte ($U \gg \Omega$), el espacio de Hilbert se proyecta al subespacio sin excitaciones adyacentes. El Hamiltoniano efectivo es:
 
-$$H_\text{PXP} = \frac{\Omega}{2}\sum_i P_{i-1} X_i P_{i+1}$$
+$$
+H_\text{PXP} = \frac{\Omega}{2}\sum_i P_{i-1} X_i P_{i+1}
+$$
 
 donde $P_i = |g_i\rangle\langle g_i|$ proyecta en el estado base y $X_i = \sigma_i^x$ voltea el qubit $i$.
 

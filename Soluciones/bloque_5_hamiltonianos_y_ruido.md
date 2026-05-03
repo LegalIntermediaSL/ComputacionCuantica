@@ -188,7 +188,9 @@ print(f"P_e (Helstrom) = {P_e:.6f}")  # 0.0
 
 **Solución:**
 
-$$\frac{1}{T_\phi} = \frac{1}{T_2} - \frac{1}{2T_1} = \frac{1}{80\,\mu s} - \frac{1}{300\,\mu s}$$
+$$
+\frac{1}{T_\phi} = \frac{1}{T_2} - \frac{1}{2T_1} = \frac{1}{80\,\mu s} - \frac{1}{300\,\mu s}
+$$
 
 ```python
 T1 = 150e-6  # s
@@ -209,7 +211,9 @@ print(f"T_phi = {T_phi*1e6:.2f} μs")
 
 **Solución:**
 
-$$d_\text{max} = \frac{T_2}{t_\text{gate}} = \frac{200 \times 10^{-6}}{200 \times 10^{-9}} = 1000 \text{ puertas CNOT}$$
+$$
+d_\text{max} = \frac{T_2}{t_\text{gate}} = \frac{200 \times 10^{-6}}{200 \times 10^{-9}} = 1000 \text{ puertas CNOT}
+$$
 
 ```python
 T2 = 200e-6    # s

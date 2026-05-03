@@ -9,7 +9,9 @@
 La estrategia: representar la block-encoding como preparación de estado + operador de selección.
 
 Para $A$ de $2\times 2$ bloques con norma $\leq 1$:
-$$U_A = \begin{pmatrix} A & \sqrt{I-AA^\dagger} \\ \sqrt{I-A^\dagger A} & -A^\dagger \end{pmatrix}$$
+$$
+U_A = \begin{pmatrix} A & \sqrt{I-AA^\dagger} \\ \sqrt{I-A^\dagger A} & -A^\dagger \end{pmatrix}
+$$
 
 Para la $A$ específica del enunciado (unitaria real), $AA^\dagger = I$, por lo que $U_A$ es exactamente $A$ completada a unitaria.
 

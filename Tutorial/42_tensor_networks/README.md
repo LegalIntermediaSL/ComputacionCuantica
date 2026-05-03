@@ -57,7 +57,9 @@ Descomposición como MPS:
 
 El producto escalar $\langle\phi|\psi\rangle$ se calcula contrayendo todos los índices físicos y de enlace:
 
-$$\langle\phi|\psi\rangle = \sum_{i_1 \ldots i_n} \sum_{\alpha_1 \ldots \alpha_{n-1}} \phi^*_{i_1 \ldots i_n} \psi_{i_1 \ldots i_n}$$
+$$
+\langle\phi|\psi\rangle = \sum_{i_1 \ldots i_n} \sum_{\alpha_1 \ldots \alpha_{n-1}} \phi^*_{i_1 \ldots i_n} \psi_{i_1 \ldots i_n}
+$$
 
 Con MPS, el coste de esta contracción es $O(n \chi^3)$ en lugar de $O(2^n)$.
 
@@ -67,7 +69,9 @@ Con MPS, el coste de esta contracción es $O(n \chi^3)$ en lugar de $O(2^n)$.
 
 Un estado de $n$ qubits en forma MPS se escribe como:
 
-$$|\psi\rangle = \sum_{i_1, \ldots, i_n = 0}^{1} A^{[1]}_{i_1} A^{[2]}_{i_2} \cdots A^{[n]}_{i_n} |i_1 i_2 \cdots i_n\rangle$$
+$$
+|\psi\rangle = \sum_{i_1, \ldots, i_n = 0}^{1} A^{[1]}_{i_1} A^{[2]}_{i_2} \cdots A^{[n]}_{i_n} |i_1 i_2 \cdots i_n\rangle
+$$
 
 donde:
 - $A^{[k]}_{i_k}$ es una **matriz** de dimensión $\chi_{k-1} \times \chi_k$ (con $\chi_0 = \chi_n = 1$ en los extremos).
@@ -102,7 +106,9 @@ Para $\chi \ll 2^{n/2}$: aproximación eficiente si el entrelazamiento es bajo.
 
 La **descomposición de Schmidt** de un estado bipartito $|\psi\rangle_{AB}$ es:
 
-$$|\psi\rangle = \sum_{k=1}^{\chi} \lambda_k |u_k\rangle_A \otimes |v_k\rangle_B, \quad \lambda_k \geq 0, \quad \sum_k \lambda_k^2 = 1$$
+$$
+|\psi\rangle = \sum_{k=1}^{\chi} \lambda_k |u_k\rangle_A \otimes |v_k\rangle_B, \quad \lambda_k \geq 0, \quad \sum_k \lambda_k^2 = 1
+$$
 
 donde $\chi$ es el **rango de Schmidt** — mide el entrelazamiento entre A y B.
 
@@ -110,15 +116,21 @@ donde $\chi$ es el **rango de Schmidt** — mide el entrelazamiento entre A y B.
 
 Dada la matriz de coeficientes $M_{(i_1 \ldots i_m)(i_{m+1} \ldots i_n)}$, la SVD nos da directamente los valores de Schmidt:
 
-$$M = U \Sigma V^\dagger, \quad \lambda_k = \Sigma_{kk}$$
+$$
+M = U \Sigma V^\dagger, \quad \lambda_k = \Sigma_{kk}
+$$
 
 Los valores singulares $\lambda_k$ decrecen rápidamente para estados de baja energía. Truncar a los primeros $\chi$ da la mejor aproximación de rango $\chi$:
 
-$$\text{Error} = \|\psi - \psi_\chi\|^2 = \sum_{k > \chi} \lambda_k^2$$
+$$
+\text{Error} = \|\psi - \psi_\chi\|^2 = \sum_{k > \chi} \lambda_k^2
+$$
 
 ### Entropía de entrelazamiento
 
-$$S_A = -\sum_k \lambda_k^2 \log_2(\lambda_k^2)$$
+$$
+S_A = -\sum_k \lambda_k^2 \log_2(\lambda_k^2)
+$$
 
 - $S_A = 0$: estado producto (sin entrelazamiento entre A y B).
 - $S_A = \log_2 \chi$: estado maximalente entrelazado con rango de Schmidt $\chi$.
@@ -129,7 +141,9 @@ $$S_A = -\sum_k \lambda_k^2 \log_2(\lambda_k^2)$$
 
 **Teorema** (Hastings 2007): Para Hamiltonianos locales gapped en 1D, el estado fundamental satisface:
 
-$$S_A(L) \leq c \cdot \xi \log \xi$$
+$$
+S_A(L) \leq c \cdot \xi \log \xi
+$$
 
 donde $\xi$ es la longitud de correlación y $c$ es una constante. En particular:
 
@@ -140,7 +154,9 @@ donde $\xi$ es la longitud de correlación y $c$ es una constante. En particular
 
 Un MPS con dimensión de enlace $\chi \approx \exp(S_A)$ puede representar el estado fundamental con error exponencialmente pequeño. Para sistemas gapped:
 
-$$\chi \sim \exp(\text{cte}) \Rightarrow \text{coste clásico polinomial en } n$$
+$$
+\chi \sim \exp(\text{cte}) \Rightarrow \text{coste clásico polinomial en } n
+$$
 
 Esto explica por qué DMRG funciona tan bien para cadenas de spín 1D gapped.
 
@@ -152,7 +168,9 @@ Esto explica por qué DMRG funciona tan bien para cadenas de spín 1D gapped.
 
 Un MPS está en **forma canónica izquierda** si para cada sitio $k$:
 
-$$\sum_{i_k, \alpha_{k-1}} (A^{[k]}_{i_k})^\dagger A^{[k]}_{i_k} = I_{\chi_k}$$
+$$
+\sum_{i_k, \alpha_{k-1}} (A^{[k]}_{i_k})^\dagger A^{[k]}_{i_k} = I_{\chi_k}
+$$
 
 Equivalente a que los tensores forman isometrias hacia la derecha. Se obtiene aplicando SVD recursivamente de izquierda a derecha.
 
@@ -168,7 +186,9 @@ Para comprimir un MPS a bond dimension $\chi_{\max}$:
 
 Un operador local $H = \sum_k h_k$ puede representarse como **Matrix Product Operator** (MPO). El valor esperado es:
 
-$$\langle\psi|H|\psi\rangle = \text{contracción de la red tensor (bra, MPO, ket)}$$
+$$
+\langle\psi|H|\psi\rangle = \text{contracción de la red tensor (bra, MPO, ket)}
+$$
 
 Coste: $O(n \chi^2 \chi_W^2 d)$, donde $\chi_W$ es la dimensión de enlace del MPO (típicamente pequeña para Hamiltonianos locales).
 
@@ -221,7 +241,9 @@ Para $H = \sum_k h_{k,k+1}$ (Hamiltoniano de vecinos próximos):
 
 ### Error de Trotter
 
-$$\|e^{-iHt} - U_{\text{Trotter}}\| = O\left(\frac{t^3}{M^2}\right)$$
+$$
+\|e^{-iHt} - U_{\text{Trotter}}\| = O\left(\frac{t^3}{M^2}\right)
+$$
 
 para $M$ pasos de tamaño $\Delta t = t/M$.
 

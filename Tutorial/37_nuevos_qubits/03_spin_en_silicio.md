@@ -47,11 +47,15 @@ print(ventajas_spin_si)
 
 El Hamiltoniano de un punto cuántico de Si en campo magnético:
 
-$$\hat{H} = g^* \mu_B B_z \hat{S}_z + g^* \mu_B B_{\text{AC}}(t) (\cos\omega t \cdot \hat{S}_x + \sin\omega t \cdot \hat{S}_y)$$
+$$
+\hat{H} = g^* \mu_B B_z \hat{S}_z + g^* \mu_B B_{\text{AC}}(t) (\cos\omega t \cdot \hat{S}_x + \sin\omega t \cdot \hat{S}_y)
+$$
 
 Para dos espines con intercambio $J$:
 
-$$\hat{H}_2 = \hat{H}_1 + \hat{H}_2 + J(t) \hat{\mathbf{S}}_1 \cdot \hat{\mathbf{S}}_2$$
+$$
+\hat{H}_2 = \hat{H}_1 + \hat{H}_2 + J(t) \hat{\mathbf{S}}_1 \cdot \hat{\mathbf{S}}_2
+$$
 
 ```python
 import numpy as np
@@ -144,7 +148,9 @@ plt.show()
 La puerta de 2 qubits en spin-Si se implementa mediante el intercambio $J$ entre
 puntos cuánticos adyacentes, controlado por voltaje de barrera $V_B$:
 
-$$J(V_B) = J_0 \exp(-\alpha V_B)$$
+$$
+J(V_B) = J_0 \exp(-\alpha V_B)
+$$
 
 ```python
 import numpy as np

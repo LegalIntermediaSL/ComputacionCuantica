@@ -38,7 +38,9 @@ La **correspondencia AdS/CFT** (Maldacena 1997) es la realización más precisa 
 
 El espacio AdS_{d+1} es la solución maximalmente simétrica de las ecuaciones de Einstein con constante cosmológica negativa Λ < 0:
 
-$$ds^2 = \frac{L^2}{z^2}\left(-dt^2 + d\vec{x}^2 + dz^2\right), \quad z > 0$$
+$$
+ds^2 = \frac{L^2}{z^2}\left(-dt^2 + d\vec{x}^2 + dz^2\right), \quad z > 0
+$$
 
 - La frontera está en $z \to 0$: ahí vive la CFT.
 - El "bulk" $z > 0$ es el espacio de la gravedad.
@@ -60,11 +62,15 @@ $$ds^2 = \frac{L^2}{z^2}\left(-dt^2 + d\vec{x}^2 + dz^2\right), \quad z > 0$$
 
 El propagador de un campo escalar masivo $m^2 L^2 = \Delta(\Delta - d)$ en AdS_{d+1} reproduce el correlador de 2 puntos de la CFT:
 
-$$\langle\mathcal{O}(x)\mathcal{O}(y)\rangle_{\text{CFT}} = \frac{C}{|x-y|^{2\Delta}}$$
+$$
+\langle\mathcal{O}(x)\mathcal{O}(y)\rangle_{\text{CFT}} = \frac{C}{|x-y|^{2\Delta}}
+$$
 
 donde $\Delta$ es la dimensión de escala del operador dual. La dimensión de escala se determina por la masa del campo en el bulk:
 
-$$\Delta = \frac{d}{2} + \sqrt{\frac{d^2}{4} + m^2 L^2}$$
+$$
+\Delta = \frac{d}{2} + \sqrt{\frac{d^2}{4} + m^2 L^2}
+$$
 
 ---
 
@@ -76,7 +82,9 @@ La idea central es que la **estructura de entrelazamiento** de la función de on
 
 Para una región $A$ en la frontera, la entropía de entrelazamiento de $A$ en la CFT es proporcional al **área de la superficie mínima** en el bulk que termina en $\partial A$:
 
-$$S_A = \frac{\text{Area}(\gamma_A)}{4G_N}$$
+$$
+S_A = \frac{\text{Area}(\gamma_A)}{4G_N}
+$$
 
 donde $\gamma_A$ es la superficie geodésica de mínima área en AdS que tiene la misma frontera que $A$, y $G_N$ es la constante de Newton en el bulk.
 
@@ -90,7 +98,9 @@ Las tensor networks discretizan este principio:
 
 Swingle (2009) propuso que MERA (Multi-scale Entanglement Renormalization Ansatz) es una discretización de AdS:
 
-$$\text{MERA} \leftrightarrow \text{AdS}_3 / \text{CFT}_2$$
+$$
+\text{MERA} \leftrightarrow \text{AdS}_3 / \text{CFT}_2
+$$
 
 ---
 
@@ -132,7 +142,9 @@ Profundidad = escala de energía = coord. radial z en AdS
 
 Para AdS_3/CFT_2, la fórmula de RT da:
 
-$$S_A = \frac{c}{3}\log\left(\frac{2L}{\epsilon}\sin\frac{\pi \ell}{L}\right)$$
+$$
+S_A = \frac{c}{3}\log\left(\frac{2L}{\epsilon}\sin\frac{\pi \ell}{L}\right)
+$$
 
 para un intervalo de longitud $\ell$ en un sistema de tamaño $L$ con cutoff UV $\epsilon$.
 
@@ -140,7 +152,9 @@ para un intervalo de longitud $\ell$ en un sistema de tamaño $L$ con cutoff UV 
 
 Para la cadena XX crítica (c=1) con MERA de 3 capas y $\chi = 4$:
 
-$$S(\ell) \approx \frac{1}{3}\log \ell + \text{cte}$$
+$$
+S(\ell) \approx \frac{1}{3}\log \ell + \text{cte}
+$$
 
 **Código de verificación:**
 ```python
@@ -197,7 +211,9 @@ Almheiri, Dong y Harlow (2015) mostraron que la correspondencia holográfica **e
 
 El código HaPPY tiene distancia $d = 3$ con 5 qubits físicos. La generalización a redes tensoriales más grandes da una familia de códigos con:
 
-$$d = \Theta(n^{1-1/D})$$
+$$
+d = \Theta(n^{1-1/D})
+$$
 
 donde $D$ es la dimensión del bulk. Para $D = 2$ (AdS_3): $d \sim \sqrt{n}$ — umbral que crece con el tamaño del sistema.
 
@@ -276,11 +292,15 @@ def syk_hamiltonian(N: int, seed: int = 0) -> SparsePauliOp:
 
 El **Out-of-Time-Order Correlator (OTOC)** mide el scrambling cuántico:
 
-$$F(t) = \langle W(t) V W(t) V \rangle_\beta$$
+$$
+F(t) = \langle W(t) V W(t) V \rangle_\beta
+$$
 
 Para sistemas caóticos (como SYK), $F(t)$ decae exponencialmente con un exponente de Lyapunov $\lambda_L$. El límite de Planck establece:
 
-$$\lambda_L \leq \frac{2\pi}{\beta}$$
+$$
+\lambda_L \leq \frac{2\pi}{\beta}
+$$
 
 Los agujeros negros **saturan este límite** — son los scramblers más rápidos del universo. El modelo SYK también lo satura.
 

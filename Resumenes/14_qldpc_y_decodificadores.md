@@ -4,11 +4,15 @@
 
 Los **códigos CSS** (Calderbank-Shor-Steane) se construyen a partir de dos códigos clásicos $C_X$ y $C_Z$:
 
-$$H_X H_Z^T = 0$$
+$$
+H_X H_Z^T = 0
+$$
 
 Esta condición garantiza que los estabilizadores $X$ y $Z$ conmutan. Los parámetros del código son:
 
-$$[[n, k, d]], \quad k = \dim(\ker H_X) - \dim(\text{im } H_Z^T)$$
+$$
+[[n, k, d]], \quad k = \dim(\ker H_X) - \dim(\text{im } H_Z^T)
+$$
 
 ---
 
@@ -16,12 +20,18 @@ $$[[n, k, d]], \quad k = \dim(\ker H_X) - \dim(\text{im } H_Z^T)$$
 
 Dados dos códigos clásicos $[n_1, k_1, d_1]$ y $[n_2, k_2, d_2]$, el **hypergraph product** produce:
 
-$$[[n_1 n_2 + n_1' n_2', \, k_1 k_2 + k_1' k_2', \, \min(d_1, d_2)]]$$
+$$
+[[n_1 n_2 + n_1' n_2', \, k_1 k_2 + k_1' k_2', \, \min(d_1, d_2)]]
+$$
 
 donde prima denota el código dual. Las matrices son:
 
-$$H_X = (H_1 \otimes I_{n_2} \mid I_{n_1'} \otimes H_2^T)$$
-$$H_Z = (I_{n_1} \otimes H_2 \mid H_1^T \otimes I_{n_2'})$$
+$$
+H_X = (H_1 \otimes I_{n_2} \mid I_{n_1'} \otimes H_2^T)
+$$
+$$
+H_Z = (I_{n_1} \otimes H_2 \mid H_1^T \otimes I_{n_2'})
+$$
 
 Ventaja clave: peso constante (LDPC) y distancia $d \sim \sqrt{n}$.
 
@@ -31,7 +41,9 @@ Ventaja clave: peso constante (LDPC) y distancia $d \sim \sqrt{n}$.
 
 El código **bivariate bicycle** (BB) de IBM (2023) usa:
 
-$$H_X = [A \mid B], \quad H_Z = [B^T \mid A^T]$$
+$$
+H_X = [A \mid B], \quad H_Z = [B^T \mid A^T]
+$$
 
 donde $A, B$ son circulantes en $\mathbb{Z}_{l} \times \mathbb{Z}_m$.
 
@@ -78,7 +90,9 @@ El **Minimum Weight Perfect Matching (MWPM)** es el decodificador estándar del 
 
 Los **decodificadores neuronales** entrenan una red (típicamente CNN o transformer) para mapear síndromes → correcciones:
 
-$$\hat{e} = f_\theta(s), \quad \mathcal{L} = -\log P(\text{corrección exitosa})$$
+$$
+\hat{e} = f_\theta(s), \quad \mathcal{L} = -\log P(\text{corrección exitosa})
+$$
 
 - **Ventaja**: inferencia $O(1)$ en tiempo (si el modelo está compilado en ASIC)
 - **Desventaja**: entrenamiento costoso, generalización limitada a nuevas tasas de error
@@ -88,8 +102,14 @@ $$\hat{e} = f_\theta(s), \quad \mathcal{L} = -\log P(\text{corrección exitosa})
 
 ## Fórmulas Clave
 
-$$H_X H_Z^T = 0 \quad \text{(CSS condition)}$$
+$$
+H_X H_Z^T = 0 \quad \text{(CSS condition)}
+$$
 
-$$k = k_1 k_2 \text{ (hypergraph product)}, \quad d \geq \min(d_1, d_2)$$
+$$
+k = k_1 k_2 \text{ (hypergraph product)}, \quad d \geq \min(d_1, d_2)
+$$
 
-$$\text{Overhead surface code: } n_{\text{phys}} \sim (d/p_{th})^2 \cdot k$$
+$$
+\text{Overhead surface code: } n_{\text{phys}} \sim (d/p_{th})^2 \cdot k
+$$

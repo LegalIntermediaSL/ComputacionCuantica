@@ -26,7 +26,9 @@ En el modelo estándar de ruido de circuito se asume $p_{\text{prep}} = p_{\text
 
 La ecuación de propagación de errores a través de una puerta CNOT (control $c$, target $t$) es:
 
-$$\text{CNOT}_{ct}: X_c \to X_c X_t, \quad X_t \to X_t, \quad Z_c \to Z_c, \quad Z_t \to Z_c Z_t$$
+$$
+\text{CNOT}_{ct}: X_c \to X_c X_t, \quad X_t \to X_t, \quad Z_c \to Z_c, \quad Z_t \to Z_c Z_t
+$$
 
 Esto significa que un error $Z$ en el control se propaga como $Z_cZ_t$ después del CNOT, correlacionando los qubits.
 
@@ -34,7 +36,9 @@ Esto significa que un error $Z$ en el control se propaga como $Z_cZ_t$ después 
 
 Las mediciones de síndrome son **ruidosas**: una ancilla puede reportar $-1$ no por un error en el dato, sino por un error en su propia medición. Esto obliga a acumular $d$ rondas de síndrome antes de decodificar, tratando el problema como 3D (2 dimensiones espaciales + 1 temporal):
 
-$$\text{Síndrome efectivo:}\quad \Delta s_t = s_t \oplus s_{t-1}$$
+$$
+\text{Síndrome efectivo:}\quad \Delta s_t = s_t \oplus s_{t-1}
+$$
 
 El síndrome diferencial $\Delta s_t$ revela cuándo cambia el síndrome de una ronda a la siguiente, lo que es indicativo de un error real (cambio persistente) frente a un error de medición (cambio transitorio).
 
@@ -48,7 +52,9 @@ La reducción del umbral del $1\%$ teórico (ruido de Pauli) al $0.5$–$0.7\%$ 
 
 En el ciclo de síndrome de un código qLDPC con peso de estabilizador $w$ (número de qubits de datos por ancilla), se aplican $w$ puertas CNOT por ancilla. Cada CNOT tiene probabilidad $p$ de fallo. La probabilidad de que al menos un CNOT falle es:
 
-$$p_{\text{ciclo}} \approx w \cdot p + O(p^2)$$
+$$
+p_{\text{ciclo}} \approx w \cdot p + O(p^2)
+$$
 
 Para los códigos BB con $w = 6$ (cada ancilla conectada a 6 qubits de datos), el error efectivo por ciclo es $\sim 6p$, reduciendo el umbral efectivo por un factor $\sim 6$.
 
@@ -60,7 +66,9 @@ Bajo ruido de circuito, el espacio-tiempo de síndromes tiene $d$ capas temporal
 
 La expresión de la tasa de error lógica bajo ruido de circuito es, asintóticamente:
 
-$$P_L(p) \approx A_{\text{circuit}} \cdot \left(\frac{p}{p_{\text{th,circuit}}}\right)^{\lfloor d/2 \rfloor}$$
+$$
+P_L(p) \approx A_{\text{circuit}} \cdot \left(\frac{p}{p_{\text{th,circuit}}}\right)^{\lfloor d/2 \rfloor}
+$$
 
 donde $A_{\text{circuit}} > A_{\text{Pauli}}$ porque hay más caminos de error mínimo en 3D.
 
@@ -129,7 +137,9 @@ plt.show()
 
 El **crossing point** (punto de cruce) es el valor de $p$ donde las curvas $P_L(p, n)$ para distintos tamaños $n$ se intersectan. Por debajo del cruce, aumentar $n$ reduce $P_L$; por encima, lo aumenta. El crossing point es el estimador numérico del umbral:
 
-$$p_{\text{th}} = p^* : \quad \frac{\partial P_L}{\partial n}\bigg|_{p=p^*} = 0$$
+$$
+p_{\text{th}} = p^* : \quad \frac{\partial P_L}{\partial n}\bigg|_{p=p^*} = 0
+$$
 
 ---
 
@@ -146,7 +156,9 @@ $$p_{\text{th}} = p^* : \quad \frac{\partial P_L}{\partial n}\bigg|_{p=p^*} = 0$
 
 La complejidad de BP+OSD se desglosa en:
 
-$$T_{\text{BP+OSD}} = \underbrace{O(n \cdot t_{\max})}_{\text{fase BP}} + \underbrace{O\!\left(\binom{n}{w_{\text{OSD}}} + n^2\right)}_{\text{fase OSD}}$$
+$$
+T_{\text{BP+OSD}} = \underbrace{O(n \cdot t_{\max})}_{\text{fase BP}} + \underbrace{O\!\left(\binom{n}{w_{\text{OSD}}} + n^2\right)}_{\text{fase OSD}}
+$$
 
 Para $w_{\text{OSD}} = 2$ (OSD de orden 2), la fase OSD es $O(n^2)$, que domina sobre BP pero es mucho mejor que $O(n^3)$ de MWPM.
 
@@ -184,13 +196,17 @@ El procedimiento estándar para estimar $p_{\text{th}}$ numéricamente es:
 
 Para estimar el umbral con precisión, se ajusta el modelo de escalado finito:
 
-$$P_L(p, d) = f\!\left((p - p_{\text{th}}) \cdot d^{1/\nu}\right)$$
+$$
+P_L(p, d) = f\!\left((p - p_{\text{th}}) \cdot d^{1/\nu}\right)
+$$
 
 donde $\nu$ es el exponente crítico. Para el surface code $\nu \approx 1.33$ (clase de universalidad de percolación 2D). Para códigos BB el valor es similar.
 
 El ajuste se realiza minimizando:
 
-$$\chi^2 = \sum_{i,j} \frac{\left[P_L(p_i, d_j) - f\!\left((p_i - p_{\text{th}}) d_j^{1/\nu}\right)\right]^2}{\sigma_{ij}^2}$$
+$$
+\chi^2 = \sum_{i,j} \frac{\left[P_L(p_i, d_j) - f\!\left((p_i - p_{\text{th}}) d_j^{1/\nu}\right)\right]^2}{\sigma_{ij}^2}
+$$
 
 sobre los parámetros $p_{\text{th}}$, $\nu$ y los coeficientes del polinomio $f$.
 
@@ -238,13 +254,17 @@ def finite_size_scaling_fit(p_values, d_values, P_L_data, p_th_init=0.006, nu_in
 
 La superioridad asintótica de los códigos qLDPC sobre los surface codes descansa en un resultado matemático fundamental: la existencia de **buenos códigos cuánticos LDPC** (Panteleev & Kalachev 2022; Leverrier & Zémor 2022) con:
 
-$$k = \Theta(n), \quad d = \Theta(n), \quad w = O(1)$$
+$$
+k = \Theta(n), \quad d = \Theta(n), \quad w = O(1)
+$$
 
 donde $w$ es el peso máximo de los estabilizadores. Esto implica una **tasa de código constante** $R = k/n = \Theta(1)$ con distancia lineal, lo cual es imposible para el surface code (que tiene $R = 1/d^2 \to 0$).
 
 En el límite de muchos qubits lógicos $k \gg 1$, la comparación de overhead es:
 
-$$\frac{n_{\text{surface}}}{n_{\text{qLDPC}}} \sim \frac{k \cdot d^2}{k/R} = R \cdot d^2 \xrightarrow{d \to \infty} \infty$$
+$$
+\frac{n_{\text{surface}}}{n_{\text{qLDPC}}} \sim \frac{k \cdot d^2}{k/R} = R \cdot d^2 \xrightarrow{d \to \infty} \infty
+$$
 
 Es decir, para cualquier distancia $d$ fija, el overhead del surface code crece sin límite con $k$, mientras que el overhead del código qLDPC permanece acotado.
 
